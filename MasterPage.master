@@ -35,7 +35,6 @@
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="DataEntryHome.aspx">Data Entry<span class="sr-only">(current)</span></a></li>
                             <li><a href="reportshome.html">Reports</a></li>
-                            <li><a href="users.html">Users</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
@@ -44,8 +43,17 @@
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">Profile</a></li>
+                                        <asp:LoginView ID="LoginView1" runat="server">
+                                            <RoleGroups>
+                                                <asp:RoleGroup Roles="Admin">
+                                                    <ContentTemplate>
+                                                        <li><a href="#">Manage Users</a></li>
+                                                    </ContentTemplate>
+                                                </asp:RoleGroup>
+                                            </RoleGroups>
+                                        </asp:LoginView>
                                     <li>
-                                        <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Membership/Login.aspx" />
                                     </li>
                                 </ul>
                             </li>

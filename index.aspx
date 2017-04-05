@@ -10,7 +10,6 @@
                     <div class="btn-group btn-group-justified">
                         <a href="DataEntryHome.aspx" class="btn btn-primary btn-lg">Data Entry</a>
                         <a href="#" class="btn btn-primary btn-lg">Reports</a>
-                        <a href="#" class="btn btn-primary btn-lg">Users</a>
                     </div>
                 </div>
             </div>

@@ -7,31 +7,107 @@
       <div class="jumbotron">
         <h2 class="text-center">New Client</h2>
         </div>
-        
         <hr>
-        <form>
+        </div>
+      </div>
+        </div>
         <div class="row">
         <h3>Personal Information</h3>
   			<div class="col-sm-4">
-                <asp:Label ID="lblfname" runat="server" Text="FirstName"></asp:Label>
-                <asp:TextBox ID="txtfname" runat="server"></asp:TextBox><br />
-                <asp:Label ID="lbllname" runat="server" Text="Last Name"></asp:Label>
-                <asp:TextBox ID="txtlname" runat="server"></asp:TextBox><br />
-                <asp:Label ID="lbladdress" runat="server" Text="Address"></asp:Label>
-                <asp:TextBox ID="txtaddress" runat="server"></asp:TextBox><br />
-                <asp:Label ID="lblcity" runat="server" Text="City"></asp:Label>
-                <asp:TextBox ID="txtcity" runat="server"></asp:TextBox><br />
-				<asp:Label ID="lblstate" runat="server" Text="State"></asp:Label>
-                <asp:TextBox ID="txtstate" runat="server"></asp:TextBox><br />
-				<asp:Label ID="lblzip" runat="server" Text="Zip"></asp:Label>
-                <asp:TextBox ID="txtzip" runat="server"></asp:TextBox><br />
-				<asp:Label ID="lblemail" runat="server" Text="E-Mail Address"></asp:Label>
-                <asp:TextBox ID="txtemail" runat="server"></asp:TextBox><br />
-				<asp:Label ID="lblphone" runat="server" Text="Phone"></asp:Label>
-                <asp:TextBox ID="txtphone" runat="server"></asp:TextBox>
+                <asp:Table ID="Table1" runat="server">
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="lblFname" runat="server" Text="FirstName "></asp:Label>
+                            <asp:TextBox ID="txtFname" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblLname" runat="server" Text="Last Name "></asp:Label>
+                            <asp:TextBox ID="txtLname" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblDOB" runat="server" Text="Date of Birth "></asp:Label>
+                            <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblAge" runat="server" Text="Age "></asp:Label>
+                            <asp:TextBox ID="txtAge" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="lblAddress" runat="server" Text="Address "></asp:Label>
+                            <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblCity" runat="server" Text="City "></asp:Label>
+                            <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblState" runat="server" Text="State "></asp:Label>
+                            <asp:TextBox ID="txtState" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblZip" runat="server" Text="Zip "></asp:Label>
+                            <asp:TextBox ID="txtZip" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="lblEmail" runat="server" Text="E-Mail Address "></asp:Label>
+                            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblPhone" runat="server" Text="Phone "></asp:Label>
+                            <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="lblSex" runat="server" Text="Sex "></asp:Label>
+                            <asp:DropDownList ID="DropDownSex" runat="server">
+                                <asp:ListItem>Male</asp:ListItem>
+                                <asp:ListItem>Female</asp:ListItem>
+                            </asp:DropDownList>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblStatus" runat="server" Text="Status "></asp:Label>
+                            <asp:DropDownList ID="DropDownListStatus" runat="server">
+                                <asp:ListItem>Active</asp:ListItem>
+                                <asp:ListItem>In-Active</asp:ListItem>
+                            </asp:DropDownList>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblRace" runat="server" Text="Race "></asp:Label>
+                            <asp:DropDownList ID="DropDownListRace" runat="server">
+                                <asp:ListItem>Mixed Race</asp:ListItem>
+                                <asp:ListItem>Arctic (Siberian, Eskimo)</asp:ListItem>
+                                <asp:ListItem>Caucasian (European)</asp:ListItem>
+                                <asp:ListItem>Caucasian (Indian)</asp:ListItem>
+                                <asp:ListItem>Caucasian (Middle East)</asp:ListItem>
+                                <asp:ListItem>Caucasian (North African, Other)</asp:ListItem>
+                                <asp:ListItem>Indigenous Australian</asp:ListItem>
+                                <asp:ListItem>Native American</asp:ListItem>
+                                <asp:ListItem>North East Asian (Mongol, Tibetan, Korean Japanese, etc)</asp:ListItem>
+                                <asp:ListItem>Pacific (Polynesian, Micronesian, etc)</asp:ListItem>
+                                <asp:ListItem>South East Asian (Chinese, Thai, Malay, Filipino, etc)</asp:ListItem>
+                                <asp:ListItem>West African, Bushmen, Ethiopian</asp:ListItem>
+                                <asp:ListItem>Other Race</asp:ListItem>
+                            </asp:DropDownList>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="lblResStatus" runat="server" Text="Residential Status "></asp:Label>
+                            <asp:DropDownList ID="DropDownListResStatus" runat="server">
+                                <asp:ListItem>Rent</asp:ListItem>
+                                <asp:ListItem>Own</asp:ListItem>
+                            </asp:DropDownList>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+				
   </div>
   <div class="col-sm-4">
-  				<label>Date of Birth</label><br /><input type="date"><br />
 				<label>SSN</label><br /><input type="text"><br />
 				<label>Sex</label><br />
 				<input type="radio" name="gender" value="male"> Male<br>
@@ -76,7 +152,6 @@
     <br /><input type="tel"><br />
   </div>
 </div>
-</form>
 <hr>
 <div class="row">
 <h3>Family/Guardian Contact Information</h3>
