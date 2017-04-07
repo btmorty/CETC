@@ -12,11 +12,11 @@
         </div>
     </div>
     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-        <h3>Personal Information</h3>
-        <asp:Table ID="Table1" runat="server" CellSpacing="2" CellPadding="2">
+        <h3 class="text-center">Personal Information</h3>
+        <asp:Table ID="Table1" runat="server" CellSpacing="2" CellPadding="2" HorizontalAlign="Center" Width="100%">
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblFname" runat="server" Text="FirstName "></asp:Label><br />
+                    <asp:Label ID="lblFname" runat="server" Text="First Name "></asp:Label><br />
                     <asp:TextBox ID="txtFname" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
@@ -86,9 +86,9 @@
                         <asp:ListItem>Caucasian (North African, Other)</asp:ListItem>
                         <asp:ListItem>Indigenous Australian</asp:ListItem>
                         <asp:ListItem>Native American</asp:ListItem>
-                        <asp:ListItem>North East Asian (Mongol, Tibetan, Korean Japanese, etc)</asp:ListItem>
-                        <asp:ListItem>Pacific (Polynesian, Micronesian, etc)</asp:ListItem>
-                        <asp:ListItem>South East Asian (Chinese, Thai, Malay, Filipino, etc)</asp:ListItem>
+                        <asp:ListItem>North East Asian</asp:ListItem>
+                        <asp:ListItem>Pacific</asp:ListItem>
+                        <asp:ListItem>South East Asian</asp:ListItem>
                         <asp:ListItem>West African, Bushmen, Ethiopian</asp:ListItem>
                         <asp:ListItem>Other Race</asp:ListItem>
                     </asp:DropDownList>
@@ -151,20 +151,20 @@
     </div>
     <hr>
     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-        <h3>Family/Guardian Contact Information</h3>
+        <h3 class="text-center">Family/Guardian/Residential Contact Information</h3>
         <h4 class="text-center">Contact #1</h4>
-        <asp:Table ID="emContact1" runat="server">
+        <asp:Table ID="emContact1" runat="server" HorizontalAlign="Center" Width="100%">
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblFnameCont1" runat="server" Text="First Name "></asp:Label>
+                    <asp:Label ID="lblFnameCont1" runat="server" Text="First Name "></asp:Label><br />
                     <asp:TextBox ID="txtFnameCont1" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:Label ID="lblLnameCont1" runat="server" Text="Last Name "></asp:Label>
+                    <asp:Label ID="lblLnameCont1" runat="server" Text="Last Name "></asp:Label><br />
                     <asp:TextBox ID="txtLnameCont1" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:Label ID="lblRelCont1" runat="server" Text="Relationship "></asp:Label>
+                    <asp:Label ID="lblRelCont1" runat="server" Text="Relationship "></asp:Label><br />
                     <asp:DropDownList ID="DropDownListRelCont1" runat="server">
                         <asp:ListItem>Spouse</asp:ListItem>
                         <asp:ListItem>Parent</asp:ListItem>
@@ -172,218 +172,197 @@
                         <asp:ListItem>Other Legal Guardian</asp:ListItem>
                     </asp:DropDownList>
                 </asp:TableCell>
+                <asp:TableCell>
+                    <asp:CheckBox ID="CheckBox1" runat="server" Text=" Emergency Contact" TextAlign="Right" />
+                </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblAddressCont1" runat="server" Text="Address "></asp:Label>
+                    <asp:Label ID="lblAddressCont1" runat="server" Text="Address "></asp:Label><br />
                     <asp:TextBox ID="txtAddressCont1" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:Label ID="lblCityCont1" runat="server" Text="City "></asp:Label>
+                    <asp:Label ID="lblCityCont1" runat="server" Text="City "></asp:Label><br />
                     <asp:TextBox ID="txtCityCont1" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:Label ID="Label3" runat="server" Text="State "></asp:Label>
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblStateCont1" runat="server" Text="State "></asp:Label><br />
+                    <asp:TextBox ID="txtStateCont1" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:Label ID="Label4" runat="server" Text="Zip "></asp:Label>
-                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblZipCont1" runat="server" Text="Zip "></asp:Label><br />
+                    <asp:TextBox ID="txtZipCont1" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblEmailCont1" runat="server" Text="E-Mail Address "></asp:Label><br />
+                    <asp:TextBox ID="txtEmailCont1" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblHphoneCont1" runat="server" Text="Home Phone "></asp:Label><br />
+                    <asp:TextBox ID="txtHphoneCont1" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblCphoneCont1" runat="server" Text="Cell Phone "></asp:Label><br />
+                    <asp:TextBox ID="txtCphoneCont1" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblWphoneCont1" runat="server" Text="Work Phone "></asp:Label><br />
+                    <asp:TextBox ID="txtWphoneCont1" runat="server"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-        <br />
-        <label>First Name</label><br />
-        <input type="text"><br />
-        <label>Last Name</label><br />
-        <input type="text"><br />
-        <label>Address </label>
-        <br />
-        <input type="text"><br />
-        <label>City</label><br />
-        <input type="text"><br />
-        <label>State</label><br />
-        <input type="text"><br />
-        <label>Zip Code</label><br />
-        <input type="text"><br />
-        <label>E-Mail Address</label><br />
-        <input type="email"><br />
-        <label>Home Phone</label><br />
-        <input type="tel"><br />
-        <label>Cell Phone</label><br />
-        <input type="tel"><br />
-        <label>Work Phone</label><br />
-        <input type="tel"><br />
     </div>
-    <div class="col-sm-4">
+    <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
         <h4 class="text-center">Contact #2</h4>
-        <label>Relationship</label><br />
-        <select>
-            <option value="Spouse">Spouse</option>
-            <option value="Parent">Parent</option>
-            <option value="Child">Child</option>
-            <option value="Other-Relitive">Other Relitive</option>
-        </select>
-        <br />
-        <label>First Name</label><br />
-        <input type="text"><br />
-        <label>Last Name</label><br />
-        <input type="text"><br />
-        <label>Address </label>
-        <br />
-        <input type="text"><br />
-        <label>City</label><br />
-        <input type="text"><br />
-        <label>State</label><br />
-        <input type="text"><br />
-        <label>Zip Code</label><br />
-        <input type="text"><br />
-        <label>E-Mail Address</label><br />
-        <input type="email"><br />
-        <label>Home Phone</label><br />
-        <input type="tel"><br />
-        <label>Cell Phone</label><br />
-        <input type="tel"><br />
-        <label>Work Phone</label><br />
-        <input type="tel"><br />
+        <asp:Table ID="Table2" runat="server" HorizontalAlign="Center" Width="100%">
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label1" runat="server" Text="First Name "></asp:Label><br />
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label2" runat="server" Text="Last Name "></asp:Label><br />
+                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label3" runat="server" Text="Relationship "></asp:Label><br />
+                    <asp:DropDownList ID="DropDownList1" runat="server">
+                        <asp:ListItem>Spouse</asp:ListItem>
+                        <asp:ListItem>Parent</asp:ListItem>
+                        <asp:ListItem>Child</asp:ListItem>
+                        <asp:ListItem>Other Legal Guardian</asp:ListItem>
+                    </asp:DropDownList>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:CheckBox ID="CheckBox2" runat="server" Text=" Emergency Contact" TextAlign="Right" />
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label4" runat="server" Text="Address "></asp:Label><br />
+                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label5" runat="server" Text="City "></asp:Label><br />
+                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label6" runat="server" Text="State "></asp:Label><br />
+                    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label7" runat="server" Text="Zip "></asp:Label><br />
+                    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label8" runat="server" Text="E-Mail Address "></asp:Label><br />
+                    <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label9" runat="server" Text="Home Phone "></asp:Label><br />
+                    <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label10" runat="server" Text="Cell Phone "></asp:Label><br />
+                    <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label11" runat="server" Text="Work Phone "></asp:Label><br />
+                    <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
     </div>
-    <h4 class="text-center">Contact #3</h4>
-    <label>Relationship</label><br />
-    <select>
-        <option value="Spouse">Spouse</option>
-        <option value="Parent">Parent</option>
-        <option value="Child">Child</option>
-        <option value="Other-Relitive">Other Relitive</option>
-    </select>
-    <br />
-    <label>First Name</label><br />
-    <input type="text"><br />
-    <label>Last Name</label><br />
-    <input type="text"><br />
-    <label>Address </label>
-    <br />
-    <input type="text"><br />
-    <label>City</label><br />
-    <input type="text"><br />
-    <label>State</label><br />
-    <input type="text"><br />
-    <label>Zip Code</label><br />
-    <input type="text"><br />
-    <label>E-Mail Address</label><br />
-    <input type="email"><br />
-    <label>Home Phone</label><br />
-    <input type="tel"><br />
-    <label>Cell Phone</label><br />
-    <input type="tel"><br />
-    <label>Work Phone</label><br />
-    <input type="tel"><br />
+        <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+        <h4 class="text-center">Contact #3</h4>
+        <asp:Table ID="Table3" runat="server" HorizontalAlign="Center" Width="100%">
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label12" runat="server" Text="First Name "></asp:Label><br />
+                    <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label13" runat="server" Text="Last Name "></asp:Label><br />
+                    <asp:TextBox ID="TextBox12" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label14" runat="server" Text="Relationship "></asp:Label><br />
+                    <asp:DropDownList ID="DropDownList2" runat="server">
+                        <asp:ListItem>Spouse</asp:ListItem>
+                        <asp:ListItem>Parent</asp:ListItem>
+                        <asp:ListItem>Child</asp:ListItem>
+                        <asp:ListItem>Other Legal Guardian</asp:ListItem>
+                    </asp:DropDownList>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:CheckBox ID="CheckBox3" runat="server" Text=" Emergency Contact" TextAlign="Right" />
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label15" runat="server" Text="Address "></asp:Label><br />
+                    <asp:TextBox ID="TextBox13" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label16" runat="server" Text="City "></asp:Label><br />
+                    <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label17" runat="server" Text="State "></asp:Label><br />
+                    <asp:TextBox ID="TextBox15" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label18" runat="server" Text="Zip "></asp:Label><br />
+                    <asp:TextBox ID="TextBox16" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label19" runat="server" Text="E-Mail Address "></asp:Label><br />
+                    <asp:TextBox ID="TextBox17" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label20" runat="server" Text="Home Phone "></asp:Label><br />
+                    <asp:TextBox ID="TextBox18" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label21" runat="server" Text="Cell Phone "></asp:Label><br />
+                    <asp:TextBox ID="TextBox19" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label22" runat="server" Text="Work Phone "></asp:Label><br />
+                    <asp:TextBox ID="TextBox20" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
     </div>
-</div>
     <hr>
-    <div class="row">
-        <h3>Emergency Contacts Information</h3>
-        <div class="col-sm-4">
-            <h4 class="text-center">Contact #1</h4>
-            <label>Same As Above: </label>
-            <input type="checkbox" name="EmContact1" value="Same"><br />
-            <label>Relationship</label><br />
-            <select>
-                <option value="Spouse">Spouse</option>
-                <option value="Parent">Parent</option>
-                <option value="Child">Child</option>
-                <option value="Other-Relitive">Other Relitive</option>
-            </select>
-            <br />
-            <label>First Name</label><br />
-            <input type="text"><br />
-            <label>Last Name</label><br />
-            <input type="text"><br />
-            <label>Address </label>
-            <br />
-            <input type="text"><br />
-            <label>City</label><br />
-            <input type="text"><br />
-            <label>State</label><br />
-            <input type="text"><br />
-            <label>Zip Code</label><br />
-            <input type="text"><br />
-            <label>E-Mail Address</label><br />
-            <input type="email"><br />
-            <label>Home Phone</label><br />
-            <input type="tel"><br />
-            <label>Cell Phone</label><br />
-            <input type="tel"><br />
-            <label>Work Phone</label><br />
-            <input type="tel"><br />
-        </div>
-        <div class="col-sm-4">
-            <h4 class="text-center">Contact #2</h4>
-            <label>Same As Above: </label>
-            <input type="checkbox" name="EmContact2" value="Same"><br />
-            <label>Relationship</label><br />
-            <select>
-                <option value="Spouse">Spouse</option>
-                <option value="Parent">Parent</option>
-                <option value="Child">Child</option>
-                <option value="Other-Relitive">Other Relitive</option>
-            </select>
-            <br />
-            <label>First Name</label><br />
-            <input type="text"><br />
-            <label>Last Name</label><br />
-            <input type="text"><br />
-            <label>Address </label>
-            <br />
-            <input type="text"><br />
-            <label>City</label><br />
-            <input type="text"><br />
-            <label>State</label><br />
-            <input type="text"><br />
-            <label>Zip Code</label><br />
-            <input type="text"><br />
-            <label>E-Mail Address</label><br />
-            <input type="email"><br />
-            <label>Home Phone</label><br />
-            <input type="tel"><br />
-            <label>Cell Phone</label><br />
-            <input type="tel"><br />
-            <label>Work Phone</label><br />
-            <input type="tel"><br />
-        </div>
-        <div class="col-sm-4">
-            <h4 class="text-center">Contact #3</h4>
-            <label>Same As Above: </label>
-            <input type="checkbox" name="EmContact3" value="Same"><br />
-            <label>Relationship</label><br />
-            <select>
-                <option value="Spouse">Spouse</option>
-                <option value="Parent">Parent</option>
-                <option value="Child">Child</option>
-                <option value="Other-Relitive">Other Relitive</option>
-            </select>
-            <br />
-            <label>First Name</label><br />
-            <input type="text"><br />
-            <label>Last Name</label><br />
-            <input type="text"><br />
-            <label>Address </label>
-            <br />
-            <input type="text"><br />
-            <label>City</label><br />
-            <input type="text"><br />
-            <label>State</label><br />
-            <input type="text"><br />
-            <label>Zip Code</label><br />
-            <input type="text"><br />
-            <label>E-Mail Address</label><br />
-            <input type="email"><br />
-            <label>Home Phone</label><br />
-            <input type="tel"><br />
-            <label>Cell Phone</label><br />
-            <input type="tel"><br />
-            <label>Work Phone</label><br />
-            <input type="tel"><br />
-        </div>
+    <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+        <h3 class="text-center">Emergency Information</h3>
+        <asp:Table ID="Table4" runat="server" HorizontalAlign="Center" Width="100%">
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label23" runat="server" Text="Emergency Evacuation Needs "></asp:Label><br />
+                    <asp:TextBox ID="TextBox21" runat="server" columns="30" TextMode="multiline"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label24" runat="server" Text="1st Evacuation Location "></asp:Label><br />
+                    <asp:TextBox ID="TextBox22" runat="server" columns="30"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label25" runat="server" Text="2nd Evacuation Location "></asp:Label><br />
+                    <asp:TextBox ID="TextBox23" runat="server" columns="30"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
     </div>
     <hr>
     <div class="row">
