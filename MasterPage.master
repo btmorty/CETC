@@ -42,12 +42,12 @@
                                     <asp:LoginName ID="LoginName1" runat="server" />
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="Membership/Profile.aspx"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                                         <asp:LoginView ID="LoginView1" runat="server">
                                             <RoleGroups>
                                                 <asp:RoleGroup Roles="Admin">
                                                     <ContentTemplate>
-                                                        <li><a href="#">Manage Users</a></li>
+                                                        <li><a href="Membership/ManageUsers.aspx"><span class="glyphicon glyphicon-cog"></span> Manage Users</a></li>
                                                     </ContentTemplate>
                                                 </asp:RoleGroup>
                                             </RoleGroups>
