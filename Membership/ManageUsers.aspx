@@ -12,7 +12,7 @@
         </div>
     </div>
     <div>
-        <asp:GridView ID="GridView1" DataKeyNames="UserName" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GridView1" DataKeyNames="UserName" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CellPadding="2" CellSpacing="2" HorizontalAlign="Center" Width="1000px">
             <Columns>
                 <asp:BoundField DataField="UserName" HeaderText="User Name" ReadOnly="True" SortExpression="UserName" />
                 <asp:BoundField DataField="Email" HeaderText="Email Address" ReadOnly="True" SortExpression="Email" />
@@ -39,54 +39,57 @@
             </Columns>
         </asp:GridView>
         <br />
-        <h3>Profile for Selected User</h3>
-        <asp:Panel ID="Panel1" runat="server" Visible="false">
+        <div class="text-center" >
+            <asp:Label ID="lblProfileHeader" runat="server" Visible="false" CssClass="h2" Text="Profile for Selected User" style="text-align: center"></asp:Label>
+        </div>
+        <br />
+        <asp:Panel ID="Panel1" runat="server" Visible="false" style="margin-left: auto; margin-right:auto;" Width="250px">
             <table>
                 <tr>
                     <td>
-                        <asp:Label ID="Label1" runat="server" Text="First Name"></asp:Label></td>
+                        <asp:Label ID="Label1" runat="server" Text="First Name "></asp:Label></td>
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtFirstName" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label2" runat="server" Text="Last Name"></asp:Label></td>
+                        <asp:Label ID="Label2" runat="server" Text="Last Name "></asp:Label></td>
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtLastName" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label3" runat="server" Text="Birth Date"></asp:Label></td>
+                        <asp:Label ID="Label3" runat="server" Text="Birth Date "></asp:Label></td>
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtBirthDate" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label4" runat="server" Text="Street"></asp:Label></td>
+                        <asp:Label ID="Label4" runat="server" Text="Street "></asp:Label></td>
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtStreet" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label5" runat="server" Text="City"></asp:Label></td>
+                        <asp:Label ID="Label5" runat="server" Text="City "></asp:Label></td>
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtCity" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label6" runat="server" Text="State"></asp:Label></td>
+                        <asp:Label ID="Label6" runat="server" Text="State "></asp:Label></td>
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtState" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label7" runat="server" Text="Zip Code"></asp:Label></td>
+                        <asp:Label ID="Label7" runat="server" Text="Zip Code "></asp:Label></td>
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtZip" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label8" runat="server" Text="Country"></asp:Label></td>
+                        <asp:Label ID="Label8" runat="server" Text="Country "></asp:Label></td>
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtCountry" runat="server"></asp:TextBox></td>
                 </tr>

@@ -1,20 +1,21 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Profile.aspx.cs" Inherits="Membership_Profile" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Profile.aspx.cs" Inherits="Membership_Profile" %>
 
 <%@ Register src="CurrentUserInfo.ascx" tagname="CurrentUserInfo" tagprefix="uc1" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="Body" Runat="Server">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="jumbotron">
+                    <h2 class="text-center">User Profile</h2>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
     <div>
     
         <uc1:CurrentUserInfo ID="CurrentUserInfo1" runat="server" />
     
     </div>
-    </form>
-</body>
-</html>
+</asp:Content>

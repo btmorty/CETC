@@ -8,8 +8,8 @@
                     <h2 class="text-center">Data Entry</h2>
                     <hr>
                     <div class="btn-group btn-group-justified">
-                        <a href="newclient.html" class="btn btn-primary btn-lg">New Client</a>
-                        <a href="updateclient.html" class="btn btn-primary btn-lg">Edit Client</a>
+                        <a href="NewClient.aspx" class="btn btn-primary btn-lg">New Client</a>
+                        <a href="#" class="btn btn-primary btn-lg">Edit Client</a>
                     </div>
                 </div>
             </div>

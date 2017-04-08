@@ -1269,6 +1269,7 @@ h1,
 h2,
 .h2 {
   font-size: 30px;
+    text-align: center;
 }
 h3,
 .h3 {
@@ -6515,6 +6516,7 @@ button.close {
   display: block;
   margin-right: auto;
   margin-left: auto;
+    text-align: center;
 }
 .pull-right {
   float: right !important;

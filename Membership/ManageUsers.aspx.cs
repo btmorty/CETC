@@ -92,6 +92,7 @@ public partial class Membership_ManageUsers : System.Web.UI.Page
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
         //Make the panel visible
+        lblProfileHeader.Visible = true;
         Panel1.Visible = true;
 
         //Retrieve the profile for the user that was selected
