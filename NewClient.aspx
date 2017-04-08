@@ -365,18 +365,32 @@
         </asp:Table>
     </div>
     <hr>
-    <div class="row">
-        <h3>Health Profile Information</h3>
-        <div class="col-sm-4">
+    <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+        <h3 class="text-center">Health Profile Information</h3>
+        <asp:Table ID="Table5" runat="server" HorizontalAlign="Center" Width="100%">
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblHeight" runat="server" Text="Height "></asp:Label><br />
+                    <asp:TextBox ID="txtHeight" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblWeight" runat="server" Text="Weight "></asp:Label><br />
+                    <asp:TextBox ID="txtWeight" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblHair" runat="server" Text="Hair "></asp:Label><br />
+                    <asp:TextBox ID="txtHair" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblEyeColor" runat="server" Text="Eyes "></asp:Label><br />
+                    <asp:TextBox ID="txtEyeColor" runat="server"></asp:TextBox>
+                </asp:TableCell>
+          </asp:TableRow>
+    </asp:Table>
             <h4 class="text-center">Basic Information</h4>
-            <label>Height</label><br />
-            <input type="text"><br />
-            <label>Weight (lbs)</label><br />
-            <input type="text"><br />
-            <label>Hair</label><br />
-            <input type="text"><br />
-            <label>Eye Color</label><br />
-            <input type="text"><br />
+            
+           
+
             <label>Medical Limitations / Adaptive Devices</label><br />
             <textarea></textarea><br />
             <label>Allergies</label><br />
@@ -387,6 +401,7 @@
             <input type="text"><br />
             <label>Hospital Phone</label><br />
             <input type="tel"><br />
+
         </div>
         <div class="col-sm-4">
             <h4 class="text-center">Medical Providers</h4>
