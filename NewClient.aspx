@@ -385,8 +385,26 @@
                     <asp:Label ID="lblEyeColor" runat="server" Text="Eyes "></asp:Label><br />
                     <asp:TextBox ID="txtEyeColor" runat="server"></asp:TextBox>
                 </asp:TableCell>
-          </asp:TableRow>
-    </asp:Table>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label4" runat="server" Text="Height "></asp:Label><br />
+                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label5" runat="server" Text="Weight "></asp:Label><br />
+                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label6" runat="server" Text="Hair "></asp:Label><br />
+                    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label7" runat="server" Text="Eyes "></asp:Label><br />
+                    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
             <h4 class="text-center">Basic Information</h4>
             
            
