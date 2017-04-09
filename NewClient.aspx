@@ -386,39 +386,46 @@
                     <asp:TextBox ID="txtEyeColor" runat="server"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
+			<asp:TableRow>
+				<asp:TableCell>
+                    <asp:Label ID="lblDiagnosis" runat="server" Text="Diagnosis/Medical Condition "></asp:Label><br />
+                    <asp:TextBox ID="txtDiagnosis" runat="server"></asp:TextBox>
+					<!-- is this the right text field? -->
+                </asp:TableCell>
+			</asp:TableRow
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="Label4" runat="server" Text="Height "></asp:Label><br />
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblMedicalLim" runat="server" Text="Medical Limitations/Adaptive Devices "></asp:Label><br />
+                    <asp:TextBox ID="txtMedicalLim" runat="server"></asp:TextBox>
+					<!-- is this the right text field? -->
                 </asp:TableCell>
+			</asp:TableRow
+            <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="Label5" runat="server" Text="Weight "></asp:Label><br />
-                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblAllergies" runat="server" Text="Allergies "></asp:Label><br />
+                    <asp:TextBox ID="txtAllergies" runat="server"></asp:TextBox>
                 </asp:TableCell>
+			</asp:TableRow
+            <asp:TableRow>	
                 <asp:TableCell>
-                    <asp:Label ID="Label6" runat="server" Text="Hair "></asp:Label><br />
-                    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblPreferredHospital" runat="server" Text="Preferred Hoospital "></asp:Label><br />
+                    <asp:TextBox ID="txtPreferredHospital" runat="server"></asp:TextBox>
                 </asp:TableCell>
+			</asp:TableRow
+            <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="Label7" runat="server" Text="Eyes "></asp:Label><br />
-                    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblPreferredHospitalAddress" runat="server" Text="Address "></asp:Label><br />
+                    <asp:TextBox ID="txtPreferredHospitalAddress" runat="server"></asp:TextBox>
+                </asp:TableCell>
+				<asp:TableCell>
+                    <asp:Label ID="lblPreferredHospitalPhone" runat="server" Text="Phone "></asp:Label><br />
+                    <asp:TextBox ID="txtPreferredHospitalPhone" runat="server"></asp:TextBox>
+					<!-- is this the right text field? -->
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-            <h4 class="text-center">Basic Information</h4>
-            
+          <!--  <h4 class="text-center">Basic Information</h4> -->
            
-
-            <label>Medical Limitations / Adaptive Devices</label><br />
-            <textarea></textarea><br />
-            <label>Allergies</label><br />
-            <textarea></textarea><br />
-            <label>Preferred Hospital</label><br />
-            <input type="text"><br />
-            <label>Hospital Address</label><br />
-            <input type="text"><br />
-            <label>Hospital Phone</label><br />
-            <input type="tel"><br />
 
         </div>
         <div class="col-sm-4">
