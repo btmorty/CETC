@@ -367,7 +367,7 @@
     <hr>
     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
         <h3 class="text-center">Health Profile Information</h3>
-        <asp:Table ID="Table5" runat="server" HorizontalAlign="Center" Width="100%">
+        <asp:table id="Table5" runat="server" horizontalalign="Center" width="100%">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblHeight" runat="server" Text="Height "></asp:Label><br />
@@ -392,26 +392,26 @@
                     <asp:TextBox ID="txtDiagnosis" runat="server"></asp:TextBox>
 					<!-- is this the right text field? -->
                 </asp:TableCell>
-			</asp:TableRow
+			</asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblMedicalLim" runat="server" Text="Medical Limitations/Adaptive Devices "></asp:Label><br />
                     <asp:TextBox ID="txtMedicalLim" runat="server"></asp:TextBox>
 					<!-- is this the right text field? -->
                 </asp:TableCell>
-			</asp:TableRow
+			</asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblAllergies" runat="server" Text="Allergies "></asp:Label><br />
                     <asp:TextBox ID="txtAllergies" runat="server"></asp:TextBox>
                 </asp:TableCell>
-			</asp:TableRow
+			</asp:TableRow>
             <asp:TableRow>	
                 <asp:TableCell>
-                    <asp:Label ID="lblPreferredHospital" runat="server" Text="Preferred Hoospital "></asp:Label><br />
+                    <asp:Label ID="lblPreferredHospital" runat="server" Text="Preferred Hospital "></asp:Label><br />
                     <asp:TextBox ID="txtPreferredHospital" runat="server"></asp:TextBox>
                 </asp:TableCell>
-			</asp:TableRow
+			</asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblPreferredHospitalAddress" runat="server" Text="Address "></asp:Label><br />
@@ -423,11 +423,56 @@
 					<!-- is this the right text field? -->
                 </asp:TableCell>
             </asp:TableRow>
-        </asp:Table>
-          <!--  <h4 class="text-center">Basic Information</h4> -->
-           
+        </asp:table>
+    </div>
 
-        </div>
+    <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+        <h3 class="text-center">Medical Provider</h3>
+        <asp:table id="Table6" runat="server" horizontalalign="Center" width="100%">
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblMPSpecialty" runat="server" Text="Specialty "></asp:Label><br />
+                    <asp:TextBox ID="txtMPSpecialty" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblMPFirstName" runat="server" Text="First Name "></asp:Label><br />
+                    <asp:TextBox ID="txtMPFirstName" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblMPLastName" runat="server" Text="LastName "></asp:Label><br />
+                    <asp:TextBox ID="txtMPLastName" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+			<asp:TableRow>
+				<asp:TableCell>
+                    <asp:Label ID="lblMPAddress" runat="server" Text="Address "></asp:Label><br />
+                    <asp:TextBox ID="txtMPAddress" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblMPCity" runat="server" Text="City "></asp:Label><br />
+                    <asp:TextBox ID="txtMPCity" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblMPState" runat="server" Text="State "></asp:Label><br />
+                    <asp:TextBox ID="txtMPState" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblMPZip" runat="server" Text="Zip Code "></asp:Label><br />
+                    <asp:TextBox ID="txtMPZip" runat="server"></asp:TextBox>
+                </asp:TableCell>
+			</asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblMPEmail" runat="server" Text="E-Mail Address "></asp:Label><br />
+                    <asp:TextBox ID="txtMPEmail" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblMPPhone" runat="server" Text="Phone Number "></asp:Label><br />
+                    <asp:TextBox ID="txtMPPhone" runat="server"></asp:TextBox>
+                </asp:TableCell>
+			</asp:TableRow>
+        </asp:table>
+    </div>
         <div class="col-sm-4">
             <h4 class="text-center">Medical Providers</h4>
             <label>Specialty</label><br />
