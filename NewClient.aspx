@@ -473,41 +473,71 @@
 			</asp:TableRow>
         </asp:table>
     </div>
-        <div class="col-sm-4">
-            <h4 class="text-center">Medical Providers</h4>
-            <label>Specialty</label><br />
-            <input type="text"><br />
-            <label>First Name</label><br />
-            <input type="text"><br />
-            <label>Last Name</label><br />
-            <input type="text"><br />
-            <label>Address </label>
-            <br />
-            <input type="text"><br />
-            <label>City</label><br />
-            <input type="text"><br />
-            <label>State</label><br />
-            <input type="text"><br />
-            <label>Zip Code</label><br />
-            <input type="text"><br />
-            <label>E-Mail Address</label><br />
-            <input type="email"><br />
-            <label>Phone</label><br />
-            <input type="tel"><br />
-        </div>
-        <div class="col-sm-4">
-            <h4 class="text-center">Medications</h4>
-            <label>Medication</label><br />
-            <input type="text"><br />
-            <label>Dosage</label><br />
-            <input type="text"><br />
-            <label>Purpose</label><br />
-            <input type="text"><br />
-            <label>Physician First Name</label><br />
-            <input type="text"><br />
-            <label>Physician Last Name</label><br />
-            <input type="text"><br />
-        </div>
+    <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+        <h3 class="text-center">Medications</h3>
+        <asp:table id="Table7" runat="server" horizontalalign="Center" width="100%">
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblMedication" runat="server" Text="Medication "></asp:Label><br />
+                    <asp:TextBox ID="txtMedication" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblDosage" runat="server" Text="Dosage "></asp:Label><br />
+                    <asp:TextBox ID="txtDosage" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblPurpose" runat="server" Text="Purpose "></asp:Label><br />
+                    <asp:TextBox ID="txtPurpose" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblNonPerscription" runat="server" Text="Non-Prescription "></asp:Label><br />
+                    <asp:TextBox ID="txtNonPerscription" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblPMedFirstName" runat="server" Text="Physician First Name "></asp:Label><br />
+                    <asp:TextBox ID="txtPMedFirstName" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblPMedLastName" runat="server" Text="Physician Last Name "></asp:Label><br />
+                    <asp:TextBox ID="txtPMedLastName" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+			<asp:TableRow>
+                
+			</asp:TableRow>
+        </asp:table>
+    </div>        
+    <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+        <h3 class="text-center">Medical Information</h3>
+        <asp:table id="Table8" runat="server" horizontalalign="Center" width="100%">
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblMedicaidNum" runat="server" Text="Medicaid Number "></asp:Label><br />
+                    <asp:TextBox ID="txtMedicaidNum" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblMedicareNum" runat="server" Text="Medicare Number "></asp:Label><br />
+                    <asp:TextBox ID="txtMedicareNum" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+			<asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblOtherInsurance" runat="server" Text="Other Insurance Coverage "></asp:Label><br />
+                    <asp:TextBox ID="txtOtherInsurance" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label8" runat="server" Text="Physician Last Name "></asp:Label><br />
+                    <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                </asp:TableCell>
+			</asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblLifeSupport" runat="server" Text="Life Support Request "></asp:Label><br />
+                    <asp:TextBox ID="txtLifeSupport" runat="server"></asp:TextBox>
+                </asp:TableCell>
+			</asp:TableRow>
+        </asp:table>
+    </div>       
     </div>
     <br />
     <br />
