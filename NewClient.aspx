@@ -277,7 +277,7 @@
             </asp:TableRow>
         </asp:Table>
     </div>
-        <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+    <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
         <h4 class="text-center">Contact #3</h4>
         <asp:Table ID="Table3" runat="server" HorizontalAlign="Center" Width="100%">
             <asp:TableRow>
@@ -347,19 +347,19 @@
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblEmergyEvacNeeds1" runat="server" Text="Emergency Evacuation Needs "></asp:Label><br />
-                    <asp:TextBox ID="txtEmergyEvacNeeds1" runat="server" columns="30" TextMode="multiline"></asp:TextBox>
+                    <asp:TextBox ID="txtEmergyEvacNeeds1" runat="server" Columns="30" TextMode="multiline"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblEmergyEvacNeedsLocation1" runat="server" Text="1st Evacuation Location "></asp:Label><br />
-                    <asp:TextBox ID="txtEmergyEvacNeedsLocation1" runat="server" columns="30"></asp:TextBox>
+                    <asp:TextBox ID="txtEmergyEvacNeedsLocation1" runat="server" Columns="30"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblEmergyEvacNeedsLocation2" runat="server" Text="2nd Evacuation Location "></asp:Label><br />
-                    <asp:TextBox ID="txtEmergyEvacNeedsLocation2" runat="server" columns="30"></asp:TextBox>
+                    <asp:TextBox ID="txtEmergyEvacNeedsLocation2" runat="server" Columns="30"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
@@ -367,7 +367,7 @@
     <hr>
     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
         <h3 class="text-center">Health Profile Information</h3>
-        <asp:table id="Table5" runat="server" horizontalalign="Center" width="100%">
+        <asp:Table ID="Table5" runat="server" HorizontalAlign="Center" Width="100%">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblHeight" runat="server" Text="Height "></asp:Label><br />
@@ -386,49 +386,40 @@
                     <asp:TextBox ID="txtEyeColor" runat="server"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-			<asp:TableRow>
-				<asp:TableCell>
-                    <asp:Label ID="lblDiagnosis" runat="server" Text="Diagnosis/Medical Condition "></asp:Label><br />
-                    <asp:TextBox ID="txtDiagnosis" runat="server"></asp:TextBox>
-					<!-- is this the right text field? -->
-                </asp:TableCell>
-			</asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblMedicalLim" runat="server" Text="Medical Limitations/Adaptive Devices "></asp:Label><br />
-                    <asp:TextBox ID="txtMedicalLim" runat="server"></asp:TextBox>
-					<!-- is this the right text field? -->
+                    <asp:Label ID="lblDiagnosis1" runat="server" Text="Diagnosis/Medical Condition "></asp:Label><br />
+                    <asp:TextBox ID="txtDiagnosis1" runat="server" TextMode="MultiLine"></asp:TextBox>
                 </asp:TableCell>
-			</asp:TableRow>
-            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblMedicalLim" runat="server" Text="Medical Limitations/Adaptive Devices "></asp:Label><br />
+                    <asp:TextBox ID="txtMedicalLim" runat="server" TextMode="MultiLine"></asp:TextBox>
+                </asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblAllergies" runat="server" Text="Allergies "></asp:Label><br />
                     <asp:TextBox ID="txtAllergies" runat="server"></asp:TextBox>
                 </asp:TableCell>
-			</asp:TableRow>
-            <asp:TableRow>	
+            </asp:TableRow>
+            <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblPreferredHospital" runat="server" Text="Preferred Hospital "></asp:Label><br />
                     <asp:TextBox ID="txtPreferredHospital" runat="server"></asp:TextBox>
                 </asp:TableCell>
-			</asp:TableRow>
-            <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblPreferredHospitalAddress" runat="server" Text="Address "></asp:Label><br />
                     <asp:TextBox ID="txtPreferredHospitalAddress" runat="server"></asp:TextBox>
                 </asp:TableCell>
-				<asp:TableCell>
+                <asp:TableCell>
                     <asp:Label ID="lblPreferredHospitalPhone" runat="server" Text="Phone "></asp:Label><br />
                     <asp:TextBox ID="txtPreferredHospitalPhone" runat="server"></asp:TextBox>
-					<!-- is this the right text field? -->
                 </asp:TableCell>
             </asp:TableRow>
-        </asp:table>
+        </asp:Table>
     </div>
 
     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
         <h3 class="text-center">Medical Provider</h3>
-        <asp:table id="Table6" runat="server" horizontalalign="Center" width="100%">
+        <asp:Table ID="Table6" runat="server" HorizontalAlign="Center" Width="100%">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblMPSpecialty" runat="server" Text="Specialty "></asp:Label><br />
@@ -443,8 +434,8 @@
                     <asp:TextBox ID="txtMPLastName" runat="server"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-			<asp:TableRow>
-				<asp:TableCell>
+            <asp:TableRow>
+                <asp:TableCell>
                     <asp:Label ID="lblMPAddress" runat="server" Text="Address "></asp:Label><br />
                     <asp:TextBox ID="txtMPAddress" runat="server"></asp:TextBox>
                 </asp:TableCell>
@@ -460,7 +451,7 @@
                     <asp:Label ID="lblMPZip" runat="server" Text="Zip Code "></asp:Label><br />
                     <asp:TextBox ID="txtMPZip" runat="server"></asp:TextBox>
                 </asp:TableCell>
-			</asp:TableRow>
+            </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblMPEmail" runat="server" Text="E-Mail Address "></asp:Label><br />
@@ -470,12 +461,12 @@
                     <asp:Label ID="lblMPPhone" runat="server" Text="Phone Number "></asp:Label><br />
                     <asp:TextBox ID="txtMPPhone" runat="server"></asp:TextBox>
                 </asp:TableCell>
-			</asp:TableRow>
-        </asp:table>
+            </asp:TableRow>
+        </asp:Table>
     </div>
     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
         <h3 class="text-center">Medications</h3>
-        <asp:table id="Table7" runat="server" horizontalalign="Center" width="100%">
+        <asp:Table ID="Table7" runat="server" HorizontalAlign="Center" Width="100%">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblMedication" runat="server" Text="Medication "></asp:Label><br />
@@ -502,14 +493,13 @@
                     <asp:TextBox ID="txtPMedLastName" runat="server"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-			<asp:TableRow>
-                
-			</asp:TableRow>
-        </asp:table>
-    </div>        
+            <asp:TableRow>
+            </asp:TableRow>
+        </asp:Table>
+    </div>
     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
         <h3 class="text-center">Medical Information</h3>
-        <asp:table id="Table8" runat="server" horizontalalign="Center" width="100%">
+        <asp:Table ID="Table8" runat="server" HorizontalAlign="Center" Width="100%">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblMedicaidNum" runat="server" Text="Medicaid Number "></asp:Label><br />
@@ -519,25 +509,26 @@
                     <asp:Label ID="lblMedicareNum" runat="server" Text="Medicare Number "></asp:Label><br />
                     <asp:TextBox ID="txtMedicareNum" runat="server"></asp:TextBox>
                 </asp:TableCell>
-            </asp:TableRow>
-			<asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblOtherInsurance" runat="server" Text="Other Insurance Coverage "></asp:Label><br />
                     <asp:TextBox ID="txtOtherInsurance" runat="server"></asp:TextBox>
                 </asp:TableCell>
-                <asp:TableCell>
-                    <asp:Label ID="Label8" runat="server" Text="Physician Last Name "></asp:Label><br />
-                    <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-                </asp:TableCell>
-			</asp:TableRow>
+            </asp:TableRow>
             <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblPolicyNumber" runat="server" Text="Policy Number "></asp:Label><br />
+                    <asp:TextBox ID="txtPolicyNumber" runat="server"></asp:TextBox>
+                </asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblLifeSupport" runat="server" Text="Life Support Request "></asp:Label><br />
                     <asp:TextBox ID="txtLifeSupport" runat="server"></asp:TextBox>
                 </asp:TableCell>
-			</asp:TableRow>
-        </asp:table>
-    </div>       
+                    <asp:TableCell>
+                        <asp:Label ID="lblMedConsent" runat="server" Text="Non-Perscription Medication Consent "></asp:Label><br />
+                        <asp:TextBox ID="txtMedConsent" runat="server" TextMode="MultiLine"></asp:TextBox>
+                    </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
     </div>
     <br />
     <br />
