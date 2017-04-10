@@ -11,4 +11,11 @@ public partial class NewClient : System.Web.UI.Page
     {
 
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string path = Server.MapPath("ClientImages/") + imageUpload.PostedFile.FileName;
+        imageUpload.SaveAs(path);
+        imgProfile.ImageUrl = "ClientImages/" + imageUpload.PostedFile.FileName;
+    }
 }

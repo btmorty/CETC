@@ -13,6 +13,8 @@
     </div>
     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
         <h3 class="text-center">Personal Information</h3>
+        <div class="row">
+        <div class="col-sm-8">
         <asp:Table ID="Table1" runat="server" CellSpacing="2" CellPadding="2" HorizontalAlign="Center" Width="100%">
             <asp:TableRow>
                 <asp:TableCell>
@@ -79,17 +81,11 @@
                     <asp:Label ID="lblRace" runat="server" Text="Race "></asp:Label><br />
                     <asp:DropDownList ID="DropDownListRace" runat="server">
                         <asp:ListItem>Mixed Race</asp:ListItem>
-                        <asp:ListItem>Arctic (Siberian, Eskimo)</asp:ListItem>
-                        <asp:ListItem>Caucasian (European)</asp:ListItem>
-                        <asp:ListItem>Caucasian (Indian)</asp:ListItem>
-                        <asp:ListItem>Caucasian (Middle East)</asp:ListItem>
-                        <asp:ListItem>Caucasian (North African, Other)</asp:ListItem>
-                        <asp:ListItem>Indigenous Australian</asp:ListItem>
+                        <asp:ListItem>Caucasian</asp:ListItem>
                         <asp:ListItem>Native American</asp:ListItem>
                         <asp:ListItem>North East Asian</asp:ListItem>
                         <asp:ListItem>Pacific</asp:ListItem>
                         <asp:ListItem>South East Asian</asp:ListItem>
-                        <asp:ListItem>West African, Bushmen, Ethiopian</asp:ListItem>
                         <asp:ListItem>Other Race</asp:ListItem>
                     </asp:DropDownList>
                 </asp:TableCell>
@@ -128,15 +124,11 @@
                     <asp:Label ID="lblSSI" runat="server" Text="SSI "></asp:Label><br />
                     <asp:TextBox ID="txtSSI" runat="server"></asp:TextBox>
                 </asp:TableCell>
-                <asp:TableCell>
-                    <asp:Label ID="lblSSA" runat="server" Text="SSA "></asp:Label><br />
-                    <asp:TextBox ID="txtSSA" runat="server"></asp:TextBox>
-                </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblDiagnosis" runat="server" Text="Diagnosis "></asp:Label><br />
-                    <asp:TextBox ID="txtDiagnosis" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblSSA" runat="server" Text="SSA "></asp:Label><br />
+                    <asp:TextBox ID="txtSSA" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblComm" runat="server" Text="Modes of Communication "></asp:Label><br />
@@ -148,7 +140,15 @@
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
+       </div>
+            <div class="col-sm-4">
+                <asp:Image ID="imgProfile" runat="server" BorderStyle="Solid" BorderWidth="1" Height="200px" ImageAlign="Middle" Width="200px" /><br /><br />
+                <asp:Label ID="lblFileUpload" runat="server" Text="Upload Image "></asp:Label><br />
+                <asp:FileUpload ID="imageUpload" runat="server" /><br />
+                <asp:Button ID="btnUpload" runat="server" Text="Upload Image" OnClick="Button1_Click" />
+            </div>
     </div>
+
     <hr>
     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
         <h3 class="text-center">Family/Guardian/Residential Contact Information</h3>
