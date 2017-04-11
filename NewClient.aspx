@@ -1,6 +1,198 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeFile="NewClient.aspx.cs" Inherits="NewClient" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
+    <%--//Connection to address table--%>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Address] WHERE [AddressID] = @AddressID" InsertCommand="INSERT INTO [Address] ([Address], [City], [State], [Zip_Code], [PO_Box]) VALUES (@Address, @City, @State, @Zip_Code, @PO_Box)" SelectCommand="SELECT [Address], [City], [State], [Zip_Code], [PO_Box], [AddressID] FROM [Address]" UpdateCommand="UPDATE [Address] SET [Address] = @Address, [City] = @City, [State] = @State, [Zip_Code] = @Zip_Code, [PO_Box] = @PO_Box WHERE [AddressID] = @AddressID">
+        <DeleteParameters>
+            <asp:Parameter Name="AddressID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="City" Type="String" />
+            <asp:Parameter Name="State" Type="String" />
+            <asp:Parameter Name="Zip_Code" Type="String" />
+            <asp:Parameter Name="PO_Box" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="City" Type="String" />
+            <asp:Parameter Name="State" Type="String" />
+            <asp:Parameter Name="Zip_Code" Type="String" />
+            <asp:Parameter Name="PO_Box" Type="String" />
+            <asp:Parameter Name="AddressID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+    <%--//Connection to Client table--%>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Client] WHERE [ClientID] = @ClientID" InsertCommand="INSERT INTO [Client] ([AddressID], [SSN], [PhotoID], [DSPD], [Status], [Sex], [Race], [Residential_Status], [Preferred_Language], [Religious_Affiliation]) VALUES (@AddressID, @SSN, @PhotoID, @DSPD, @Status, @Sex, @Race, @Residential_Status, @Preferred_Language, @Religious_Affiliation)" SelectCommand="SELECT [ClientID], [AddressID], [SSN], [PhotoID], [DSPD], [Status], [Sex], [Race], [Residential_Status], [Preferred_Language], [Religious_Affiliation] FROM [Client]" UpdateCommand="UPDATE [Client] SET [AddressID] = @AddressID, [SSN] = @SSN, [PhotoID] = @PhotoID, [DSPD] = @DSPD, [Status] = @Status, [Sex] = @Sex, [Race] = @Race, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [Religious_Affiliation] = @Religious_Affiliation WHERE [ClientID] = @ClientID">
+        <DeleteParameters>
+            <asp:Parameter Name="ClientID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="AddressID" Type="Int32" />
+            <asp:Parameter Name="SSN" Type="Int32" />
+            <asp:Parameter Name="PhotoID" Type="String" />
+            <asp:Parameter Name="DSPD" Type="Int32" />
+            <asp:Parameter Name="Status" Type="String" />
+            <asp:Parameter Name="Sex" Type="String" />
+            <asp:Parameter Name="Race" Type="String" />
+            <asp:Parameter Name="Residential_Status" Type="String" />
+            <asp:Parameter Name="Preferred_Language" Type="String" />
+            <asp:Parameter Name="Religious_Affiliation" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="AddressID" Type="Int32" />
+            <asp:Parameter Name="SSN" Type="Int32" />
+            <asp:Parameter Name="PhotoID" Type="String" />
+            <asp:Parameter Name="DSPD" Type="Int32" />
+            <asp:Parameter Name="Status" Type="String" />
+            <asp:Parameter Name="Sex" Type="String" />
+            <asp:Parameter Name="Race" Type="String" />
+            <asp:Parameter Name="Residential_Status" Type="String" />
+            <asp:Parameter Name="Preferred_Language" Type="String" />
+            <asp:Parameter Name="Religious_Affiliation" Type="String" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+    <%--//Connection to Contact table--%>
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Contact] WHERE [ContactID] = @ContactID" InsertCommand="INSERT INTO [Contact] ([ContactID], [FirstName], [LastName], [ClientID], [AddressID], [Relationship], [Emergency_Contact], [Email], [HomePhone], [WorkPhone], [MobilePhone]) VALUES (@ContactID, @FirstName, @LastName, @ClientID, @AddressID, @Relationship, @Emergency_Contact, @Email, @HomePhone, @WorkPhone, @MobilePhone)" SelectCommand="SELECT [ContactID], [FirstName], [LastName], [ClientID], [AddressID], [Relationship], [Emergency_Contact], [Email], [HomePhone], [WorkPhone], [MobilePhone] FROM [Contact]" UpdateCommand="UPDATE [Contact] SET [FirstName] = @FirstName, [LastName] = @LastName, [ClientID] = @ClientID, [AddressID] = @AddressID, [Relationship] = @Relationship, [Emergency_Contact] = @Emergency_Contact, [Email] = @Email, [HomePhone] = @HomePhone, [WorkPhone] = @WorkPhone, [MobilePhone] = @MobilePhone WHERE [ContactID] = @ContactID">
+        <DeleteParameters>
+            <asp:Parameter Name="ContactID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="ContactID" Type="Int32" />
+            <asp:Parameter Name="FirstName" Type="String" />
+            <asp:Parameter Name="LastName" Type="String" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="AddressID" Type="Int32" />
+            <asp:Parameter Name="Relationship" Type="String" />
+            <asp:Parameter Name="Emergency_Contact" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="HomePhone" Type="String" />
+            <asp:Parameter Name="WorkPhone" Type="String" />
+            <asp:Parameter Name="MobilePhone" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="FirstName" Type="String" />
+            <asp:Parameter Name="LastName" Type="String" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="AddressID" Type="Int32" />
+            <asp:Parameter Name="Relationship" Type="String" />
+            <asp:Parameter Name="Emergency_Contact" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="HomePhone" Type="String" />
+            <asp:Parameter Name="WorkPhone" Type="String" />
+            <asp:Parameter Name="MobilePhone" Type="String" />
+            <asp:Parameter Name="ContactID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+    <%--//Connection to Health Profile table--%>
+    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Health_Profile] WHERE [Health_Profile_ID] = @Health_Profile_ID" InsertCommand="INSERT INTO [Health_Profile] ([Health_Profile_ID], [DOB], [Staffing_Ratio], [Height], [Weight], [Hair], [Diagnosed_Condition], [Eyes], [Limitations], [Allergies], [Preferred_Hospital], [Life_Support_Request], [H_Address], [ClientID]) VALUES (@Health_Profile_ID, @DOB, @Staffing_Ratio, @Height, @Weight, @Hair, @Diagnosed_Condition, @Eyes, @Limitations, @Allergies, @Preferred_Hospital, @Life_Support_Request, @H_Address, @ClientID)" SelectCommand="SELECT [Health_Profile_ID], [DOB], [Staffing_Ratio], [Height], [Weight], [Hair], [Diagnosed_Condition], [Eyes], [Limitations], [Allergies], [Preferred_Hospital], [Life_Support_Request], [H_Address], [ClientID] FROM [Health_Profile]" UpdateCommand="UPDATE [Health_Profile] SET [DOB] = @DOB, [Staffing_Ratio] = @Staffing_Ratio, [Height] = @Height, [Weight] = @Weight, [Hair] = @Hair, [Diagnosed_Condition] = @Diagnosed_Condition, [Eyes] = @Eyes, [Limitations] = @Limitations, [Allergies] = @Allergies, [Preferred_Hospital] = @Preferred_Hospital, [Life_Support_Request] = @Life_Support_Request, [H_Address] = @H_Address, [ClientID] = @ClientID WHERE [Health_Profile_ID] = @Health_Profile_ID">
+        <DeleteParameters>
+            <asp:Parameter Name="Health_Profile_ID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="Health_Profile_ID" Type="Int32" />
+            <asp:Parameter DbType="Date" Name="DOB" />
+            <asp:Parameter Name="Staffing_Ratio" Type="String" />
+            <asp:Parameter Name="Height" Type="String" />
+            <asp:Parameter Name="Weight" Type="String" />
+            <asp:Parameter Name="Hair" Type="String" />
+            <asp:Parameter Name="Diagnosed_Condition" Type="String" />
+            <asp:Parameter Name="Eyes" Type="String" />
+            <asp:Parameter Name="Limitations" Type="String" />
+            <asp:Parameter Name="Allergies" Type="String" />
+            <asp:Parameter Name="Preferred_Hospital" Type="String" />
+            <asp:Parameter Name="Life_Support_Request" Type="String" />
+            <asp:Parameter Name="H_Address" Type="Int32" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter DbType="Date" Name="DOB" />
+            <asp:Parameter Name="Staffing_Ratio" Type="String" />
+            <asp:Parameter Name="Height" Type="String" />
+            <asp:Parameter Name="Weight" Type="String" />
+            <asp:Parameter Name="Hair" Type="String" />
+            <asp:Parameter Name="Diagnosed_Condition" Type="String" />
+            <asp:Parameter Name="Eyes" Type="String" />
+            <asp:Parameter Name="Limitations" Type="String" />
+            <asp:Parameter Name="Allergies" Type="String" />
+            <asp:Parameter Name="Preferred_Hospital" Type="String" />
+            <asp:Parameter Name="Life_Support_Request" Type="String" />
+            <asp:Parameter Name="H_Address" Type="Int32" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="Health_Profile_ID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+    <%--//Connection to Insurance table--%>
+    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Insurance] WHERE [InsuranceID] = @InsuranceID" InsertCommand="INSERT INTO [Insurance] ([InsuranceID], [ClientID], [AddressID], [Medicaid_Number], [Medicare_Number], [Insurance_Name], [Policy_Number], [Group_Number], [Insurance_Phone]) VALUES (@InsuranceID, @ClientID, @AddressID, @Medicaid_Number, @Medicare_Number, @Insurance_Name, @Policy_Number, @Group_Number, @Insurance_Phone)" SelectCommand="SELECT [InsuranceID], [ClientID], [AddressID], [Medicaid_Number], [Medicare_Number], [Insurance_Name], [Policy_Number], [Group_Number], [Insurance_Phone] FROM [Insurance]" UpdateCommand="UPDATE [Insurance] SET [ClientID] = @ClientID, [AddressID] = @AddressID, [Medicaid_Number] = @Medicaid_Number, [Medicare_Number] = @Medicare_Number, [Insurance_Name] = @Insurance_Name, [Policy_Number] = @Policy_Number, [Group_Number] = @Group_Number, [Insurance_Phone] = @Insurance_Phone WHERE [InsuranceID] = @InsuranceID">
+        <DeleteParameters>
+            <asp:Parameter Name="InsuranceID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="InsuranceID" Type="Int32" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="AddressID" Type="Int32" />
+            <asp:Parameter Name="Medicaid_Number" Type="String" />
+            <asp:Parameter Name="Medicare_Number" Type="String" />
+            <asp:Parameter Name="Insurance_Name" Type="String" />
+            <asp:Parameter Name="Policy_Number" Type="Int32" />
+            <asp:Parameter Name="Group_Number" Type="Int32" />
+            <asp:Parameter Name="Insurance_Phone" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="AddressID" Type="Int32" />
+            <asp:Parameter Name="Medicaid_Number" Type="String" />
+            <asp:Parameter Name="Medicare_Number" Type="String" />
+            <asp:Parameter Name="Insurance_Name" Type="String" />
+            <asp:Parameter Name="Policy_Number" Type="Int32" />
+            <asp:Parameter Name="Group_Number" Type="Int32" />
+            <asp:Parameter Name="Insurance_Phone" Type="String" />
+            <asp:Parameter Name="InsuranceID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+    <%--//Connection to Medical Provider table--%>
+    <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Medical_Provider] WHERE [ProviderID] = @ProviderID" InsertCommand="INSERT INTO [Medical_Provider] ([ProviderID], [Specialty], [ClientID], [ContactID]) VALUES (@ProviderID, @Specialty, @ClientID, @ContactID)" SelectCommand="SELECT [ProviderID], [Specialty], [ClientID], [ContactID] FROM [Medical_Provider]" UpdateCommand="UPDATE [Medical_Provider] SET [Specialty] = @Specialty, [ClientID] = @ClientID, [ContactID] = @ContactID WHERE [ProviderID] = @ProviderID">
+        <DeleteParameters>
+            <asp:Parameter Name="ProviderID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="ProviderID" Type="Int32" />
+            <asp:Parameter Name="Specialty" Type="String" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="ContactID" Type="Int32" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Specialty" Type="String" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="ContactID" Type="Int32" />
+            <asp:Parameter Name="ProviderID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+    <%--//Connection to Medication table--%>
+    <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Medication] WHERE [MedicationID] = @MedicationID" InsertCommand="INSERT INTO [Medication] ([MedicationID], [Medication_Name], [Dosage], [Purpose], [Non_Perscription], [ClientID], [ProviderID]) VALUES (@MedicationID, @Medication_Name, @Dosage, @Purpose, @Non_Perscription, @ClientID, @ProviderID)" SelectCommand="SELECT [MedicationID], [Medication_Name], [Dosage], [Purpose], [Non_Perscription], [ClientID], [ProviderID] FROM [Medication]" UpdateCommand="UPDATE [Medication] SET [Medication_Name] = @Medication_Name, [Dosage] = @Dosage, [Purpose] = @Purpose, [Non_Perscription] = @Non_Perscription, [ClientID] = @ClientID, [ProviderID] = @ProviderID WHERE [MedicationID] = @MedicationID">
+        <DeleteParameters>
+            <asp:Parameter Name="MedicationID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="MedicationID" Type="Int32" />
+            <asp:Parameter Name="Medication_Name" Type="String" />
+            <asp:Parameter Name="Dosage" Type="String" />
+            <asp:Parameter Name="Purpose" Type="String" />
+            <asp:Parameter Name="Non_Perscription" Type="String" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="ProviderID" Type="Int32" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Medication_Name" Type="String" />
+            <asp:Parameter Name="Dosage" Type="String" />
+            <asp:Parameter Name="Purpose" Type="String" />
+            <asp:Parameter Name="Non_Perscription" Type="String" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="ProviderID" Type="Int32" />
+            <asp:Parameter Name="MedicationID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+    <%--//Page Header--%>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -11,6 +203,7 @@
             </div>
         </div>
     </div>
+    <%--//Data Entry Form--%>
     <div class="centerForm">
         <h3 class="text-center">Personal Information</h3>
         <div class="row">
