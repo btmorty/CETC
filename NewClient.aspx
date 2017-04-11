@@ -146,7 +146,7 @@
                 <br />
                 <asp:Label ID="lblFileUpload" runat="server" Text="Upload Image "></asp:Label><br />
                 <asp:FileUpload ID="imageUpload" runat="server" /><br />
-                <asp:Button ID="btnUpload" runat="server" Text="Upload Image" OnClick="Button1_Click" />
+                <asp:LinkButton ID="btnUpload" runat="server" CssClass="btn btn-primary" OnClick="Button1_Click"> <span aria-hidden="true" class="glyphicon glyphicon-upload"></span> Upload Picture</asp:LinkButton>
             </div>
         </div>
 
@@ -726,7 +726,8 @@
                 </asp:TableRow>
             </asp:Table>
             <div>
-                <asp:Button ID="btnAddMed" runat="server" Text="Add Medication" OnClick="btnAddMed_Click" />
+                <br />
+                <asp:LinkButton ID="btnAddMed" runat="server" CssClass="btn btn-primary" OnClick="btnAddMed_Click"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Medication</asp:LinkButton>
                 <asp:Label ID="lblMedAddError" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
             </div>
 
@@ -764,12 +765,13 @@
                     </asp:TableRow>
                 </asp:Table>
             </div>
+            </div>
             <br />
             <br />
             <div style="text-align: center;">
                 <div style="width: 350px; margin-left: auto; margin-right: auto;">
-                    <input type="submit">
-                    <input type="reset">
+                    <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-primary"> <span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Submit</asp:LinkButton>
+                    <asp:LinkButton ID="ResetBtn" runat="server" CssClass="btn btn-primary"> <span aria-hidden="true" class="glyphicon glyphicon-refresh"></span> Reset</asp:LinkButton>
                 </div>
             </div>
         </div>
