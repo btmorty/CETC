@@ -7,11 +7,25 @@ using System.Web.UI.WebControls;
 
 public partial class NewClient : System.Web.UI.Page
 {
-    //this can't be static because it will never loose its value for all users and return visits to site but it demonstrates the concept.
-    static int btnClickCount =2;
+    int counter;
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        
+        if (ViewState["Counter"] == null)
+        {
+            counter = 2;
+        }
+        else
+        {
+            counter = (int)ViewState["Counter"] + 1;
+        }
+        ViewState["Counter"] = counter;
 
+        if (!IsPostBack)
+        {
+            counter = 0;
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -23,7 +37,8 @@ public partial class NewClient : System.Web.UI.Page
 
     protected void btnAddMed_Click(object sender, EventArgs e)
     {
-        switch (btnClickCount)
+
+        switch (counter)
         {
             case 2:
                 med2.Visible = true;
@@ -57,8 +72,6 @@ public partial class NewClient : System.Web.UI.Page
                 lblMedAddError.Visible = true;
                 break;
         }
-
-        btnClickCount = btnClickCount + 1;
 
     }
 }
