@@ -966,6 +966,9 @@
                     <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-primary"> <span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Submit</asp:LinkButton>
                     <asp:LinkButton ID="ResetBtn" runat="server" CssClass="btn btn-primary"> <span aria-hidden="true" class="glyphicon glyphicon-refresh"></span> Reset</asp:LinkButton>
                 </div>
+                <div>
+                    <asp:Label ID="lblResults" runat="server" Visible="false"></asp:Label>
+                </div>
             </div>
         </div>
 </asp:Content>
