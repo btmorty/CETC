@@ -671,8 +671,7 @@
                         <asp:TextBox ID="txtPurpose" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="lblNonPerscription" runat="server" Text="Non-Prescription "></asp:Label><br />
-                        <asp:TextBox ID="txtNonPerscription" runat="server"></asp:TextBox>
+                        <asp:CheckBox ID="CheckBox4" runat="server" Text="Non-Prescription" TextAlign="Right" />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblPMedFirstName" runat="server" Text="Physician First Name "></asp:Label><br />
@@ -697,8 +696,7 @@
                         <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="Label7" runat="server" Text="Non-Prescription "></asp:Label><br />
-                        <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                       <asp:CheckBox ID="CheckBox5" runat="server" Text="Non-Prescription" TextAlign="Right" />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label8" runat="server" Text="Physician First Name "></asp:Label><br />
@@ -723,8 +721,7 @@
                         <asp:TextBox ID="TextBox13" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="Label16" runat="server" Text="Non-Prescription "></asp:Label><br />
-                        <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox>
+                        <asp:CheckBox ID="CheckBox6" runat="server" Text="Non-Prescription" TextAlign="Right" />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label17" runat="server" Text="Physician First Name "></asp:Label><br />
@@ -749,8 +746,7 @@
                         <asp:TextBox ID="TextBox19" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="Label22" runat="server" Text="Non-Prescription "></asp:Label><br />
-                        <asp:TextBox ID="TextBox20" runat="server"></asp:TextBox>
+                        <asp:CheckBox ID="CheckBox7" runat="server" Text="Non-Prescription" TextAlign="Right" />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label23" runat="server" Text="Physician First Name "></asp:Label><br />
@@ -775,8 +771,7 @@
                         <asp:TextBox ID="TextBox25" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="Label28" runat="server" Text="Non-Prescription "></asp:Label><br />
-                        <asp:TextBox ID="TextBox26" runat="server"></asp:TextBox>
+                        <asp:CheckBox ID="CheckBox8" runat="server" Text="Non-Prescription" TextAlign="Right" />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label29" runat="server" Text="Physician First Name "></asp:Label><br />
@@ -801,8 +796,7 @@
                         <asp:TextBox ID="TextBox31" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="Label34" runat="server" Text="Non-Prescription "></asp:Label><br />
-                        <asp:TextBox ID="TextBox32" runat="server"></asp:TextBox>
+                        <asp:CheckBox ID="CheckBox9" runat="server" Text="Non-Prescription" TextAlign="Right" />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label35" runat="server" Text="Physician First Name "></asp:Label><br />
@@ -827,8 +821,7 @@
                         <asp:TextBox ID="TextBox37" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="Label40" runat="server" Text="Non-Prescription "></asp:Label><br />
-                        <asp:TextBox ID="TextBox38" runat="server"></asp:TextBox>
+                        <asp:CheckBox ID="CheckBox10" runat="server" Text="Non-Prescription" TextAlign="Right" />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label41" runat="server" Text="Physician First Name "></asp:Label><br />
@@ -853,8 +846,7 @@
                         <asp:TextBox ID="TextBox43" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="Label46" runat="server" Text="Non-Prescription "></asp:Label><br />
-                        <asp:TextBox ID="TextBox44" runat="server"></asp:TextBox>
+                        <asp:CheckBox ID="CheckBox11" runat="server" Text="Non-Prescription" TextAlign="Right" />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label47" runat="server" Text="Physician First Name "></asp:Label><br />
@@ -879,8 +871,7 @@
                         <asp:TextBox ID="TextBox49" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="Label52" runat="server" Text="Non-Prescription "></asp:Label><br />
-                        <asp:TextBox ID="TextBox50" runat="server"></asp:TextBox>
+                        <asp:CheckBox ID="CheckBox12" runat="server" Text="Non-Prescription" TextAlign="Right" />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label53" runat="server" Text="Physician First Name "></asp:Label><br />
@@ -905,8 +896,7 @@
                         <asp:TextBox ID="TextBox55" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="Label58" runat="server" Text="Non-Prescription "></asp:Label><br />
-                        <asp:TextBox ID="TextBox56" runat="server"></asp:TextBox>
+                        <asp:CheckBox ID="CheckBox13" runat="server" Text="Non-Prescription" TextAlign="Right" />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label59" runat="server" Text="Physician First Name "></asp:Label><br />
