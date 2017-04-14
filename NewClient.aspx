@@ -247,7 +247,7 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Label ID="lblState" runat="server" Text="State "></asp:Label><br />
-                            <asp:TextBox ID="txtState" runat="server"></asp:TextBox>
+                            <asp:DropDownList ID="DropDownListState1" runat="server"></asp:DropDownList>
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Label ID="lblZip" runat="server" Text="Zip "></asp:Label><br />
@@ -341,10 +341,6 @@
                             <asp:Label ID="lblComm" runat="server" Text="Modes of Communication "></asp:Label><br />
                             <asp:TextBox ID="txtComm" runat="server"></asp:TextBox>
                         </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblGuardian" runat="server" Text="Guardian "></asp:Label><br />
-                            <asp:TextBox ID="txtGuardian" runat="server"></asp:TextBox>
-                        </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
             </div>
@@ -397,7 +393,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblStateCont1" runat="server" Text="State "></asp:Label><br />
-                        <asp:TextBox ID="txtStateCont1" runat="server"></asp:TextBox>
+                        <asp:DropDownList ID="DropDownListState2" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblZipCont1" runat="server" Text="Zip "></asp:Label><br />
@@ -439,14 +435,16 @@
                     <asp:TableCell>
                         <asp:Label ID="Label3" runat="server" Text="Relationship "></asp:Label><br />
                         <asp:DropDownList ID="DropDownList1" runat="server">
+                            <asp:ListItem>Legal Guardian</asp:ListItem>
                             <asp:ListItem>Spouse</asp:ListItem>
                             <asp:ListItem>Parent</asp:ListItem>
                             <asp:ListItem>Child</asp:ListItem>
-                            <asp:ListItem>Other Legal Guardian</asp:ListItem>
+                            <asp:ListItem>Other</asp:ListItem>
                         </asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:CheckBox ID="CheckBox2" runat="server" Text=" Emergency Contact" TextAlign="Right" />
+                        <asp:CheckBox ID="ChkEm2" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
+                        <asp:CheckBox ID="ChkGuard2" runat="server" Text=" Legal Guardian" TextAlign="Right" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
@@ -502,14 +500,16 @@
                     <asp:TableCell>
                         <asp:Label ID="Label14" runat="server" Text="Relationship "></asp:Label><br />
                         <asp:DropDownList ID="DropDownList2" runat="server">
+                            <asp:ListItem>Legal Guardian</asp:ListItem>
                             <asp:ListItem>Spouse</asp:ListItem>
                             <asp:ListItem>Parent</asp:ListItem>
                             <asp:ListItem>Child</asp:ListItem>
-                            <asp:ListItem>Other Legal Guardian</asp:ListItem>
+                            <asp:ListItem>Other</asp:ListItem>
                         </asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:CheckBox ID="CheckBox3" runat="server" Text=" Emergency Contact" TextAlign="Right" />
+                        <asp:CheckBox ID="ChkEm3" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
+                        <asp:CheckBox ID="ChkGuard3" runat="server" Text=" Legal Guardian" TextAlign="Right" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>

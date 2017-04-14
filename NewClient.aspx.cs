@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -29,6 +30,16 @@ public partial class NewClient : System.Web.UI.Page
         if (!IsPostBack)
         {
             counter = 0;
+
+            var items = new List<string>
+            {
+            "--Select State--","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO",
+            "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY",
+            };
+            DropDownListState1.DataSource = items;
+            DropDownListState2.DataSource = items;
+            DropDownListState1.DataBind();
+            DropDownListState2.DataBind();
         }
     }
 
@@ -72,19 +83,19 @@ public partial class NewClient : System.Web.UI.Page
                 med10.Visible = true;
                 break;
             case 11:
-                med10.Visible = true;
+                med11.Visible = true;
                 break;
             case 12:
-                med10.Visible = true;
+                med12.Visible = true;
                 break;
             case 13:
-                med10.Visible = true;
+                med13.Visible = true;
                 break;
             case 14:
-                med10.Visible = true;
+                med14.Visible = true;
                 break;
             case 15:
-                med10.Visible = true;
+                med15.Visible = true;
                 break;
             default:
                 lblMedAddError.Text = "Max number of medications reached";
