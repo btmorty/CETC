@@ -71,6 +71,21 @@ public partial class NewClient : System.Web.UI.Page
             case 10:
                 med10.Visible = true;
                 break;
+            case 11:
+                med10.Visible = true;
+                break;
+            case 12:
+                med10.Visible = true;
+                break;
+            case 13:
+                med10.Visible = true;
+                break;
+            case 14:
+                med10.Visible = true;
+                break;
+            case 15:
+                med10.Visible = true;
+                break;
             default:
                 lblMedAddError.Text = "Max number of medications reached";
                 lblMedAddError.Visible = true;

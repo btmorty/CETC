@@ -263,8 +263,6 @@
                             <asp:Label ID="lblPhone" runat="server" Text="Phone "></asp:Label><br />
                             <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
                         </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="lblSex" runat="server" Text="Sex "></asp:Label><br />
                             <asp:DropDownList ID="DropDownSex" runat="server">
@@ -275,20 +273,22 @@
                         <asp:TableCell>
                             <asp:Label ID="lblRace" runat="server" Text="Race "></asp:Label><br />
                             <asp:DropDownList ID="DropDownListRace" runat="server">
-                                <asp:ListItem>Mixed Race</asp:ListItem>
+                                <asp:ListItem>African American</asp:ListItem>
                                 <asp:ListItem>Caucasian</asp:ListItem>
                                 <asp:ListItem>Native American</asp:ListItem>
-                                <asp:ListItem>North East Asian</asp:ListItem>
-                                <asp:ListItem>Pacific</asp:ListItem>
-                                <asp:ListItem>South East Asian</asp:ListItem>
+                                <asp:ListItem>Oriental</asp:ListItem>
+                                <asp:ListItem>Pacific Islander</asp:ListItem>
                                 <asp:ListItem>Other Race</asp:ListItem>
                             </asp:DropDownList>
                         </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="lblResStatus" runat="server" Text="Residential Status "></asp:Label><br />
                             <asp:DropDownList ID="DropDownListResStatus" runat="server">
-                                <asp:ListItem>Rent</asp:ListItem>
-                                <asp:ListItem>Own</asp:ListItem>
+                                <asp:ListItem>Lives Alone</asp:ListItem>
+                                <asp:ListItem>Group Home</asp:ListItem>
+                                <asp:ListItem>Lives With Family</asp:ListItem>
                             </asp:DropDownList>
                         </asp:TableCell>
                         <asp:TableCell>
@@ -299,6 +299,20 @@
                                 <asp:ListItem>other</asp:ListItem>
                             </asp:DropDownList>
                         </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lbl" runat="server" Text="Religious Affiliation "></asp:Label><br />
+                            <asp:DropDownList ID="DropDownListReligion" runat="server">
+                                <asp:ListItem>Buddhist</asp:ListItem>
+                                <asp:ListItem>Catholic</asp:ListItem>
+                                <asp:ListItem>Christian</asp:ListItem>
+                                <asp:ListItem>Hindu</asp:ListItem>
+                                <asp:ListItem>LDS</asp:ListItem>
+                                <asp:ListItem>Muslim</asp:ListItem>
+                                <asp:ListItem>Non-Denominational</asp:ListItem>
+                                <asp:ListItem>N/A</asp:ListItem>
+                                <asp:ListItem>Other</asp:ListItem>
+                            </asp:DropDownList>
+                        </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>
@@ -306,8 +320,8 @@
                             <asp:TextBox ID="txtSSN" runat="server"></asp:TextBox>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Label ID="lblICAP" runat="server" Text="ICAP Level "></asp:Label><br />
-                            <asp:TextBox ID="txtICAP" runat="server"></asp:TextBox>
+                            <asp:Label ID="lblStaffRatio" runat="server" Text="Staffing Ratio "></asp:Label><br />
+                            <asp:TextBox ID="txtStaffRatio" runat="server"></asp:TextBox>
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Label ID="lblDSPD" runat="server" Text="DSPD "></asp:Label><br />
@@ -360,14 +374,16 @@
                     <asp:TableCell>
                         <asp:Label ID="lblRelCont1" runat="server" Text="Relationship "></asp:Label><br />
                         <asp:DropDownList ID="DropDownListRelCont1" runat="server">
+                            <asp:ListItem>Legal Guardian</asp:ListItem>
                             <asp:ListItem>Spouse</asp:ListItem>
                             <asp:ListItem>Parent</asp:ListItem>
                             <asp:ListItem>Child</asp:ListItem>
-                            <asp:ListItem>Other Legal Guardian</asp:ListItem>
+                            <asp:ListItem>Other</asp:ListItem>
                         </asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:CheckBox ID="CheckBox1" runat="server" Text=" Emergency Contact" TextAlign="Right" />
+                        <asp:CheckBox ID="chkEm1" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
+                        <asp:CheckBox ID="chkGuard1" runat="server" Text=" Legal Guardian" TextAlign="Right" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
@@ -907,6 +923,131 @@
                         <asp:TextBox ID="TextBox58" runat="server"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
+                <asp:TableRow Visible="False" ID="med11">
+                    <asp:TableCell>
+                        <asp:Label ID="Label7" runat="server" Text="Medication "></asp:Label><br />
+                        <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label16" runat="server" Text="Dosage "></asp:Label><br />
+                        <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label22" runat="server" Text="Purpose "></asp:Label><br />
+                        <asp:TextBox ID="TextBox20" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:CheckBox ID="CheckBox14" runat="server" Text="Non-Prescription" TextAlign="Right" />
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label28" runat="server" Text="Physician First Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox26" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label34" runat="server" Text="Physician Last Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox32" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow Visible="False" ID="med12">
+                    <asp:TableCell>
+                        <asp:Label ID="Label40" runat="server" Text="Medication "></asp:Label><br />
+                        <asp:TextBox ID="TextBox38" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label46" runat="server" Text="Dosage "></asp:Label><br />
+                        <asp:TextBox ID="TextBox44" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label52" runat="server" Text="Purpose "></asp:Label><br />
+                        <asp:TextBox ID="TextBox50" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:CheckBox ID="CheckBox15" runat="server" Text="Non-Prescription" TextAlign="Right" />
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label58" runat="server" Text="Physician First Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox56" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label61" runat="server" Text="Physician Last Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox59" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow Visible="False" ID="med13">
+                    <asp:TableCell>
+                        <asp:Label ID="Label62" runat="server" Text="Medication "></asp:Label><br />
+                        <asp:TextBox ID="TextBox60" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label63" runat="server" Text="Dosage "></asp:Label><br />
+                        <asp:TextBox ID="TextBox61" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label64" runat="server" Text="Purpose "></asp:Label><br />
+                        <asp:TextBox ID="TextBox62" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:CheckBox ID="CheckBox16" runat="server" Text="Non-Prescription" TextAlign="Right" />
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label65" runat="server" Text="Physician First Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox63" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label66" runat="server" Text="Physician Last Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox64" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow Visible="False" ID="med14">
+                    <asp:TableCell>
+                        <asp:Label ID="Label67" runat="server" Text="Medication "></asp:Label><br />
+                        <asp:TextBox ID="TextBox65" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label68" runat="server" Text="Dosage "></asp:Label><br />
+                        <asp:TextBox ID="TextBox66" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label69" runat="server" Text="Purpose "></asp:Label><br />
+                        <asp:TextBox ID="TextBox67" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:CheckBox ID="CheckBox17" runat="server" Text="Non-Prescription" TextAlign="Right" />
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label70" runat="server" Text="Physician First Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox68" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label71" runat="server" Text="Physician Last Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox69" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow Visible="False" ID="med15">
+                    <asp:TableCell>
+                        <asp:Label ID="Label72" runat="server" Text="Medication "></asp:Label><br />
+                        <asp:TextBox ID="TextBox70" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label73" runat="server" Text="Dosage "></asp:Label><br />
+                        <asp:TextBox ID="TextBox71" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label74" runat="server" Text="Purpose "></asp:Label><br />
+                        <asp:TextBox ID="TextBox72" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:CheckBox ID="CheckBox18" runat="server" Text="Non-Prescription" TextAlign="Right" />
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label75" runat="server" Text="Physician First Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox73" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label76" runat="server" Text="Physician Last Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox74" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
             </asp:Table>
             <div>
                 <br />
@@ -940,10 +1081,6 @@
                         <asp:TableCell>
                             <asp:Label ID="lblLifeSupport" runat="server" Text="Life Support Request "></asp:Label><br />
                             <asp:TextBox ID="txtLifeSupport" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMedConsent" runat="server" Text="Non-Perscription Medication Consent "></asp:Label><br />
-                            <asp:TextBox ID="txtMedConsent" runat="server" TextMode="MultiLine"></asp:TextBox>
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
