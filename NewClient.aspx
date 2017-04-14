@@ -570,7 +570,42 @@
                 </asp:TableRow>
             </asp:Table>
         </div>
-        <hr>
+        <hr />
+        <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+            <h3 class="text-center">CETC Information</h3>
+            <asp:Table ID="Table9" runat="server" HorizontalAlign="Center" Width="100%">
+                <asp:TableRow>
+                    <%--PULL FROM NEW TABLE--%>
+                    <asp:TableCell>
+                        <asp:Label ID="lblCETCAddress" runat="server" Text="CETC Address "></asp:Label><br />
+                        <asp:TextBox ID="txtCETCAddress" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblCETCPhone" runat="server" Text="CETC Phone "></asp:Label><br />
+                        <asp:TextBox ID="txtCETCPhone" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblDirector" runat="server" Text="CETC Director "></asp:Label><br />
+                        <asp:TextBox ID="txtDirector" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblSvc1" runat="server" Text="Service "></asp:Label><br />
+                        <asp:TextBox ID="txtSvc1" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label78" runat="server" Text="Coordinator "></asp:Label><br />
+                        <asp:TextBox ID="TextBox76" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label79" runat="server" Text="Department Head "></asp:Label><br />
+                        <asp:TextBox ID="TextBox77" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+        </div>
+        <hr />
         <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
             <h3 class="text-center">Health Profile Information</h3>
             <asp:Table ID="Table5" runat="server" HorizontalAlign="Center" Width="100%">
