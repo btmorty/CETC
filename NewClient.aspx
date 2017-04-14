@@ -607,6 +607,55 @@
         </div>
         <hr />
         <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+            <h3 class="text-center">Providers</h3>
+            <asp:Table ID="Table10" runat="server" HorizontalAlign="Center" Width="100%">
+                <asp:TableRow>
+                    <%--PULL FROM NEW TABLE--%>
+                    <asp:TableCell>
+                        <asp:Label ID="lblProviderName" runat="server" Text="Provider "></asp:Label><br />
+                        <asp:TextBox ID="txtProviderName" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblProviderFirstName" runat="server" Text="First Name "></asp:Label><br />
+                        <asp:TextBox ID="txtProviderFirstName" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblProviderLastName" runat="server" Text="Last Name "></asp:Label><br />
+                        <asp:TextBox ID="txtProviderLastName" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblProviderAddress" runat="server" Text="Address "></asp:Label><br />
+                        <asp:TextBox ID="txtProviderAddress" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblProviderCity" runat="server" Text="City "></asp:Label><br />
+                        <asp:TextBox ID="txtProviderCity" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblProviderState" runat="server" Text="State "></asp:Label><br />
+                        <asp:TextBox ID="txtProviderState" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblProviderZip" runat="server" Text="Zip "></asp:Label><br />
+                        <asp:TextBox ID="txtProviderZip" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblProviderEMail" runat="server" Text="E-Mail Address "></asp:Label><br />
+                        <asp:TextBox ID="txtProviderEMail" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblProviderPhone" runat="server" Text="Phone "></asp:Label><br />
+                        <asp:TextBox ID="txtProviderPhone" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+        </div>
+        <hr />
+        <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
             <h3 class="text-center">Health Profile Information</h3>
             <asp:Table ID="Table5" runat="server" HorizontalAlign="Center" Width="100%">
                 <asp:TableRow>
