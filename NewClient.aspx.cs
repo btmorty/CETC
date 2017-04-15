@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 public partial class NewClient : System.Web.UI.Page
 {
-    int counter;
+    int medCounter;
     string connectionString = WebConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
 
     protected void Page_Load(object sender, EventArgs e)
@@ -19,18 +19,19 @@ public partial class NewClient : System.Web.UI.Page
         
         if (ViewState["Counter"] == null)
         {
-            counter = 2;
+            medCounter = 2;
         }
         else
         {
-            counter = (int)ViewState["Counter"] + 1;
+            medCounter = (int)ViewState["Counter"] + 1;
         }
-        ViewState["Counter"] = counter;
+        ViewState["Counter"] = medCounter;
 
         if (!IsPostBack)
         {
-            counter = 0;
+            medCounter = 0;
 
+            //Data Bind State DropDownList Controls
             var items = new List<string>
             {
             "--Select State--","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO",
@@ -38,8 +39,22 @@ public partial class NewClient : System.Web.UI.Page
             };
             DropDownListState1.DataSource = items;
             DropDownListState2.DataSource = items;
+            DropDownListState3.DataSource = items;
+            DropDownListState4.DataSource = items;
+            DropDownListState5.DataSource = items;
+            DropDownListState6.DataSource = items;
             DropDownListState1.DataBind();
             DropDownListState2.DataBind();
+            DropDownListState3.DataBind();
+            DropDownListState4.DataBind();
+            DropDownListState5.DataBind();
+            DropDownListState6.DataBind();
+
+            //Set CETC Info
+            lblCETCDirector.Text = "Director: Kae Lynn Beecher";
+            lblCETCAddress.Text = "Address: 275 West 400 South Logan, UT 84321";
+            lblCETCPhone.Text = "Phone: (435) 752-7952";
+            lblCETCFax.Text = "Fax: 435-752-7958";
         }
     }
 
@@ -53,7 +68,7 @@ public partial class NewClient : System.Web.UI.Page
     protected void btnAddMed_Click(object sender, EventArgs e)
     {
 
-        switch (counter)
+        switch (medCounter)
         {
             case 2:
                 med2.Visible = true;
@@ -138,5 +153,10 @@ public partial class NewClient : System.Web.UI.Page
         {
             con.Close();
         }
+    }
+
+    protected void btnAddProvider_Click(object sender, EventArgs e)
+    {
+
     }
 }

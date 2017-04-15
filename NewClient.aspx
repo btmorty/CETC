@@ -229,7 +229,7 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Label ID="lblDOB" runat="server" Text="Date of Birth "></asp:Label><br />
-                            <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtDOB" runat="server" TextMode="Date"></asp:TextBox>
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Label ID="lblAge" runat="server" Text="Age "></asp:Label><br />
@@ -257,11 +257,11 @@
                     <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="lblEmail" runat="server" Text="E-Mail Address "></asp:Label><br />
-                            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtEmail" runat="server" TextMode="Email"></asp:TextBox>
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Label ID="lblPhone" runat="server" Text="Phone "></asp:Label><br />
-                            <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtPhone" runat="server" TextMode="Phone"></asp:TextBox>
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Label ID="lblSex" runat="server" Text="Sex "></asp:Label><br />
@@ -458,7 +458,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblEmergyContState1" runat="server" Text="State "></asp:Label><br />
-                        <asp:TextBox ID="txtEmergyContState1" runat="server"></asp:TextBox>
+                        <asp:DropDownList ID="DropDownListState3" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblEmergyContZip1" runat="server" Text="Zip "></asp:Label><br />
@@ -523,7 +523,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblEmergyContState2" runat="server" Text="State "></asp:Label><br />
-                        <asp:TextBox ID="txtEmergyContState2" runat="server"></asp:TextBox>
+                        <asp:DropDownList ID="DropDownListState4" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblEmergyContZip2" runat="server" Text="Zip "></asp:Label><br />
@@ -573,22 +573,16 @@
         <hr />
         <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
             <h3 class="text-center">CETC Information</h3>
+            <div class="row">
+                <div class="col-sm-4">
+                    <asp:Label ID="lblCETCDirector" runat="server"></asp:Label><br />
+                    <asp:Label ID="lblCETCAddress" runat="server"></asp:Label><br />
+                    <asp:Label ID="lblCETCPhone" runat="server"></asp:Label><br />
+                    <asp:Label ID="lblCETCFax" runat="server"></asp:Label>
+                    <hr />
+                </div>
+            </div>
             <asp:Table ID="Table9" runat="server" HorizontalAlign="Center" Width="100%">
-                <asp:TableRow>
-                    <%--PULL FROM NEW TABLE--%>
-                    <asp:TableCell>
-                        <asp:Label ID="lblCETCAddress" runat="server" Text="CETC Address "></asp:Label><br />
-                        <asp:TextBox ID="txtCETCAddress" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Label ID="lblCETCPhone" runat="server" Text="CETC Phone "></asp:Label><br />
-                        <asp:TextBox ID="txtCETCPhone" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Label ID="lblDirector" runat="server" Text="CETC Director "></asp:Label><br />
-                        <asp:TextBox ID="txtDirector" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblSvc1" runat="server" Text="Service "></asp:Label><br />
@@ -623,6 +617,14 @@
                         <asp:Label ID="lblProviderLastName" runat="server" Text="Last Name "></asp:Label><br />
                         <asp:TextBox ID="txtProviderLastName" runat="server"></asp:TextBox>
                     </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblProviderEMail" runat="server" Text="E-Mail Address "></asp:Label><br />
+                        <asp:TextBox ID="txtProviderEMail" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblProviderPhone" runat="server" Text="Phone "></asp:Label><br />
+                        <asp:TextBox ID="txtProviderPhone" runat="server"></asp:TextBox>
+                    </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
@@ -635,24 +637,19 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblProviderState" runat="server" Text="State "></asp:Label><br />
-                        <asp:TextBox ID="txtProviderState" runat="server"></asp:TextBox>
+                        <asp:DropDownList ID="DropDownListState5" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblProviderZip" runat="server" Text="Zip "></asp:Label><br />
                         <asp:TextBox ID="txtProviderZip" runat="server"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Label ID="lblProviderEMail" runat="server" Text="E-Mail Address "></asp:Label><br />
-                        <asp:TextBox ID="txtProviderEMail" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Label ID="lblProviderPhone" runat="server" Text="Phone "></asp:Label><br />
-                        <asp:TextBox ID="txtProviderPhone" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                </asp:TableRow>
             </asp:Table>
+        </div>
+        <div>
+            <br />
+            <asp:LinkButton ID="btnAddProvider" runat="server" CssClass="btn btn-primary" OnClick="btnAddProvider_Click"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Provider</asp:LinkButton>
+            <asp:Label ID="lblMaxProviders" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
         </div>
         <hr />
         <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
@@ -687,7 +684,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblAllergies" runat="server" Text="Allergies "></asp:Label><br />
-                        <asp:TextBox ID="txtAllergies" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtAllergies" runat="server" TextMode="MultiLine"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
@@ -735,7 +732,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblMPState" runat="server" Text="State "></asp:Label><br />
-                        <asp:TextBox ID="txtMPState" runat="server"></asp:TextBox>
+                        <asp:DropDownList ID="DropDownListState6" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblMPZip" runat="server" Text="Zip Code "></asp:Label><br />
