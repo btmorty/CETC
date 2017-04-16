@@ -12,24 +12,48 @@ using System.Web.UI.WebControls;
 public partial class NewClient : System.Web.UI.Page
 {
     int medCounter;
+    int ContactCounter;
+    int ProviderCounter;
+
     string connectionString = WebConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-        if (ViewState["Counter"] == null)
+        if (Session["AddMed"] == null)
         {
-            medCounter = 2;
+            medCounter = 1;
         }
         else
         {
-            medCounter = (int)ViewState["Counter"] + 1;
+            medCounter = Convert.ToInt32(Session["AddMed"]);
         }
-        ViewState["Counter"] = medCounter;
+        if (Session["AddContact"] == null)
+        {
+            ContactCounter = 1;
+        }
+        else
+        {
+            ContactCounter = Convert.ToInt32(Session["AddContact"]);
+        }
+        if (Session["AddProvider"] == null)
+        {
+            ProviderCounter = 1;
+        }
+        else
+        {
+            ProviderCounter = Convert.ToInt32(Session["AddProvider"]);
+        }
 
+        //only perform the following the first time the page loads
         if (!IsPostBack)
         {
+            //remove any prior existing session variables
             medCounter = 0;
+            ContactCounter = 0;
+            ProviderCounter = 0;
+            Session.Contents.Remove("AddMed");
+            Session.Contents.Remove("AddContact");
+            Session.Contents.Remove("AddProvider");
 
             //Data Bind State DropDownList Controls
             var items = new List<string>
@@ -67,55 +91,59 @@ public partial class NewClient : System.Web.UI.Page
 
     protected void btnAddMed_Click(object sender, EventArgs e)
     {
-
-        switch (medCounter)
+        if (btnAddMed.CommandName == "AddMed")
         {
-            case 2:
-                med2.Visible = true;
-                break;
-            case 3:
-                med3.Visible = true;
-                break;
-            case 4:
-                med4.Visible = true;
-                break;
-            case 5:
-                med5.Visible = true;
-                break;
-            case 6:
-                med6.Visible = true;
-                break;
-            case 7:
-                med7.Visible = true;
-                break;
-            case 8:
-                med8.Visible = true;
-                break;
-            case 9:
-                med9.Visible = true;
-                break;
-            case 10:
-                med10.Visible = true;
-                break;
-            case 11:
-                med11.Visible = true;
-                break;
-            case 12:
-                med12.Visible = true;
-                break;
-            case 13:
-                med13.Visible = true;
-                break;
-            case 14:
-                med14.Visible = true;
-                break;
-            case 15:
-                med15.Visible = true;
-                break;
-            default:
-                lblMedAddError.Text = "Max number of medications reached";
-                lblMedAddError.Visible = true;
-                break;
+            medCounter++;
+            Session["AddMed"] = medCounter;
+            switch (medCounter)
+            {
+                case 2:
+                    med2.Visible = true;
+                    break;
+                case 3:
+                    med3.Visible = true;
+                    break;
+                case 4:
+                    med4.Visible = true;
+                    break;
+                case 5:
+                    med5.Visible = true;
+                    break;
+                case 6:
+                    med6.Visible = true;
+                    break;
+                case 7:
+                    med7.Visible = true;
+                    break;
+                case 8:
+                    med8.Visible = true;
+                    break;
+                case 9:
+                    med9.Visible = true;
+                    break;
+                case 10:
+                    med10.Visible = true;
+                    break;
+                case 11:
+                    med11.Visible = true;
+                    break;
+                case 12:
+                    med12.Visible = true;
+                    break;
+                case 13:
+                    med13.Visible = true;
+                    break;
+                case 14:
+                    med14.Visible = true;
+                    break;
+                case 15:
+                    med15.Visible = true;
+                    break;
+                default:
+                    lblMedAddError.Text = "Max number of medications reached";
+                    lblMedAddError.Visible = true;
+                    break;
+            }
         }
 
     }
@@ -157,6 +185,29 @@ public partial class NewClient : System.Web.UI.Page
 
     protected void btnAddProvider_Click(object sender, EventArgs e)
     {
-
+        if (btnAddProvider.CommandName == "AddProvider")
+        {
+            ProviderCounter++;
+            Session["AddProvider"] = ProviderCounter;
+            switch (ProviderCounter)
+            {
+                case 2:
+                    Provider2.Visible = true;
+                    break;
+                case 3:
+                    Provider3.Visible = true;
+                    break;
+                case 4:
+                    Provider4.Visible = true;
+                    break;
+                case 5:
+                    Provider5.Visible = true;
+                    break;
+                default:
+                    lblMaxProviders.Text = "Max number of providers reached";
+                    lblMaxProviders.Visible = true;
+                    break;
+            }
+        }
     }
 }
