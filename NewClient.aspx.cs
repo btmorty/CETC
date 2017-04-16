@@ -58,7 +58,7 @@ public partial class NewClient : System.Web.UI.Page
             //Data Bind State DropDownList Controls
             var items = new List<string>
             {
-            "--Select State--","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO",
+            "--","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO",
             "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY",
             };
             DropDownListState1.DataSource = items;
@@ -67,12 +67,21 @@ public partial class NewClient : System.Web.UI.Page
             DropDownListState4.DataSource = items;
             DropDownListState5.DataSource = items;
             DropDownListState6.DataSource = items;
+            DropDownListState7.DataSource = items;
+            DropDownListState8.DataSource = items;
+            DropDownListState9.DataSource = items;
+            DropDownListState10.DataSource = items;
             DropDownListState1.DataBind();
             DropDownListState2.DataBind();
             DropDownListState3.DataBind();
             DropDownListState4.DataBind();
             DropDownListState5.DataBind();
             DropDownListState6.DataBind();
+            DropDownListState7.DataBind();
+            DropDownListState8.DataBind();
+            DropDownListState9.DataBind();
+            DropDownListState10.DataBind();
+
 
             //Set CETC Info
             lblCETCDirector.Text = "Director: Kae Lynn Beecher";
@@ -193,6 +202,7 @@ public partial class NewClient : System.Web.UI.Page
             {
                 case 2:
                     Provider2.Visible = true;
+                    Provider2hr.Visible = true;
                     break;
                 case 3:
                     Provider3.Visible = true;

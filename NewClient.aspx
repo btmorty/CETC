@@ -200,6 +200,8 @@
                     <h2 class="text-center">New Client</h2>
                 </div>
                 <hr>
+                <%--//Validation Report--%>
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
             </div>
         </div>
     </div>
@@ -220,11 +222,13 @@
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>
-                            <asp:Label ID="lblFname" runat="server" Text="First Name "></asp:Label><br />
+                            <asp:Label ID="lblFname" runat="server" Text="First Name "></asp:Label>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="txtFname" ErrorMessage="First Name is required." ForeColor="Red"> *</asp:RequiredFieldValidator><br />
                             <asp:TextBox ID="txtFname" runat="server"></asp:TextBox>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Label ID="lblLname" runat="server" Text="Last Name "></asp:Label><br />
+                            <asp:Label ID="lblLname" runat="server" Text="Last Name "></asp:Label>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="txtLname" ErrorMessage="Last Name is required." ForeColor="Red"> *</asp:RequiredFieldValidator><br />
                             <asp:TextBox ID="txtLname" runat="server"></asp:TextBox>
                         </asp:TableCell>
                         <asp:TableCell>
@@ -644,6 +648,7 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
+            <hr ID="Provider2hr" runat="server" style="border-top:1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" Visible="False"/>
             <asp:Table ID="Provider2" runat="server" HorizontalAlign="Center" Width="100%" Visible="False">
                 <asp:TableRow>
                     <asp:TableCell>
@@ -678,7 +683,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label11" runat="server" Text="State "></asp:Label><br />
-                        <asp:DropDownList ID="DropDownList3" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="DropDownListState7" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label15" runat="server" Text="Zip "></asp:Label><br />
@@ -720,7 +725,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label23" runat="server" Text="State "></asp:Label><br />
-                        <asp:DropDownList ID="DropDownList4" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="DropDownListState8" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label24" runat="server" Text="Zip "></asp:Label><br />
@@ -762,7 +767,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label32" runat="server" Text="State "></asp:Label><br />
-                        <asp:DropDownList ID="DropDownList5" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="DropDownListState9" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label33" runat="server" Text="Zip "></asp:Label><br />
@@ -804,7 +809,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label41" runat="server" Text="State "></asp:Label><br />
-                        <asp:DropDownList ID="DropDownList6" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="DropDownListState10" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label42" runat="server" Text="Zip "></asp:Label><br />
