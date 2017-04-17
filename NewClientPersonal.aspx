@@ -506,7 +506,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblRelCont6" runat="server" Text="Relationship "></asp:Label><br />
-                        <asp:DropDownList ID="DropDownListRelCont5" runat="server">
+                        <asp:DropDownList ID="DropDownListRelCont6" runat="server">
                             <asp:ListItem>Legal Guardian</asp:ListItem>
                             <asp:ListItem>Spouse</asp:ListItem>
                             <asp:ListItem>Parent</asp:ListItem>

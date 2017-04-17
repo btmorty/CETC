@@ -11,4 +11,10 @@ public partial class ViewClient : System.Web.UI.Page
     {
 
     }
+
+    protected void All_Click(object sender, EventArgs e)
+    {
+        Button B = (Button)sender;
+        B.CommandName //pass to business tier method
+    }
 }

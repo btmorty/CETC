@@ -23,7 +23,7 @@
         <div class="container">
             <div class="btn-toolbar">
                 <div class="btn-group btn-group-sm">
-                    <asp:LinkButton ID="All" runat="server" CssClass="btn btn-default">*ALL</asp:LinkButton>
+                    <asp:LinkButton ID="All" runat="server" CssClass="btn btn-default" OnClick="All_Click">*ALL</asp:LinkButton>
                     <asp:LinkButton ID="A" runat="server" CssClass="btn btn-default">A</asp:LinkButton>
                     <asp:LinkButton ID="B" runat="server" CssClass="btn btn-default">B</asp:LinkButton>
                     <asp:LinkButton ID="C" runat="server" CssClass="btn btn-default">C</asp:LinkButton>
