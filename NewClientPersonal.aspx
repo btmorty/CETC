@@ -246,16 +246,16 @@
             <asp:Table ID="Table2" runat="server" HorizontalAlign="Center" Width="100%">
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="Label1" runat="server" Text="First Name "></asp:Label><br />
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblFnameCont2" runat="server" Text="First Name "></asp:Label><br />
+                        <asp:TextBox ID="txtFnameCont2" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="Label2" runat="server" Text="Last Name "></asp:Label><br />
-                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblLnameCont2" runat="server" Text="Last Name "></asp:Label><br />
+                        <asp:TextBox ID="txtLnameCont2" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="Label3" runat="server" Text="Relationship "></asp:Label><br />
-                        <asp:DropDownList ID="DropDownList1" runat="server">
+                        <asp:Label ID="lblRelCont2" runat="server" Text="Relationship "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownListRelCont2" runat="server">
                             <asp:ListItem>Legal Guardian</asp:ListItem>
                             <asp:ListItem>Spouse</asp:ListItem>
                             <asp:ListItem>Parent</asp:ListItem>
@@ -270,38 +270,38 @@
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblEmergyContAddress1" runat="server" Text="Address "></asp:Label><br />
-                        <asp:TextBox ID="txtEmergyContAddress1" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblAddressCont2" runat="server" Text="Address "></asp:Label><br />
+                        <asp:TextBox ID="txtAddressCont2" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="lblEmergyContCity1" runat="server" Text="City "></asp:Label><br />
-                        <asp:TextBox ID="txtEmergyContCity1" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblCityCont2" runat="server" Text="City "></asp:Label><br />
+                        <asp:TextBox ID="txtCityCont2" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="lblEmergyContState1" runat="server" Text="State "></asp:Label><br />
+                        <asp:Label ID="lblStateCont2" runat="server" Text="State "></asp:Label><br />
                         <asp:DropDownList ID="DropDownListState3" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="lblEmergyContZip1" runat="server" Text="Zip "></asp:Label><br />
-                        <asp:TextBox ID="txtEmergyContZip1" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblZipCont2" runat="server" Text="Zip "></asp:Label><br />
+                        <asp:TextBox ID="txtZipCont2" runat="server"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblEmergyContEmail1" runat="server" Text="E-Mail Address "></asp:Label><br />
-                        <asp:TextBox ID="txtEmergyContEmail1" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblEmailCont2" runat="server" Text="E-Mail Address "></asp:Label><br />
+                        <asp:TextBox ID="txtEmailCont2" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="lblEmergyContHomePhone1" runat="server" Text="Home Phone "></asp:Label><br />
-                        <asp:TextBox ID="txtEmergyContHomePhone1" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblHphoneCont2" runat="server" Text="Home Phone "></asp:Label><br />
+                        <asp:TextBox ID="txtHphoneCont2" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="lblEmergyContCellPhone1" runat="server" Text="Cell Phone "></asp:Label><br />
-                        <asp:TextBox ID="txtEmergyContCellPhone1" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblCphoneCont2" runat="server" Text="Cell Phone "></asp:Label><br />
+                        <asp:TextBox ID="txtCphoneCont2" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="lblEmergyContWorkPhone1" runat="server" Text="Work Phone "></asp:Label><br />
-                        <asp:TextBox ID="txtEmergyContWorkPhone1" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblWphoneCont2" runat="server" Text="Work Phone "></asp:Label><br />
+                        <asp:TextBox ID="lblWphoneCont2" runat="server"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
