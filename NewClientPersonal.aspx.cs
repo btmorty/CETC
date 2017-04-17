@@ -89,7 +89,7 @@ public partial class NewClientPersonal : System.Web.UI.Page
             lblCETCFax.Text = "Fax: 435-752-7958";
 
             //Set Current Date
-            lblDate.Text = DateTime.Now.ToString();
+            lblDate.Text = System.DateTime.Now.ToShortDateString();
             lblDate.ForeColor = System.Drawing.Color.Blue;
         }
     }

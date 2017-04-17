@@ -80,12 +80,18 @@
                             <asp:TextBox ID="txtPhone" runat="server" TextMode="Phone"></asp:TextBox>
                         </asp:TableCell>
                         <asp:TableCell>
+                            <asp:Label ID="lblSSN" runat="server" Text="SSN "></asp:Label><br />
+                            <asp:TextBox ID="txtSSN" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                        <asp:TableCell>
                             <asp:Label ID="lblSex" runat="server" Text="Sex "></asp:Label><br />
                             <asp:DropDownList ID="DropDownSex" runat="server">
                                 <asp:ListItem>Male</asp:ListItem>
                                 <asp:ListItem>Female</asp:ListItem>
                             </asp:DropDownList>
                         </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="lblRace" runat="server" Text="Race "></asp:Label><br />
                             <asp:DropDownList ID="DropDownListRace" runat="server">
@@ -97,8 +103,6 @@
                                 <asp:ListItem>Other Race</asp:ListItem>
                             </asp:DropDownList>
                         </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="lblResStatus" runat="server" Text="Residential Status "></asp:Label><br />
                             <asp:DropDownList ID="DropDownListResStatus" runat="server">
@@ -131,10 +135,7 @@
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblSSN" runat="server" Text="SSN "></asp:Label><br />
-                            <asp:TextBox ID="txtSSN" runat="server"></asp:TextBox>
-                        </asp:TableCell>
+                        
                         <asp:TableCell>
                             <asp:Label ID="lblStaffRatio" runat="server" Text="Staffing Ratio "></asp:Label><br />
                             <asp:TextBox ID="txtStaffRatio" runat="server"></asp:TextBox>
@@ -156,6 +157,10 @@
                         <asp:TableCell>
                             <asp:Label ID="lblComm" runat="server" Text="Modes of Communication "></asp:Label><br />
                             <asp:TextBox ID="txtComm" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblDiagnosis" runat="server" Text="Diagnosis "></asp:Label><br />
+                            <asp:TextBox ID="txtDiagnosis" runat="server"></asp:TextBox>
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
