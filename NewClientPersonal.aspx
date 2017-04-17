@@ -240,8 +240,6 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
-        </div>
-        <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
             <h4 class="text-center">Contact #2</h4>
             <asp:Table ID="Table2" runat="server" HorizontalAlign="Center" Width="100%">
                 <asp:TableRow>
@@ -305,8 +303,6 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
-        </div>
-        <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
             <h4 class="text-center">Contact #3</h4>
             <asp:Table ID="Table3" runat="server" HorizontalAlign="Center" Width="100%">
                 <asp:TableRow>
@@ -370,6 +366,450 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
+            <h4 ID="hrContact4" runat="server" class="text-center" visible="false">Contact #4</h4>
+            <asp:Table ID="tbContact4" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label43" runat="server" Text="First Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox37" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label44" runat="server" Text="Last Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox38" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label45" runat="server" Text="Relationship "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList3" runat="server">
+                            <asp:ListItem>Legal Guardian</asp:ListItem>
+                            <asp:ListItem>Spouse</asp:ListItem>
+                            <asp:ListItem>Parent</asp:ListItem>
+                            <asp:ListItem>Child</asp:ListItem>
+                            <asp:ListItem>Other</asp:ListItem>
+                        </asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:CheckBox ID="CheckBox1" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
+                        <asp:CheckBox ID="CheckBox2" runat="server" Text=" Legal Guardian" TextAlign="Right" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label46" runat="server" Text="Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox39" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label47" runat="server" Text="City "></asp:Label><br />
+                        <asp:TextBox ID="TextBox40" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label48" runat="server" Text="State "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList4" runat="server"></asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label49" runat="server" Text="Zip "></asp:Label><br />
+                        <asp:TextBox ID="TextBox41" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label50" runat="server" Text="E-Mail Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox42" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label51" runat="server" Text="Home Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox43" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label52" runat="server" Text="Cell Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox44" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label53" runat="server" Text="Work Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox45" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            <h4 ID="hrContact5" runat="server" class="text-center" visible="false">Contact #5</h4>
+            <asp:Table ID="tbContact5" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label54" runat="server" Text="First Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox46" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label55" runat="server" Text="Last Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox47" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label56" runat="server" Text="Relationship "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList5" runat="server">
+                            <asp:ListItem>Legal Guardian</asp:ListItem>
+                            <asp:ListItem>Spouse</asp:ListItem>
+                            <asp:ListItem>Parent</asp:ListItem>
+                            <asp:ListItem>Child</asp:ListItem>
+                            <asp:ListItem>Other</asp:ListItem>
+                        </asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:CheckBox ID="CheckBox3" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
+                        <asp:CheckBox ID="CheckBox4" runat="server" Text=" Legal Guardian" TextAlign="Right" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label57" runat="server" Text="Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox48" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label58" runat="server" Text="City "></asp:Label><br />
+                        <asp:TextBox ID="TextBox49" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label59" runat="server" Text="State "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList6" runat="server"></asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label60" runat="server" Text="Zip "></asp:Label><br />
+                        <asp:TextBox ID="TextBox50" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label61" runat="server" Text="E-Mail Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox51" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label62" runat="server" Text="Home Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox52" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label63" runat="server" Text="Cell Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox53" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label64" runat="server" Text="Work Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox54" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            <h4 ID="hrContact6" runat="server" class="text-center" visible="false">Contact #6</h4>
+            <asp:Table ID="tbContact6" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label65" runat="server" Text="First Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox55" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label66" runat="server" Text="Last Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox56" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label67" runat="server" Text="Relationship "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList7" runat="server">
+                            <asp:ListItem>Legal Guardian</asp:ListItem>
+                            <asp:ListItem>Spouse</asp:ListItem>
+                            <asp:ListItem>Parent</asp:ListItem>
+                            <asp:ListItem>Child</asp:ListItem>
+                            <asp:ListItem>Other</asp:ListItem>
+                        </asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:CheckBox ID="CheckBox5" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
+                        <asp:CheckBox ID="CheckBox6" runat="server" Text=" Legal Guardian" TextAlign="Right" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label68" runat="server" Text="Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox57" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label69" runat="server" Text="City "></asp:Label><br />
+                        <asp:TextBox ID="TextBox58" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label70" runat="server" Text="State "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList8" runat="server"></asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label71" runat="server" Text="Zip "></asp:Label><br />
+                        <asp:TextBox ID="TextBox59" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label72" runat="server" Text="E-Mail Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox60" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label73" runat="server" Text="Home Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox61" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label74" runat="server" Text="Cell Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox62" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label75" runat="server" Text="Work Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox63" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            <h4 ID="hrContact7" runat="server" class="text-center" visible="false">Contact #7</h4>
+            <asp:Table ID="tbContact7" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label76" runat="server" Text="First Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox64" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label77" runat="server" Text="Last Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox65" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label78" runat="server" Text="Relationship "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList9" runat="server">
+                            <asp:ListItem>Legal Guardian</asp:ListItem>
+                            <asp:ListItem>Spouse</asp:ListItem>
+                            <asp:ListItem>Parent</asp:ListItem>
+                            <asp:ListItem>Child</asp:ListItem>
+                            <asp:ListItem>Other</asp:ListItem>
+                        </asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:CheckBox ID="CheckBox7" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
+                        <asp:CheckBox ID="CheckBox8" runat="server" Text=" Legal Guardian" TextAlign="Right" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label79" runat="server" Text="Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox66" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label80" runat="server" Text="City "></asp:Label><br />
+                        <asp:TextBox ID="TextBox67" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label81" runat="server" Text="State "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList10" runat="server"></asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label82" runat="server" Text="Zip "></asp:Label><br />
+                        <asp:TextBox ID="TextBox68" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label83" runat="server" Text="E-Mail Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox69" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label84" runat="server" Text="Home Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox70" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label85" runat="server" Text="Cell Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox71" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label86" runat="server" Text="Work Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox72" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            <h4 ID="hrContact8" runat="server" class="text-center" visible="false">Contact #8</h4>
+            <asp:Table ID="tbContact8" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label87" runat="server" Text="First Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox73" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label88" runat="server" Text="Last Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox74" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label89" runat="server" Text="Relationship "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList11" runat="server">
+                            <asp:ListItem>Legal Guardian</asp:ListItem>
+                            <asp:ListItem>Spouse</asp:ListItem>
+                            <asp:ListItem>Parent</asp:ListItem>
+                            <asp:ListItem>Child</asp:ListItem>
+                            <asp:ListItem>Other</asp:ListItem>
+                        </asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:CheckBox ID="CheckBox9" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
+                        <asp:CheckBox ID="CheckBox10" runat="server" Text=" Legal Guardian" TextAlign="Right" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label90" runat="server" Text="Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox75" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label91" runat="server" Text="City "></asp:Label><br />
+                        <asp:TextBox ID="TextBox76" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label92" runat="server" Text="State "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList12" runat="server"></asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label93" runat="server" Text="Zip "></asp:Label><br />
+                        <asp:TextBox ID="TextBox77" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label94" runat="server" Text="E-Mail Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox78" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label95" runat="server" Text="Home Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox79" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label96" runat="server" Text="Cell Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox80" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label97" runat="server" Text="Work Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox81" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            <h4 ID="hrContact9" runat="server" class="text-center" visible="false">Contact #9</h4>
+            <asp:Table ID="tbContact9" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label98" runat="server" Text="First Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox82" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label99" runat="server" Text="Last Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox83" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label100" runat="server" Text="Relationship "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList13" runat="server">
+                            <asp:ListItem>Legal Guardian</asp:ListItem>
+                            <asp:ListItem>Spouse</asp:ListItem>
+                            <asp:ListItem>Parent</asp:ListItem>
+                            <asp:ListItem>Child</asp:ListItem>
+                            <asp:ListItem>Other</asp:ListItem>
+                        </asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:CheckBox ID="CheckBox11" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
+                        <asp:CheckBox ID="CheckBox12" runat="server" Text=" Legal Guardian" TextAlign="Right" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label101" runat="server" Text="Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox84" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label102" runat="server" Text="City "></asp:Label><br />
+                        <asp:TextBox ID="TextBox85" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label103" runat="server" Text="State "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList14" runat="server"></asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label104" runat="server" Text="Zip "></asp:Label><br />
+                        <asp:TextBox ID="TextBox86" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label105" runat="server" Text="E-Mail Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox87" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label106" runat="server" Text="Home Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox88" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label107" runat="server" Text="Cell Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox89" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label108" runat="server" Text="Work Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox90" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            <h4 ID="hrContact10" runat="server" class="text-center" visible="false">Contact #10</h4>
+            <asp:Table ID="tbContact10" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label109" runat="server" Text="First Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox91" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label110" runat="server" Text="Last Name "></asp:Label><br />
+                        <asp:TextBox ID="TextBox92" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label111" runat="server" Text="Relationship "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList15" runat="server">
+                            <asp:ListItem>Legal Guardian</asp:ListItem>
+                            <asp:ListItem>Spouse</asp:ListItem>
+                            <asp:ListItem>Parent</asp:ListItem>
+                            <asp:ListItem>Child</asp:ListItem>
+                            <asp:ListItem>Other</asp:ListItem>
+                        </asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:CheckBox ID="CheckBox13" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
+                        <asp:CheckBox ID="CheckBox14" runat="server" Text=" Legal Guardian" TextAlign="Right" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label112" runat="server" Text="Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox93" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label113" runat="server" Text="City "></asp:Label><br />
+                        <asp:TextBox ID="TextBox94" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label114" runat="server" Text="State "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownList16" runat="server"></asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label115" runat="server" Text="Zip "></asp:Label><br />
+                        <asp:TextBox ID="TextBox95" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label116" runat="server" Text="E-Mail Address "></asp:Label><br />
+                        <asp:TextBox ID="TextBox96" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label117" runat="server" Text="Home Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox97" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label118" runat="server" Text="Cell Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox98" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label119" runat="server" Text="Work Phone "></asp:Label><br />
+                        <asp:TextBox ID="TextBox99" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            <br />
+            <asp:LinkButton ID="btnAddContact" runat="server" CssClass="btn btn-primary" OnClick="btnAddContact_Click" CommandName="AddContact"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Contact</asp:LinkButton>
+            <asp:Label ID="lblMaxContacts" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
         </div>
         <hr>
         <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">

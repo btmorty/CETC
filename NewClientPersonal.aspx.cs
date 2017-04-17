@@ -29,7 +29,7 @@ public partial class NewClientPersonal : System.Web.UI.Page
         }
         if (Session["AddContact"] == null)
         {
-            ContactCounter = 1;
+            ContactCounter = 3;
         }
         else
         {
@@ -50,7 +50,7 @@ public partial class NewClientPersonal : System.Web.UI.Page
             //remove any prior existing session variables
             medCounter = 0;
             ContactCounter = 0;
-            ProviderCounter = 0;
+            ProviderCounter = 3;
             Session.Contents.Remove("AddMed");
             Session.Contents.Remove("AddContact");
             Session.Contents.Remove("AddProvider");
@@ -222,6 +222,50 @@ public partial class NewClientPersonal : System.Web.UI.Page
                 default:
                     lblMaxProviders.Text = "Max number of providers reached";
                     lblMaxProviders.Visible = true;
+                    break;
+            }
+        }
+    }
+
+    protected void btnAddContact_Click(object sender, EventArgs e)
+    {
+        if (btnAddContact.CommandName == "AddContact")
+        {
+            ContactCounter++;
+            Session["AddContact"] = ContactCounter;
+            switch (ContactCounter)
+            {
+                case 4:
+                    hrContact4.Visible = true;
+                    tbContact4.Visible = true;
+                    break;
+                case 5:
+                    hrContact5.Visible = true;
+                    tbContact5.Visible = true;
+                    break;
+                case 6:
+                    hrContact6.Visible = true;
+                    tbContact6.Visible = true;
+                    break;
+                case 7:
+                    hrContact7.Visible = true;
+                    tbContact7.Visible = true;
+                    break;
+                case 8:
+                    hrContact8.Visible = true;
+                    tbContact8.Visible = true;
+                    break;
+                case 9:
+                    hrContact9.Visible = true;
+                    tbContact9.Visible = true;
+                    break;
+                case 10:
+                    hrContact10.Visible = true;
+                    tbContact10.Visible = true;
+                    break;
+                default:
+                    lblMaxContacts.Text = "Max number of providers reached";
+                    lblMaxContacts.Visible = true;
                     break;
             }
         }
