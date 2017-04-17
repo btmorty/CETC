@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 public partial class NewClientHealth : System.Web.UI.Page
 {
     int medCounter;
+    int docCounter;
     string connectionString = WebConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -23,13 +24,23 @@ public partial class NewClientHealth : System.Web.UI.Page
         {
             medCounter = Convert.ToInt32(Session["AddMed"]);
         }
+        if (Session["AddDoc"] == null)
+        {
+            docCounter = 1;
+        }
+        else
+        {
+            docCounter = Convert.ToInt32(Session["AddDoc"]);
+        }
 
         //only perform the following the first time the page loads
         if (!IsPostBack)
         {
             //remove any prior existing session variables
             medCounter = 0;
+            docCounter = 0;
             Session.Contents.Remove("AddMed");
+            Session.Contents.Remove("AddDoc");
 
             //Data Bind State DropDownList Controls
             var items = new List<string>
@@ -39,6 +50,58 @@ public partial class NewClientHealth : System.Web.UI.Page
             };
             DropDownListState6.DataSource = items;
             DropDownListState6.DataBind();
+        }
+    }
+
+    protected void btnAddDoc_Click(object sender, EventArgs e)
+    {
+        if (btnAddDoc.CommandName == "AddDoc")
+        {
+            docCounter++;
+            Session["AddDoc"] = docCounter;
+            switch (docCounter)
+            {
+                case 2:
+                    hrDoctor2.Visible = true;
+                    tbDoctor2.Visible = true;
+                    break;
+                case 3:
+                    hrDoctor3.Visible = true;
+                    tbDoctor3.Visible = true;
+                    break;
+                case 4:
+                    hrDoctor4.Visible = true;
+                    tbDoctor4.Visible = true;
+                    break;
+                case 5:
+                    hrDoctor5.Visible = true;
+                    tbDoctor5.Visible = true;
+                    break;
+                case 6:
+                    hrDoctor6.Visible = true;
+                    tbDoctor6.Visible = true;
+                    break;
+                case 7:
+                    hrDoctor7.Visible = true;
+                    tbDoctor7.Visible = true;
+                    break;
+                case 8:
+                    hrDoctor8.Visible = true;
+                    tbDoctor8.Visible = true;
+                    break;
+                case 9:
+                    hrDoctor9.Visible = true;
+                    tbDoctor9.Visible = true;
+                    break;
+                case 10:
+                    hrDoctor10.Visible = true;
+                    tbDoctor10.Visible = true;
+                    break;
+                default:
+                    lblMaxDoc.Text = "Max number of medical providers reached";
+                    lblMaxDoc.Visible = true;
+                    break;
+            }
         }
     }
 
@@ -135,4 +198,5 @@ public partial class NewClientHealth : System.Web.UI.Page
         //    con.Close();
         //}
     }
+
 }
