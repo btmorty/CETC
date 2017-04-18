@@ -34,7 +34,7 @@ public partial class ViewClient : System.Web.UI.Page
         if (e.CommandName == "Select")
         {
             string SchoolID = e.CommandArgument.ToString();
-            Response.Redirect("CompleteClientProfile.aspx=?" + e.CommandArgument);
+            Response.Redirect("~/CompleteClientProfile.aspx?ClientID=" + e.CommandArgument);
         }
     }
 }

@@ -19,6 +19,12 @@ public partial class NewClientPersonal : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //Retrieve ClientID from QueryString and store in session variable
+        if(Request.QueryString !=null)
+        {
+            Session["ClientID"] = Request.QueryString["ClientID"];
+        }
+        //initialize button counter variables
         if (Session["AddContact"] == null)
         {
             ContactCounter = 3;
