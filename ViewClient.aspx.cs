@@ -7,14 +7,34 @@ using System.Web.UI.WebControls;
 
 public partial class ViewClient : System.Web.UI.Page
 {
+    string nameSelection;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            //remove any prior existing session variables
+            Session.Contents.Remove("Selection");
+        }
     }
 
-    protected void All_Click(object sender, EventArgs e)
+    protected void btn_group_Click(object sender, EventArgs e)
     {
-        Button B = (Button)sender;
-        B.CommandName //pass to business tier method
+        LinkButton B = (LinkButton)sender;
+        Session["Selection"] = B.CommandName;
+        //B.CommandName --> pass to business tier method
+    }
+
+    protected void btnSelect_Click(object sender, EventArgs e)
+    {
+        
+    }
+
+    protected void ClientGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "Select")
+        {
+            string SchoolID = e.CommandArgument.ToString();
+            Response.Redirect("CompleteClientProfile.aspx=?" + e.CommandArgument);
+        }
     }
 }
