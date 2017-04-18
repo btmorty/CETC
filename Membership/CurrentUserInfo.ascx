@@ -3,8 +3,8 @@
     <asp:LoginName ID="LoginName1" runat="server" />
 </h1>
 <h3 style="text-align: center">Change your password</h3>
-<div style="width: 675px; margin-left: auto; margin-right: auto;">
-    <asp:ChangePassword ID="ChangePassword1" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em">
+<div style="width: 400px; margin-left: auto; margin-right: auto;">
+    <asp:ChangePassword ID="ChangePassword1" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" Width="327px">
         <CancelButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284775" />
         <ChangePasswordButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284775" />
         <ContinueButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284775" />
@@ -14,6 +14,7 @@
         <TitleTextStyle BackColor="#5D7B9D" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
     </asp:ChangePassword>
 </div>
+    
 <h3 style="text-align: center">View/Edit your Profile Data</h3>
 <div style="width: 400px; margin-left: auto; margin-right: auto;">
     <table>

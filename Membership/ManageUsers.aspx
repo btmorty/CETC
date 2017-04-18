@@ -36,6 +36,7 @@
                     </EditItemTemplate>
                 </asp:TemplateField>
                 <asp:ButtonField CommandName="Select" HeaderText="View Profile" ShowHeader="True" Text="View" />
+                <asp:ButtonField CommandName="Select" HeaderText="Delete Profile" ShowHeader="True" Text="Delete" />
             </Columns>
         </asp:GridView>
         <br />
