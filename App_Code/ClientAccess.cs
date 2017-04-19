@@ -105,7 +105,7 @@ public static class ClientAccess
 
     //This method gets author information for a selected author from the database by calling the "GetAuthorInfoByID" stored procedure.
     //Results are returned in a DataTable object
-    public static DataTable GetAuthorInfoByID(string au_id)
+    public static DataTable GetClientInfoByID(string au_id)
     {
 
         DbCommand comm = GenericDataAccess.CreateCommand();
@@ -128,73 +128,117 @@ public static class ClientAccess
 
     //This method inserts a new author using the "InsertAuthor" stored procedure.  The names of the method parameters should match the names of the fields in the corresponding data control (e.g. Gridview, Detailsview, etc.)
     //The method returns an int representing the number of rows affected.  This can be used to verify a successful operation, or it can be discarded
-    public static int InsertAuthor(string au_id, string au_lname, string au_fname, string phone, string address, string city, string state, string zip, bool contract)
+    public static int InsertClient(string SSN, string DSPD, string PhotoID, string Status, string Sex, string Race, string Residential_Status, string Preferred_Language, string Religious_Affilation, string First_Name, string Last_Name, string Email, string Phone, string Modes_Communication, string SSA, string SSI, DateTime DateCreated)
     {
 
         DbCommand comm = GenericDataAccess.CreateCommand();
-        comm.CommandText = "InsertAuthor"; //This is the name of the stored procedure to be executed
+        comm.CommandText = "InsertClient"; //This is the name of the stored procedure to be executed
 
         //The following code adds the neccessary parameters to the DbCommand object
         DbParameter param = comm.CreateParameter();
-        param.ParameterName = "@au_id";
+        param.ParameterName = "@SSN";
         param.DbType = DbType.String;
-        param.Value = au_id;
+        param.Value = SSN;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@au_lname";
+        param.ParameterName = "@DSPD";
         param.DbType = DbType.String;
-        param.Value = au_lname;
+        param.Value = DSPD;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@au_fname";
+        param.ParameterName = "@PhotoID";
         param.DbType = DbType.String;
-        param.Value = au_fname;
+        param.Value = PhotoID;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@phone";
+        param.ParameterName = "@Status";
         param.DbType = DbType.String;
-        param.Value = phone;
+        param.Value = Status;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@address";
+        param.ParameterName = "@Sex";
         param.DbType = DbType.String;
-        param.Value = address;
+        param.Value = Sex;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@city";
+        param.ParameterName = "@Race";
         param.DbType = DbType.String;
-        param.Value = city;
+        param.Value = Race;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@state";
+        param.ParameterName = "@Residential_Status";
         param.DbType = DbType.String;
-        param.Value = state;
+        param.Value = Residential_Status;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@zip";
+        param.ParameterName = "@Preferred_Language";
         param.DbType = DbType.String;
-        param.Value = zip;
+        param.Value = Preferred_Language, ;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@contract";
-        param.DbType = DbType.Byte;
-        param.Value = contract;
+        param.ParameterName = "@Religious_Affilation";
+        param.DbType = DbType.String;
+        param.Value = Religious_Affilation;
         comm.Parameters.Add(param);
 
+        param = comm.CreateParameter();
+        param.ParameterName = "@Fist_Name";
+        param.DbType = DbType.String;
+        param.Value = First_Name;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Last_Name";
+        param.DbType = DbType.String;
+        param.Value = Last_Name;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Email";
+        param.DbType = DbType.String;
+        param.Value = Email;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Phone";
+        param.DbType = DbType.String;
+        param.Value = Phone;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Modes_Communication";
+        param.DbType = DbType.String;
+        param.Value = Modes_Communication;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@SSA";
+        param.DbType = DbType.String;
+        param.Value = SSA;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@SSI";
+        param.DbType = DbType.String;
+        param.Value = SSI;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@DateCreated";
+        param.DbType = DbType.DateTime;
+        param.Value = Religious_Affilation;
+        comm.Parameters.Add(param);
 
         int rowsAffected = GenericDataAccess.ExecuteNonQuery(comm);
         return rowsAffected;
-
-
-
     }
 
     //This method deletes an author using the "DeleteAuthor" stored procedure.  The names of the method parameters should match the names of the fields in the corresponding data control (e.g. Gridview, Detailsview, etc.)
