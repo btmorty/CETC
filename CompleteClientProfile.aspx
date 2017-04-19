@@ -1235,7 +1235,7 @@
                         <asp:TextBox ID="txtMPFName1" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="lblMPLName1" runat="server" Text="LastName "></asp:Label><br />
+                        <asp:Label ID="lblMPLName1" runat="server" Text="Last Name "></asp:Label><br />
                         <asp:TextBox ID="txtMPLName1" runat="server"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
