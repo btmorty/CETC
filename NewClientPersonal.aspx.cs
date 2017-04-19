@@ -14,6 +14,7 @@ public partial class NewClientPersonal : System.Web.UI.Page
     int medCounter;
     int ContactCounter;
     int ProviderCounter;
+    int ServiceCounter;
 
     string connectionString = WebConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
 
@@ -35,16 +36,25 @@ public partial class NewClientPersonal : System.Web.UI.Page
         {
             ProviderCounter = Convert.ToInt32(Session["AddProvider"]);
         }
-
+        if (Session["AddService"] == null)
+        {
+            ServiceCounter = 1;
+        }
+        else
+        {
+            ServiceCounter = Convert.ToInt32(Session["AddService"]);
+        }
         //only perform the following the first time the page loads
         if (!IsPostBack)
         {
             //remove any prior existing session variables
             ContactCounter = 0;
             ProviderCounter = 3;
+            ServiceCounter = 1;
             Session.Contents.Remove("AddMed");
             Session.Contents.Remove("AddContact");
             Session.Contents.Remove("AddProvider");
+            Session.Contents.Remove("AddService");
 
             //Data Bind State DropDownList Controls
             var items = new List<string>
@@ -220,6 +230,40 @@ public partial class NewClientPersonal : System.Web.UI.Page
                 default:
                     lblMaxContacts.Text = "Max number of contacts reached";
                     lblMaxContacts.Visible = true;
+                    break;
+            }
+        }
+    }
+
+    protected void btnAddService_Click(object sender, EventArgs e)
+    {
+        if (btnAddProvider.CommandName == "AddService")
+        {
+            ServiceCounter++;
+            Session["AddService"] = ServiceCounter;
+            switch (ServiceCounter)
+            {
+                case 2:
+                    tblSvc2.Visible = true;
+                    break;
+                case 3:
+                    tblSvc3.Visible = true;
+                    break;
+                case 4:
+                    tblSvc4.Visible = true;
+                    break;
+                case 5:
+                    tblSvc5.Visible = true;
+                    break;
+                case 6:
+                    tblSvc6.Visible = true;
+                    break;
+                case 7:
+                    tblSvc7.Visible = true;
+                    break;
+                default:
+                    lblMaxProviders.Text = "Max number of providers reached";
+                    lblMaxProviders.Visible = true;
                     break;
             }
         }
