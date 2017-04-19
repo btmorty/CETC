@@ -64,7 +64,7 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Label ID="lblState" runat="server" Text="State "></asp:Label><br />
-                            <asp:DropDownList ID="DropDownListState1" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="ddState1" runat="server"></asp:DropDownList>
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Label ID="lblZip" runat="server" Text="Zip "></asp:Label><br />
