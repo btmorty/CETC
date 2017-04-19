@@ -18,7 +18,9 @@ public partial class NewClientPersonal : System.Web.UI.Page
 
     string connectionString = WebConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
 
-    protected void Page_PreRender(object sender, EventArgs e)
+
+    protected void Page_Load(object sender, EventArgs e)
+
     {
         //Retrieve ClientID from QueryString and store in session variable
         if (Request.QueryString != null)

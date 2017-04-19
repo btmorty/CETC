@@ -41,6 +41,10 @@
                             <asp:Label ID="lblDateHeader" runat="server" Text="Date Created:"></asp:Label><br />
                             <asp:Label ID="lblDate" runat="server"></asp:Label>
                         </asp:TableCell>
+                          <asp:TableCell>
+                            <asp:Label ID="lblDateModHeader" runat="server" Text="Date Modified:"></asp:Label><br />
+                            <asp:Label ID="lblDateModified" runat="server"></asp:Label>
+                        </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>
@@ -824,19 +828,45 @@
         <hr>
         <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
             <h3 class="text-center">Emergency Information</h3>
+           
+                        <asp:Label ID="lblEmergyEvacNeeds" runat="server" Text="Emergency Evacuation Needs "></asp:Label><br />
+                        <asp:TextBox ID="txtEmergyEvacNeeds" runat="server" Columns="30" TextMode="multiline" Width="94%"></asp:TextBox>
+                  
             <asp:Table ID="Table4" runat="server" HorizontalAlign="Center" Width="100%">
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblEmergyEvacNeeds" runat="server" Text="Emergency Evacuation Needs "></asp:Label><br />
-                        <asp:TextBox ID="txtEmergyEvacNeeds" runat="server" Columns="30" TextMode="multiline"></asp:TextBox>
+                        <asp:Label ID="lblEmergyEvacNeedsAddress1" runat="server" Text="1st Evacuation Address "></asp:Label><br />
+                        <asp:TextBox ID="txtEmergyEvacNeedsAddress1" runat="server" Columns="30"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="lblEmergyEvacNeedsLocation1" runat="server" Text="1st Evacuation Location "></asp:Label><br />
-                        <asp:TextBox ID="txtEmergyEvacNeedsLocation1" runat="server" Columns="30"></asp:TextBox>
+                        <asp:Label ID="lblEmergyEvacNeedsCity1" runat="server" Text="1st Evacuation City "></asp:Label><br />
+                        <asp:TextBox ID="txtEmergyEvacNeedsCity1" runat="server" Columns="30"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Label ID="lblEmergyEvacNeedsLocation2" runat="server" Text="2nd Evacuation Location "></asp:Label><br />
-                        <asp:TextBox ID="txtEmergyEvacNeedsLocation2" runat="server" Columns="30"></asp:TextBox>
+                        <asp:Label ID="lblEmergyEvacNeedsState1" runat="server" Text="1st Evacuation State "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownListEvacState1" runat="server"></asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblEmergyEvacNeedsZip1" runat="server" Text="1st Evacuation Zip "></asp:Label><br />
+                        <asp:TextBox ID="txtEmergyEvacNeedsZip1" runat="server" Columns="30"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                       <asp:Label ID="lblEmergyEvacNeedsAddress2" runat="server" Text="2nd Evacuation Address "></asp:Label><br />
+                        <asp:TextBox ID="txtEmergyEvacNeedsAddress2" runat="server" Columns="30"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblEmergyEvacNeedsCity2" runat="server" Text="2nd Evacuation City "></asp:Label><br />
+                        <asp:TextBox ID="txtEmergyEvacNeedsCity2" runat="server" Columns="30"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblEmergyEvacNeedsState2" runat="server" Text="2nd Evacuation State "></asp:Label><br />
+                        <asp:DropDownList ID="DropDownListEvacState2" runat="server"></asp:DropDownList>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblEmergyEvacNeedsZip2" runat="server" Text="2nd Evacuation Zip "></asp:Label><br />
+                        <asp:TextBox ID="txtEmergyEvacNeedsZip2" runat="server" Columns="30"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
