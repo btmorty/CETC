@@ -48,7 +48,7 @@ public partial class NewClient : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        int added = ClientAccess.InsertClient(txtSSN.Text, txtDSPD.Text, imageUpload.PostedFile.FileName, DropDownListStatus.SelectedItem.ToString(), DropDownSex.SelectedItem.ToString(), DropDownListRace.SelectedItem.ToString(), DropDownListResStatus.SelectedItem.ToString(), DropDownListLanguage.SelectedItem.ToString(), DropDownListReligion.SelectedItem.ToString(), txtFname.Text, txtLname.Text,txtEmail.Text, txtPhone.Text, txtComm.Text, txtSSA.Text, txtSSI.Text, DateTime.Parse(txtDOB.Text));
+        int added = ClientAccess.InsertClient(DropDownListStatus.SelectedItem.ToString(), txtFname.Text, txtLname.Text, DateTime.Parse(txtDOB.Text), int.Parse(txtAge.Text), txtAddress.Text, txtCity.Text, ddState1.SelectedItem.ToString(), txtZip.Text, txtEmail.Text, txtPhone.Text, DropDownSex.SelectedItem.ToString(), DropDownListRace.SelectedItem.ToString(), DropDownListResStatus.SelectedItem.ToString(), DropDownListLanguage.SelectedItem.ToString(), DropDownListReligion.SelectedItem.ToString(), int.Parse(txtSSN.Text), txtStaffRatio.Text, int.Parse(txtDSPD.Text), int.Parse(txtSSI.Text), int.Parse(txtSSA.Text), txtComm.Text, txtDiagnosis.Text);
 
         //if the insert succeeded, refersh the author list
         if (added > 0)

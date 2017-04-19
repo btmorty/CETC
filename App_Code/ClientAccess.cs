@@ -128,7 +128,32 @@ public static class ClientAccess
 
     //This method inserts a new author using the "InsertAuthor" stored procedure.  The names of the method parameters should match the names of the fields in the corresponding data control (e.g. Gridview, Detailsview, etc.)
     //The method returns an int representing the number of rows affected.  This can be used to verify a successful operation, or it can be discarded
-    public static int InsertClient(string SSN, string DSPD, string PhotoID, string Status, string Sex, string Race, string Residential_Status, string Preferred_Language, string Religious_Affilation, string First_Name, string Last_Name, string Email, string Phone, string Modes_Communication, string SSA, string SSI, DateTime DOB)
+    public static int InsertClient
+        (
+            string Status,
+            string First_Name,
+            string Last_Name,
+            DateTime DOB,
+            int Age,
+            string Address,
+            string City,
+            string State,
+            string Zip,
+            string Email,
+            string Phone,
+            string Sex,
+            string Race,
+            string Residential_Status,
+            string Preferred_Language,
+            string Religious_Affiliation,
+            int SSN,
+            string Staffing_Ratio,
+            int DSPD,
+            int SSI,
+            int SSA,
+            string Modes_Communication,
+            string Diagnosis
+        )
     {
 
         DbCommand comm = GenericDataAccess.CreateCommand();
@@ -136,22 +161,6 @@ public static class ClientAccess
 
         //The following code adds the neccessary parameters to the DbCommand object
         DbParameter param = comm.CreateParameter();
-        param.ParameterName = "@SSN";
-        param.DbType = DbType.String;
-        param.Value = SSN;
-        comm.Parameters.Add(param);
-
-        param = comm.CreateParameter();
-        param.ParameterName = "@DSPD";
-        param.DbType = DbType.String;
-        param.Value = DSPD;
-        comm.Parameters.Add(param);
-
-        param = comm.CreateParameter();
-        param.ParameterName = "@PhotoID";
-        param.DbType = DbType.String;
-        param.Value = PhotoID;
-        comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
         param.ParameterName = "@Status";
@@ -160,7 +169,67 @@ public static class ClientAccess
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@sex";
+        param.ParameterName = "@First_Name";
+        param.DbType = DbType.String;
+        param.Value = First_Name;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Last_Name";
+        param.DbType = DbType.String;
+        param.Value = Last_Name;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@DOB";
+        param.DbType = DbType.String;
+        param.Value = DOB;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Age";
+        param.DbType = DbType.Int16;
+        param.Value = Age;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Address";
+        param.DbType = DbType.String;
+        param.Value = Address;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@City";
+        param.DbType = DbType.String;
+        param.Value = City;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@State";
+        param.DbType = DbType.String;
+        param.Value = State;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Zip";
+        param.DbType = DbType.Int16;
+        param.Value = Zip;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Email";
+        param.DbType = DbType.String;
+        param.Value = Email;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Phone";
+        param.DbType = DbType.String;
+        param.Value = Phone;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Sex";
         param.DbType = DbType.String;
         param.Value = Sex;
         comm.Parameters.Add(param);
@@ -186,31 +255,37 @@ public static class ClientAccess
         param = comm.CreateParameter();
         param.ParameterName = "@Religious_Affilation";
         param.DbType = DbType.String;
-        param.Value = Religious_Affilation;
+        param.Value = Religious_Affiliation;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@Fist_Name";
-        param.DbType = DbType.String;
-        param.Value = First_Name;
+        param.ParameterName = "@SSN";
+        param.DbType = DbType.Int16;
+        param.Value = SSN;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@Last_Name";
+        param.ParameterName = "@Staffing_Ratio";
         param.DbType = DbType.String;
-        param.Value = Last_Name;
+        param.Value = Staffing_Ratio;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@Email";
-        param.DbType = DbType.String;
-        param.Value = Email;
+        param.ParameterName = "@DSPD";
+        param.DbType = DbType.Int16;
+        param.Value = DSPD;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@Phone";
-        param.DbType = DbType.String;
-        param.Value = Phone;
+        param.ParameterName = "@SSI";
+        param.DbType = DbType.Int16;
+        param.Value = SSI;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@SSA";
+        param.DbType = DbType.Int16;
+        param.Value = SSA;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
@@ -220,21 +295,9 @@ public static class ClientAccess
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@SSA";
+        param.ParameterName = "@Diagnosis";
         param.DbType = DbType.String;
-        param.Value = SSA;
-        comm.Parameters.Add(param);
-
-        param = comm.CreateParameter();
-        param.ParameterName = "@SSI";
-        param.DbType = DbType.String;
-        param.Value = SSI;
-        comm.Parameters.Add(param);
-
-        param = comm.CreateParameter();
-        param.ParameterName = "@DOB";
-        param.DbType = DbType.String;
-        param.Value = DOB;
+        param.Value = Diagnosis;
         comm.Parameters.Add(param);
 
         int rowsAffected = GenericDataAccess.ExecuteNonQuery(comm);
