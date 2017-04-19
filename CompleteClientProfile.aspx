@@ -1,15 +1,15 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeFile="CompleteClientProfile.aspx.cs" Inherits="NewClientPersonal" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
-<br />
+    <br />
     <div align="center">
         <asp:Button ID="btnPersonal" runat="server" Text="Show Personal" align="center" OnClick="btnPersonal_Click" />
         <asp:Button ID="btnHealth" runat="server" Text="Show Health" align="center" OnClick="btnHealth_Click" />
     </div>
 <br />
 <%--Client Personal--%>
-<asp:Panel ID="pnlPersonal" runat="server" visible="false" />
-    <div>
+    <asp:Panel ID="pnlPersonal" runat="server" Visible="False">
+        <div>
     <%--//Page Header--%>
         <div class="container">
         <div class="row">
@@ -1106,9 +1106,10 @@
         </div>
     </div>
     </div>
+    </asp:Panel>
 <br />
 <%--Client Health--%>
-<asp:Panel ID="pnlHealth" runat="server" visible="false" />
+    <asp:Panel ID="pnlHealth" runat="server" Visible="False">
     <div>    
     <%--//Page Header--%>
         <div class="container">
@@ -2076,4 +2077,5 @@
             </div>
         </div>
     </div>
+    </asp:Panel>
 </asp:Content>
