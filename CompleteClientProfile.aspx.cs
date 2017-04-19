@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 public partial class NewClientPersonal : System.Web.UI.Page
 {
     int medCounter;
+    int docCounter;
     int ContactCounter;
     int ProviderCounter;
 
@@ -20,7 +21,7 @@ public partial class NewClientPersonal : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //Retrieve ClientID from QueryString and store in session variable
-        if(Request.QueryString !=null)
+        if (Request.QueryString != null)
         {
             Session["ClientID"] = Request.QueryString["ClientID"];
         }
@@ -41,6 +42,14 @@ public partial class NewClientPersonal : System.Web.UI.Page
         {
             ProviderCounter = Convert.ToInt32(Session["AddProvider"]);
         }
+        if (Session["AddDoc"] == null)
+        {
+            docCounter = 1;
+        }
+        else
+        {
+            docCounter = Convert.ToInt32(Session["AddDoc"]);
+        }
 
         //only perform the following the first time the page loads
         if (!IsPostBack)
@@ -48,7 +57,10 @@ public partial class NewClientPersonal : System.Web.UI.Page
             //remove any prior existing session variables
             ContactCounter = 0;
             ProviderCounter = 3;
+            medCounter = 0;
+            docCounter = 0;
             Session.Contents.Remove("AddMed");
+            Session.Contents.Remove("AddDoc");
             Session.Contents.Remove("AddContact");
             Session.Contents.Remove("AddProvider");
 
@@ -58,48 +70,69 @@ public partial class NewClientPersonal : System.Web.UI.Page
             "--","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO",
             "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY",
             };
-            DropDownListState1.DataSource = items;
-            DropDownListState5.DataSource = items;
-            DropDownListState7.DataSource = items;
-            DropDownListState8.DataSource = items;
-            DropDownListState9.DataSource = items;
-            DropDownListState10.DataSource = items;
+            //Hospital
+            ddStatePreferedHospital.DataSource = items;
+            ddStatePreferedHospital.DataBind();
+
+            //Medical Providers
+            ddMPState1.DataSource = items;
+            ddMPState1.DataBind();
+            ddMPState2.DataSource = items;
+            ddMPState2.DataBind();
+            ddMPState3.DataSource = items;
+            ddMPState3.DataBind();
+            ddMPState4.DataSource = items;
+            ddMPState4.DataBind();
+            ddMPState5.DataSource = items;
+            ddMPState5.DataBind();
+            ddMPState6.DataSource = items;
+            ddMPState6.DataBind();
+            ddMPState7.DataSource = items;
+            ddMPState7.DataBind();
+            ddMPState8.DataSource = items;
+            ddMPState8.DataBind();
+            ddMPState9.DataSource = items;
+            ddMPState9.DataBind();
+            ddMPState10.DataSource = items;
+            ddMPState10.DataBind();
+
+            //Client State
+            ddState1.DataSource = items;
+            ddState1.DataBind();
+
+            //Clients Contacts States
             ddStateCont1.DataSource = items;
-            ddStateCont2.DataSource = items;
-            ddStateCont3.DataSource = items;
-            ddStateCont4.DataSource = items;
-            ddStateCont5.DataSource = items;
-            ddStateCont6.DataSource = items;
-            ddStateCont7.DataSource = items;
-            ddStateCont8.DataSource = items;
-            ddStateCont9.DataSource = items;
-            ddStateCont10.DataSource = items;
-            ddStateProv1.DataSource = items;
-            ddStateProv2.DataSource = items;
-            ddStateProv3.DataSource = items;
-            ddStateProv4.DataSource = items;
-            ddStateProv5.DataSource = items;
-            DropDownListState1.DataBind();
-            DropDownListState5.DataBind();
-            DropDownListState7.DataBind();
-            DropDownListState8.DataBind();
-            DropDownListState9.DataBind();
-            DropDownListState10.DataBind();
             ddStateCont1.DataBind();
+            ddStateCont2.DataSource = items;
             ddStateCont2.DataBind();
+            ddStateCont3.DataSource = items;
             ddStateCont3.DataBind();
+            ddStateCont4.DataSource = items;
             ddStateCont4.DataBind();
+            ddStateCont5.DataSource = items;
             ddStateCont5.DataBind();
+            ddStateCont6.DataSource = items;
             ddStateCont6.DataBind();
+            ddStateCont7.DataSource = items;
             ddStateCont7.DataBind();
+            ddStateCont8.DataSource = items;
             ddStateCont8.DataBind();
+            ddStateCont9.DataSource = items;
             ddStateCont9.DataBind();
+            ddStateCont10.DataSource = items;
             ddStateCont10.DataBind();
-            ddStateProv1.DataBind();
-            ddStateProv2.DataBind();
-            ddStateProv3.DataBind();
-            ddStateProv4.DataBind();
-            ddStateProv5.DataBind();
+
+            //Provider State (Non-medical)
+            ddProvState1.DataSource = items;
+            ddProvState1.DataBind();
+            ddProvState2.DataSource = items;
+            ddProvState2.DataBind();
+            ddProvState3.DataSource = items;
+            ddProvState3.DataBind();
+            ddProvState4.DataSource = items;
+            ddProvState4.DataBind();
+            ddProvState5.DataSource = items;
+            ddProvState5.DataBind();
 
             //Set CETC Info
             lblCETCDirector.Text = "Director: Kae Lynn Beecher";
@@ -186,6 +219,60 @@ public partial class NewClientPersonal : System.Web.UI.Page
             }
         }
     }
+        protected void btnAddDoc_Click(object sender, EventArgs e)
+    {
+
+
+        if (btnAddDoc.CommandName == "AddDoc")
+        {
+            docCounter++;
+            Session["AddDoc"] = docCounter;
+            switch (docCounter)
+            {
+                case 2:
+                    hrDoctor2.Visible = true;
+                    tbDoctor2.Visible = true;
+                    break;
+                case 3:
+                    hrDoctor3.Visible = true;
+                    tbDoctor3.Visible = true;
+                    break;
+                case 4:
+                    hrDoctor4.Visible = true;
+                    tbDoctor4.Visible = true;
+                    break;
+                case 5:
+                    hrDoctor5.Visible = true;
+                    tbDoctor5.Visible = true;
+                    break;
+                case 6:
+                    hrDoctor6.Visible = true;
+                    tbDoctor6.Visible = true;
+                    break;
+                case 7:
+                    hrDoctor7.Visible = true;
+                    tbDoctor7.Visible = true;
+                    break;
+                case 8:
+                    hrDoctor8.Visible = true;
+                    tbDoctor8.Visible = true;
+                    break;
+                case 9:
+                    hrDoctor9.Visible = true;
+                    tbDoctor9.Visible = true;
+                    break;
+                case 10:
+                    hrDoctor10.Visible = true;
+                    tbDoctor10.Visible = true;
+                    break;
+                default:
+                    lblMaxDoc.Text = "Max number of medical providers reached";
+                    lblMaxDoc.Visible = true;
+                    break;
+            }
+        }
+    }
+
 
     protected void btnAddContact_Click(object sender, EventArgs e)
     {
@@ -230,7 +317,64 @@ public partial class NewClientPersonal : System.Web.UI.Page
             }
         }
     }
+    protected void btnAddMed_Click(object sender, EventArgs e)
+    {
+        if (btnAddMed.CommandName == "AddMed")
+        {
+            medCounter++;
+            Session["AddMed"] = medCounter;
+            switch (medCounter)
+            {
+                case 2:
+                    med2.Visible = true;
+                    break;
+                case 3:
+                    med3.Visible = true;
+                    break;
+                case 4:
+                    med4.Visible = true;
+                    break;
+                case 5:
+                    med5.Visible = true;
+                    break;
+                case 6:
+                    med6.Visible = true;
+                    break;
+                case 7:
+                    med7.Visible = true;
+                    break;
+                case 8:
+                    med8.Visible = true;
+                    break;
+                case 9:
+                    med9.Visible = true;
+                    break;
+                case 10:
+                    med10.Visible = true;
+                    break;
+                case 11:
+                    med11.Visible = true;
+                    break;
+                case 12:
+                    med12.Visible = true;
+                    break;
+                case 13:
+                    med13.Visible = true;
+                    break;
+                case 14:
+                    med14.Visible = true;
+                    break;
+                case 15:
+                    med15.Visible = true;
+                    break;
+                default:
+                    lblMedAddError.Text = "Max number of medications reached";
+                    lblMedAddError.Visible = true;
+                    break;
+            }
+        }
 
+    }
     protected void btnPersonal_Click(object sender, EventArgs e)
     {
         pnlPersonal.Visible = true;
