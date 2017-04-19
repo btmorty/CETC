@@ -12,13 +12,10 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="~/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/StyleSheet.css" />
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -43,18 +40,18 @@
                                     <asp:LoginName ID="LoginName1" runat="server" />
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="~/Membership/Profile.aspx" runat="server"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+                                    <li><a href="~/Membership/Profile.aspx" runat="server"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                                         <asp:LoginView ID="LoginView1" runat="server">
                                             <RoleGroups>
                                                 <asp:RoleGroup Roles="Admin">
                                                     <ContentTemplate>
-                                                        <li><a href="~/Membership/ManageUsers.aspx" runat="server"><span class="glyphicon glyphicon-cog"></span>Manage Users</a></li>
+                                                        <li><a href="~/Membership/ManageUsers.aspx" runat="server"><span class="glyphicon glyphicon-cog"></span> Manage Users</a></li>
                                                     </ContentTemplate>
                                                 </asp:RoleGroup>
                                             </RoleGroups>
                                         </asp:LoginView>
-                                    <li>
-                                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Membership/Login.aspx" />
+                                    <li style="padding-left:22px;">
+                                        <span><span class="glyphicon glyphicon-log-out"></span> <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Membership/Login.aspx" /></span>
                                     </li>
                                 </ul>
                             </li>
@@ -77,10 +74,6 @@
                 </div>
             </div>
         </footer>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.js"></script>
     </form>
 </body>
 </html>

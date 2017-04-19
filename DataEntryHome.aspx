@@ -9,7 +9,7 @@
                     <hr>
                     <div class="btn-group btn-group-justified">
                         <a href="NewClient.aspx" class="btn btn-primary btn-lg">New Client</a>
-                        <a href="#" class="btn btn-primary btn-lg">Edit Client</a>
+                        <a href="SelectClient.aspx" class="btn btn-primary btn-lg">Edit Client</a>
                     </div>
                 </div>
             </div>
