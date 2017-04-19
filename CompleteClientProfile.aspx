@@ -73,7 +73,7 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Label ID="lblState" runat="server" Text="State "></asp:Label><br />
-                            <asp:DropDownList ID="DropDownListState1" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="ddState1" runat="server"></asp:DropDownList>
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Label ID="lblZip" runat="server" Text="Zip "></asp:Label><br />
@@ -907,7 +907,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblProviderState" runat="server" Text="State "></asp:Label><br />
-                        <asp:DropDownList ID="DropDownListState5" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddProvState1" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblProviderZip" runat="server" Text="Zip "></asp:Label><br />
@@ -950,7 +950,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label11" runat="server" Text="State "></asp:Label><br />
-                        <asp:DropDownList ID="DropDownListState7" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddProvState2" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label15" runat="server" Text="Zip "></asp:Label><br />
@@ -993,7 +993,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label23" runat="server" Text="State "></asp:Label><br />
-                        <asp:DropDownList ID="DropDownListState8" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddProvState3" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label24" runat="server" Text="Zip "></asp:Label><br />
@@ -1036,7 +1036,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label32" runat="server" Text="State "></asp:Label><br />
-                        <asp:DropDownList ID="DropDownListState9" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddProvState4" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label33" runat="server" Text="Zip "></asp:Label><br />
@@ -1079,7 +1079,7 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label41" runat="server" Text="State "></asp:Label><br />
-                        <asp:DropDownList ID="DropDownListState10" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddProvState5" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="Label42" runat="server" Text="Zip "></asp:Label><br />

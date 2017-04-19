@@ -48,8 +48,69 @@ public partial class NewClientHealth : System.Web.UI.Page
             "--","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO",
             "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY",
             };
-            DropDownListState6.DataSource = items;
-            DropDownListState6.DataBind();
+            //Hospital
+            ddStatePreferedHospital.DataSource = items;
+            ddStatePreferedHospital.DataBind();
+
+            //Medical Providers
+            ddMPState1.DataSource = items;
+            ddMPState1.DataBind();
+            ddMPState2.DataSource = items;
+            ddMPState2.DataBind();
+            ddMPState3.DataSource = items;
+            ddMPState3.DataBind();
+            ddMPState4.DataSource = items;
+            ddMPState4.DataBind();
+            ddMPState5.DataSource = items;
+            ddMPState5.DataBind();
+            ddMPState6.DataSource = items;
+            ddMPState6.DataBind();
+            ddMPState7.DataSource = items;
+            ddMPState7.DataBind();
+            ddMPState8.DataSource = items;
+            ddMPState8.DataBind();
+            ddMPState9.DataSource = items;
+            ddMPState9.DataBind();
+            ddMPState10.DataSource = items;
+            ddMPState10.DataBind();
+
+            //Client State
+            ddState1.DataSource = items;
+            ddState1.DataBind();
+
+            //Clients Contacts States
+            ddStateCont1.DataSource = items;
+            ddStateCont1.DataBind();
+            ddStateCont2.DataSource = items;
+            ddStateCont2.DataBind();
+            ddStateCont3.DataSource = items;
+            ddStateCont3.DataBind();
+            ddStateCont4.DataSource = items;
+            ddStateCont4.DataBind();
+            ddStateCont5.DataSource = items;
+            ddStateCont5.DataBind();
+            ddStateCont6.DataSource = items;
+            ddStateCont6.DataBind();
+            ddStateCont7.DataSource = items;
+            ddStateCont7.DataBind();
+            ddStateCont8.DataSource = items;
+            ddStateCont8.DataBind();
+            ddStateCont9.DataSource = items;
+            ddStateCont9.DataBind();
+            ddStateCont10.DataSource = items;
+            ddStateCont10.DataBind();
+
+            //Provider State (Non-medical)
+            ddProvState1.DataSource = items;
+            ddProvState1.DataBind();
+            ddProvState2.DataSource = items;
+            ddProvState2.DataBind();
+            ddProvState3.DataSource = items;
+            ddProvState3.DataBind();
+            ddProvState4.DataSource = items;
+            ddProvState4.DataBind();
+            ddProvState5.DataSource = items;
+            ddProvState5.DataBind();
         }
     }
 
