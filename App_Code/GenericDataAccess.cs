@@ -111,9 +111,9 @@ public static class GenericDataAccess
   public static DbCommand CreateCommand()
   {
     // Obtain the database provider name
-      string dataProviderName = ConfigurationManager.ConnectionStrings["Pubs"].ProviderName;
+      string dataProviderName = ConfigurationManager.ConnectionStrings["CETC_DB"].ProviderName;
     // Obtain the database connection string
-      string connectionString = ConfigurationManager.ConnectionStrings["Pubs"].ConnectionString;
+      string connectionString = ConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
     // Create a new data provider factory
     DbProviderFactory factory = DbProviderFactories.GetFactory(dataProviderName);
     // Obtain a database specific connection object

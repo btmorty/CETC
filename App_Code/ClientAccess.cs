@@ -20,7 +20,7 @@ public static class ClientAccess
 	}
 
     //This method gets all authors from the database by calling the "GetAllAuthorNames" stored procedure.
-    //Resulst are returned in a DataTable object
+    //Results are returned in a DataTable object
     public static DataTable GetAllAuthorNames()
     {
         DbCommand comm = GenericDataAccess.CreateCommand();
