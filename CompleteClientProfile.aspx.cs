@@ -59,7 +59,7 @@ public partial class NewClientPersonal : System.Web.UI.Page
             //remove any prior existing session variables
             ContactCounter = 0;
             ProviderCounter = 3;
-            medCounter = 0;
+            medCounter = 1;
             docCounter = 0;
             Session.Contents.Remove("AddMed");
             Session.Contents.Remove("AddDoc");

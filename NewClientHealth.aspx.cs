@@ -37,7 +37,7 @@ public partial class NewClientHealth : System.Web.UI.Page
         if (!IsPostBack)
         {
             //remove any prior existing session variables
-            medCounter = 0;
+            medCounter = 1;
             docCounter = 0;
             Session.Contents.Remove("AddMed");
             Session.Contents.Remove("AddDoc");
