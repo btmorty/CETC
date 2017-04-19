@@ -62,48 +62,33 @@ public partial class NewClientPersonal : System.Web.UI.Page
             "--","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO",
             "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY",
             };
-            DropDownListState1.DataSource = items;
-            DropDownListState5.DataSource = items;
-            DropDownListState7.DataSource = items;
-            DropDownListState8.DataSource = items;
-            DropDownListState9.DataSource = items;
-            DropDownListState10.DataSource = items;
+
+
+            //Client State
+            ddState1.DataSource = items;
+            ddState1.DataBind();
+
+            //Clients Contacts States
             ddStateCont1.DataSource = items;
-            ddStateCont2.DataSource = items;
-            ddStateCont3.DataSource = items;
-            ddStateCont4.DataSource = items;
-            ddStateCont5.DataSource = items;
-            ddStateCont6.DataSource = items;
-            ddStateCont7.DataSource = items;
-            ddStateCont8.DataSource = items;
-            ddStateCont9.DataSource = items;
-            ddStateCont10.DataSource = items;
-            ddStateProv1.DataSource = items;
-            ddStateProv2.DataSource = items;
-            ddStateProv3.DataSource = items;
-            ddStateProv4.DataSource = items;
-            ddStateProv5.DataSource = items;
-            DropDownListState1.DataBind();
-            DropDownListState5.DataBind();
-            DropDownListState7.DataBind();
-            DropDownListState8.DataBind();
-            DropDownListState9.DataBind();
-            DropDownListState10.DataBind();
             ddStateCont1.DataBind();
+            ddStateCont2.DataSource = items;
             ddStateCont2.DataBind();
+            ddStateCont3.DataSource = items;
             ddStateCont3.DataBind();
+            ddStateCont4.DataSource = items;
             ddStateCont4.DataBind();
+            ddStateCont5.DataSource = items;
             ddStateCont5.DataBind();
+            ddStateCont6.DataSource = items;
             ddStateCont6.DataBind();
+            ddStateCont7.DataSource = items;
             ddStateCont7.DataBind();
+            ddStateCont8.DataSource = items;
             ddStateCont8.DataBind();
+            ddStateCont9.DataSource = items;
             ddStateCont9.DataBind();
+            ddStateCont10.DataSource = items;
             ddStateCont10.DataBind();
-            ddStateProv1.DataBind();
-            ddStateProv2.DataBind();
-            ddStateProv3.DataBind();
-            ddStateProv4.DataBind();
-            ddStateProv5.DataBind();
 
             //Set CETC Info
             lblCETCDirector.Text = "Director: Kae Lynn Beecher";

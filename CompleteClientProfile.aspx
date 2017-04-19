@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeFile="CompleteClientProfile.aspx.cs" Inherits="NewClientPersonal" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
-    <br />
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Service] FROM [Service]"></asp:SqlDataSource>
     <div align="center">
         <asp:Button ID="btnPersonal" runat="server" Text="Show Personal" align="center" OnClick="btnPersonal_Click" />
         <asp:Button ID="btnHealth" runat="server" Text="Show Health" align="center" OnClick="btnHealth_Click" />
@@ -883,11 +883,11 @@
                     <hr />
                 </div>
             </div>
-            <asp:Table ID="Table9" runat="server" HorizontalAlign="Center" Width="100%">
+           <asp:Table ID="Table9" runat="server" HorizontalAlign="Center" Width="100%">
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblSvc1" runat="server" Text="Service "></asp:Label><br />
-                        <asp:TextBox ID="txtSvc1" runat="server"></asp:TextBox>
+                        <asp:DropDownList ID="ddSvc1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Service"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblCoor1" runat="server" Text="Coordinator "></asp:Label><br />
@@ -898,7 +898,94 @@
                         <asp:TextBox ID="txtDeptHead1" runat="server"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
+                <asp:TableRow ID="tblSvc2" runat="server" Visible="false">
+                    <asp:TableCell>
+                        <asp:Label ID="Label2" runat="server" Text="Service "></asp:Label><br />
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label3" runat="server" Text="Coordinator "></asp:Label><br />
+                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label12" runat="server" Text="Department Head "></asp:Label><br />
+                        <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow Visible="false" ID="tblSvc3" runat="server">
+                    <asp:TableCell>
+                        <asp:Label ID="Label13" runat="server" Text="Service "></asp:Label><br />
+                        <asp:TextBox ID="TextBox12" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label14" runat="server" Text="Coordinator "></asp:Label><br />
+                        <asp:TextBox ID="TextBox37" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label43" runat="server" Text="Department Head "></asp:Label><br />
+                        <asp:TextBox ID="TextBox38" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow Visible="false" ID="tblSvc4" runat="server">
+                    <asp:TableCell>
+                        <asp:Label ID="Label44" runat="server" Text="Service "></asp:Label><br />
+                        <asp:TextBox ID="TextBox39" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label45" runat="server" Text="Coordinator "></asp:Label><br />
+                        <asp:TextBox ID="TextBox40" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label46" runat="server" Text="Department Head "></asp:Label><br />
+                        <asp:TextBox ID="TextBox41" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow Visible="false" ID="tblSvc5" runat="server">
+                    <asp:TableCell>
+                        <asp:Label ID="Label47" runat="server" Text="Service "></asp:Label><br />
+                        <asp:TextBox ID="TextBox42" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label48" runat="server" Text="Coordinator "></asp:Label><br />
+                        <asp:TextBox ID="TextBox43" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label49" runat="server" Text="Department Head "></asp:Label><br />
+                        <asp:TextBox ID="TextBox44" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow Visible="false" ID="tblSvc6" runat="server">
+                    <asp:TableCell>
+                        <asp:Label ID="Label50" runat="server" Text="Service "></asp:Label><br />
+                        <asp:TextBox ID="TextBox45" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label51" runat="server" Text="Coordinator "></asp:Label><br />
+                        <asp:TextBox ID="TextBox46" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label52" runat="server" Text="Department Head "></asp:Label><br />
+                        <asp:TextBox ID="TextBox47" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow Visible="false" ID="tblSvc7" runat="server">
+                    <asp:TableCell>
+                        <asp:Label ID="Label53" runat="server" Text="Service "></asp:Label><br />
+                        <asp:TextBox ID="TextBox48" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label54" runat="server" Text="Coordinator "></asp:Label><br />
+                        <asp:TextBox ID="TextBox49" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="Label55" runat="server" Text="Department Head "></asp:Label><br />
+                        <asp:TextBox ID="TextBox50" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
             </asp:Table>
+            <br />
+            <asp:LinkButton ID="btnAddService" runat="server" CssClass="btn btn-primary" OnClick="btnAddService_Click" CommandName="AddService"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Service</asp:LinkButton>
+            <asp:Label ID="lblMaxService" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
         </div>
         <hr />
         <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">

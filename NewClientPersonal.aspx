@@ -970,6 +970,7 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
+            <br />
             <asp:LinkButton ID="btnAddService" runat="server" CssClass="btn btn-primary" OnClick="btnAddService_Click" CommandName="AddService"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Service</asp:LinkButton>
             <asp:Label ID="lblMaxService" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
         </div>

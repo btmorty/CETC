@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 public partial class NewClientPersonal : System.Web.UI.Page
 {
     int medCounter;
+    int ServiceCounter;
     int docCounter;
     int ContactCounter;
     int ProviderCounter;
@@ -52,6 +53,22 @@ public partial class NewClientPersonal : System.Web.UI.Page
         {
             docCounter = Convert.ToInt32(Session["AddDoc"]);
         }
+        if (Session["AddMed"] == null)
+        {
+            medCounter = 1;
+        }
+        else
+        {
+            medCounter = Convert.ToInt32(Session["AddMed"]);
+        }
+        if (Session["AddService"] == null)
+        {
+            ServiceCounter = 1;
+        }
+        else
+        {
+            ServiceCounter = Convert.ToInt32(Session["AddService"]);
+        }
 
         //only perform the following the first time the page loads
         if (!IsPostBack)
@@ -61,10 +78,12 @@ public partial class NewClientPersonal : System.Web.UI.Page
             ProviderCounter = 3;
             medCounter = 1;
             docCounter = 0;
+            ServiceCounter = 1;
             Session.Contents.Remove("AddMed");
             Session.Contents.Remove("AddDoc");
             Session.Contents.Remove("AddContact");
             Session.Contents.Remove("AddProvider");
+            Session.Contents.Remove("AddService");
 
             //Data Bind State DropDownList Controls
             var items = new List<string>
@@ -377,13 +396,49 @@ public partial class NewClientPersonal : System.Web.UI.Page
         }
 
     }
+
+    protected void btnAddService_Click(object sender, EventArgs e)
+    {
+        if (btnAddService.CommandName == "AddService")
+        {
+            ServiceCounter++;
+            Session["AddService"] = ServiceCounter;
+            switch (ServiceCounter)
+            {
+                case 2:
+                    tblSvc2.Visible = true;
+                    break;
+                case 3:
+                    tblSvc3.Visible = true;
+                    break;
+                case 4:
+                    tblSvc4.Visible = true;
+                    break;
+                case 5:
+                    tblSvc5.Visible = true;
+                    break;
+                case 6:
+                    tblSvc6.Visible = true;
+                    break;
+                case 7:
+                    tblSvc7.Visible = true;
+                    break;
+                default:
+                    lblMaxService.Text = "Max number of providers reached";
+                    lblMaxService.Visible = true;
+                    break;
+            }
+        }
+    }
     protected void btnPersonal_Click(object sender, EventArgs e)
     {
         pnlPersonal.Visible = true;
+        pnlHealth.Visible = false;
     }
 
     protected void btnHealth_Click(object sender, EventArgs e)
     {
         pnlHealth.Visible = true;
+        pnlPersonal.Visible = false;
     }
 }
