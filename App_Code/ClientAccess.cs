@@ -128,7 +128,7 @@ public static class ClientAccess
 
     //This method inserts a new author using the "InsertAuthor" stored procedure.  The names of the method parameters should match the names of the fields in the corresponding data control (e.g. Gridview, Detailsview, etc.)
     //The method returns an int representing the number of rows affected.  This can be used to verify a successful operation, or it can be discarded
-    public static int InsertClient(string SSN, string DSPD, string PhotoID, string Status, string Sex, string Race, string Residential_Status, string Preferred_Language, string Religious_Affilation, string First_Name, string Last_Name, string Email, string Phone, string Modes_Communication, string SSA, string SSI, DateTime DateCreated)
+    public static int InsertClient(string SSN, string DSPD, string PhotoID, string Status, string Sex, string Race, string Residential_Status, string Preferred_Language, string Religious_Affilation, string First_Name, string Last_Name, string Email, string Phone, string Modes_Communication, string SSA, string SSI, DateTime DOB)
     {
 
         DbCommand comm = GenericDataAccess.CreateCommand();
@@ -160,7 +160,7 @@ public static class ClientAccess
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@Sex";
+        param.ParameterName = "@sex";
         param.DbType = DbType.String;
         param.Value = Sex;
         comm.Parameters.Add(param);
@@ -180,7 +180,7 @@ public static class ClientAccess
         param = comm.CreateParameter();
         param.ParameterName = "@Preferred_Language";
         param.DbType = DbType.String;
-        param.Value = Preferred_Language, ;
+        param.Value = Preferred_Language;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
@@ -232,9 +232,9 @@ public static class ClientAccess
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@DateCreated";
-        param.DbType = DbType.DateTime;
-        param.Value = Religious_Affilation;
+        param.ParameterName = "@DOB";
+        param.DbType = DbType.String;
+        param.Value = DOB;
         comm.Parameters.Add(param);
 
         int rowsAffected = GenericDataAccess.ExecuteNonQuery(comm);

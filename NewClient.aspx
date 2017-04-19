@@ -179,7 +179,7 @@
         <br />
         <div style="text-align: center;">
             <div style="width: 350px; margin-left: auto; margin-right: auto;">
-                <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-primary"> <span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Submit</asp:LinkButton>
+                <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-primary" OnClick="btnSubmit_Click"> <span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Submit</asp:LinkButton>
                 <asp:LinkButton ID="ResetBtn" runat="server" CssClass="btn btn-primary"> <span aria-hidden="true" class="glyphicon glyphicon-refresh"></span> Reset</asp:LinkButton>
             </div>
             <div>

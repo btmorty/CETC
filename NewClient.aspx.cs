@@ -46,9 +46,9 @@ public partial class NewClient : System.Web.UI.Page
         imgProfile.ImageUrl = "ClientImages/" + imageUpload.PostedFile.FileName;
     }
 
-    protected void cmdUpdate_Click(object sender, EventArgs e)
+    protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        int added = ClientAccess.InsertClient(txtSSN.Text, txtDSPD.Text, imageUpload.PostedFile.FileName, DropDownListStatus.SelectedItem.ToString(), DropDownSex.SelectedItem.ToString(), DropDownListRace.SelectedItem.ToString(), DropDownListResStatus.SelectedItem.ToString(), DropDownListLanguage.SelectedItem.ToString(), DropDownListReligion.SelectedItem.ToString(), txtFname.Text, txtLname.Text,txtEmail.Text, txtPhone.Text, txtComm.Text, txtSSA.Text, txtSSI.Text, Convert.ToDateTime(lblDate.Text));
+        int added = ClientAccess.InsertClient(txtSSN.Text, txtDSPD.Text, imageUpload.PostedFile.FileName, DropDownListStatus.SelectedItem.ToString(), DropDownSex.SelectedItem.ToString(), DropDownListRace.SelectedItem.ToString(), DropDownListResStatus.SelectedItem.ToString(), DropDownListLanguage.SelectedItem.ToString(), DropDownListReligion.SelectedItem.ToString(), txtFname.Text, txtLname.Text,txtEmail.Text, txtPhone.Text, txtComm.Text, txtSSA.Text, txtSSI.Text, DateTime.Parse(txtDOB.Text));
 
         //if the insert succeeded, refersh the author list
         if (added > 0)
