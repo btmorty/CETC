@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
     <asp:SqlDataSource ID="SqlDataSourceService" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Service] FROM [Service]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSourceClient" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.SSN, Client.DSPD, Client.PhotoID, Client.Status, Client.Sex, Client.Race, Client.Residential_Status, Client.Preferred_Language, Client.Religious_Affiliation, Client.First_Name, Client.Last_Name, Client.Email, Client.Phone, Client.Modes_Communication, Client.SSA, Client.SSI, Client.EmergencyEvacNeeds, Client.EvacID1, Client.EvacID2, Client.DOB, Client.DateCreated, Client.DateModified, Address.Address, Address.City, Address.State, Address.Zip_Code FROM Client INNER JOIN Address ON Client.EvacID1 = Address.AddressID AND Client.EvacID2 = Address.AddressID AND Client.AddressID = Address.AddressID WHERE (Client.ClientID = @ClientID)">
+    <asp:SqlDataSource ID="SqlDataSourceClient" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.SSN, Client.DSPD, Client.PhotoID, Client.Status, Client.Sex, Client.Race, Client.Residential_Status, Client.Preferred_Language, Client.Religious_Affiliation, Client.First_Name, Client.Last_Name, Client.Email, Client.Phone, Client.Modes_Communication, Client.SSA, Client.SSI, Client.DateCreated, Client.DateModified, Address.Address, Address.City, Address.State, Address.Zip_Code, Client.DOB, Health_Profile.DOB AS Expr1, Health_Profile.Staffing_Ratio, Health_Profile.Age FROM Client INNER JOIN Address ON Client.AddressID = Address.AddressID INNER JOIN Health_Profile ON Client.ClientID = Health_Profile.ClientID WHERE (Client.ClientID = @ClientID)">
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
@@ -68,10 +68,436 @@
     </div>
     <%--//Data Entry Form--%>
         <div class="centerForm">
-            <asp:FormView ID="FormView1" runat="server" DataKeyNames="ClientID" DataSourceID="SqlDataSourceClient">
-        <ItemTemplate>
         <div class="row">
             <div class="col-sm-9">
+                <asp:ListView runat="server" DataSourceID="SqlDataSourceClient">
+                    <LayoutTemplate>
+                        <div id="itemPlaceholderContainer" runat="server" style="">
+                            <span runat="server" id="itemPlaceholder" />
+                        </div>
+                        <div style="">
+                        </div>
+                    </LayoutTemplate>
+                    <AlternatingItemTemplate>
+                        <span style="">SSN:
+                        <asp:Label ID="SSNLabel" runat="server" Text='<%# Eval("SSN") %>' />
+                        <br />
+                        DSPD:
+                        <asp:Label ID="DSPDLabel" runat="server" Text='<%# Eval("DSPD") %>' />
+                        <br />
+                        PhotoID:
+                        <asp:Label ID="PhotoIDLabel" runat="server" Text='<%# Eval("PhotoID") %>' />
+                        <br />
+                        Status:
+                        <asp:Label ID="StatusLabel" runat="server" Text='<%# Eval("Status") %>' />
+                        <br />
+                        Sex:
+                        <asp:Label ID="SexLabel" runat="server" Text='<%# Eval("Sex") %>' />
+                        <br />
+                        Race:
+                        <asp:Label ID="RaceLabel" runat="server" Text='<%# Eval("Race") %>' />
+                        <br />
+                        Residential_Status:
+                        <asp:Label ID="Residential_StatusLabel" runat="server" Text='<%# Eval("Residential_Status") %>' />
+                        <br />
+                        Preferred_Language:
+                        <asp:Label ID="Preferred_LanguageLabel" runat="server" Text='<%# Eval("Preferred_Language") %>' />
+                        <br />
+                        Religious_Affiliation:
+                        <asp:Label ID="Religious_AffiliationLabel" runat="server" Text='<%# Eval("Religious_Affiliation") %>' />
+                        <br />
+                        First_Name:
+                        <asp:Label ID="First_NameLabel" runat="server" Text='<%# Eval("First_Name") %>' />
+                        <br />
+                        Last_Name:
+                        <asp:Label ID="Last_NameLabel" runat="server" Text='<%# Eval("Last_Name") %>' />
+                        <br />
+                        Email:
+                        <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
+                        <br />
+                        Phone:
+                        <asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' />
+                        <br />
+                        Modes_Communication:
+                        <asp:Label ID="Modes_CommunicationLabel" runat="server" Text='<%# Eval("Modes_Communication") %>' />
+                        <br />
+                        SSA:
+                        <asp:Label ID="SSALabel" runat="server" Text='<%# Eval("SSA") %>' />
+                        <br />
+                        SSI:
+                        <asp:Label ID="SSILabel" runat="server" Text='<%# Eval("SSI") %>' />
+                        <br />
+                        DateCreated:
+                        <asp:Label ID="DateCreatedLabel" runat="server" Text='<%# Eval("DateCreated") %>' />
+                        <br />
+                        DateModified:
+                        <asp:Label ID="DateModifiedLabel" runat="server" Text='<%# Eval("DateModified") %>' />
+                        <br />
+                        Address:
+                        <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
+                        <br />
+                        City:
+                        <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
+                        <br />
+                        State:
+                        <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
+                        <br />
+                        Zip_Code:
+                        <asp:Label ID="Zip_CodeLabel" runat="server" Text='<%# Eval("Zip_Code") %>' />
+                        <br />
+                        DOB:
+                        <asp:Label ID="DOBLabel" runat="server" Text='<%# Eval("DOB") %>' />
+                        <br />
+                        Expr1:
+                        <asp:Label ID="Expr1Label" runat="server" Text='<%# Eval("Expr1") %>' />
+                        <br />
+                        Staffing_Ratio:
+                        <asp:Label ID="Staffing_RatioLabel" runat="server" Text='<%# Eval("Staffing_Ratio") %>' />
+                        <br />
+                        Age:
+                        <asp:Label ID="AgeLabel" runat="server" Text='<%# Eval("Age") %>' />
+                        <br />
+                        <br />
+                        </span>
+                    </AlternatingItemTemplate>
+                    <EditItemTemplate>
+                        <span style="">SSN:
+                        <asp:TextBox ID="SSNTextBox" runat="server" Text='<%# Bind("SSN") %>' />
+                        <br />
+                        DSPD:
+                        <asp:TextBox ID="DSPDTextBox" runat="server" Text='<%# Bind("DSPD") %>' />
+                        <br />
+                        PhotoID:
+                        <asp:TextBox ID="PhotoIDTextBox" runat="server" Text='<%# Bind("PhotoID") %>' />
+                        <br />
+                        Status:
+                        <asp:TextBox ID="StatusTextBox" runat="server" Text='<%# Bind("Status") %>' />
+                        <br />
+                        Sex:
+                        <asp:TextBox ID="SexTextBox" runat="server" Text='<%# Bind("Sex") %>' />
+                        <br />
+                        Race:
+                        <asp:TextBox ID="RaceTextBox" runat="server" Text='<%# Bind("Race") %>' />
+                        <br />
+                        Residential_Status:
+                        <asp:TextBox ID="Residential_StatusTextBox" runat="server" Text='<%# Bind("Residential_Status") %>' />
+                        <br />
+                        Preferred_Language:
+                        <asp:TextBox ID="Preferred_LanguageTextBox" runat="server" Text='<%# Bind("Preferred_Language") %>' />
+                        <br />
+                        Religious_Affiliation:
+                        <asp:TextBox ID="Religious_AffiliationTextBox" runat="server" Text='<%# Bind("Religious_Affiliation") %>' />
+                        <br />
+                        First_Name:
+                        <asp:TextBox ID="First_NameTextBox" runat="server" Text='<%# Bind("First_Name") %>' />
+                        <br />
+                        Last_Name:
+                        <asp:TextBox ID="Last_NameTextBox" runat="server" Text='<%# Bind("Last_Name") %>' />
+                        <br />
+                        Email:
+                        <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
+                        <br />
+                        Phone:
+                        <asp:TextBox ID="PhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' />
+                        <br />
+                        Modes_Communication:
+                        <asp:TextBox ID="Modes_CommunicationTextBox" runat="server" Text='<%# Bind("Modes_Communication") %>' />
+                        <br />
+                        SSA:
+                        <asp:TextBox ID="SSATextBox" runat="server" Text='<%# Bind("SSA") %>' />
+                        <br />
+                        SSI:
+                        <asp:TextBox ID="SSITextBox" runat="server" Text='<%# Bind("SSI") %>' />
+                        <br />
+                        DateCreated:
+                        <asp:TextBox ID="DateCreatedTextBox" runat="server" Text='<%# Bind("DateCreated") %>' />
+                        <br />
+                        DateModified:
+                        <asp:TextBox ID="DateModifiedTextBox" runat="server" Text='<%# Bind("DateModified") %>' />
+                        <br />
+                        Address:
+                        <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
+                        <br />
+                        City:
+                        <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+                        <br />
+                        State:
+                        <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
+                        <br />
+                        Zip_Code:
+                        <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip_Code") %>' />
+                        <br />
+                        DOB:
+                        <asp:TextBox ID="DOBTextBox" runat="server" Text='<%# Bind("DOB") %>' />
+                        <br />
+                        Expr1:
+                        <asp:TextBox ID="Expr1TextBox" runat="server" Text='<%# Bind("Expr1") %>' />
+                        <br />
+                        Staffing_Ratio:
+                        <asp:TextBox ID="Staffing_RatioTextBox" runat="server" Text='<%# Bind("Staffing_Ratio") %>' />
+                        <br />
+                        Age:
+                        <asp:TextBox ID="AgeTextBox" runat="server" Text='<%# Bind("Age") %>' />
+                        <br />
+                        <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
+                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                        <br />
+                        <br />
+                        </span>
+                    </EditItemTemplate>
+                    <EmptyDataTemplate>
+                        <span>No data was returned.</span>
+                    </EmptyDataTemplate>
+                    <InsertItemTemplate>
+                        <span style="">SSN:
+                        <asp:TextBox ID="SSNTextBox" runat="server" Text='<%# Bind("SSN") %>' />
+                        <br />
+                        DSPD:
+                        <asp:TextBox ID="DSPDTextBox" runat="server" Text='<%# Bind("DSPD") %>' />
+                        <br />
+                        PhotoID:
+                        <asp:TextBox ID="PhotoIDTextBox" runat="server" Text='<%# Bind("PhotoID") %>' />
+                        <br />
+                        Status:
+                        <asp:TextBox ID="StatusTextBox" runat="server" Text='<%# Bind("Status") %>' />
+                        <br />
+                        Sex:
+                        <asp:TextBox ID="SexTextBox" runat="server" Text='<%# Bind("Sex") %>' />
+                        <br />
+                        Race:
+                        <asp:TextBox ID="RaceTextBox" runat="server" Text='<%# Bind("Race") %>' />
+                        <br />
+                        Residential_Status:
+                        <asp:TextBox ID="Residential_StatusTextBox" runat="server" Text='<%# Bind("Residential_Status") %>' />
+                        <br />
+                        Preferred_Language:
+                        <asp:TextBox ID="Preferred_LanguageTextBox" runat="server" Text='<%# Bind("Preferred_Language") %>' />
+                        <br />
+                        Religious_Affiliation:
+                        <asp:TextBox ID="Religious_AffiliationTextBox" runat="server" Text='<%# Bind("Religious_Affiliation") %>' />
+                        <br />
+                        First_Name:
+                        <asp:TextBox ID="First_NameTextBox" runat="server" Text='<%# Bind("First_Name") %>' />
+                        <br />
+                        Last_Name:
+                        <asp:TextBox ID="Last_NameTextBox" runat="server" Text='<%# Bind("Last_Name") %>' />
+                        <br />
+                        Email:
+                        <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
+                        <br />
+                        Phone:
+                        <asp:TextBox ID="PhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' />
+                        <br />
+                        Modes_Communication:
+                        <asp:TextBox ID="Modes_CommunicationTextBox" runat="server" Text='<%# Bind("Modes_Communication") %>' />
+                        <br />
+                        SSA:
+                        <asp:TextBox ID="SSATextBox" runat="server" Text='<%# Bind("SSA") %>' />
+                        <br />
+                        SSI:
+                        <asp:TextBox ID="SSITextBox" runat="server" Text='<%# Bind("SSI") %>' />
+                        <br />
+                        DateCreated:
+                        <asp:TextBox ID="DateCreatedTextBox" runat="server" Text='<%# Bind("DateCreated") %>' />
+                        <br />
+                        DateModified:
+                        <asp:TextBox ID="DateModifiedTextBox" runat="server" Text='<%# Bind("DateModified") %>' />
+                        <br />
+                        Address:
+                        <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
+                        <br />
+                        City:
+                        <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+                        <br />
+                        State:
+                        <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
+                        <br />
+                        Zip_Code:
+                        <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip_Code") %>' />
+                        <br />
+                        DOB:
+                        <asp:TextBox ID="DOBTextBox" runat="server" Text='<%# Bind("DOB") %>' />
+                        <br />
+                        Expr1:
+                        <asp:TextBox ID="Expr1TextBox" runat="server" Text='<%# Bind("Expr1") %>' />
+                        <br />
+                        Staffing_Ratio:
+                        <asp:TextBox ID="Staffing_RatioTextBox" runat="server" Text='<%# Bind("Staffing_Ratio") %>' />
+                        <br />
+                        Age:
+                        <asp:TextBox ID="AgeTextBox" runat="server" Text='<%# Bind("Age") %>' />
+                        <br />
+                        <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
+                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                        <br />
+                        <br />
+                        </span>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <span style="">SSN:
+                        <asp:Label ID="SSNLabel" runat="server" Text='<%# Eval("SSN") %>' />
+                        <br />
+                        DSPD:
+                        <asp:Label ID="DSPDLabel" runat="server" Text='<%# Eval("DSPD") %>' />
+                        <br />
+                        PhotoID:
+                        <asp:Label ID="PhotoIDLabel" runat="server" Text='<%# Eval("PhotoID") %>' />
+                        <br />
+                        Status:
+                        <asp:Label ID="StatusLabel" runat="server" Text='<%# Eval("Status") %>' />
+                        <br />
+                        Sex:
+                        <asp:Label ID="SexLabel" runat="server" Text='<%# Eval("Sex") %>' />
+                        <br />
+                        Race:
+                        <asp:Label ID="RaceLabel" runat="server" Text='<%# Eval("Race") %>' />
+                        <br />
+                        Residential_Status:
+                        <asp:Label ID="Residential_StatusLabel" runat="server" Text='<%# Eval("Residential_Status") %>' />
+                        <br />
+                        Preferred_Language:
+                        <asp:Label ID="Preferred_LanguageLabel" runat="server" Text='<%# Eval("Preferred_Language") %>' />
+                        <br />
+                        Religious_Affiliation:
+                        <asp:Label ID="Religious_AffiliationLabel" runat="server" Text='<%# Eval("Religious_Affiliation") %>' />
+                        <br />
+                        First_Name:
+                        <asp:Label ID="First_NameLabel" runat="server" Text='<%# Eval("First_Name") %>' />
+                        <br />
+                        Last_Name:
+                        <asp:Label ID="Last_NameLabel" runat="server" Text='<%# Eval("Last_Name") %>' />
+                        <br />
+                        Email:
+                        <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
+                        <br />
+                        Phone:
+                        <asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' />
+                        <br />
+                        Modes_Communication:
+                        <asp:Label ID="Modes_CommunicationLabel" runat="server" Text='<%# Eval("Modes_Communication") %>' />
+                        <br />
+                        SSA:
+                        <asp:Label ID="SSALabel" runat="server" Text='<%# Eval("SSA") %>' />
+                        <br />
+                        SSI:
+                        <asp:Label ID="SSILabel" runat="server" Text='<%# Eval("SSI") %>' />
+                        <br />
+                        DateCreated:
+                        <asp:Label ID="DateCreatedLabel" runat="server" Text='<%# Eval("DateCreated") %>' />
+                        <br />
+                        DateModified:
+                        <asp:Label ID="DateModifiedLabel" runat="server" Text='<%# Eval("DateModified") %>' />
+                        <br />
+                        Address:
+                        <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
+                        <br />
+                        City:
+                        <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
+                        <br />
+                        State:
+                        <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
+                        <br />
+                        Zip_Code:
+                        <asp:Label ID="Zip_CodeLabel" runat="server" Text='<%# Eval("Zip_Code") %>' />
+                        <br />
+                        DOB:
+                        <asp:Label ID="DOBLabel" runat="server" Text='<%# Eval("DOB") %>' />
+                        <br />
+                        Expr1:
+                        <asp:Label ID="Expr1Label" runat="server" Text='<%# Eval("Expr1") %>' />
+                        <br />
+                        Staffing_Ratio:
+                        <asp:Label ID="Staffing_RatioLabel" runat="server" Text='<%# Eval("Staffing_Ratio") %>' />
+                        <br />
+                        Age:
+                        <asp:Label ID="AgeLabel" runat="server" Text='<%# Eval("Age") %>' />
+                        <br />
+                        <br />
+                        </span>
+                    </ItemTemplate>
+                    <SelectedItemTemplate>
+                        <span style="">SSN:
+                        <asp:Label ID="SSNLabel" runat="server" Text='<%# Eval("SSN") %>' />
+                        <br />
+                        DSPD:
+                        <asp:Label ID="DSPDLabel" runat="server" Text='<%# Eval("DSPD") %>' />
+                        <br />
+                        PhotoID:
+                        <asp:Label ID="PhotoIDLabel" runat="server" Text='<%# Eval("PhotoID") %>' />
+                        <br />
+                        Status:
+                        <asp:Label ID="StatusLabel" runat="server" Text='<%# Eval("Status") %>' />
+                        <br />
+                        Sex:
+                        <asp:Label ID="SexLabel" runat="server" Text='<%# Eval("Sex") %>' />
+                        <br />
+                        Race:
+                        <asp:Label ID="RaceLabel" runat="server" Text='<%# Eval("Race") %>' />
+                        <br />
+                        Residential_Status:
+                        <asp:Label ID="Residential_StatusLabel" runat="server" Text='<%# Eval("Residential_Status") %>' />
+                        <br />
+                        Preferred_Language:
+                        <asp:Label ID="Preferred_LanguageLabel" runat="server" Text='<%# Eval("Preferred_Language") %>' />
+                        <br />
+                        Religious_Affiliation:
+                        <asp:Label ID="Religious_AffiliationLabel" runat="server" Text='<%# Eval("Religious_Affiliation") %>' />
+                        <br />
+                        First_Name:
+                        <asp:Label ID="First_NameLabel" runat="server" Text='<%# Eval("First_Name") %>' />
+                        <br />
+                        Last_Name:
+                        <asp:Label ID="Last_NameLabel" runat="server" Text='<%# Eval("Last_Name") %>' />
+                        <br />
+                        Email:
+                        <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
+                        <br />
+                        Phone:
+                        <asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' />
+                        <br />
+                        Modes_Communication:
+                        <asp:Label ID="Modes_CommunicationLabel" runat="server" Text='<%# Eval("Modes_Communication") %>' />
+                        <br />
+                        SSA:
+                        <asp:Label ID="SSALabel" runat="server" Text='<%# Eval("SSA") %>' />
+                        <br />
+                        SSI:
+                        <asp:Label ID="SSILabel" runat="server" Text='<%# Eval("SSI") %>' />
+                        <br />
+                        DateCreated:
+                        <asp:Label ID="DateCreatedLabel" runat="server" Text='<%# Eval("DateCreated") %>' />
+                        <br />
+                        DateModified:
+                        <asp:Label ID="DateModifiedLabel" runat="server" Text='<%# Eval("DateModified") %>' />
+                        <br />
+                        Address:
+                        <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
+                        <br />
+                        City:
+                        <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
+                        <br />
+                        State:
+                        <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
+                        <br />
+                        Zip_Code:
+                        <asp:Label ID="Zip_CodeLabel" runat="server" Text='<%# Eval("Zip_Code") %>' />
+                        <br />
+                        DOB:
+                        <asp:Label ID="DOBLabel" runat="server" Text='<%# Eval("DOB") %>' />
+                        <br />
+                        Expr1:
+                        <asp:Label ID="Expr1Label" runat="server" Text='<%# Eval("Expr1") %>' />
+                        <br />
+                        Staffing_Ratio:
+                        <asp:Label ID="Staffing_RatioLabel" runat="server" Text='<%# Eval("Staffing_Ratio") %>' />
+                        <br />
+                        Age:
+                        <asp:Label ID="AgeLabel" runat="server" Text='<%# Eval("Age") %>' />
+                        <br />
+                        <br />
+                        </span>
+                    </SelectedItemTemplate>
+                </asp:ListView>
                 <asp:Table ID="Table1" runat="server" CellSpacing="2" CellPadding="2" HorizontalAlign="Center" Width="100%">
                     <asp:TableRow>
                         <asp:TableCell>
@@ -223,8 +649,6 @@
                     </asp:TableRow>
                 </asp:Table>
             </div>
-            </ItemTemplate>
-            </asp:FormView>
             <div class="col-sm-3">
                 <asp:Image ID="imgProfile" runat="server" BorderStyle="Solid" BorderWidth="1" Height="200px" ImageAlign="Middle" Width="200px" /><br />
                 <br />
