@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ReportsService.aspx.cs" Inherits="ReportsServices" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Service.aspx.cs" Inherits="ReportsServices" %>
 
 <!DOCTYPE html>
 

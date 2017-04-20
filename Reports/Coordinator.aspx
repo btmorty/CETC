@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ReportsCoordinator.aspx.cs" Inherits="ReportsCoordinator" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Coordinator.aspx.cs" Inherits="ReportsCoordinator" %>
 
 <!DOCTYPE html>
 
