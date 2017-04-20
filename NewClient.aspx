@@ -121,7 +121,7 @@
                             </asp:DropDownList>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Label ID="lbl" runat="server" Text="Religious Affiliation "></asp:Label><br />
+                            <asp:Label ID="lblReligion" runat="server" Text="Religious Affiliation "></asp:Label><br />
                             <asp:DropDownList ID="DropDownListReligion" runat="server">
                                 <asp:ListItem>Buddhism</asp:ListItem>
                                 <asp:ListItem>Catholic</asp:ListItem>
