@@ -11,10 +11,40 @@
         }
     </style>
     <asp:SqlDataSource ID="SqlDataSourceService" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Service] FROM [Service]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSourceClient" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.SSN, Client.DSPD, Client.PhotoID, Client.Status, Client.Sex, Client.Race, Client.Residential_Status, Client.Preferred_Language, Client.Religious_Affiliation, Client.First_Name, Client.Last_Name, Client.Email, Client.Phone, Client.Modes_Communication, Client.SSA, Client.SSI, Client.DateCreated, Client.DateModified, Address.Address, Address.City, Address.State, Address.Zip_Code, Client.DOB, Health_Profile.DOB AS Expr1, Health_Profile.Staffing_Ratio, Health_Profile.Age FROM Client INNER JOIN Address ON Client.AddressID = Address.AddressID INNER JOIN Health_Profile ON Client.ClientID = Health_Profile.ClientID WHERE (Client.ClientID = @ClientID)">
+    <asp:SqlDataSource ID="SqlDataSourceDDStatus" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [StatusID], [Status] FROM [DD_Status]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSourceClient" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.SSN, Client.DSPD, Client.PhotoID, Client.Status, Client.Sex, Client.Race, Client.Residential_Status, Client.Preferred_Language, Client.Religious_Affiliation, Client.First_Name, Client.Last_Name, Client.Email, Client.Phone, Client.Modes_Communication, Client.SSA, Client.SSI, Client.DateCreated, Client.DateModified, Address.Address, Address.City, Address.State, Address.Zip_Code, Client.DOB, Health_Profile.DOB AS Expr1, Health_Profile.Staffing_Ratio, Health_Profile.Age FROM Client INNER JOIN Address ON Client.AddressID = Address.AddressID INNER JOIN Health_Profile ON Client.ClientID = Health_Profile.ClientID WHERE (Client.ClientID = @ClientID)" UpdateCommand="UpdateClient" UpdateCommandType="StoredProcedure">
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="AddressID" Type="Int32" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="Hospital_AddressID" Type="Int32" />
+            <asp:Parameter Name="Hospital_Address" Type="String" />
+            <asp:Parameter Name="Status" Type="String" />
+            <asp:Parameter Name="First_Name" Type="String" />
+            <asp:Parameter Name="Last_Name" Type="String" />
+            <asp:Parameter DbType="Date" Name="DOB" />
+            <asp:Parameter Name="Age" Type="Int32" />
+            <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="City" Type="String" />
+            <asp:Parameter Name="State" Type="String" />
+            <asp:Parameter Name="Zip" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="Phone" Type="String" />
+            <asp:Parameter Name="sex" Type="String" />
+            <asp:Parameter Name="Race" Type="String" />
+            <asp:Parameter Name="Residential_Status" Type="String" />
+            <asp:Parameter Name="Preferred_Language" Type="String" />
+            <asp:Parameter Name="Religious_Affiliation" Type="String" />
+            <asp:Parameter Name="SSN" Type="Int32" />
+            <asp:Parameter Name="Staffing_Ratio" Type="String" />
+            <asp:Parameter Name="DSPD" Type="Int32" />
+            <asp:Parameter Name="SSI" Type="Int32" />
+            <asp:Parameter Name="SSA" Type="Int32" />
+            <asp:Parameter Name="Modes_Communication" Type="String" />
+            <asp:Parameter Name="Diagnosis" Type="String" />
+        </UpdateParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceMeds" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Medication.MedicationID, Medication.Medication_Name, Medication.Dosage, Medication.Purpose, Medication.Non_Perscription, Medication.ProviderID, Medical_Provider.FirstName, Medical_Provider.LastName FROM Medication INNER JOIN Medical_Provider ON Medication.ProviderID = Medical_Provider.ProviderID WHERE (Medication.ClientID = @ClientID)">
         <SelectParameters>
@@ -88,7 +118,7 @@
             <div class="centerForm">
                 <div class="row">
                     <div class="col-sm-9">
-                        <asp:ListView runat="server" DataSourceID="SqlDataSourceClient">
+                        <asp:ListView runat="server" DataSourceID="SqlDataSourceClient" ID="ClientListView" OnItemDataBound="ClientListView_OnItemDataBound">
                             <LayoutTemplate>
                                 <div id="itemPlaceholderContainer" runat="server" style="">
                                     <span runat="server" id="itemPlaceholder" />
@@ -100,79 +130,88 @@
                                 <table>
                                     <tr>
                                         <td>Status:<br />
-                                            <asp:TextBox ID="StatusLabel" runat="server" Text='<%# Eval("Status") %>' /></td>
+                                            <asp:TextBox ID="StatusLabel" runat="server" ReadOnly="true" Text='<%# Eval("Status") %>' /></td>
                                         <td>Date Created:<br />
-                                            <asp:Label ID="DateCreatedLabel" runat="server" Text='<%# Eval("DateCreated") %>' /></td>
+                                            <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true" Text='<%# Eval("DateCreated") %>' /></td>
                                         <td>Date Modified:<br />
-                                            <asp:Label ID="DateModifiedLabel" runat="server" Text='<%# Eval("DateModified") %>' />
-                                        <td>
+                                            <asp:TextBox ID="DateModifiedLabel" runat="server" ReadOnly="true" Text='<%# Eval("DateModified") %>' /></td>
+                                        <td>Last Modified By:<br />
+                                            <asp:TextBox ID="LastModifiedByLabel" runat="server" ReadOnly="true" /></td>
                                     </tr>
                                     <tr>
                                         <td>First Name:<br />
-                                            <asp:TextBox ID="First_NameLabel" runat="server" Text='<%# Eval("First_Name") %>' /></td>
+                                            <asp:TextBox ID="First_NameLabel" runat="server" ReadOnly="true" Text='<%# Eval("First_Name") %>' /></td>
                                         <td>Last Name:<br />
-                                            <asp:TextBox ID="Last_NameLabel" runat="server" Text='<%# Eval("Last_Name") %>' /></td>
+                                            <asp:TextBox ID="Last_NameLabel" runat="server" ReadOnly="true" Text='<%# Eval("Last_Name") %>' /></td>
                                         <td>Date of Birth:<br />
-                                            <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Eval("DOB") %>' /></td>
+                                            <asp:TextBox ID="DOBLabel" runat="server" ReadOnly="true" Text='<%# Eval("DOB") %>' /></td>
                                         <td>Age:<br />
-                                            <asp:TextBox ID="AgeLabel" runat="server" Text='<%# Eval("Age") %>' /></td>
+                                            <asp:TextBox ID="AgeLabel" runat="server" ReadOnly="true" Text='<%# Eval("Age") %>' /></td>
                                     </tr>
                                     <tr>
                                         <td>Address:<br />
-                                            <asp:TextBox ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' /></td>
+                                            <asp:TextBox ID="AddressLabel" runat="server" ReadOnly="true" Text='<%# Eval("Address") %>' /></td>
                                         <td>City:<br />
-                                            <asp:TextBox ID="CityLabel" runat="server" Text='<%# Eval("City") %>' /></td>
+                                            <asp:TextBox ID="CityLabel" runat="server" ReadOnly="true" Text='<%# Eval("City") %>' /></td>
                                         <td>State:<br />
-                                            <asp:TextBox ID="StateLabel" runat="server" Text='<%# Eval("State") %>' /></td>
+                                            <asp:TextBox ID="StateLabel" runat="server" ReadOnly="true" Text='<%# Eval("State") %>' /></td>
                                         <td>Zip Code:<br />
-                                            <asp:TextBox ID="Zip_CodeLabel" runat="server" Text='<%# Eval("Zip_Code") %>' /></td>
+                                            <asp:TextBox ID="Zip_CodeLabel" runat="server" ReadOnly="true" Text='<%# Eval("Zip_Code") %>' /></td>
                                     </tr>
                                     <tr>
                                         <td>Email:<br />
-                                            <asp:TextBox ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' /></td>
+                                            <asp:TextBox ID="EmailLabel" runat="server" ReadOnly="true" Text='<%# Eval("Email") %>' /></td>
                                         <td>Phone:<br />
-                                            <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' /></td>
+                                            <asp:TextBox ID="PhoneLabel" runat="server" ReadOnly="true" Text='<%# Eval("Phone") %>' /></td>
                                         <td>SSN:<br />
-                                            <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Eval("SSN") %>' /></td>
+                                            <asp:TextBox ID="SSNLabel" runat="server" ReadOnly="true" Text='<%# Eval("SSN") %>' /></td>
                                         <td>Sex:<br />
-                                            <asp:TextBox ID="SexLabel" runat="server" Text='<%# Eval("Sex") %>' /></td>
+                                            <asp:TextBox ID="SexLabel" runat="server" ReadOnly="true" Text='<%# Eval("Sex") %>' /></td>
                                     </tr>
                                     <tr>
                                         <td>Race:<br />
-                                            <asp:TextBox ID="RaceLabel" runat="server" Text='<%# Eval("Race") %>' /></td>
+                                            <asp:TextBox ID="RaceLabel" runat="server" ReadOnly="true" Text='<%# Eval("Race") %>' /></td>
                                         <td>Residential Status:<br />
-                                            <asp:TextBox ID="Residential_StatusLabel" runat="server" Text='<%# Eval("Residential_Status") %>' /></td>
+                                            <asp:TextBox ID="Residential_StatusLabel" runat="server" ReadOnly="true" Text='<%# Eval("Residential_Status") %>' /></td>
                                         <td>Preferred Language:<br />
-                                            <asp:TextBox ID="Preferred_LanguageLabel" runat="server" Text='<%# Eval("Preferred_Language") %>' /></td>
+                                            <asp:TextBox ID="Preferred_LanguageLabel" runat="server" ReadOnly="true" Text='<%# Eval("Preferred_Language") %>' /></td>
                                         <td>Religious Affiliation:<br />
-                                            <asp:TextBox ID="Religious_AffiliationLabel" runat="server" Text='<%# Eval("Religious_Affiliation") %>' /></td>
+                                            <asp:TextBox ID="Religious_AffiliationLabel" runat="server" ReadOnly="true" Text='<%# Eval("Religious_Affiliation") %>' /></td>
                                     </tr>
                                     <tr>
                                         <td>Staffing Ratio:<br />
-                                            <asp:TextBox ID="Staffing_RatioLabel" runat="server" Text='<%# Eval("Staffing_Ratio") %>' /></td>
+                                            <asp:TextBox ID="Staffing_RatioLabel" runat="server" ReadOnly="true" Text='<%# Eval("Staffing_Ratio") %>' /></td>
                                         <td>DSPD:<br />
-                                            <asp:TextBox ID="DSPDLabel" runat="server" Text='<%# Eval("DSPD") %>' /></td>
+                                            <asp:TextBox ID="DSPDLabel" runat="server" ReadOnly="true" Text='<%# Eval("DSPD") %>' /></td>
                                         <td>SSI:<br />
-                                            <asp:TextBox ID="SSILabel" runat="server" Text='<%# Eval("SSI") %>' /></td>
+                                            <asp:TextBox ID="SSILabel" runat="server" ReadOnly="true" Text='<%# Eval("SSI") %>' /></td>
                                     </tr>
                                     <tr>
                                         <td>SSA:<br />
-                                            <asp:TextBox ID="SSALabel" runat="server" Text='<%# Eval("SSA") %>' /></td>
+                                            <asp:TextBox ID="SSALabel" runat="server" ReadOnly="true" Text='<%# Eval("SSA") %>' /></td>
                                         <td>Modes_Communication:<br />
-                                            <asp:TextBox ID="Modes_CommunicationLabel" runat="server" Text='<%# Eval("Modes_Communication") %>' /></td>
+                                            <asp:TextBox ID="Modes_CommunicationLabel" ReadOnly="true" runat="server" Text='<%# Eval("Modes_Communication") %>' /></td>
+                                        <td>Diagnosis:<br /></td>
                                     </tr>
                                 </table>
+                                <br />
+                                <asp:LinkButton ID="btnClientEdit" runat="server" CssClass="btn btn-primary" CommandName="Edit"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
+                                <br />
+                                <br />
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <table>
                                     <tr>
                                         <td>Status:<br />
-                                            <asp:TextBox ID="StatusLabel" runat="server" Text='<%# Eval("Status") %>' /></td>
+                                            <asp:DropDownList ID="ddStatus" Runat="server"></asp:DropDownList>
+                                            <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("Status") %>' Visible="false"></asp:Label>
+                                        </td>
                                         <td>Date Created:<br />
-                                            <asp:TextBox ID="DateCreatedLabel" runat="server" Text='<%# Eval("DateCreated") %>' /></td>
+                                            <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true"/></td>
                                         <td>Date Modified:<br />
-                                            <asp:TextBox ID="DateModifiedLabel" runat="server" Text='<%# Eval("DateModified") %>' />
-                                        <td>
+                                            <asp:TextBox ID="txtDateModified" runat="server" ReadOnly="true"/></td>
+                                        <td>Last Modified By:<br />
+                                            <asp:TextBox ID="txtLastModifiedBy" runat="server" ReadOnly="true"/></td>
                                     </tr>
                                     <tr>
                                         <td>First Name:<br />
@@ -180,9 +219,9 @@
                                         <td>Last Name:<br />
                                             <asp:TextBox ID="Last_NameLabel" runat="server" Text='<%# Eval("Last_Name") %>' /></td>
                                         <td>Date of Birth:<br />
-                                            <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Eval("DOB") %>' /></td>
+                                            <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Eval("DOB") %>' TextMode="Date" /></td>
                                         <td>Age:<br />
-                                            <asp:TextBox ID="AgeLabel" runat="server" Text='<%# Eval("Age") %>' /></td>
+                                            <asp:TextBox ID="AgeLabel" runat="server" Text='<%# Eval("Age") %>' TextMode="Number" /></td>
                                     </tr>
                                     <tr>
                                         <td>Address:<br />
@@ -196,9 +235,9 @@
                                     </tr>
                                     <tr>
                                         <td>Email:<br />
-                                            <asp:TextBox ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' /></td>
+                                            <asp:TextBox ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' TextMode="Email" /></td>
                                         <td>Phone:<br />
-                                            <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' /></td>
+                                            <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' TextMode="Phone" /></td>
                                         <td>SSN:<br />
                                             <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Eval("SSN") %>' /></td>
                                         <td>Sex:<br />
@@ -227,20 +266,20 @@
                                             <asp:TextBox ID="SSALabel" runat="server" Text='<%# Eval("SSA") %>' /></td>
                                         <td>Modes_Communication:<br />
                                             <asp:TextBox ID="Modes_CommunicationLabel" runat="server" Text='<%# Eval("Modes_Communication") %>' /></td>
+                                        <td>Diagnosis:<br /></td>
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                                <asp:LinkButton ID="btnClientSave" runat="server" CssClass="btn btn-primary" CommandName="Update"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
+                                <asp:LinkButton ID="btnClientCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                                 <br />
                                 <br />
-                                </span>
                             </EditItemTemplate>
                             <EmptyDataTemplate>
                                 <span>No data was returned.</span>
                             </EmptyDataTemplate>
                         </asp:ListView>
-                        <asp:Table ID="Table1" runat="server" CellSpacing="2" CellPadding="2" HorizontalAlign="Center" Width="100%">
+                        <%--<asp:Table ID="Table1" runat="server" CellSpacing="2" CellPadding="2" HorizontalAlign="Center" Width="100%">
                             <asp:TableRow>
                                 <asp:TableCell>
                                     <asp:Label ID="lblStatus" runat="server" Text="Status "></asp:Label><br />
@@ -389,7 +428,7 @@
                                     <asp:TextBox ID="txtDiagnosis" runat="server"></asp:TextBox>
                                 </asp:TableCell>
                             </asp:TableRow>
-                        </asp:Table>
+                        </asp:Table>--%>
                     </div>
                     <div class="col-sm-3">
                         <asp:Image ID="imgProfile" runat="server" BorderStyle="Solid" BorderWidth="1" Height="200px" ImageAlign="Middle" Width="200px" /><br />

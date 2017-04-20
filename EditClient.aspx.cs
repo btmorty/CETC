@@ -118,9 +118,9 @@ public partial class EditClient : System.Web.UI.Page
             ddMPState10.DataSource = items;
             ddMPState10.DataBind();
 
-            //Client State
-            ddState1.DataSource = items;
-            ddState1.DataBind();
+            ////Client State
+            //ddState1.DataSource = items;
+            //ddState1.DataBind();
 
             //Clients Contacts States
             ddStateCont1.DataSource = items;
@@ -162,9 +162,9 @@ public partial class EditClient : System.Web.UI.Page
             lblCETCPhone.Text = "Phone: (435) 752-7952";
             lblCETCFax.Text = "Fax: 435-752-7958";
 
-            //Set Current Date
-            lblDate.Text = System.DateTime.Now.ToShortDateString();
-            lblDate.ForeColor = System.Drawing.Color.Blue;
+            ////Set Current Date
+            //lblDate.Text = System.DateTime.Now.ToShortDateString();
+            //lblDate.ForeColor = System.Drawing.Color.Blue;
         }
     }
 
@@ -200,37 +200,7 @@ public partial class EditClient : System.Web.UI.Page
 
     protected void cmdUpdate_Click(object sender, EventArgs e)
     {
-        //set cmdname so that this event only gets evoked when the update button is clicked and not any other btnClick events. Maybe separate each table update into separate methods)
-        //call frist inset method and return the ID that is generate so that we can provide that ID to all subsequent insert methods.
-
-        SqlConnection con = new SqlConnection(connectionString);
-        string insertAddress = "INSERT INTO [Address] ([Address], [City], [State], [Zip_Code], [PO_Box]) VALUES (@Address, @City, @State, @Zip_Code, @PO_Box)";
-
-        SqlCommand cmd = new SqlCommand(insertAddress, con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.Parameters.AddWithValue("au_id ", txtAddress.Text);
-
-        //add the parameters
-        cmd.Parameters.AddWithValue("@Address", txtAddress.Text);
-
-
-        //try to open the database and execute the update.
-        try
-        {
-            con.Open();
-            cmd.ExecuteNonQuery(); //use for insert, update, and delete commands
-            lblResults.Visible = true;
-            lblResults.Text = "Record created.";
-        }
-        catch (Exception err)
-        {
-            lblResults.Text = "Error creating record.";
-            lblResults.Text += err.Message;
-        }
-        finally
-        {
-            con.Close();
-        }
+       
     }
 
     protected void btnAddProvider_Click(object sender, EventArgs e)
@@ -454,15 +424,25 @@ public partial class EditClient : System.Web.UI.Page
             }
         }
     }
-    //protected void btnPersonal_Click(object sender, EventArgs e)
-    //{
-    //    pnlPersonal.Visible = true;
-    //    pnlHealth.Visible = false;
-    //}
 
-    //protected void btnHealth_Click(object sender, EventArgs e)
-    //{
-    //    pnlHealth.Visible = true;
-    //    pnlPersonal.Visible = false;
-    //}
+    //this is called to populate the drop downs on the insert and edit rows
+    protected void ClientListView_OnItemDataBound(object sender, ListViewItemEventArgs e)
+    {
+        if (ClientListView.EditIndex == (e.Item as ListViewDataItem).DataItemIndex)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add(new DataColumn("Status"));
+            dt.Rows.Add("Active");
+            dt.Rows.Add("In-Active");
+            DropDownList ddStatus = (e.Item.FindControl("ddStatus") as DropDownList);
+            ddStatus.DataSource = dt;
+            ddStatus.DataTextField = "Status";
+            ddStatus.DataValueField = "Status";
+            ddStatus.DataBind();
+            ddStatus.Items.Insert(0, new ListItem("--", "0"));
+            Label lblStatus = (e.Item.FindControl("lblStatus") as Label);
+            ddStatus.Items.FindByValue(lblStatus.Text).Selected = true;
+        }
+
+    }
 }
