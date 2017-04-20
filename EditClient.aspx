@@ -112,14 +112,7 @@
             <div class="centerForm">
                 <div class="row">
                     <div class="col-sm-9">
-                        <asp:ListView runat="server" DataSourceID="SqlDataSourceClient" ID="ClientListView" OnItemDataBound="ClientListView_OnItemDataBound">
-                            <LayoutTemplate>
-                                <div id="itemPlaceholderContainer" runat="server" style="">
-                                    <span runat="server" id="itemPlaceholder" />
-                                </div>
-                                <div style="">
-                                </div>
-                            </LayoutTemplate>
+                        <asp:FormView runat="server" DataSourceID="SqlDataSourceClient" ID="ClientListView" OnItemDataBound="ClientListView_OnItemDataBound">
                             <ItemTemplate>
                                 <table>
                                     <tr>
@@ -277,7 +270,7 @@
                             <EmptyDataTemplate>
                                 <span>No data was returned.</span>
                             </EmptyDataTemplate>
-                        </asp:ListView>
+                        </asp:FormView>
                         <%--<asp:Table ID="Table1" runat="server" CellSpacing="2" CellPadding="2" HorizontalAlign="Center" Width="100%">
                             <asp:TableRow>
                                 <asp:TableCell>
