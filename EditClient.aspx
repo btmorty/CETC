@@ -1,6 +1,15 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeFile="EditClient.aspx.cs" Inherits="EditClient" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
+    <%--CSS for Tables--%>
+    <style>
+        th, td {
+            padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        }
+    </style>
     <asp:SqlDataSource ID="SqlDataSourceService" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Service] FROM [Service]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceClient" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.SSN, Client.DSPD, Client.PhotoID, Client.Status, Client.Sex, Client.Race, Client.Residential_Status, Client.Preferred_Language, Client.Religious_Affiliation, Client.First_Name, Client.Last_Name, Client.Email, Client.Phone, Client.Modes_Communication, Client.SSA, Client.SSI, Client.DateCreated, Client.DateModified, Address.Address, Address.City, Address.State, Address.Zip_Code, Client.DOB, Health_Profile.DOB AS Expr1, Health_Profile.Staffing_Ratio, Health_Profile.Age FROM Client INNER JOIN Address ON Client.AddressID = Address.AddressID INNER JOIN Health_Profile ON Client.ClientID = Health_Profile.ClientID WHERE (Client.ClientID = @ClientID)">
         <SelectParameters>
@@ -254,42 +263,42 @@
                     <ItemTemplate>
                         <table>
                             <tr>
-                                <td>Status:<br /><asp:Label ID="StatusLabel" runat="server" Text='<%# Eval("Status") %>' /></td>
-                                <td>Date Created:<br /><asp:Label ID="DateCreatedLabel" runat="server" Text='<%# Eval("DateCreated") %>' /></td>
-                                <td>Date Modified:<br /><asp:Label ID="DateModifiedLabel" runat="server" Text='<%# Eval("DateModified") %>' /><td>
+                                <td>Status:<br /><asp:TextBox ID="StatusLabel" runat="server" ReadOnly="True" Text='<%# Eval("Status") %>' /></td>
+                                <td>Date Created:<br /><asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="True" Text='<%# Eval("DateCreated") %>' /></td>
+                                <td>Date Modified:<br /><asp:TextBox ID="DateModifiedLabel" runat="server" ReadOnly="True" Text='<%# Eval("DateModified") %>' /><td>
                             </tr>
                             <tr>
-                                <td>First Name:<br /><asp:Label ID="First_NameLabel" runat="server" Text='<%# Eval("First_Name") %>' /></td>
-                                <td>Last Name:<br /><asp:Label ID="Last_NameLabel" runat="server" Text='<%# Eval("Last_Name") %>' /></td>
-                                <td>Date of Birth:<br /><asp:Label ID="DOBLabel" runat="server" Text='<%# Eval("DOB") %>' /></td>
-                                <td>Age:<br /><asp:Label ID="AgeLabel" runat="server" Text='<%# Eval("Age") %>' /></td>
+                                <td>First Name:<br /><asp:TextBox ID="First_NameLabel" runat="server" ReadOnly="True" Text='<%# Eval("First_Name") %>' /></td>
+                                <td>Last Name:<br /><asp:TextBox ID="Last_NameLabel" runat="server" ReadOnly="True" Text='<%# Eval("Last_Name") %>' /></td>
+                                <td>Date of Birth:<br /><asp:TextBox ID="DOBLabel" runat="server" ReadOnly="True" Text='<%# Eval("DOB") %>' /></td>
+                                <td>Age:<br /><asp:TextBox ID="AgeLabel" runat="server" ReadOnly="True" Text='<%# Eval("Age") %>' /></td>
                             </tr>
                             <tr>
-                                <td>Address:<br /><asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' /></td>
-                                <td>City:<br /><asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' /></td>
-                                <td>State:<br /><asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' /></td>
-                                <td>Zip Code:<br /><asp:Label ID="Zip_CodeLabel" runat="server" Text='<%# Eval("Zip_Code") %>' /></td>
+                                <td>Address:<br /><asp:TextBox ID="AddressLabel" runat="server" ReadOnly="True" Text='<%# Eval("Address") %>' /></td>
+                                <td>City:<br /><asp:TextBox ID="CityLabel" runat="server" ReadOnly="True" Text='<%# Eval("City") %>' /></td>
+                                <td>State:<br /><asp:TextBox ID="StateLabel" runat="server" ReadOnly="True" Text='<%# Eval("State") %>' /></td>
+                                <td>Zip Code:<br /><asp:TextBox ID="Zip_CodeLabel" runat="server" ReadOnly="True" Text='<%# Eval("Zip_Code") %>' /></td>
                             </tr>
                             <tr>
-                                <td>Email:<br /><asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' /></td>
-                                <td>Phone:<br /><asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' /></td>
-                                <td>SSN:<br /><asp:Label ID="SSNLabel" runat="server" Text='<%# Eval("SSN") %>' /></td>
-                                <td>Sex:<br /><asp:Label ID="SexLabel" runat="server" Text='<%# Eval("Sex") %>' /></td>
+                                <td>Email:<br /><asp:TextBox ID="EmailLabel" runat="server" ReadOnly="True" Text='<%# Eval("Email") %>' /></td>
+                                <td>Phone:<br /><asp:TextBox ID="PhoneLabel" runat="server" ReadOnly="True" Text='<%# Eval("Phone") %>' /></td>
+                                <td>SSN:<br /><asp:TextBox ID="SSNLabel" runat="server" ReadOnly="True" Text='<%# Eval("SSN") %>' /></td>
+                                <td>Sex:<br /><asp:TextBox ID="SexLabel" runat="server" ReadOnly="True" Text='<%# Eval("Sex") %>' /></td>
                             </tr>
                             <tr>
-                                <td>Race:<br /><asp:Label ID="RaceLabel" runat="server" Text='<%# Eval("Race") %>' /></td>
-                                <td>Residential_Status:<br /><asp:Label ID="Residential_StatusLabel" runat="server" Text='<%# Eval("Residential_Status") %>' /></td>
-                                <td>Preferred_Language:<br /><asp:Label ID="Preferred_LanguageLabel" runat="server" Text='<%# Eval("Preferred_Language") %>' /></td>
-                                <td>Religious_Affiliation:<br /><asp:Label ID="Religious_AffiliationLabel" runat="server" Text='<%# Eval("Religious_Affiliation") %>' /></td>
+                                <td>Race:<br /><asp:TextBox ID="RaceLabel" runat="server" ReadOnly="True" Text='<%# Eval("Race") %>' /></td>
+                                <td>Residential Status:<br /><asp:TextBox ID="Residential_StatusLabel" runat="server" ReadOnly="True" Text='<%# Eval("Residential_Status") %>' /></td>
+                                <td>Preferred Language:<br /><asp:TextBox ID="Preferred_LanguageLabel" runat="server" ReadOnly="True" Text='<%# Eval("Preferred_Language") %>' /></td>
+                                <td>Religious Affiliation:<br /><asp:TextBox ID="Religious_AffiliationLabel" runat="server" ReadOnly="True" Text='<%# Eval("Religious_Affiliation") %>' /></td>
                             </tr>
                             <tr>
-                                <td>Staffing_Ratio:<br /><asp:Label ID="Staffing_RatioLabel" runat="server" Text='<%# Eval("Staffing_Ratio") %>' /></td>
-                                <td>DSPD:<br /><asp:Label ID="DSPDLabel" runat="server" Text='<%# Eval("DSPD") %>' /></td>
-                                <td>SSI:<br /><asp:Label ID="SSILabel" runat="server" Text='<%# Eval("SSI") %>' /></td>
+                                <td>Staffing Ratio:<br /><asp:TextBox ID="Staffing_RatioLabel" runat="server" ReadOnly="True" Text='<%# Eval("Staffing_Ratio") %>' /></td>
+                                <td>DSPD:<br /><asp:TextBox ID="DSPDLabel" runat="server" ReadOnly="True" Text='<%# Eval("DSPD") %>' /></td>
+                                <td>SSI:<br /><asp:TextBox ID="SSILabel" runat="server" ReadOnly="True" Text='<%# Eval("SSI") %>' /></td>
                             </tr>
                             <tr>
-                                <td>SSA:<br /><asp:Label ID="SSALabel" runat="server" Text='<%# Eval("SSA") %>' /></td>
-                                <td>Modes_Communication:<br /><asp:Label ID="Modes_CommunicationLabel" runat="server" Text='<%# Eval("Modes_Communication") %>' /></td>
+                                <td>SSA:<br /><asp:TextBox ID="SSALabel" runat="server" ReadOnly="True" Text='<%# Eval("SSA") %>' /></td>
+                                <td>Modes_Communication:<br /><asp:TextBox ID="Modes_CommunicationLabel" runat="server" ReadOnly="True" Text='<%# Eval("Modes_Communication") %>' /></td>
                             </tr>
                         </table>
                         <br />
