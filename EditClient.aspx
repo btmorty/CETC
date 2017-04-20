@@ -85,12 +85,6 @@
                 </div>
             </div>
             <%--//Data Entry Form--%>
-
-            <%--            <div align="center">
-        <asp:Button ID="btnPersonal" runat="server" Text="Show Personal" align="center" OnClick="btnPersonal_Click" />
-        <asp:Button ID="btnHealth" runat="server" Text="Show Health" align="center" OnClick="btnHealth_Click" />
-    </div>--%>
-            <br />
             <div class="centerForm">
                 <div class="row">
                     <div class="col-sm-9">
