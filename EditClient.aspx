@@ -1,7 +1,49 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeFile="EditClient.aspx.cs" Inherits="EditClient" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Service] FROM [Service]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSourceService" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Service] FROM [Service]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSourceClient" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.SSN, Client.DSPD, Client.PhotoID, Client.Status, Client.Sex, Client.Race, Client.Residential_Status, Client.Preferred_Language, Client.Religious_Affiliation, Client.First_Name, Client.Last_Name, Client.Email, Client.Phone, Client.Modes_Communication, Client.SSA, Client.SSI, Client.EmergencyEvacNeeds, Client.EvacID1, Client.EvacID2, Client.DOB, Client.DateCreated, Client.DateModified, Address.Address, Address.City, Address.State, Address.Zip_Code FROM Client INNER JOIN Address ON Client.EvacID1 = Address.AddressID AND Client.EvacID2 = Address.AddressID AND Client.AddressID = Address.AddressID WHERE (Client.ClientID = @ClientID)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSourceMeds" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Medication.MedicationID, Medication.Medication_Name, Medication.Dosage, Medication.Purpose, Medication.Non_Perscription, Medication.ProviderID, Medical_Provider.FirstName, Medical_Provider.LastName FROM Medication INNER JOIN Medical_Provider ON Medication.ProviderID = Medical_Provider.ProviderID WHERE (Medication.ClientID = @ClientID)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSourceContacts" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Contact.ContactID, Contact.FirstName, Contact.LastName, Contact.Relationship, Contact.Emergency_Contact, Contact.Email, Contact.HomePhone, Contact.WorkPhone, Contact.MobilePhone, Contact.Guardian, Address.Address, Address.City, Address.State, Address.Zip_Code FROM Contact INNER JOIN Address ON Contact.AddressID = Address.AddressID WHERE (Contact.ClientID = @ClientID)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSourceCETCInfo" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [CECTID], [Service], [Coordinator], [DeptHead] FROM [CETC_INFO] WHERE ([ClientID] = @ClientID)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSourceNonMedProv" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT ProviderNonMed.ProviderNonMedID, ProviderNonMed.ProviderName, ProviderNonMed.FirstName, ProviderNonMed.LastName, ProviderNonMed.Email, ProviderNonMed.HomePhone, Address.Address, Address.City, Address.State, Address.Zip_Code FROM ProviderNonMed INNER JOIN Address ON ProviderNonMed.AddressID = Address.AddressID WHERE (ProviderNonMed.ClientID = @ClientID)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSourceHealthProfile" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Health_Profile.DOB, Health_Profile.Staffing_Ratio, Health_Profile.Height, Health_Profile.Weight, Health_Profile.Hair, Health_Profile.Diagnosed_Condition, Health_Profile.Eyes, Health_Profile.Limitations, Health_Profile.Allergies, Health_Profile.Preferred_Hospital, Health_Profile.Life_Support_Request, Health_Profile.Age, Health_Profile.Hospital_Phone, Address.Address, Address.State, Address.City, Address.Zip_Code FROM Health_Profile INNER JOIN Address ON Health_Profile.H_Address = Address.AddressID WHERE (Health_Profile.ClientID = @ClientID)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSourceMedProv" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Medical_Provider.Specialty, Medical_Provider.FirstName, Medical_Provider.LastName, Medical_Provider.Email, Medical_Provider.Phone, Address.Address, Address.City, Address.State, Address.Zip_Code FROM Medical_Provider INNER JOIN Address ON Medical_Provider.AddressID = Address.AddressID WHERE (Medical_Provider.ClientID = @ClientID)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSourceInsurance" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Medicaid_Number], [Medicare_Number], [Insurance_Name], [Policy_Number], [Group_Number] FROM [Insurance] WHERE ([ClientID] = @ClientID)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+
+
     <div align="center">
         <asp:Button ID="btnPersonal" runat="server" Text="Show Personal" align="center" OnClick="btnPersonal_Click" />
         <asp:Button ID="btnHealth" runat="server" Text="Show Health" align="center" OnClick="btnHealth_Click" />
@@ -889,7 +931,7 @@
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblSvc1" runat="server" Text="Service "></asp:Label><br />
-                        <asp:DropDownList ID="ddSvc1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Service"></asp:DropDownList>
+                        <asp:DropDownList ID="ddSvc1" runat="server" DataSourceID="SqlDataSourceService" DataTextField="Service"></asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblCoor1" runat="server" Text="Coordinator "></asp:Label><br />
