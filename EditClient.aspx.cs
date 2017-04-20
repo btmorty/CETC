@@ -428,21 +428,21 @@ public partial class EditClient : System.Web.UI.Page
     //this is called to populate the drop downs on the insert and edit rows
     protected void ClientListView_OnItemDataBound(object sender, ListViewItemEventArgs e)
     {
-        if (ClientListView.EditIndex == (e.Item as ListViewDataItem).DataItemIndex)
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add(new DataColumn("Status"));
-            dt.Rows.Add("Active");
-            dt.Rows.Add("In-Active");
-            DropDownList ddStatus = (e.Item.FindControl("ddStatus") as DropDownList);
-            ddStatus.DataSource = dt;
-            ddStatus.DataTextField = "Status";
-            ddStatus.DataValueField = "Status";
-            ddStatus.DataBind();
-            ddStatus.Items.Insert(0, new ListItem("--", "0"));
-            Label lblStatus = (e.Item.FindControl("lblStatus") as Label);
-            ddStatus.Items.FindByValue(lblStatus.Text).Selected = true;
-        }
+        //if (ClientListView.EditIndex == (e.Item as ListViewDataItem).DataItemIndex)
+        //{
+        //    DataTable dt = new DataTable();
+        //    dt.Columns.Add(new DataColumn("Status"));
+        //    dt.Rows.Add("Active");
+        //    dt.Rows.Add("In-Active");
+        //    DropDownList ddStatus = (e.Item.FindControl("ddStatus") as DropDownList);
+        //    ddStatus.DataSource = dt;
+        //    ddStatus.DataTextField = "Status";
+        //    ddStatus.DataValueField = "Status";
+        //    ddStatus.DataBind();
+        //    ddStatus.Items.Insert(0, new ListItem("--", "0"));
+        //    Label lblStatus = (e.Item.FindControl("lblStatus") as Label);
+        //    ddStatus.Items.FindByValue(lblStatus.Text).Selected = true;
+        //}
 
     }
 }

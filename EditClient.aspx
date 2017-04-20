@@ -12,7 +12,8 @@
     </style>
     <asp:SqlDataSource ID="SqlDataSourceService" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Service] FROM [Service]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceDDStatus" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [StatusID], [Status] FROM [DD_Status]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSourceClient" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.SSN, Client.DSPD, Client.PhotoID, Client.Status, Client.Sex, Client.Race, Client.Residential_Status, Client.Preferred_Language, Client.Religious_Affiliation, Client.First_Name, Client.Last_Name, Client.Email, Client.Phone, Client.Modes_Communication, Client.SSA, Client.SSI, Client.DateCreated, Client.DateModified, Address.Address, Address.City, Address.State, Address.Zip_Code, Client.DOB, Health_Profile.DOB AS Expr1, Health_Profile.Staffing_Ratio, Health_Profile.Age FROM Client INNER JOIN Address ON Client.AddressID = Address.AddressID INNER JOIN Health_Profile ON Client.ClientID = Health_Profile.ClientID WHERE (Client.ClientID = @ClientID)" UpdateCommand="UpdateClient" UpdateCommandType="StoredProcedure">
+    <asp:SqlDataSource ID="SqlDataSourceStates" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [State] FROM [DD_State]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSourceClient" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.SSN, Client.DSPD, Client.PhotoID, Client.Status, Client.Sex, Client.Race, Client.Residential_Status, Client.Preferred_Language, Client.Religious_Affiliation, Client.First_Name, Client.Last_Name, Client.Email, Client.Phone, Client.Modes_Communication, Client.SSA, Client.SSI, Client.DateCreated, Client.DateModified, Address.Address, Address.City, Address.State, Address.Zip_Code, Client.DOB, Health_Profile.DOB AS Expr1, Health_Profile.Staffing_Ratio, Health_Profile.Age, Client.ModifiedBy, Client.Diagnosis FROM Client INNER JOIN Address ON Client.AddressID = Address.AddressID INNER JOIN Health_Profile ON Client.ClientID = Health_Profile.ClientID WHERE (Client.ClientID = @ClientID)" UpdateCommand="UpdateClient" UpdateCommandType="StoredProcedure">
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
@@ -136,7 +137,7 @@
                                         <td>Date Modified:<br />
                                             <asp:TextBox ID="DateModifiedLabel" runat="server" ReadOnly="true" Text='<%# Eval("DateModified") %>' /></td>
                                         <td>Last Modified By:<br />
-                                            <asp:TextBox ID="LastModifiedByLabel" runat="server" ReadOnly="true" /></td>
+                                            <asp:TextBox ID="LastModifiedByLabel" runat="server" ReadOnly="true" Text='<%# Eval("ModifiedBy") %>' /></td>
                                     </tr>
                                     <tr>
                                         <td>First Name:<br />
@@ -154,7 +155,8 @@
                                         <td>City:<br />
                                             <asp:TextBox ID="CityLabel" runat="server" ReadOnly="true" Text='<%# Eval("City") %>' /></td>
                                         <td>State:<br />
-                                            <asp:TextBox ID="StateLabel" runat="server" ReadOnly="true" Text='<%# Eval("State") %>' /></td>
+                                            <asp:TextBox ID="StateLabel" runat="server" ReadOnly="true" Text='<%# Eval("State") %>' />
+                                        </td>
                                         <td>Zip Code:<br />
                                             <asp:TextBox ID="Zip_CodeLabel" runat="server" ReadOnly="true" Text='<%# Eval("Zip_Code") %>' /></td>
                                     </tr>
@@ -191,7 +193,8 @@
                                             <asp:TextBox ID="SSALabel" runat="server" ReadOnly="true" Text='<%# Eval("SSA") %>' /></td>
                                         <td>Modes_Communication:<br />
                                             <asp:TextBox ID="Modes_CommunicationLabel" ReadOnly="true" runat="server" Text='<%# Eval("Modes_Communication") %>' /></td>
-                                        <td>Diagnosis:<br /></td>
+                                        <td>Diagnosis:<br />
+                                            <asp:TextBox ID="DiagnosisLabel" ReadOnly="true" runat="server" Text='<%# Eval("Diagnosis") %>' /></td>
                                     </tr>
                                 </table>
                                 <br />
@@ -203,15 +206,17 @@
                                 <table>
                                     <tr>
                                         <td>Status:<br />
-                                            <asp:DropDownList ID="ddStatus" Runat="server"></asp:DropDownList>
-                                            <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("Status") %>' Visible="false"></asp:Label>
+                                            <asp:DropDownList ID="ddStatus" Runat="server" SelectedValue='<%# Bind("Status") %>'>
+                                                <asp:ListItem>Active</asp:ListItem>
+                                                <asp:ListItem>In-Active</asp:ListItem>
+                                            </asp:DropDownList>
                                         </td>
                                         <td>Date Created:<br />
                                             <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true"/></td>
                                         <td>Date Modified:<br />
                                             <asp:TextBox ID="txtDateModified" runat="server" ReadOnly="true"/></td>
                                         <td>Last Modified By:<br />
-                                            <asp:TextBox ID="txtLastModifiedBy" runat="server" ReadOnly="true"/></td>
+                                            <asp:TextBox ID="txtLastModifiedBy" runat="server" ReadOnly="true" Text='<%# Eval("ModifiedBy") %>' /></td>
                                     </tr>
                                     <tr>
                                         <td>First Name:<br />
@@ -229,7 +234,7 @@
                                         <td>City:<br />
                                             <asp:TextBox ID="CityLabel" runat="server" Text='<%# Eval("City") %>' /></td>
                                         <td>State:<br />
-                                            <asp:TextBox ID="StateLabel" runat="server" Text='<%# Eval("State") %>' /></td>
+                                            <asp:DropDownList ID="ddState" runat="server" DataSourceID="SqlDataSourceStates" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                         <td>Zip Code:<br />
                                             <asp:TextBox ID="Zip_CodeLabel" runat="server" Text='<%# Eval("Zip_Code") %>' /></td>
                                     </tr>
@@ -266,7 +271,8 @@
                                             <asp:TextBox ID="SSALabel" runat="server" Text='<%# Eval("SSA") %>' /></td>
                                         <td>Modes_Communication:<br />
                                             <asp:TextBox ID="Modes_CommunicationLabel" runat="server" Text='<%# Eval("Modes_Communication") %>' /></td>
-                                        <td>Diagnosis:<br /></td>
+                                        <td>Diagnosis:<br />
+                                            <asp:TextBox ID="DiagnosisLabel" runat="server" Text='<%# Eval("Diagnosis") %>' /></td>
                                     </tr>
                                 </table>
                                 <br />
