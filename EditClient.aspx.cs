@@ -23,6 +23,7 @@ public partial class EditClient : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
 
     {
+
         //Retrieve ClientID from QueryString and store in session variable
         if (Request.QueryString != null)
         {

@@ -68,6 +68,8 @@
     </div>
     <%--//Data Entry Form--%>
         <div class="centerForm">
+            <asp:FormView ID="FormView1" runat="server" DataKeyNames="ClientID" DataSourceID="SqlDataSourceClient">
+        <ItemTemplate>
         <div class="row">
             <div class="col-sm-9">
                 <asp:Table ID="Table1" runat="server" CellSpacing="2" CellPadding="2" HorizontalAlign="Center" Width="100%">
@@ -92,7 +94,7 @@
                         <asp:TableCell>
                             <asp:Label ID="lblFname" runat="server" Text="First Name "></asp:Label>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="txtFname" ErrorMessage="First Name is required." ForeColor="Red"> *</asp:RequiredFieldValidator><br />
-                            <asp:TextBox ID="txtFname" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtFname" runat="server" Text='<%# Eval("First_Name") %>'></asp:TextBox>
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Label ID="lblLname" runat="server" Text="Last Name "></asp:Label>
@@ -221,6 +223,8 @@
                     </asp:TableRow>
                 </asp:Table>
             </div>
+            </ItemTemplate>
+            </asp:FormView>
             <div class="col-sm-3">
                 <asp:Image ID="imgProfile" runat="server" BorderStyle="Solid" BorderWidth="1" Height="200px" ImageAlign="Middle" Width="200px" /><br />
                 <br />
