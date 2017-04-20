@@ -13,6 +13,9 @@
     <asp:SqlDataSource ID="SqlDataSourceService" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Service] FROM [Service]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceDDStatus" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [StatusID], [Status] FROM [DD_Status]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceStates" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [State] FROM [DD_State]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Race] FROM [DD_Race]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceClient" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.SSN, Client.DSPD, Client.PhotoID, Client.Status, Client.Sex, Client.Race, Client.Residential_Status, Client.Preferred_Language, Client.Religious_Affiliation, Client.First_Name, Client.Last_Name, Client.Email, Client.Phone, Client.Modes_Communication, Client.SSA, Client.SSI, Client.DateCreated, Client.DateModified, Address.Address, Address.City, Address.State, Address.Zip_Code, Client.DOB, Health_Profile.DOB AS Expr1, Health_Profile.Staffing_Ratio, Health_Profile.Age, Client.ModifiedBy, Client.Diagnosis FROM Client INNER JOIN Address ON Client.AddressID = Address.AddressID INNER JOIN Health_Profile ON Client.ClientID = Health_Profile.ClientID WHERE (Client.ClientID = @ClientID)" UpdateCommand="UpdateClient" UpdateCommandType="StoredProcedure">
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
@@ -98,23 +101,13 @@
         <li class="active"><a data-toggle="tab" href="#FaceSheet">Face Sheet</a></li>
         <li><a data-toggle="tab" href="#HealthProfile">Health Profile</a></li>
     </ul>
+    <%--//Validation Report--%>
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
     <%--Face Sheet Panel--%>
     <div class="tab-content">
         <div id="FaceSheet" class="tab-pane fade in active">
-            <%--//Page Header--%>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="jumbotron">
-                            <h2 class="text-center">Client</h2>
-                            <h3 class="text-center">Personal Information</h3>
-                        </div>
-                        <hr>
-                        <%--//Validation Report--%>
-                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
-                    </div>
-                </div>
-            </div>
+        <h3 class="text-center">Face Sheet</h3>
+            <hr />
             <%--//Data Entry Form--%>
             <div class="centerForm">
                 <div class="row">
@@ -1485,23 +1478,11 @@
     <%--Client Health--%>
     <div id="HealthProfile" class="tab-pane fade">
         <%--//Page Header--%>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="jumbotron">
-                        <h2 class="text-center">Client</h2>
-                        <h3 class="text-center">Health Information</h3>
-                    </div>
-                    <hr>
-                    <%--//Validation Report--%>
-                    <asp:ValidationSummary ID="ValidationSummary2" runat="server" ForeColor="Red" />
-                </div>
-            </div>
-        </div>
+        <h3 class="text-center">Health Profile Information</h3>
+        <hr>
         <%--//Data Entry Form--%>
         <div class="centerForm">
             <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                <h3 class="text-center">Health Profile Information</h3>
                 <asp:Table ID="Table5" runat="server" HorizontalAlign="Center" Width="100%">
                     <asp:TableRow>
                         <asp:TableCell>
