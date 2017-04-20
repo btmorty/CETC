@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ReportsByState.aspx.cs" Inherits="SelectClient" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ClientsByState.aspx.cs" Inherits="SelectClient" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
     <style>
@@ -9,7 +9,11 @@
         padding-bottom: 5px;
         }
     </style>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT * FROM [Client]">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.First_Name, Client.Last_Name, Client.Status, Address.State FROM Client INNER JOIN Address ON Client.AddressID = Address.AddressID
+WHERE @AddressID = AddressID">
+        <SelectParameters>
+            <asp:SessionParameter Name="AddressID" SessionField="AddressID" />
+        </SelectParameters>
     </asp:SqlDataSource>
     <%--//Page Header--%>
     <div class="container">
