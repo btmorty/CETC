@@ -454,15 +454,15 @@ public partial class EditClient : System.Web.UI.Page
             }
         }
     }
-    protected void btnPersonal_Click(object sender, EventArgs e)
-    {
-        pnlPersonal.Visible = true;
-        pnlHealth.Visible = false;
-    }
+    //protected void btnPersonal_Click(object sender, EventArgs e)
+    //{
+    //    pnlPersonal.Visible = true;
+    //    pnlHealth.Visible = false;
+    //}
 
-    protected void btnHealth_Click(object sender, EventArgs e)
-    {
-        pnlHealth.Visible = true;
-        pnlPersonal.Visible = false;
-    }
+    //protected void btnHealth_Click(object sender, EventArgs e)
+    //{
+    //    pnlHealth.Visible = true;
+    //    pnlPersonal.Visible = false;
+    //}
 }
