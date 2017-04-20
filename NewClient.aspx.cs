@@ -47,9 +47,9 @@ public partial class NewClient : System.Web.UI.Page
         {
             try
             {
-                if (imageUpload.PostedFile.ContentType == "image")
+                if (imageUpload.PostedFile.ContentType.Contains("image"))
                 {
-                    if (imageUpload.PostedFile.ContentLength < 102400)
+                    if (imageUpload.PostedFile.ContentLength < 3024000)
                     {
                         string path = Server.MapPath("ClientImages/") + imageUpload.PostedFile.FileName;
                         imageUpload.SaveAs(path);
@@ -57,7 +57,7 @@ public partial class NewClient : System.Web.UI.Page
                         lblUploadStatus.Text = "Upload status: File uploaded!";
                     }
                     else
-                        lblUploadStatus.Text = "Upload status: The file has to be less than 100 kb!";
+                        lblUploadStatus.Text = "Upload status: The file has to be less than 3 MB!";
                 }
                 else
                     lblUploadStatus.Text = "Upload status: Only image files are accepted!";

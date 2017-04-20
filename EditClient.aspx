@@ -182,9 +182,11 @@
             <div class="col-sm-3">
                 <asp:Image ID="imgProfile" runat="server" BorderStyle="Solid" BorderWidth="1" Height="200px" ImageAlign="Middle" Width="200px" /><br />
                 <br />
-                <asp:Label ID="lblFileUpload" runat="server" Text="Upload Image "></asp:Label><br />
-                <asp:FileUpload ID="imageUpload" runat="server" /><br />
-                <asp:LinkButton ID="btnUpload" runat="server" CssClass="btn btn-primary" OnClick="Button1_Click"> <span aria-hidden="true" class="glyphicon glyphicon-upload"></span> Upload Picture</asp:LinkButton>
+                <asp:Label ID="lblFileUpload" runat="server" Text="Upload Image "></asp:Label>
+                <asp:FileUpload ID="imageUpload" runat="server" />
+                <asp:LinkButton ID="btnUpload" runat="server" CssClass="btn btn-primary" OnClick="btnUpload_Click"> <span aria-hidden="true" class="glyphicon glyphicon-upload"></span>Upload Picture</asp:LinkButton>
+                <br />
+                <asp:Label ID="lblUploadStatus" runat="server" Visible="False" ForeColor="Red" text="Upload status: " />
             </div>
         </div>
 
