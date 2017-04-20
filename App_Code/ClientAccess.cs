@@ -152,7 +152,8 @@ public static class ClientAccess
             int SSI,
             int SSA,
             string Modes_Communication,
-            string Diagnosis
+            string Diagnosis,
+            string PhotoID
         )
     {
 
@@ -188,7 +189,7 @@ public static class ClientAccess
 
         param = comm.CreateParameter();
         param.ParameterName = "@Age";
-        param.DbType = DbType.Int16;
+        param.DbType = DbType.Int32;
         param.Value = Age;
         comm.Parameters.Add(param);
 
@@ -212,7 +213,7 @@ public static class ClientAccess
 
         param = comm.CreateParameter();
         param.ParameterName = "@Zip";
-        param.DbType = DbType.Int16;
+        param.DbType = DbType.Int32;
         param.Value = Zip;
         comm.Parameters.Add(param);
 
@@ -253,14 +254,14 @@ public static class ClientAccess
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@Religious_Affilation";
+        param.ParameterName = "@Religious_Affiliation";
         param.DbType = DbType.String;
         param.Value = Religious_Affiliation;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
         param.ParameterName = "@SSN";
-        param.DbType = DbType.Int16;
+        param.DbType = DbType.Int32;
         param.Value = SSN;
         comm.Parameters.Add(param);
 
@@ -272,19 +273,19 @@ public static class ClientAccess
 
         param = comm.CreateParameter();
         param.ParameterName = "@DSPD";
-        param.DbType = DbType.Int16;
+        param.DbType = DbType.Int32;
         param.Value = DSPD;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
         param.ParameterName = "@SSI";
-        param.DbType = DbType.Int16;
+        param.DbType = DbType.Int32;
         param.Value = SSI;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
         param.ParameterName = "@SSA";
-        param.DbType = DbType.Int16;
+        param.DbType = DbType.Int32;
         param.Value = SSA;
         comm.Parameters.Add(param);
 
@@ -298,6 +299,12 @@ public static class ClientAccess
         param.ParameterName = "@Diagnosis";
         param.DbType = DbType.String;
         param.Value = Diagnosis;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@PhotoID";
+        param.DbType = DbType.String;
+        param.Value = PhotoID;
         comm.Parameters.Add(param);
 
         int rowsAffected = GenericDataAccess.ExecuteNonQuery(comm);

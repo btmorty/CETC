@@ -71,7 +71,7 @@ public partial class NewClient : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        int added = ClientAccess.InsertClient(DropDownListStatus.SelectedItem.ToString(), txtFname.Text, txtLname.Text, DateTime.Parse(txtDOB.Text), int.Parse(txtAge.Text), txtAddress.Text, txtCity.Text, ddState1.SelectedItem.ToString(), txtZip.Text, txtEmail.Text, txtPhone.Text, DropDownSex.SelectedItem.ToString(), DropDownListRace.SelectedItem.ToString(), DropDownListResStatus.SelectedItem.ToString(), DropDownListLanguage.SelectedItem.ToString(), DropDownListReligion.SelectedItem.ToString(), int.Parse(txtSSN.Text), txtStaffRatio.Text, int.Parse(txtDSPD.Text), int.Parse(txtSSI.Text), int.Parse(txtSSA.Text), txtComm.Text, txtDiagnosis.Text);
+        int added = ClientAccess.InsertClient(DropDownListStatus.SelectedItem.ToString(), txtFname.Text, txtLname.Text, DateTime.Parse(txtDOB.Text), Int32.Parse(txtAge.Text), txtAddress.Text, txtCity.Text, ddState1.SelectedItem.ToString(), txtZip.Text, txtEmail.Text, txtPhone.Text, DropDownSex.SelectedItem.ToString(), DropDownListRace.SelectedItem.ToString(), DropDownListResStatus.SelectedItem.ToString(), DropDownListLanguage.SelectedItem.ToString(), DropDownListReligion.SelectedItem.ToString(), Int32.Parse(txtSSN.Text), txtStaffRatio.Text, Int32.Parse(txtDSPD.Text), Int32.Parse(txtSSI.Text), Int32.Parse(txtSSA.Text), txtComm.Text, txtDiagnosis.Text, imageUpload.FileName);
 
         //if the insert succeeded, refersh the author list
         if (added > 0)
