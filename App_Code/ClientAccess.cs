@@ -38,67 +38,109 @@ public static class ClientAccess
 
     //This method updates author information using the "UpdateAuthor" stored procedure.  The names of the method parameters should match the names of the fields in the corresponding data control (e.g. Gridview, Detailsview, etc.)
     //The method returns an int representing the number of rows affected.  This can be used to verify a successful operation, or it can be discarded
-    public static int UpdateAuthor(string au_id, string au_lname, string au_fname, string phone, string address, string city, string state, string zip, bool contract)
+    public static int UpdateContact(string ClientID, string AddressID, string ContactID, string First_Name, string Last_Name, string Relationship, string Emergency_Contact, string Guardian, string Address, string City, string State, string Zip, string Email, string Home_Phone, string Mobile_Phone, string Work_Phone)
     {
         DbCommand comm = GenericDataAccess.CreateCommand();
-        comm.CommandText = "UpdateAuthor"; //This is the name of the stored procedure to be executed
+        comm.CommandText = "UpdateContact"; //This is the name of the stored procedure to be executed
 
         //The following code adds the neccessary parameters to the DbCommand object
         DbParameter param = comm.CreateParameter();
-        param.ParameterName = "@au_id";
+        param.ParameterName = "@ClientID";
         param.DbType = DbType.String;
-        param.Value = au_id;
+        param.Value = ClientID;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@au_lname";
+        param.ParameterName = "@AddressID";
         param.DbType = DbType.String;
-        param.Value = au_lname;
+        param.Value = AddressID;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@au_fname";
+        param.ParameterName = "@ContactID";
         param.DbType = DbType.String;
-        param.Value = au_fname;
+        param.Value = ContactID;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@phone";
+        param.ParameterName = "@First_Name";
         param.DbType = DbType.String;
-        param.Value = phone;
+        param.Value = First_Name;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@address";
+        param.ParameterName = "@Last_Name";
         param.DbType = DbType.String;
-        param.Value = address;
+        param.Value = Last_Name;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@city";
+        param.ParameterName = "@Relationship";
         param.DbType = DbType.String;
-        param.Value = city;
+        param.Value = Relationship;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@state";
+        param.ParameterName = "@Emergency_Contact";
         param.DbType = DbType.String;
-        param.Value = state;
+        param.Value = Emergency_Contact;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@zip";
+        param.ParameterName = "@Guardian";
         param.DbType = DbType.String;
-        param.Value = zip;
+        param.Value = Guardian;
         comm.Parameters.Add(param);
 
         param = comm.CreateParameter();
-        param.ParameterName = "@contract";
+        param.ParameterName = "@Address";
         param.DbType = DbType.Byte;
-        param.Value = contract;
+        param.Value = Address;
         comm.Parameters.Add(param);
 
-        
+        param = comm.CreateParameter();
+        param.ParameterName = "@City";
+        param.DbType = DbType.Byte;
+        param.Value = City;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@State";
+        param.DbType = DbType.Byte;
+        param.Value = State;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Zip";
+        param.DbType = DbType.Byte;
+        param.Value = Zip;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Email";
+        param.DbType = DbType.Byte;
+        param.Value = Email;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Home_Phone";
+        param.DbType = DbType.Byte;
+        param.Value = Home_Phone;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Mobile_Phone";
+        param.DbType = DbType.Byte;
+        param.Value = Mobile_Phone;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@Work_Phone";
+        param.DbType = DbType.Byte;
+        param.Value = Work_Phone;
+        comm.Parameters.Add(param);
+
+
         int rowsAffected = GenericDataAccess.ExecuteNonQuery(comm);
         return rowsAffected;
     }
