@@ -78,88 +78,6 @@
                         <div style="">
                         </div>
                     </LayoutTemplate>
-                    <AlternatingItemTemplate>
-                        <span style="">SSN:
-                        <asp:Label ID="SSNLabel" runat="server" Text='<%# Eval("SSN") %>' />
-                        <br />
-                        DSPD:
-                        <asp:Label ID="DSPDLabel" runat="server" Text='<%# Eval("DSPD") %>' />
-                        <br />
-                        PhotoID:
-                        <asp:Label ID="PhotoIDLabel" runat="server" Text='<%# Eval("PhotoID") %>' />
-                        <br />
-                        Status:
-                        <asp:Label ID="StatusLabel" runat="server" Text='<%# Eval("Status") %>' />
-                        <br />
-                        Sex:
-                        <asp:Label ID="SexLabel" runat="server" Text='<%# Eval("Sex") %>' />
-                        <br />
-                        Race:
-                        <asp:Label ID="RaceLabel" runat="server" Text='<%# Eval("Race") %>' />
-                        <br />
-                        Residential_Status:
-                        <asp:Label ID="Residential_StatusLabel" runat="server" Text='<%# Eval("Residential_Status") %>' />
-                        <br />
-                        Preferred_Language:
-                        <asp:Label ID="Preferred_LanguageLabel" runat="server" Text='<%# Eval("Preferred_Language") %>' />
-                        <br />
-                        Religious_Affiliation:
-                        <asp:Label ID="Religious_AffiliationLabel" runat="server" Text='<%# Eval("Religious_Affiliation") %>' />
-                        <br />
-                        First_Name:
-                        <asp:Label ID="First_NameLabel" runat="server" Text='<%# Eval("First_Name") %>' />
-                        <br />
-                        Last_Name:
-                        <asp:Label ID="Last_NameLabel" runat="server" Text='<%# Eval("Last_Name") %>' />
-                        <br />
-                        Email:
-                        <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
-                        <br />
-                        Phone:
-                        <asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' />
-                        <br />
-                        Modes_Communication:
-                        <asp:Label ID="Modes_CommunicationLabel" runat="server" Text='<%# Eval("Modes_Communication") %>' />
-                        <br />
-                        SSA:
-                        <asp:Label ID="SSALabel" runat="server" Text='<%# Eval("SSA") %>' />
-                        <br />
-                        SSI:
-                        <asp:Label ID="SSILabel" runat="server" Text='<%# Eval("SSI") %>' />
-                        <br />
-                        DateCreated:
-                        <asp:Label ID="DateCreatedLabel" runat="server" Text='<%# Eval("DateCreated") %>' />
-                        <br />
-                        DateModified:
-                        <asp:Label ID="DateModifiedLabel" runat="server" Text='<%# Eval("DateModified") %>' />
-                        <br />
-                        Address:
-                        <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                        <br />
-                        City:
-                        <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
-                        <br />
-                        State:
-                        <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
-                        <br />
-                        Zip_Code:
-                        <asp:Label ID="Zip_CodeLabel" runat="server" Text='<%# Eval("Zip_Code") %>' />
-                        <br />
-                        DOB:
-                        <asp:Label ID="DOBLabel" runat="server" Text='<%# Eval("DOB") %>' />
-                        <br />
-                        Expr1:
-                        <asp:Label ID="Expr1Label" runat="server" Text='<%# Eval("Expr1") %>' />
-                        <br />
-                        Staffing_Ratio:
-                        <asp:Label ID="Staffing_RatioLabel" runat="server" Text='<%# Eval("Staffing_Ratio") %>' />
-                        <br />
-                        Age:
-                        <asp:Label ID="AgeLabel" runat="server" Text='<%# Eval("Age") %>' />
-                        <br />
-                        <br />
-                        </span>
-                    </AlternatingItemTemplate>
                     <EditItemTemplate>
                         <span style="">SSN:
                         <asp:TextBox ID="SSNTextBox" runat="server" Text='<%# Bind("SSN") %>' />
@@ -334,86 +252,47 @@
                         </span>
                     </InsertItemTemplate>
                     <ItemTemplate>
-                        <span style="">SSN:
-                        <asp:Label ID="SSNLabel" runat="server" Text='<%# Eval("SSN") %>' />
+                        <table>
+                            <tr>
+                                <td>Status:<br /><asp:Label ID="StatusLabel" runat="server" Text='<%# Eval("Status") %>' /></td>
+                                <td>Date Created:<br /><asp:Label ID="DateCreatedLabel" runat="server" Text='<%# Eval("DateCreated") %>' /></td>
+                                <td>Date Modified:<br /><asp:Label ID="DateModifiedLabel" runat="server" Text='<%# Eval("DateModified") %>' /><td>
+                            </tr>
+                            <tr>
+                                <td>First Name:<br /><asp:Label ID="First_NameLabel" runat="server" Text='<%# Eval("First_Name") %>' /></td>
+                                <td>Last Name:<br /><asp:Label ID="Last_NameLabel" runat="server" Text='<%# Eval("Last_Name") %>' /></td>
+                                <td>Date of Birth:<br /><asp:Label ID="DOBLabel" runat="server" Text='<%# Eval("DOB") %>' /></td>
+                                <td>Age:<br /><asp:Label ID="AgeLabel" runat="server" Text='<%# Eval("Age") %>' /></td>
+                            </tr>
+                            <tr>
+                                <td>Address:<br /><asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' /></td>
+                                <td>City:<br /><asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' /></td>
+                                <td>State:<br /><asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' /></td>
+                                <td>Zip Code:<br /><asp:Label ID="Zip_CodeLabel" runat="server" Text='<%# Eval("Zip_Code") %>' /></td>
+                            </tr>
+                            <tr>
+                                <td>Email:<br /><asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' /></td>
+                                <td>Phone:<br /><asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' /></td>
+                                <td>SSN:<br /><asp:Label ID="SSNLabel" runat="server" Text='<%# Eval("SSN") %>' /></td>
+                                <td>Sex:<br /><asp:Label ID="SexLabel" runat="server" Text='<%# Eval("Sex") %>' /></td>
+                            </tr>
+                            <tr>
+                                <td>Race:<br /><asp:Label ID="RaceLabel" runat="server" Text='<%# Eval("Race") %>' /></td>
+                                <td>Residential_Status:<br /><asp:Label ID="Residential_StatusLabel" runat="server" Text='<%# Eval("Residential_Status") %>' /></td>
+                                <td>Preferred_Language:<br /><asp:Label ID="Preferred_LanguageLabel" runat="server" Text='<%# Eval("Preferred_Language") %>' /></td>
+                                <td>Religious_Affiliation:<br /><asp:Label ID="Religious_AffiliationLabel" runat="server" Text='<%# Eval("Religious_Affiliation") %>' /></td>
+                            </tr>
+                            <tr>
+                                <td>Staffing_Ratio:<br /><asp:Label ID="Staffing_RatioLabel" runat="server" Text='<%# Eval("Staffing_Ratio") %>' /></td>
+                                <td>DSPD:<br /><asp:Label ID="DSPDLabel" runat="server" Text='<%# Eval("DSPD") %>' /></td>
+                                <td>SSI:<br /><asp:Label ID="SSILabel" runat="server" Text='<%# Eval("SSI") %>' /></td>
+                            </tr>
+                            <tr>
+                                <td>SSA:<br /><asp:Label ID="SSALabel" runat="server" Text='<%# Eval("SSA") %>' /></td>
+                                <td>Modes_Communication:<br /><asp:Label ID="Modes_CommunicationLabel" runat="server" Text='<%# Eval("Modes_Communication") %>' /></td>
+                            </tr>
+                        </table>
                         <br />
-                        DSPD:
-                        <asp:Label ID="DSPDLabel" runat="server" Text='<%# Eval("DSPD") %>' />
-                        <br />
-                        PhotoID:
-                        <asp:Label ID="PhotoIDLabel" runat="server" Text='<%# Eval("PhotoID") %>' />
-                        <br />
-                        Status:
-                        <asp:Label ID="StatusLabel" runat="server" Text='<%# Eval("Status") %>' />
-                        <br />
-                        Sex:
-                        <asp:Label ID="SexLabel" runat="server" Text='<%# Eval("Sex") %>' />
-                        <br />
-                        Race:
-                        <asp:Label ID="RaceLabel" runat="server" Text='<%# Eval("Race") %>' />
-                        <br />
-                        Residential_Status:
-                        <asp:Label ID="Residential_StatusLabel" runat="server" Text='<%# Eval("Residential_Status") %>' />
-                        <br />
-                        Preferred_Language:
-                        <asp:Label ID="Preferred_LanguageLabel" runat="server" Text='<%# Eval("Preferred_Language") %>' />
-                        <br />
-                        Religious_Affiliation:
-                        <asp:Label ID="Religious_AffiliationLabel" runat="server" Text='<%# Eval("Religious_Affiliation") %>' />
-                        <br />
-                        First_Name:
-                        <asp:Label ID="First_NameLabel" runat="server" Text='<%# Eval("First_Name") %>' />
-                        <br />
-                        Last_Name:
-                        <asp:Label ID="Last_NameLabel" runat="server" Text='<%# Eval("Last_Name") %>' />
-                        <br />
-                        Email:
-                        <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
-                        <br />
-                        Phone:
-                        <asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' />
-                        <br />
-                        Modes_Communication:
-                        <asp:Label ID="Modes_CommunicationLabel" runat="server" Text='<%# Eval("Modes_Communication") %>' />
-                        <br />
-                        SSA:
-                        <asp:Label ID="SSALabel" runat="server" Text='<%# Eval("SSA") %>' />
-                        <br />
-                        SSI:
-                        <asp:Label ID="SSILabel" runat="server" Text='<%# Eval("SSI") %>' />
-                        <br />
-                        DateCreated:
-                        <asp:Label ID="DateCreatedLabel" runat="server" Text='<%# Eval("DateCreated") %>' />
-                        <br />
-                        DateModified:
-                        <asp:Label ID="DateModifiedLabel" runat="server" Text='<%# Eval("DateModified") %>' />
-                        <br />
-                        Address:
-                        <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                        <br />
-                        City:
-                        <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
-                        <br />
-                        State:
-                        <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
-                        <br />
-                        Zip_Code:
-                        <asp:Label ID="Zip_CodeLabel" runat="server" Text='<%# Eval("Zip_Code") %>' />
-                        <br />
-                        DOB:
-                        <asp:Label ID="DOBLabel" runat="server" Text='<%# Eval("DOB") %>' />
-                        <br />
-                        Expr1:
-                        <asp:Label ID="Expr1Label" runat="server" Text='<%# Eval("Expr1") %>' />
-                        <br />
-                        Staffing_Ratio:
-                        <asp:Label ID="Staffing_RatioLabel" runat="server" Text='<%# Eval("Staffing_Ratio") %>' />
-                        <br />
-                        Age:
-                        <asp:Label ID="AgeLabel" runat="server" Text='<%# Eval("Age") %>' />
-                        <br />
-                        <br />
-                        </span>
                     </ItemTemplate>
                     <SelectedItemTemplate>
                         <span style="">SSN:
