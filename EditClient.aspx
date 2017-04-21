@@ -312,179 +312,167 @@
                     <h3 class="text-center">Family/Guardian/Residential Contact Information</h3>
                     <h4 class="text-center">Contact #1</h4>
                     <asp:ListView ID="ListView1" runat="server" DataKeyNames="ContactID" DataSourceID="SqlDataSourceContacts" InsertItemPosition="LastItem">
-                        <AlternatingItemTemplate>
-                            <span style="">ContactID:
-                            <asp:Label ID="ContactIDLabel" runat="server" Text='<%# Eval("ContactID") %>' />
-                            <br />
-                            FirstName:
-                            <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
-                            <br />
-                            LastName:
-                            <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' />
-                            <br />
-                            Relationship:
-                            <asp:Label ID="RelationshipLabel" runat="server" Text='<%# Eval("Relationship") %>' />
-                            <br />
-                            Emergency_Contact:
-                            <asp:Label ID="Emergency_ContactLabel" runat="server" Text='<%# Eval("Emergency_Contact") %>' />
-                            <br />
-                            Email:
-                            <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
-                            <br />
-                            HomePhone:
-                            <asp:Label ID="HomePhoneLabel" runat="server" Text='<%# Eval("HomePhone") %>' />
-                            <br />
-                            WorkPhone:
-                            <asp:Label ID="WorkPhoneLabel" runat="server" Text='<%# Eval("WorkPhone") %>' />
-                            <br />
-                            MobilePhone:
-                            <asp:Label ID="MobilePhoneLabel" runat="server" Text='<%# Eval("MobilePhone") %>' />
-                            <br />
-                            Guardian:
-                            <asp:Label ID="GuardianLabel" runat="server" Text='<%# Eval("Guardian") %>' />
-                            <br />
-                            Address:
-                            <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                            <br />
-                            City:
-                            <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
-                            <br />
-                            State:
-                            <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
-                            <br />
-                            Zip_Code:
-                            <asp:Label ID="Zip_CodeLabel" runat="server" Text='<%# Eval("Zip_Code") %>' />
-                            <br />
-                            <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-<br /><br /></span>
-                        </AlternatingItemTemplate>
                         <EditItemTemplate>
-                            <span style="">ContactID:
-                            <asp:Label ID="ContactIDLabel1" runat="server" Text='<%# Eval("ContactID") %>' />
+                            <table>
+                                    <tr>
+                                        <td>First Name:<br />
+                                            <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
+                                        </td>
+                                        <td>Last Name:<br />
+                                            <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
+                                        </td>
+                                        <td>Relationship:<br />
+                                            <asp:TextBox ID="RelationshipTextBox" runat="server" Text='<%# Bind("Relationship") %>' />
+                                        </td>
+                                        <td>Emergency Contact:<br />
+                                            <asp:TextBox ID="Emergency_ContactTextBox" runat="server" Text='<%# Bind("Emergency_Contact") %>' />
+                                        </td>
+                                        <td>Guardian:<br />
+                                            <asp:TextBox ID="GuardianTextBox" runat="server" Text='<%# Bind("Guardian") %>' />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email:<br />
+                                            <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
+                                        </td>
+                                        <td>Home Phone:<br />
+                                            <asp:TextBox ID="HomePhoneTextBox" runat="server" Text='<%# Bind("HomePhone") %>' />
+                                        </td>
+                                        <td>Work Phone:<br />
+                                            <asp:TextBox ID="WorkPhoneTextBox" runat="server" Text='<%# Bind("WorkPhone") %>' />
+                                        </td>
+                                        <td>Mobile Phone:<br />
+                                            <asp:TextBox ID="MobilePhoneTextBox" runat="server" Text='<%# Bind("MobilePhone") %>' />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address:<br />
+                                            <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
+                                        </td>
+                                        <td>City:<br />
+                                            <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+                                        </td>
+                                        <td>State:<br />
+                                            <asp:DropDownList ID="ddState" runat="server" DataSourceID="SqlDataSourceStates" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
+                                        </td>
+                                        <td>Zip_Code:<br />
+                                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip_Code") %>' />
+                                        </td>
+                                    </tr>
+                                </table>
                             <br />
-                            FirstName:
-                            <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
-                            <br />
-                            LastName:
-                            <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
-                            <br />
-                            Relationship:
-                            <asp:TextBox ID="RelationshipTextBox" runat="server" Text='<%# Bind("Relationship") %>' />
-                            <br />
-                            Emergency_Contact:
-                            <asp:TextBox ID="Emergency_ContactTextBox" runat="server" Text='<%# Bind("Emergency_Contact") %>' />
-                            <br />
-                            Email:
-                            <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
-                            <br />
-                            HomePhone:
-                            <asp:TextBox ID="HomePhoneTextBox" runat="server" Text='<%# Bind("HomePhone") %>' />
-                            <br />
-                            WorkPhone:
-                            <asp:TextBox ID="WorkPhoneTextBox" runat="server" Text='<%# Bind("WorkPhone") %>' />
-                            <br />
-                            MobilePhone:
-                            <asp:TextBox ID="MobilePhoneTextBox" runat="server" Text='<%# Bind("MobilePhone") %>' />
-                            <br />
-                            Guardian:
-                            <asp:TextBox ID="GuardianTextBox" runat="server" Text='<%# Bind("Guardian") %>' />
-                            <br />
-                            Address:
-                            <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
-                            <br />
-                            City:
-                            <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
-                            <br />
-                            State:
-                            <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
-                            <br />
-                            Zip_Code:
-                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip_Code") %>' />
-                            <br />
-                            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                            <br /><br /></span>
+                                <asp:LinkButton ID="btnContactSave" runat="server" CssClass="btn btn-primary" CommandName="Update"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
+                                <asp:LinkButton ID="btnContactCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <br />
+                                <br />
                         </EditItemTemplate>
                         <EmptyDataTemplate>
                             <span>No data was returned.</span>
                         </EmptyDataTemplate>
                         <InsertItemTemplate>
-                            <span style="">FirstName:
-                            <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
-                            <br />LastName:
-                            <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
-                            <br />Relationship:
-                            <asp:TextBox ID="RelationshipTextBox" runat="server" Text='<%# Bind("Relationship") %>' />
-                            <br />Emergency_Contact:
-                            <asp:TextBox ID="Emergency_ContactTextBox" runat="server" Text='<%# Bind("Emergency_Contact") %>' />
-                            <br />Email:
-                            <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
-                            <br />HomePhone:
-                            <asp:TextBox ID="HomePhoneTextBox" runat="server" Text='<%# Bind("HomePhone") %>' />
-                            <br />WorkPhone:
-                            <asp:TextBox ID="WorkPhoneTextBox" runat="server" Text='<%# Bind("WorkPhone") %>' />
-                            <br />MobilePhone:
-                            <asp:TextBox ID="MobilePhoneTextBox" runat="server" Text='<%# Bind("MobilePhone") %>' />
-                            <br />Guardian:
-                            <asp:TextBox ID="GuardianTextBox" runat="server" Text='<%# Bind("Guardian") %>' />
-                            <br />Address:
-                            <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
-                            <br />City:
-                            <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
-                            <br />State:
-                            <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
-                            <br />Zip_Code:
-                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip_Code") %>' />
+                            <table>
+                                    <tr>
+                                        <td>First Name:<br />
+                                            <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
+                                        </td>
+                                        <td>Last Name:<br />
+                                            <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
+                                        </td>
+                                        <td>Relationship:<br />
+                                            <asp:TextBox ID="RelationshipTextBox" runat="server" Text='<%# Bind("Relationship") %>' />
+                                        </td>
+                                        <td>Emergency Contact:<br />
+                                            <asp:TextBox ID="Emergency_ContactTextBox" runat="server" Text='<%# Bind("Emergency_Contact") %>' />
+                                        </td>
+                                        <td>Guardian:<br />
+                                            <asp:TextBox ID="GuardianTextBox" runat="server" Text='<%# Bind("Guardian") %>' />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email:<br />
+                                            <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
+                                        </td>
+                                        <td>Home Phone:<br />
+                                            <asp:TextBox ID="HomePhoneTextBox" runat="server" Text='<%# Bind("HomePhone") %>' />
+                                        </td>
+                                        <td>Work Phone:<br />
+                                            <asp:TextBox ID="WorkPhoneTextBox" runat="server" Text='<%# Bind("WorkPhone") %>' />
+                                        </td>
+                                        <td>Mobile Phone:<br />
+                                            <asp:TextBox ID="MobilePhoneTextBox" runat="server" Text='<%# Bind("MobilePhone") %>' />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address:<br />
+                                            <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
+                                        </td>
+                                        <td>City:<br />
+                                            <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+                                        </td>
+                                        <td>State:<br />
+                                            <asp:DropDownList ID="ddState" runat="server" DataSourceID="SqlDataSourceStates" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
+                                        </td>
+                                        <td>Zip_Code:<br />
+                                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip_Code") %>' />
+                                        </td>
+                                    </tr>
+                                </table>
                             <br />
-                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                            <br /><br /></span>
+                                <asp:LinkButton ID="btnContactInsert" runat="server" CssClass="btn btn-primary" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
+                                <asp:LinkButton ID="btnContactCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <br />
+                                <br />
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <span style="">ContactID:
-                            <asp:Label ID="ContactIDLabel" runat="server" Text='<%# Eval("ContactID") %>' />
+                            <table>
+                                    <tr>
+                                        <td>First Name:<br />
+                                            <asp:TextBox ID="FirstNameTextBox" runat="server" ReadOnly="true" Text='<%# Bind("FirstName") %>' />
+                                        </td>
+                                        <td>Last Name:<br />
+                                            <asp:TextBox ID="LastNameTextBox" runat="server" ReadOnly="true" Text='<%# Bind("LastName") %>' />
+                                        </td>
+                                        <td>Relationship:<br />
+                                            <asp:TextBox ID="RelationshipTextBox" runat="server" ReadOnly="true" Text='<%# Bind("Relationship") %>' />
+                                        </td>
+                                        <td>Emergency Contact:<br />
+                                            <asp:TextBox ID="Emergency_ContactTextBox" runat="server" ReadOnly="true" Text='<%# Bind("Emergency_Contact") %>' />
+                                        </td>
+                                        <td>Guardian:<br />
+                                            <asp:TextBox ID="GuardianTextBox" runat="server" ReadOnly="true" Text='<%# Bind("Guardian") %>' />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email:<br />
+                                            <asp:TextBox ID="EmailTextBox" runat="server" ReadOnly="true" Text='<%# Bind("Email") %>' />
+                                        </td>
+                                        <td>Home Phone:<br />
+                                            <asp:TextBox ID="HomePhoneTextBox" runat="server" ReadOnly="true" Text='<%# Bind("HomePhone") %>' />
+                                        </td>
+                                        <td>Work Phone:<br />
+                                            <asp:TextBox ID="WorkPhoneTextBox" runat="server" ReadOnly="true" Text='<%# Bind("WorkPhone") %>' />
+                                        </td>
+                                        <td>Mobile Phone:<br />
+                                            <asp:TextBox ID="MobilePhoneTextBox" runat="server" ReadOnly="true" Text='<%# Bind("MobilePhone") %>' />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address:<br />
+                                            <asp:TextBox ID="AddressTextBox" runat="server" ReadOnly="true" Text='<%# Bind("Address") %>' />
+                                        </td>
+                                        <td>City:<br />
+                                            <asp:TextBox ID="CityTextBox" runat="server" ReadOnly="true" Text='<%# Bind("City") %>' />
+                                        </td>
+                                        <td>State:<br />
+                                            <asp:TextBox ID="StateTextBox" runat="server" ReadOnly="true" Text='<%# Bind("State") %>' />
+                                        </td>
+                                        <td>Zip_Code:<br />
+                                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" ReadOnly="true" Text='<%# Bind("Zip_Code") %>' />
+                                        </td>
+                                    </tr>
+                                </table>
                             <br />
-                            FirstName:
-                            <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
-                            <br />
-                            LastName:
-                            <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' />
-                            <br />
-                            Relationship:
-                            <asp:Label ID="RelationshipLabel" runat="server" Text='<%# Eval("Relationship") %>' />
-                            <br />
-                            Emergency_Contact:
-                            <asp:Label ID="Emergency_ContactLabel" runat="server" Text='<%# Eval("Emergency_Contact") %>' />
-                            <br />
-                            Email:
-                            <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
-                            <br />
-                            HomePhone:
-                            <asp:Label ID="HomePhoneLabel" runat="server" Text='<%# Eval("HomePhone") %>' />
-                            <br />
-                            WorkPhone:
-                            <asp:Label ID="WorkPhoneLabel" runat="server" Text='<%# Eval("WorkPhone") %>' />
-                            <br />
-                            MobilePhone:
-                            <asp:Label ID="MobilePhoneLabel" runat="server" Text='<%# Eval("MobilePhone") %>' />
-                            <br />
-                            Guardian:
-                            <asp:Label ID="GuardianLabel" runat="server" Text='<%# Eval("Guardian") %>' />
-                            <br />
-                            Address:
-                            <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                            <br />
-                            City:
-                            <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
-                            <br />
-                            State:
-                            <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
-                            <br />
-                            Zip_Code:
-                            <asp:Label ID="Zip_CodeLabel" runat="server" Text='<%# Eval("Zip_Code") %>' />
-                            <br />
-                            <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-<br /><br /></span>
+                            <asp:LinkButton ID="btnContactEdit" runat="server" CssClass="btn btn-primary" CommandName="Edit"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
                         </ItemTemplate>
                         <LayoutTemplate>
                             <div id="itemPlaceholderContainer" runat="server" style="">
@@ -493,52 +481,6 @@
                             <div style="">
                             </div>
                         </LayoutTemplate>
-                        <SelectedItemTemplate>
-                            <span style="">ContactID:
-                            <asp:Label ID="ContactIDLabel" runat="server" Text='<%# Eval("ContactID") %>' />
-                            <br />
-                            FirstName:
-                            <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
-                            <br />
-                            LastName:
-                            <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' />
-                            <br />
-                            Relationship:
-                            <asp:Label ID="RelationshipLabel" runat="server" Text='<%# Eval("Relationship") %>' />
-                            <br />
-                            Emergency_Contact:
-                            <asp:Label ID="Emergency_ContactLabel" runat="server" Text='<%# Eval("Emergency_Contact") %>' />
-                            <br />
-                            Email:
-                            <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
-                            <br />
-                            HomePhone:
-                            <asp:Label ID="HomePhoneLabel" runat="server" Text='<%# Eval("HomePhone") %>' />
-                            <br />
-                            WorkPhone:
-                            <asp:Label ID="WorkPhoneLabel" runat="server" Text='<%# Eval("WorkPhone") %>' />
-                            <br />
-                            MobilePhone:
-                            <asp:Label ID="MobilePhoneLabel" runat="server" Text='<%# Eval("MobilePhone") %>' />
-                            <br />
-                            Guardian:
-                            <asp:Label ID="GuardianLabel" runat="server" Text='<%# Eval("Guardian") %>' />
-                            <br />
-                            Address:
-                            <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                            <br />
-                            City:
-                            <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
-                            <br />
-                            State:
-                            <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
-                            <br />
-                            Zip_Code:
-                            <asp:Label ID="Zip_CodeLabel" runat="server" Text='<%# Eval("Zip_Code") %>' />
-                            <br />
-                            <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-<br /><br /></span>
-                        </SelectedItemTemplate>
                     </asp:ListView>
                     <%--<asp:Table ID="emContact1" runat="server" HorizontalAlign="Center" Width="100%">
                         <asp:TableRow>
@@ -1170,7 +1112,7 @@
                         </asp:TableRow>
                     </asp:Table>--%>
                     <br />
-                    <asp:LinkButton ID="btnAddContact" runat="server" CssClass="btn btn-primary" OnClick="btnAddContact_Click" CommandName="AddContact"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Contact</asp:LinkButton>
+                    <asp:LinkButton ID="btnAddContact" runat="server" CssClass="btn btn-primary" CommandName="AddContact"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Contact</asp:LinkButton>
                     <asp:Label ID="lblMaxContacts" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
                 </div>
                 <hr>
@@ -1332,7 +1274,7 @@
                         </asp:TableRow>
                     </asp:Table>
                     <br />
-                    <asp:LinkButton ID="btnAddService" runat="server" CssClass="btn btn-primary" OnClick="btnAddService_Click" CommandName="AddService"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Service</asp:LinkButton>
+                    <asp:LinkButton ID="btnAddService" runat="server" CssClass="btn btn-primary"  CommandName="AddService"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Service</asp:LinkButton>
                     <asp:Label ID="lblMaxService" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
                 </div>
                 <hr />
@@ -1555,7 +1497,7 @@
                 </div>
                 <div>
                     <br />
-                    <asp:LinkButton ID="btnAddProvider" runat="server" CssClass="btn btn-primary" OnClick="btnAddProvider_Click" CommandName="AddProvider"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Provider</asp:LinkButton>
+                    <asp:LinkButton ID="btnAddProvider" runat="server" CssClass="btn btn-primary"  CommandName="AddProvider"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Provider</asp:LinkButton>
                     <asp:Label ID="lblMaxProviders" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
                 </div>
                 <br />
@@ -2096,7 +2038,7 @@
                 </asp:Table>
                 <div>
                     <br />
-                    <asp:LinkButton ID="btnAddDoc" runat="server" CssClass="btn btn-primary" OnClick="btnAddDoc_Click" CommandName="AddDoc"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Medical Provider</asp:LinkButton>
+                    <asp:LinkButton ID="btnAddDoc" runat="server" CssClass="btn btn-primary"  CommandName="AddDoc"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Medical Provider</asp:LinkButton>
                     <asp:Label ID="lblMaxDoc" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
                 </div>
             </div>
@@ -2496,7 +2438,7 @@
                 </asp:Table>
                 <div>
                     <br />
-                    <asp:LinkButton ID="btnAddMed" runat="server" CssClass="btn btn-primary" OnClick="btnAddMed_Click" CommandName="AddMed"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Medication</asp:LinkButton>
+                    <asp:LinkButton ID="btnAddMed" runat="server" CssClass="btn btn-primary"  CommandName="AddMed"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Medication</asp:LinkButton>
                     <asp:Label ID="lblMedAddError" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
                 </div>
 

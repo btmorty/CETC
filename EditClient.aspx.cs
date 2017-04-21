@@ -92,69 +92,69 @@ public partial class EditClient : System.Web.UI.Page
             "--","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO",
             "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY",
             };
-            //Hospital
-            ddStatePreferedHospital.DataSource = items;
-            ddStatePreferedHospital.DataBind();
+            ////Hospital
+            //ddStatePreferedHospital.DataSource = items;
+            //ddStatePreferedHospital.DataBind();
 
-            //Medical Providers
-            ddMPState1.DataSource = items;
-            ddMPState1.DataBind();
-            ddMPState2.DataSource = items;
-            ddMPState2.DataBind();
-            ddMPState3.DataSource = items;
-            ddMPState3.DataBind();
-            ddMPState4.DataSource = items;
-            ddMPState4.DataBind();
-            ddMPState5.DataSource = items;
-            ddMPState5.DataBind();
-            ddMPState6.DataSource = items;
-            ddMPState6.DataBind();
-            ddMPState7.DataSource = items;
-            ddMPState7.DataBind();
-            ddMPState8.DataSource = items;
-            ddMPState8.DataBind();
-            ddMPState9.DataSource = items;
-            ddMPState9.DataBind();
-            ddMPState10.DataSource = items;
-            ddMPState10.DataBind();
+            ////Medical Providers
+            //ddMPState1.DataSource = items;
+            //ddMPState1.DataBind();
+            //ddMPState2.DataSource = items;
+            //ddMPState2.DataBind();
+            //ddMPState3.DataSource = items;
+            //ddMPState3.DataBind();
+            //ddMPState4.DataSource = items;
+            //ddMPState4.DataBind();
+            //ddMPState5.DataSource = items;
+            //ddMPState5.DataBind();
+            //ddMPState6.DataSource = items;
+            //ddMPState6.DataBind();
+            //ddMPState7.DataSource = items;
+            //ddMPState7.DataBind();
+            //ddMPState8.DataSource = items;
+            //ddMPState8.DataBind();
+            //ddMPState9.DataSource = items;
+            //ddMPState9.DataBind();
+            //ddMPState10.DataSource = items;
+            //ddMPState10.DataBind();
 
             ////Client State
             //ddState1.DataSource = items;
             //ddState1.DataBind();
 
-            //Clients Contacts States
-            ddStateCont1.DataSource = items;
-            ddStateCont1.DataBind();
-            ddStateCont2.DataSource = items;
-            ddStateCont2.DataBind();
-            ddStateCont3.DataSource = items;
-            ddStateCont3.DataBind();
-            ddStateCont4.DataSource = items;
-            ddStateCont4.DataBind();
-            ddStateCont5.DataSource = items;
-            ddStateCont5.DataBind();
-            ddStateCont6.DataSource = items;
-            ddStateCont6.DataBind();
-            ddStateCont7.DataSource = items;
-            ddStateCont7.DataBind();
-            ddStateCont8.DataSource = items;
-            ddStateCont8.DataBind();
-            ddStateCont9.DataSource = items;
-            ddStateCont9.DataBind();
-            ddStateCont10.DataSource = items;
-            ddStateCont10.DataBind();
+            ////Clients Contacts States
+            //ddStateCont1.DataSource = items;
+            //ddStateCont1.DataBind();
+            //ddStateCont2.DataSource = items;
+            //ddStateCont2.DataBind();
+            //ddStateCont3.DataSource = items;
+            //ddStateCont3.DataBind();
+            //ddStateCont4.DataSource = items;
+            //ddStateCont4.DataBind();
+            //ddStateCont5.DataSource = items;
+            //ddStateCont5.DataBind();
+            //ddStateCont6.DataSource = items;
+            //ddStateCont6.DataBind();
+            //ddStateCont7.DataSource = items;
+            //ddStateCont7.DataBind();
+            //ddStateCont8.DataSource = items;
+            //ddStateCont8.DataBind();
+            //ddStateCont9.DataSource = items;
+            //ddStateCont9.DataBind();
+            //ddStateCont10.DataSource = items;
+            //ddStateCont10.DataBind();
 
-            //Provider State (Non-medical)
-            ddProvState1.DataSource = items;
-            ddProvState1.DataBind();
-            ddProvState2.DataSource = items;
-            ddProvState2.DataBind();
-            ddProvState3.DataSource = items;
-            ddProvState3.DataBind();
-            ddProvState4.DataSource = items;
-            ddProvState4.DataBind();
-            ddProvState5.DataSource = items;
-            ddProvState5.DataBind();
+            ////Provider State (Non-medical)
+            //ddProvState1.DataSource = items;
+            //ddProvState1.DataBind();
+            //ddProvState2.DataSource = items;
+            //ddProvState2.DataBind();
+            //ddProvState3.DataSource = items;
+            //ddProvState3.DataBind();
+            //ddProvState4.DataSource = items;
+            //ddProvState4.DataBind();
+            //ddProvState5.DataSource = items;
+            //ddProvState5.DataBind();
 
             //Set CETC Info
             lblCETCDirector.Text = "Director: Kae Lynn Beecher";
@@ -196,253 +196,5 @@ public partial class EditClient : System.Web.UI.Page
                 lblUploadStatus.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
             }
         }
-    }
-
-    protected void cmdUpdate_Click(object sender, EventArgs e)
-    {
-       
-    }
-
-    protected void btnAddProvider_Click(object sender, EventArgs e)
-    {
-        if (btnAddProvider.CommandName == "AddProvider")
-        {
-            ProviderCounter++;
-            Session["AddProvider"] = ProviderCounter;
-            switch (ProviderCounter)
-            {
-                case 2:
-                    Provider2.Visible = true;
-                    Provider2hr.Visible = true;
-                    break;
-                case 3:
-                    Provider3.Visible = true;
-                    Provider3hr.Visible = true;
-                    break;
-                case 4:
-                    Provider4.Visible = true;
-                    Provider4hr.Visible = true;
-                    break;
-                case 5:
-                    Provider5.Visible = true;
-                    Provider5hr.Visible = true;
-                    break;
-                default:
-                    lblMaxProviders.Text = "Max number of providers reached";
-                    lblMaxProviders.Visible = true;
-                    break;
-            }
-        }
-    }
-        protected void btnAddDoc_Click(object sender, EventArgs e)
-    {
-
-
-        if (btnAddDoc.CommandName == "AddDoc")
-        {
-            docCounter++;
-            Session["AddDoc"] = docCounter;
-            switch (docCounter)
-            {
-                case 2:
-                    hrDoctor2.Visible = true;
-                    tbDoctor2.Visible = true;
-                    break;
-                case 3:
-                    hrDoctor3.Visible = true;
-                    tbDoctor3.Visible = true;
-                    break;
-                case 4:
-                    hrDoctor4.Visible = true;
-                    tbDoctor4.Visible = true;
-                    break;
-                case 5:
-                    hrDoctor5.Visible = true;
-                    tbDoctor5.Visible = true;
-                    break;
-                case 6:
-                    hrDoctor6.Visible = true;
-                    tbDoctor6.Visible = true;
-                    break;
-                case 7:
-                    hrDoctor7.Visible = true;
-                    tbDoctor7.Visible = true;
-                    break;
-                case 8:
-                    hrDoctor8.Visible = true;
-                    tbDoctor8.Visible = true;
-                    break;
-                case 9:
-                    hrDoctor9.Visible = true;
-                    tbDoctor9.Visible = true;
-                    break;
-                case 10:
-                    hrDoctor10.Visible = true;
-                    tbDoctor10.Visible = true;
-                    break;
-                default:
-                    lblMaxDoc.Text = "Max number of medical providers reached";
-                    lblMaxDoc.Visible = true;
-                    break;
-            }
-        }
-    }
-
-
-    protected void btnAddContact_Click(object sender, EventArgs e)
-    {
-        if (btnAddContact.CommandName == "AddContact")
-        {
-            ContactCounter++;
-            Session["AddContact"] = ContactCounter;
-            switch (ContactCounter)
-            {
-                case 4:
-                    hrContact4.Visible = true;
-                    tbContact4.Visible = true;
-                    break;
-                case 5:
-                    hrContact5.Visible = true;
-                    tbContact5.Visible = true;
-                    break;
-                case 6:
-                    hrContact6.Visible = true;
-                    tbContact6.Visible = true;
-                    break;
-                case 7:
-                    hrContact7.Visible = true;
-                    tbContact7.Visible = true;
-                    break;
-                case 8:
-                    hrContact8.Visible = true;
-                    tbContact8.Visible = true;
-                    break;
-                case 9:
-                    hrContact9.Visible = true;
-                    tbContact9.Visible = true;
-                    break;
-                case 10:
-                    hrContact10.Visible = true;
-                    tbContact10.Visible = true;
-                    break;
-                default:
-                    lblMaxContacts.Text = "Max number of contacts reached";
-                    lblMaxContacts.Visible = true;
-                    break;
-            }
-        }
-    }
-    protected void btnAddMed_Click(object sender, EventArgs e)
-    {
-        if (btnAddMed.CommandName == "AddMed")
-        {
-            medCounter++;
-            Session["AddMed"] = medCounter;
-            switch (medCounter)
-            {
-                case 2:
-                    med2.Visible = true;
-                    break;
-                case 3:
-                    med3.Visible = true;
-                    break;
-                case 4:
-                    med4.Visible = true;
-                    break;
-                case 5:
-                    med5.Visible = true;
-                    break;
-                case 6:
-                    med6.Visible = true;
-                    break;
-                case 7:
-                    med7.Visible = true;
-                    break;
-                case 8:
-                    med8.Visible = true;
-                    break;
-                case 9:
-                    med9.Visible = true;
-                    break;
-                case 10:
-                    med10.Visible = true;
-                    break;
-                case 11:
-                    med11.Visible = true;
-                    break;
-                case 12:
-                    med12.Visible = true;
-                    break;
-                case 13:
-                    med13.Visible = true;
-                    break;
-                case 14:
-                    med14.Visible = true;
-                    break;
-                case 15:
-                    med15.Visible = true;
-                    break;
-                default:
-                    lblMedAddError.Text = "Max number of medications reached";
-                    lblMedAddError.Visible = true;
-                    break;
-            }
-        }
-
-    }
-
-    protected void btnAddService_Click(object sender, EventArgs e)
-    {
-        if (btnAddService.CommandName == "AddService")
-        {
-            ServiceCounter++;
-            Session["AddService"] = ServiceCounter;
-            switch (ServiceCounter)
-            {
-                case 2:
-                    tblSvc2.Visible = true;
-                    break;
-                case 3:
-                    tblSvc3.Visible = true;
-                    break;
-                case 4:
-                    tblSvc4.Visible = true;
-                    break;
-                case 5:
-                    tblSvc5.Visible = true;
-                    break;
-                case 6:
-                    tblSvc6.Visible = true;
-                    break;
-                case 7:
-                    tblSvc7.Visible = true;
-                    break;
-                default:
-                    lblMaxService.Text = "Max number of providers reached";
-                    lblMaxService.Visible = true;
-                    break;
-            }
-        }
-    }
-
-    //this is called to populate the drop downs on the insert and edit rows
-    protected void ClientListView_OnItemDataBound(object sender, ListViewItemEventArgs e)
-    {
-        //if (ClientListView.EditIndex == (e.Item as ListViewDataItem).DataItemIndex)
-        //{
-        //    DataTable dt = new DataTable();
-        //    dt.Columns.Add(new DataColumn("Status"));
-        //    dt.Rows.Add("Active");
-        //    dt.Rows.Add("In-Active");
-        //    DropDownList ddStatus = (e.Item.FindControl("ddStatus") as DropDownList);
-        //    ddStatus.DataSource = dt;
-        //    ddStatus.DataTextField = "Status";
-        //    ddStatus.DataValueField = "Status";
-        //    ddStatus.DataBind();
-        //    ddStatus.Items.Insert(0, new ListItem("--", "0"));
-        //    Label lblStatus = (e.Item.FindControl("lblStatus") as Label);
-        //    ddStatus.Items.FindByValue(lblStatus.Text).Selected = true;
-        //}
-
     }
 }
