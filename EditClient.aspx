@@ -310,7 +310,6 @@
                 <hr>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <h3 class="text-center">Family/Guardian/Residential Contact Information</h3>
-                    <h4 class="text-center">Contact #1</h4>
                     <asp:ListView ID="ListView1" runat="server" DataKeyNames="ContactID" DataSourceID="SqlDataSourceContacts" InsertItemPosition="LastItem">
                         <EditItemTemplate>
                             <table>
@@ -324,11 +323,9 @@
                                         <td>Relationship:<br />
                                             <asp:TextBox ID="RelationshipTextBox" runat="server" Text='<%# Bind("Relationship") %>' />
                                         </td>
-                                        <td>Emergency Contact:<br />
-                                            <asp:TextBox ID="Emergency_ContactTextBox" runat="server" Text='<%# Bind("Emergency_Contact") %>' />
-                                        </td>
-                                        <td>Guardian:<br />
-                                            <asp:TextBox ID="GuardianTextBox" runat="server" Text='<%# Bind("Guardian") %>' />
+                                        <td>
+                                            <asp:CheckBox ID="Emergency_ContactCheckBox" runat="server" Text="Emergency Contact" Checked='<%# Bind("Emergency_Contact") %>' /><br />
+                                            <asp:CheckBox ID="GuardianCheckBox" runat="server" Text="Guardian" Checked='<%# Bind("Guardian") %>' />
                                         </td>
                                     </tr>
                                     <tr>
@@ -381,11 +378,9 @@
                                         <td>Relationship:<br />
                                             <asp:TextBox ID="RelationshipTextBox" runat="server" Text='<%# Bind("Relationship") %>' />
                                         </td>
-                                        <td>Emergency Contact:<br />
-                                            <asp:TextBox ID="Emergency_ContactTextBox" runat="server" Text='<%# Bind("Emergency_Contact") %>' />
-                                        </td>
-                                        <td>Guardian:<br />
-                                            <asp:TextBox ID="GuardianTextBox" runat="server" Text='<%# Bind("Guardian") %>' />
+                                        <td>
+                                            <asp:CheckBox ID="Emergency_ContactCheckBox" runat="server" Text="Emergency Contact" Checked='<%# Bind("Emergency_Contact") %>' /><br />
+                                            <asp:CheckBox ID="GuardianCheckBox" runat="server" Text="Guardian" Checked='<%# Bind("Guardian") %>' />
                                         </td>
                                     </tr>
                                     <tr>
@@ -427,47 +422,45 @@
                             <table>
                                     <tr>
                                         <td>First Name:<br />
-                                            <asp:TextBox ID="FirstNameTextBox" runat="server" ReadOnly="true" Text='<%# Bind("FirstName") %>' />
+                                            <asp:TextBox ID="FirstNameTextBox" runat="server" ReadOnly="true" Text='<%# Eval("FirstName") %>' />
                                         </td>
                                         <td>Last Name:<br />
-                                            <asp:TextBox ID="LastNameTextBox" runat="server" ReadOnly="true" Text='<%# Bind("LastName") %>' />
+                                            <asp:TextBox ID="LastNameTextBox" runat="server" ReadOnly="true" Text='<%# Eval("LastName") %>' />
                                         </td>
                                         <td>Relationship:<br />
-                                            <asp:TextBox ID="RelationshipTextBox" runat="server" ReadOnly="true" Text='<%# Bind("Relationship") %>' />
+                                            <asp:TextBox ID="RelationshipTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Relationship") %>' />
                                         </td>
-                                        <td>Emergency Contact:<br />
-                                            <asp:TextBox ID="Emergency_ContactTextBox" runat="server" ReadOnly="true" Text='<%# Bind("Emergency_Contact") %>' />
-                                        </td>
-                                        <td>Guardian:<br />
-                                            <asp:TextBox ID="GuardianTextBox" runat="server" ReadOnly="true" Text='<%# Bind("Guardian") %>' />
+                                        <td>
+                                            <asp:CheckBox ID="Emergency_ContactCheckBox" runat="server" Text="Emergency Contact" Checked='<%# Eval("Emergency_Contact") %>' Enabled="False" /><br />
+                                            <asp:CheckBox ID="GuardianCheckBox" runat="server" Text="Guardian" Checked='<%# Eval("Guardian") %>' Enabled="False" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Email:<br />
-                                            <asp:TextBox ID="EmailTextBox" runat="server" ReadOnly="true" Text='<%# Bind("Email") %>' />
+                                            <asp:TextBox ID="EmailTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Email") %>' />
                                         </td>
                                         <td>Home Phone:<br />
-                                            <asp:TextBox ID="HomePhoneTextBox" runat="server" ReadOnly="true" Text='<%# Bind("HomePhone") %>' />
+                                            <asp:TextBox ID="HomePhoneTextBox" runat="server" ReadOnly="true" Text='<%# Eval("HomePhone") %>' />
                                         </td>
                                         <td>Work Phone:<br />
-                                            <asp:TextBox ID="WorkPhoneTextBox" runat="server" ReadOnly="true" Text='<%# Bind("WorkPhone") %>' />
+                                            <asp:TextBox ID="WorkPhoneTextBox" runat="server" ReadOnly="true" Text='<%# Eval("WorkPhone") %>' />
                                         </td>
                                         <td>Mobile Phone:<br />
-                                            <asp:TextBox ID="MobilePhoneTextBox" runat="server" ReadOnly="true" Text='<%# Bind("MobilePhone") %>' />
+                                            <asp:TextBox ID="MobilePhoneTextBox" runat="server" ReadOnly="true" Text='<%# Eval("MobilePhone") %>' />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Address:<br />
-                                            <asp:TextBox ID="AddressTextBox" runat="server" ReadOnly="true" Text='<%# Bind("Address") %>' />
+                                            <asp:TextBox ID="AddressTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Address") %>' />
                                         </td>
                                         <td>City:<br />
-                                            <asp:TextBox ID="CityTextBox" runat="server" ReadOnly="true" Text='<%# Bind("City") %>' />
+                                            <asp:TextBox ID="CityTextBox" runat="server" ReadOnly="true" Text='<%# Eval("City") %>' />
                                         </td>
                                         <td>State:<br />
-                                            <asp:TextBox ID="StateTextBox" runat="server" ReadOnly="true" Text='<%# Bind("State") %>' />
+                                            <asp:TextBox ID="StateTextBox" runat="server" ReadOnly="true" Text='<%# Eval("State") %>' />
                                         </td>
                                         <td>Zip_Code:<br />
-                                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" ReadOnly="true" Text='<%# Bind("Zip_Code") %>' />
+                                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Zip_Code") %>' />
                                         </td>
                                     </tr>
                                 </table>
