@@ -16,38 +16,78 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Race] FROM [DD_Race]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource3" runat="server"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSourceClient" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.SSN, Client.DSPD, Client.PhotoID, Client.Status, Client.Sex, Client.Race, Client.Residential_Status, Client.Preferred_Language, Client.Religious_Affiliation, Client.First_Name, Client.Last_Name, Client.Email, Client.Phone, Client.Modes_Communication, Client.SSA, Client.SSI, Client.DateCreated, Client.DateModified, Address.Address, Address.City, Address.State, Address.Zip_Code, Client.DOB, Health_Profile.DOB AS Expr1, Health_Profile.Staffing_Ratio, Health_Profile.Age, Client.ModifiedBy, Client.Diagnosis FROM Client INNER JOIN Address ON Client.AddressID = Address.AddressID INNER JOIN Health_Profile ON Client.ClientID = Health_Profile.ClientID WHERE (Client.ClientID = @ClientID)" UpdateCommand="UpdateClient" UpdateCommandType="StoredProcedure">
+    <asp:SqlDataSource ID="SqlDataSourceClient" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.SSN, Client.DSPD, Client.PhotoID, Client.Status, Client.Sex, Client.Race, Client.Residential_Status, Client.Preferred_Language, Client.Religious_Affiliation, Client.First_Name, Client.Last_Name, Client.Email, Client.Phone, Client.Modes_Communication, Client.SSA, Client.SSI, Client.DateCreated, Client.DateModified, Address.Address, Address.City, Address.State, Address.Zip_Code, Health_Profile.DOB, Health_Profile.Staffing_Ratio, Health_Profile.Age, Client.ModifiedBy, Client.Diagnosis
+ FROM Client INNER JOIN Address ON Client.AddressID = Address.AddressID INNER JOIN Health_Profile ON Client.ClientID = Health_Profile.ClientID
+ WHERE (Client.ClientID = @ClientID)" UpdateCommand="@AddressID = Client.[AddressID]
+
+UPDATE [Client] SET [SSN] = @SSN, [DSPD] = @DSPD, [Status] = @Status, [PhotoID] = @PhotoID, [Sex] = @Sex, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [Race] = @Race, [Religious_Affiliation] = @Religious_Affiliation, [First_Name] = @First_Name, [Email] = @Email, [Last_Name] = @Last_Name, [Phone] = @Phone, [Modes_Communication] = @Modes_Communication, [SSA] = @SSA, [SSI] = @SSI, [DateCreated] = @DateCreated, [DateModified] = @DateModified, [ModifiedBy] = @ModifiedBy, [Diagnosis] = @Diagnosis WHERE [ClientID] = @ClientID
+
+UPDATE [Address] SET [Address] = @Address, [City] = @City, [State] = @State, [Zip_Code] = @Zip_Code WHERE [AddressID] = @AddressID
+
+UPDATE [Health_Profile] SET [DOB] = @DOB, [Age] = @Age, [Staffing_Ratio] = @Staffing_Ratio WHERE [ClientID] = @ClientID" DeleteCommand="DELETE FROM [Client] WHERE [ClientID] = @ClientID" InsertCommand="INSERT INTO [Client] ([AddressID], [SSN], [DSPD], [Status], [PhotoID], [Sex], [Residential_Status], [Preferred_Language], [Race], [Religious_Affiliation], [First_Name], [Email], [Last_Name], [Phone], [Modes_Communication], [SSA], [SSI], [EmergencyEvacNeeds], [EvacID1], [EvacID2], [DOB], [DateCreated], [DateModified], [ModifiedBy], [Diagnosis]) VALUES (@AddressID, @SSN, @DSPD, @Status, @PhotoID, @Sex, @Residential_Status, @Preferred_Language, @Race, @Religious_Affiliation, @First_Name, @Email, @Last_Name, @Phone, @Modes_Communication, @SSA, @SSI, @EmergencyEvacNeeds, @EvacID1, @EvacID2, @DOB, @DateCreated, @DateModified, @ModifiedBy, @Diagnosis)">
+        <DeleteParameters>
+            <asp:Parameter Name="ClientID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="AddressID" Type="Int32" />
+            <asp:Parameter Name="SSN" Type="Int32" />
+            <asp:Parameter Name="DSPD" Type="Int32" />
+            <asp:Parameter Name="Status" Type="String" />
+            <asp:Parameter Name="PhotoID" Type="String" />
+            <asp:Parameter Name="Sex" Type="String" />
+            <asp:Parameter Name="Residential_Status" Type="String" />
+            <asp:Parameter Name="Preferred_Language" Type="String" />
+            <asp:Parameter Name="Race" Type="String" />
+            <asp:Parameter Name="Religious_Affiliation" Type="String" />
+            <asp:Parameter Name="First_Name" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="Last_Name" Type="String" />
+            <asp:Parameter Name="Phone" Type="String" />
+            <asp:Parameter Name="Modes_Communication" Type="String" />
+            <asp:Parameter Name="SSA" Type="Int32" />
+            <asp:Parameter Name="SSI" Type="Int32" />
+            <asp:Parameter Name="EmergencyEvacNeeds" Type="String" />
+            <asp:Parameter Name="EvacID1" Type="Int32" />
+            <asp:Parameter Name="EvacID2" Type="Int32" />
+            <asp:Parameter Name="DOB" Type="DateTime" />
+            <asp:Parameter Name="DateCreated" Type="DateTime" />
+            <asp:Parameter Name="DateModified" Type="DateTime" />
+            <asp:Parameter Name="ModifiedBy" Type="String" />
+            <asp:Parameter Name="Diagnosis" Type="String" />
+        </InsertParameters>
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Name="AddressID" Type="Int32" />
-            <asp:Parameter Name="ClientID" Type="Int32" />
-            <asp:Parameter Name="Hospital_AddressID" Type="Int32" />
-            <asp:Parameter Name="Hospital_Address" Type="String" />
+            <asp:Parameter Name="SSN" Type="Int32" />
+            <asp:Parameter Name="DSPD" Type="Int32" />
             <asp:Parameter Name="Status" Type="String" />
-            <asp:Parameter Name="First_Name" Type="String" />
-            <asp:Parameter Name="Last_Name" Type="String" />
-            <asp:Parameter DbType="Date" Name="DOB" />
-            <asp:Parameter Name="Age" Type="Int32" />
-            <asp:Parameter Name="Address" Type="String" />
-            <asp:Parameter Name="City" Type="String" />
-            <asp:Parameter Name="State" Type="String" />
-            <asp:Parameter Name="Zip" Type="String" />
-            <asp:Parameter Name="Email" Type="String" />
-            <asp:Parameter Name="Phone" Type="String" />
-            <asp:Parameter Name="sex" Type="String" />
-            <asp:Parameter Name="Race" Type="String" />
+            <asp:Parameter Name="PhotoID" Type="String" />
+            <asp:Parameter Name="Sex" Type="String" />
             <asp:Parameter Name="Residential_Status" Type="String" />
             <asp:Parameter Name="Preferred_Language" Type="String" />
+            <asp:Parameter Name="Race" Type="String" />
             <asp:Parameter Name="Religious_Affiliation" Type="String" />
-            <asp:Parameter Name="SSN" Type="Int32" />
-            <asp:Parameter Name="Staffing_Ratio" Type="String" />
-            <asp:Parameter Name="DSPD" Type="Int32" />
-            <asp:Parameter Name="SSI" Type="Int32" />
-            <asp:Parameter Name="SSA" Type="Int32" />
+            <asp:Parameter Name="First_Name" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="Last_Name" Type="String" />
+            <asp:Parameter Name="Phone" Type="String" />
             <asp:Parameter Name="Modes_Communication" Type="String" />
+            <asp:Parameter Name="SSA" Type="Int32" />
+            <asp:Parameter Name="SSI" Type="Int32" />
+            <asp:Parameter Name="DateCreated" Type="DateTime" />
+            <asp:Parameter Name="DateModified" Type="DateTime" />
+            <asp:Parameter Name="ModifiedBy" Type="String" />
             <asp:Parameter Name="Diagnosis" Type="String" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="Address" />
+            <asp:Parameter Name="City" />
+            <asp:Parameter Name="State" />
+            <asp:Parameter Name="Zip_Code" />
+            <asp:Parameter Name="DOB" Type="DateTime" />
+            <asp:Parameter Name="Age" />
+            <asp:Parameter Name="Staffing_Ratio" />
         </UpdateParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceMeds" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Medication.MedicationID, Medication.Medication_Name, Medication.Dosage, Medication.Purpose, Medication.Non_Perscription, Medication.ProviderID, Medical_Provider.FirstName, Medical_Provider.LastName FROM Medication INNER JOIN Medical_Provider ON Medication.ProviderID = Medical_Provider.ProviderID WHERE (Medication.ClientID = @ClientID)">
@@ -286,7 +326,7 @@
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:LinkButton ID="btnClientSave" runat="server" CssClass="btn btn-primary" CommandName="Update"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
+                                <asp:LinkButton ID="btnClientSave" runat="server" CssClass="btn btn-primary" CommandName="Update" OnClick="btnClientSave_Click"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
                                 <asp:LinkButton ID="btnClientCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                                 <br />
                                 <br />
@@ -475,638 +515,7 @@
                             </div>
                         </LayoutTemplate>
                     </asp:ListView>
-                    <%--<asp:Table ID="emContact1" runat="server" HorizontalAlign="Center" Width="100%">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblFnameCont1" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="txtFnameCont1" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblLnameCont1" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="txtLnameCont1" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblRelCont1" runat="server" Text="Relationship "></asp:Label><br />
-                                <asp:DropDownList ID="DropDownListRelCont1" runat="server">
-                                    <asp:ListItem>Legal Guardian</asp:ListItem>
-                                    <asp:ListItem>Spouse</asp:ListItem>
-                                    <asp:ListItem>Parent</asp:ListItem>
-                                    <asp:ListItem>Child</asp:ListItem>
-                                    <asp:ListItem>Other</asp:ListItem>
-                                </asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:CheckBox ID="chkEm1" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
-                                <asp:CheckBox ID="chkGuard1" runat="server" Text=" Legal Guardian" TextAlign="Right" />
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblAddressCont1" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="txtAddressCont1" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCityCont1" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="txtCityCont1" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblStateCont1" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddStateCont1" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblZipCont1" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="txtZipCont1" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblEmailCont1" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="txtEmailCont1" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblHphoneCont1" runat="server" Text="Home Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtHphoneCont1" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCphoneCont1" runat="server" Text="Cell Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtCphoneCont1" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblWphoneCont1" runat="server" Text="Work Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtWphoneCont1" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                    <h4 class="text-center">Contact #2</h4>
-                    <asp:Table ID="Table2" runat="server" HorizontalAlign="Center" Width="100%">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblFnameCont2" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="txtFnameCont2" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblLnameCont2" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="txtLnameCont2" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblRelCont2" runat="server" Text="Relationship "></asp:Label><br />
-                                <asp:DropDownList ID="DropDownListRelCont2" runat="server">
-                                    <asp:ListItem>Legal Guardian</asp:ListItem>
-                                    <asp:ListItem>Spouse</asp:ListItem>
-                                    <asp:ListItem>Parent</asp:ListItem>
-                                    <asp:ListItem>Child</asp:ListItem>
-                                    <asp:ListItem>Other</asp:ListItem>
-                                </asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:CheckBox ID="chkEm2" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
-                                <asp:CheckBox ID="chkGuard2" runat="server" Text=" Legal Guardian" TextAlign="Right" />
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblAddressCont2" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="txtAddressCont2" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCityCont2" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="txtCityCont2" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblStateCont2" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddStateCont2" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblZipCont2" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="txtZipCont2" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblEmailCont2" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="txtEmailCont2" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblHphoneCont2" runat="server" Text="Home Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtHphoneCont2" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCphoneCont2" runat="server" Text="Cell Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtCphoneCont2" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblWphoneCont2" runat="server" Text="Work Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtWphoneCont2" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                    <h4 class="text-center">Contact #3</h4>
-                    <asp:Table ID="Table3" runat="server" HorizontalAlign="Center" Width="100%">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblFnameCont3" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="txtFnameCont3" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblLnameCont3" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="txtLnameCont3" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblRelCont3" runat="server" Text="Relationship "></asp:Label><br />
-                                <asp:DropDownList ID="DropDownListRelCont3" runat="server">
-                                    <asp:ListItem>Legal Guardian</asp:ListItem>
-                                    <asp:ListItem>Spouse</asp:ListItem>
-                                    <asp:ListItem>Parent</asp:ListItem>
-                                    <asp:ListItem>Child</asp:ListItem>
-                                    <asp:ListItem>Other</asp:ListItem>
-                                </asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:CheckBox ID="chkEm3" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
-                                <asp:CheckBox ID="chkGuard3" runat="server" Text=" Legal Guardian" TextAlign="Right" />
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblAddressCont3" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="txtAddressCont3" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCityCont3" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="txtCityCont3" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblStateCont3" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddStateCont3" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblZipCont3" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="txtZipCont3" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblEmailCont3" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="txtEmailCont3" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblHphoneCont3" runat="server" Text="Home Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtHphoneCont3" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCphoneCont3" runat="server" Text="Cell Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtCphoneCont3" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblWphoneCont3" runat="server" Text="Work Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtWphoneCont3" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                    <h4 id="hrContact4" runat="server" class="text-center" visible="false">Contact #4</h4>
-                    <asp:Table ID="tbContact4" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblFnameCont4" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="txtFnameCont4" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblLnameCont4" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="txtLnameCont4" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblRelCont4" runat="server" Text="Relationship "></asp:Label><br />
-                                <asp:DropDownList ID="DropDownListRelCont4" runat="server">
-                                    <asp:ListItem>Legal Guardian</asp:ListItem>
-                                    <asp:ListItem>Spouse</asp:ListItem>
-                                    <asp:ListItem>Parent</asp:ListItem>
-                                    <asp:ListItem>Child</asp:ListItem>
-                                    <asp:ListItem>Other</asp:ListItem>
-                                </asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:CheckBox ID="chkEm4" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
-                                <asp:CheckBox ID="chkGuard4" runat="server" Text=" Legal Guardian" TextAlign="Right" />
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblAddressCont4" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="txtAddressCont4" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCityCont4" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="txtCityCont4" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblStateCont4" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddStateCont4" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblZipCont4" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="txtZipCont4" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblEmailCont4" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="txtEmailCont4" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblHphoneCont4" runat="server" Text="Home Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtHphoneCont4" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCphoneCont4" runat="server" Text="Cell Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtCphoneCont4" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblWphoneCont4" runat="server" Text="Work Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtWphoneCont4" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                    <h4 id="hrContact5" runat="server" class="text-center" visible="false">Contact #5</h4>
-                    <asp:Table ID="tbContact5" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblFnameCont5" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="txtFnameCont5" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblLnameCont5" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="txtLnameCont5" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblRelCont5" runat="server" Text="Relationship "></asp:Label><br />
-                                <asp:DropDownList ID="DropDownListRelCont5" runat="server">
-                                    <asp:ListItem>Legal Guardian</asp:ListItem>
-                                    <asp:ListItem>Spouse</asp:ListItem>
-                                    <asp:ListItem>Parent</asp:ListItem>
-                                    <asp:ListItem>Child</asp:ListItem>
-                                    <asp:ListItem>Other</asp:ListItem>
-                                </asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:CheckBox ID="chkEm5" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
-                                <asp:CheckBox ID="chkGuard5" runat="server" Text=" Legal Guardian" TextAlign="Right" />
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblAddressCont5" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="txtAddressCont5" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCityCont5" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="txtCityCont5" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblStateCont5" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddStateCont5" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblZipCont5" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="txtZipCont5" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblEmailCont5" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="txtEmailCont5" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblHphoneCont5" runat="server" Text="Home Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtHphoneCont5" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCphoneCont5" runat="server" Text="Cell Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtCphoneCont5" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblWphoneCont5" runat="server" Text="Work Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtWphoneCont5" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                    <h4 id="hrContact6" runat="server" class="text-center" visible="false">Contact #6</h4>
-                    <asp:Table ID="tbContact6" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblFnameCont6" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="txtFnameCont6" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblLnameCont6" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="txtLnameCont6" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblRelCont6" runat="server" Text="Relationship "></asp:Label><br />
-                                <asp:DropDownList ID="DropDownListRelCont6" runat="server">
-                                    <asp:ListItem>Legal Guardian</asp:ListItem>
-                                    <asp:ListItem>Spouse</asp:ListItem>
-                                    <asp:ListItem>Parent</asp:ListItem>
-                                    <asp:ListItem>Child</asp:ListItem>
-                                    <asp:ListItem>Other</asp:ListItem>
-                                </asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:CheckBox ID="chkEm6" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
-                                <asp:CheckBox ID="chkGuard6" runat="server" Text=" Legal Guardian" TextAlign="Right" />
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblAddressCont6" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="txtAddressCont6" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCityCont6" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="txtCityCont6" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblStateCont6" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddStateCont6" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblZipCont6" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="txtZipCont6" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblEmailCont6" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="txtEmailCont6" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblHphoneCont6" runat="server" Text="Home Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtHphoneCont6" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCphoneCont6" runat="server" Text="Cell Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtCphoneCont6" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblWphoneCont6" runat="server" Text="Work Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtWphoneCont6" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                    <h4 id="hrContact7" runat="server" class="text-center" visible="false">Contact #7</h4>
-                    <asp:Table ID="tbContact7" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblFnameCont7" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="txtFnameCont7" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblLnameCont7" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="txtLnameCont7" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblRelCont7" runat="server" Text="Relationship "></asp:Label><br />
-                                <asp:DropDownList ID="DropDownListRelCont7" runat="server">
-                                    <asp:ListItem>Legal Guardian</asp:ListItem>
-                                    <asp:ListItem>Spouse</asp:ListItem>
-                                    <asp:ListItem>Parent</asp:ListItem>
-                                    <asp:ListItem>Child</asp:ListItem>
-                                    <asp:ListItem>Other</asp:ListItem>
-                                </asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:CheckBox ID="chkEm7" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
-                                <asp:CheckBox ID="chkGuard7" runat="server" Text=" Legal Guardian" TextAlign="Right" />
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblAddressCont7" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="txtAddressCont7" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCityCont7" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="txtCityCont7" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblStateCont7" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddStateCont7" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblZipCont7" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="txtZipCont7" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblEmailCont7" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="txtEmailCont7" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblHphoneCont7" runat="server" Text="Home Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtHphoneCont7" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCphoneCont7" runat="server" Text="Cell Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtCphoneCont7" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblWphoneCont7" runat="server" Text="Work Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtWphoneCont7" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                    <h4 id="hrContact8" runat="server" class="text-center" visible="false">Contact #8</h4>
-                    <asp:Table ID="tbContact8" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblFnameCont8" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="txtFnameCont8" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblLnameCont8" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="txtLnameCont8" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblRelCont8" runat="server" Text="Relationship "></asp:Label><br />
-                                <asp:DropDownList ID="DropDownListRelCont8" runat="server">
-                                    <asp:ListItem>Legal Guardian</asp:ListItem>
-                                    <asp:ListItem>Spouse</asp:ListItem>
-                                    <asp:ListItem>Parent</asp:ListItem>
-                                    <asp:ListItem>Child</asp:ListItem>
-                                    <asp:ListItem>Other</asp:ListItem>
-                                </asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:CheckBox ID="chkEm8" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
-                                <asp:CheckBox ID="chkGuard8" runat="server" Text=" Legal Guardian" TextAlign="Right" />
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblAddressCont8" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="txtAddressCont8" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCityCont8" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="txtCityCont8" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblStateCont8" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddStateCont8" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblZipCont8" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="txtZipCont8" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblEmailCont8" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="txtEmailCont8" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblHphoneCont8" runat="server" Text="Home Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtHphoneCont8" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCphoneCont8" runat="server" Text="Cell Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtCphoneCont8" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblWphoneCont8" runat="server" Text="Work Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtWphoneCont8" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                    <h4 id="hrContact9" runat="server" class="text-center" visible="false">Contact #9</h4>
-                    <asp:Table ID="tbContact9" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblFnameCont9" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="txtFnameCont9" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblLnameCont9" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="txtLnameCont9" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblRelCont9" runat="server" Text="Relationship "></asp:Label><br />
-                                <asp:DropDownList ID="DropDownListRelCont9" runat="server">
-                                    <asp:ListItem>Legal Guardian</asp:ListItem>
-                                    <asp:ListItem>Spouse</asp:ListItem>
-                                    <asp:ListItem>Parent</asp:ListItem>
-                                    <asp:ListItem>Child</asp:ListItem>
-                                    <asp:ListItem>Other</asp:ListItem>
-                                </asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:CheckBox ID="chkEm9" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
-                                <asp:CheckBox ID="chkGuard9" runat="server" Text=" Legal Guardian" TextAlign="Right" />
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblAddressCont9" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="txtAddressCont9" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCityCont9" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="txtCityCont9" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblStateCont9" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddStateCont9" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblZipCont9" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="txtZipCont9" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblEmailCont9" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="txtEmailCont9" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblHphoneCont9" runat="server" Text="Home Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtHphoneCont9" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCphoneCont9" runat="server" Text="Cell Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtCphoneCont9" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblWphoneCont9" runat="server" Text="Work Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtWphoneCont9" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                    <h4 id="hrContact10" runat="server" class="text-center" visible="false">Contact #10</h4>
-                    <asp:Table ID="tbContact10" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblFnameCont10" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="txtFnameCont10" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblLnameCont10" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="txtLnameCont10" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblRelCont10" runat="server" Text="Relationship "></asp:Label><br />
-                                <asp:DropDownList ID="DropDownListRelCont10" runat="server">
-                                    <asp:ListItem>Legal Guardian</asp:ListItem>
-                                    <asp:ListItem>Spouse</asp:ListItem>
-                                    <asp:ListItem>Parent</asp:ListItem>
-                                    <asp:ListItem>Child</asp:ListItem>
-                                    <asp:ListItem>Other</asp:ListItem>
-                                </asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:CheckBox ID="chkEm10" runat="server" Text=" Emergency Contact" TextAlign="Right" /><br />
-                                <asp:CheckBox ID="chkGuard10" runat="server" Text=" Legal Guardian" TextAlign="Right" />
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblAddressCont10" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="txtAddressCont10" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCityCont10" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="txtCityCont10" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblStateCont10" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddStateCont10" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblZipCont10" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="txtZipCont10" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblEmailCont10" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="txtEmailCont10" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblHphoneCont10" runat="server" Text="Home Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtHphoneCont10" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblCphoneCont10" runat="server" Text="Cell Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtCphoneCont10" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblWphoneCont10" runat="server" Text="Work Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtWphoneCont10" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>--%>
                     <br />
-                    <asp:LinkButton ID="btnAddContact" runat="server" CssClass="btn btn-primary" CommandName="AddContact"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Contact</asp:LinkButton>
-                    <asp:Label ID="lblMaxContacts" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
                 </div>
                 <hr>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">

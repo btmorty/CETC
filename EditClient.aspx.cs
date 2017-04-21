@@ -197,4 +197,9 @@ public partial class EditClient : System.Web.UI.Page
             }
         }
     }
+
+    protected void btnClientSave_Click(object sender, EventArgs e)
+    {
+        ClientListView.DataBind();
+    }
 }
