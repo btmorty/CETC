@@ -197,9 +197,4 @@ public partial class EditClient : System.Web.UI.Page
             }
         }
     }
-
-    protected void ClientListView_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
-    {
-        ClientListView.DataBind();
-    }
 }

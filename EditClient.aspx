@@ -10,72 +10,47 @@
             padding-bottom: 5px;
         }
     </style>
+    <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religious_Affiliation], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy], [ClientID] FROM [Client] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Status] = @Status, [DOB] = @DOB, [Age] = @Age, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Phone] = @Phone, [Email] = @Email, [Sex] = @Sex, [Race] = @Race, [Religious_Affiliation] = @Religious_Affiliation, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [SSN] = @SSN, [Staff_Ratio] = @Staff_Ratio, [DSPD] = @DSPD, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Diagnosis] = @Diagnosis, [PhotoID] = @PhotoID, [DateCreated] = @DateCreated, [DateModified] = @DateModified, [ModifiedBy] = @ModifiedBy WHERE [ClientID] = @ClientID">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="First_Name" Type="String" />
+            <asp:Parameter Name="Last_Name" Type="String" />
+            <asp:Parameter Name="Status" Type="String" />
+            <asp:Parameter DbType="Date" Name="DOB" />
+            <asp:Parameter Name="Age" Type="Int32" />
+            <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="City" Type="String" />
+            <asp:Parameter Name="State" Type="String" />
+            <asp:Parameter Name="Zip" Type="Int32" />
+            <asp:Parameter Name="Phone" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="Sex" Type="String" />
+            <asp:Parameter Name="Race" Type="String" />
+            <asp:Parameter Name="Religious_Affiliation" Type="String" />
+            <asp:Parameter Name="Residential_Status" Type="String" />
+            <asp:Parameter Name="Preferred_Language" Type="String" />
+            <asp:Parameter Name="SSN" Type="Int32" />
+            <asp:Parameter Name="Staff_Ratio" Type="String" />
+            <asp:Parameter Name="DSPD" Type="Int32" />
+            <asp:Parameter Name="SSI" Type="Int32" />
+            <asp:Parameter Name="SSA" Type="Int32" />
+            <asp:Parameter Name="Modes_Communication" Type="String" />
+            <asp:Parameter Name="Diagnosis" Type="String" />
+            <asp:Parameter Name="PhotoID" Type="String" />
+            <asp:Parameter Name="DateCreated" Type="DateTime" />
+            <asp:Parameter Name="DateModified" Type="DateTime" />
+            <asp:Parameter Name="ModifiedBy" Type="String" />
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceService" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Service] FROM [Service]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceDDStatus" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [StatusID], [Status] FROM [DD_Status]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceStates" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [State] FROM [DD_State]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Race] FROM [DD_Race]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource3" runat="server"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSourceClient" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.ClientID, Client.SSN, Client.DSPD, Client.PhotoID, Client.Status, Client.Sex, Client.Race, Client.Residential_Status, Client.Preferred_Language, Client.Religious_Affiliation, Client.First_Name, Client.Last_Name, Client.Email, Client.Phone, Client.Modes_Communication, Client.SSA, Client.SSI, Client.DateCreated, Client.DateModified, Address.Address, Address.City, Address.State, Address.Zip_Code, Health_Profile.DOB, Health_Profile.Staffing_Ratio, Health_Profile.Age, Client.ModifiedBy, Client.Diagnosis
- FROM Client INNER JOIN Address ON Client.AddressID = Address.AddressID INNER JOIN Health_Profile ON Client.ClientID = Health_Profile.ClientID
- WHERE (Client.ClientID = @ClientID)" UpdateCommand="UPDATE [Client] SET [SSN] = @SSN, [DSPD] = @DSPD, [Status] = @Status, [PhotoID] = @PhotoID, [Sex] = @Sex, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [Race] = @Race, [Religious_Affiliation] = @Religious_Affiliation, [First_Name] = @First_Name, [Email] = @Email, [Last_Name] = @Last_Name, [Phone] = @Phone, [Modes_Communication] = @Modes_Communication, [SSA] = @SSA, [SSI] = @SSI, [DateCreated] = @DateCreated, [DateModified] = @DateModified, [ModifiedBy] = @ModifiedBy, [Diagnosis] = @Diagnosis WHERE [ClientID] = @ClientID" DeleteCommand="DELETE FROM [Client] WHERE [ClientID] = @ClientID" InsertCommand="INSERT INTO [Client] ([AddressID], [SSN], [DSPD], [Status], [PhotoID], [Sex], [Residential_Status], [Preferred_Language], [Race], [Religious_Affiliation], [First_Name], [Email], [Last_Name], [Phone], [Modes_Communication], [SSA], [SSI], [EmergencyEvacNeeds], [EvacID1], [EvacID2], [DOB], [DateCreated], [DateModified], [ModifiedBy], [Diagnosis]) VALUES (@AddressID, @SSN, @DSPD, @Status, @PhotoID, @Sex, @Residential_Status, @Preferred_Language, @Race, @Religious_Affiliation, @First_Name, @Email, @Last_Name, @Phone, @Modes_Communication, @SSA, @SSI, @EmergencyEvacNeeds, @EvacID1, @EvacID2, @DOB, @DateCreated, @DateModified, @ModifiedBy, @Diagnosis)">
-        <DeleteParameters>
-            <asp:Parameter Name="ClientID" Type="Int32" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="AddressID" Type="Int32" />
-            <asp:Parameter Name="SSN" Type="Int32" />
-            <asp:Parameter Name="DSPD" Type="Int32" />
-            <asp:Parameter Name="Status" Type="String" />
-            <asp:Parameter Name="PhotoID" Type="String" />
-            <asp:Parameter Name="Sex" Type="String" />
-            <asp:Parameter Name="Residential_Status" Type="String" />
-            <asp:Parameter Name="Preferred_Language" Type="String" />
-            <asp:Parameter Name="Race" Type="String" />
-            <asp:Parameter Name="Religious_Affiliation" Type="String" />
-            <asp:Parameter Name="First_Name" Type="String" />
-            <asp:Parameter Name="Email" Type="String" />
-            <asp:Parameter Name="Last_Name" Type="String" />
-            <asp:Parameter Name="Phone" Type="String" />
-            <asp:Parameter Name="Modes_Communication" Type="String" />
-            <asp:Parameter Name="SSA" Type="Int32" />
-            <asp:Parameter Name="SSI" Type="Int32" />
-            <asp:Parameter Name="EmergencyEvacNeeds" Type="String" />
-            <asp:Parameter Name="EvacID1" Type="Int32" />
-            <asp:Parameter Name="EvacID2" Type="Int32" />
-            <asp:Parameter Name="DOB" Type="DateTime" />
-            <asp:Parameter Name="DateCreated" Type="DateTime" />
-            <asp:Parameter Name="DateModified" Type="DateTime" />
-            <asp:Parameter Name="ModifiedBy" Type="String" />
-            <asp:Parameter Name="Diagnosis" Type="String" />
-        </InsertParameters>
-        <SelectParameters>
-            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
-        </SelectParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="SSN" Type="Int32" />
-            <asp:Parameter Name="DSPD" Type="Int32" />
-            <asp:Parameter Name="Status" Type="String" />
-            <asp:Parameter Name="PhotoID" Type="String" />
-            <asp:Parameter Name="Sex" Type="String" />
-            <asp:Parameter Name="Residential_Status" Type="String" />
-            <asp:Parameter Name="Preferred_Language" Type="String" />
-            <asp:Parameter Name="Race" Type="String" />
-            <asp:Parameter Name="Religious_Affiliation" Type="String" />
-            <asp:Parameter Name="First_Name" Type="String" />
-            <asp:Parameter Name="Email" Type="String" />
-            <asp:Parameter Name="Last_Name" Type="String" />
-            <asp:Parameter Name="Phone" Type="String" />
-            <asp:Parameter Name="Modes_Communication" Type="String" />
-            <asp:Parameter Name="SSA" Type="Int32" />
-            <asp:Parameter Name="SSI" Type="Int32" />
-            <asp:Parameter Name="DateCreated" Type="DateTime" />
-            <asp:Parameter Name="DateModified" Type="DateTime" />
-            <asp:Parameter Name="ModifiedBy" Type="String" />
-            <asp:Parameter Name="Diagnosis" Type="String" />
-            <asp:Parameter Name="ClientID" Type="Int32" />
-        </UpdateParameters>
-    </asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceMeds" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Medication.MedicationID, Medication.Medication_Name, Medication.Dosage, Medication.Purpose, Medication.Non_Perscription, Medication.ProviderID, Medical_Provider.FirstName, Medical_Provider.LastName FROM Medication INNER JOIN Medical_Provider ON Medication.ProviderID = Medical_Provider.ProviderID WHERE (Medication.ClientID = @ClientID)">
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
@@ -120,35 +95,6 @@
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.ClientID, Client.AddressID, Client.SSN, Client.DSPD, Client.PhotoID, Client.Sex, Client.Status, Client.Residential_Status, Client.Race, Client.Preferred_Language, Client.SSI, Client.SSA, Client.Modes_Communication, Client.Phone, Client.Email, Client.Last_Name, Client.First_Name, Client.Religious_Affiliation, Client.DateCreated, Client.DateModified, Client.ModifiedBy, Client.Diagnosis, Address.AddressID AS Expr1, Address.Address, Address.City, Address.State, Address.Zip_Code, Health_Profile.DOB, Health_Profile.Staffing_Ratio, Health_Profile.Age, Health_Profile.Health_Profile_ID FROM Client INNER JOIN Address ON Client.AddressID = Address.AddressID INNER JOIN Health_Profile ON Client.ClientID = Health_Profile.ClientID WHERE (Client.ClientID = @ClientID)" UpdateCommand="UPDATE [Client] SET [AddressID] = @AddressID, [SSN] = @SSN, [DSPD] = @DSPD, [PhotoID] = @PhotoID, [Sex] = @Sex, [Status] = @Status, [Residential_Status] = @Residential_Status, [Race] = @Race, [Preferred_Language] = @Preferred_Language, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Phone] = @Phone, [Email] = @Email, [Last_Name] = @Last_Name, [First_Name] = @First_Name, [Religious_Affiliation] = @Religious_Affiliation, [DateCreated] = @DateCreated, [DateModified] = @DateModified, [ModifiedBy] = @ModifiedBy, [Diagnosis] = @Diagnosis WHERE [ClientID] = @ClientID;">
-        <SelectParameters>
-            <asp:SessionParameter Name="ClientID" SessionField="ClientID" Type="Int32" />
-        </SelectParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="AddressID" Type="Int32" />
-            <asp:Parameter Name="SSN" Type="Int32" />
-            <asp:Parameter Name="DSPD" Type="Int32" />
-            <asp:Parameter Name="PhotoID" Type="String" />
-            <asp:Parameter Name="Sex" Type="String" />
-            <asp:Parameter Name="Status" Type="String" />
-            <asp:Parameter Name="Residential_Status" Type="String" />
-            <asp:Parameter Name="Race" Type="String" />
-            <asp:Parameter Name="Preferred_Language" Type="String" />
-            <asp:Parameter Name="SSI" Type="Int32" />
-            <asp:Parameter Name="SSA" Type="Int32" />
-            <asp:Parameter Name="Modes_Communication" Type="String" />
-            <asp:Parameter Name="Phone" Type="String" />
-            <asp:Parameter Name="Email" Type="String" />
-            <asp:Parameter Name="Last_Name" Type="String" />
-            <asp:Parameter Name="First_Name" Type="String" />
-            <asp:Parameter Name="Religious_Affiliation" Type="String" />
-            <asp:Parameter Name="DateCreated" Type="DateTime" />
-            <asp:Parameter Name="DateModified" Type="DateTime" />
-            <asp:Parameter Name="ModifiedBy" Type="String" />
-            <asp:Parameter Name="Diagnosis" Type="String" />
-            <asp:SessionParameter Name="ClientID" SessionField="ClientID" Type="Int32" />
-        </UpdateParameters>
-    </asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceHealthProfile" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Health_Profile.DOB, Health_Profile.Staffing_Ratio, Health_Profile.Height, Health_Profile.Weight, Health_Profile.Hair, Health_Profile.Diagnosed_Condition, Health_Profile.Eyes, Health_Profile.Limitations, Health_Profile.Allergies, Health_Profile.Preferred_Hospital, Health_Profile.Life_Support_Request, Health_Profile.Age, Health_Profile.Hospital_Phone, Address.Address, Address.State, Address.City, Address.Zip_Code FROM Health_Profile INNER JOIN Address ON Health_Profile.H_Address = Address.AddressID WHERE (Health_Profile.ClientID = @ClientID)">
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
@@ -191,17 +137,16 @@
             <div class="centerForm">
                 <div class="row">
                     <div class="col-sm-9">
-                        <asp:FormView runat="server" DataSourceID="SqlDataSource4" ID="ClientListView" OnItemDataBound="ClientListView_OnItemDataBound" DataKeyNames="ClientID" OnItemUpdated="ClientListView_ItemUpdated">
+                        <asp:FormView runat="server" DataSourceID="ClientSqlDataSource" ID="ClientFormView" DataKeyNames="ClientID">
                             <ItemTemplate>
-                                <asp:HiddenField ID="HiddenField" runat="server" value='<%# Eval("ClientID") %>' />
                                 <table>
                                     <tr>
                                         <td>Status:<br />
                                             <asp:TextBox ID="StatusLabel" runat="server" ReadOnly="true" Text='<%# Eval("Status") %>' /></td>
                                         <td>Date Created:<br />
-                                            <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true" Text='<%# Eval("DateCreated") %>' /></td>
+                                            <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true" Text='<%# Eval("DateCreated", "{0:MM/dd/yyyy}") %>' /></td>
                                         <td>Date Modified:<br />
-                                            <asp:TextBox ID="DateModifiedLabel" runat="server" ReadOnly="true" Text='<%# Eval("DateModified") %>' /></td>
+                                            <asp:TextBox ID="DateModifiedLabel" runat="server" ReadOnly="true" Text='<%# Eval("DateModified", "{0:MM/dd/yyyy}") %>' /></td>
                                         <td>Last Modified By:<br />
                                             <asp:TextBox ID="LastModifiedByLabel" runat="server" ReadOnly="true" Text='<%# Eval("ModifiedBy") %>' /></td>
                                     </tr>
@@ -211,7 +156,7 @@
                                         <td>Last Name:<br />
                                             <asp:TextBox ID="Last_NameLabel" runat="server" ReadOnly="true" Text='<%# Eval("Last_Name") %>' /></td>
                                         <td>Date of Birth:<br />
-                                            <asp:TextBox ID="DOBLabel" runat="server" ReadOnly="true" Text='<%# Eval("DOB") %>' /></td>
+                                            <asp:TextBox ID="DOBLabel" runat="server" ReadOnly="true" Text='<%# Eval("DOB", "{0:MM/dd/yyyy}") %>' /></td>
                                         <td>Age:<br />
                                             <asp:TextBox ID="AgeLabel" runat="server" ReadOnly="true" Text='<%# Eval("Age") %>' /></td>
                                     </tr>
@@ -224,7 +169,7 @@
                                             <asp:TextBox ID="StateLabel" runat="server" ReadOnly="true" Text='<%# Eval("State") %>' />
                                         </td>
                                         <td>Zip Code:<br />
-                                            <asp:TextBox ID="Zip_CodeLabel" runat="server" ReadOnly="true" Text='<%# Eval("Zip_Code") %>' /></td>
+                                            <asp:TextBox ID="Zip_CodeLabel" runat="server" ReadOnly="true" Text='<%# Eval("Zip") %>' /></td>
                                     </tr>
                                     <tr>
                                         <td>Email:<br />
@@ -248,7 +193,7 @@
                                     </tr>
                                     <tr>
                                         <td>Staffing Ratio:<br />
-                                            <asp:TextBox ID="Staffing_RatioLabel" runat="server" ReadOnly="true" Text='<%# Eval("Staffing_Ratio") %>' /></td>
+                                            <asp:TextBox ID="Staffing_RatioLabel" runat="server" ReadOnly="true" Text='<%# Eval("Staff_Ratio") %>' /></td>
                                         <td>DSPD:<br />
                                             <asp:TextBox ID="DSPDLabel" runat="server" ReadOnly="true" Text='<%# Eval("DSPD") %>' /></td>
                                         <td>SSI:<br />
@@ -269,7 +214,6 @@
                                 <br />
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:HiddenField ID="HiddenField" runat="server" value='<%# Eval("ClientID") %>' />
                                 <table>
                                     <tr>
                                         <td>Status:<br />
@@ -279,7 +223,7 @@
                                             </asp:DropDownList>
                                         </td>
                                         <td>Date Created:<br />
-                                            <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true"/></td>
+                                            <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true" Text='<%# Eval("DateCreated","{0:MM/dd/yyyy}") %>' /></td>
                                         <td>Date Modified:<br />
                                             <asp:TextBox ID="txtDateModified" runat="server" ReadOnly="true"/></td>
                                         <td>Last Modified By:<br />
@@ -291,7 +235,7 @@
                                         <td>Last Name:<br />
                                             <asp:TextBox ID="Last_NameLabel" runat="server" Text='<%# Bind("Last_Name") %>' /></td>
                                         <td>Date of Birth:<br />
-                                            <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Bind("DOB") %>' TextMode="Date" /></td>
+                                            <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Bind("DOB", "{0:yyyy-MM-dd}") %>' TextMode="Date" /></td>
                                         <td>Age:<br />
                                             <asp:TextBox ID="AgeLabel" runat="server" Text='<%# Bind("Age") %>' TextMode="Number" /></td>
                                     </tr>
@@ -303,7 +247,7 @@
                                         <td>State:<br />
                                             <asp:DropDownList ID="ddState" runat="server" DataSourceID="SqlDataSourceStates" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                         <td>Zip Code:<br />
-                                            <asp:TextBox ID="Zip_CodeLabel" runat="server" Text='<%# Bind("Zip_Code") %>' /></td>
+                                            <asp:TextBox ID="Zip_CodeLabel" runat="server" Text='<%# Bind("Zip") %>' /></td>
                                     </tr>
                                     <tr>
                                         <td>Email:<br />
@@ -327,7 +271,7 @@
                                     </tr>
                                     <tr>
                                         <td>Staffing Ratio:<br />
-                                            <asp:TextBox ID="Staffing_RatioLabel" runat="server" Text='<%# Bind("Staffing_Ratio") %>' /></td>
+                                            <asp:TextBox ID="Staffing_RatioLabel" runat="server" Text='<%# Bind("Staff_Ratio") %>' /></td>
                                         <td>DSPD:<br />
                                             <asp:TextBox ID="DSPDLabel" runat="server" Text='<%# Bind("DSPD") %>' /></td>
                                         <td>SSI:<br />
@@ -367,7 +311,7 @@
                 <hr>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <h3 class="text-center">Family/Guardian/Residential Contact Information</h3>
-                    <asp:ListView ID="ListView1" runat="server" DataKeyNames="ContactID" DataSourceID="SqlDataSourceContacts" InsertItemPosition="LastItem">
+                    <asp:ListView ID="ContactListView" runat="server" DataKeyNames="ContactID" DataSourceID="SqlDataSourceContacts" InsertItemPosition="LastItem">
                         <EditItemTemplate>
                             <table>
                                     <tr>
@@ -932,7 +876,7 @@
                 </div>
             </div>
         </div>
-    <%--Client Health--%>
+        <%--Client Health--%>
     <div id="HealthProfile" class="tab-pane fade">
         <%--//Page Header--%>
         <h3 class="text-center">Health Profile Information</h3>
