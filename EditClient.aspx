@@ -519,14 +519,15 @@
                     <br />
                 </div>
                 <hr>
+                <%--Emergency Information--%>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <h3 class="text-center">Emergency Information</h3>
                     <asp:FormView ID="EvacFormView" runat="server" DataSourceID="EvacSqlDataSource" DataKeyNames="EmergencyID" OnDataBound="EvacFormView_DataBound">
                         <EditItemTemplate>
-                            <table>
+                            <table style="width:100%">
                                <tr>
                                    <td>Emergency_Evac:<br />
-                                       <asp:TextBox ID="TextBox51" runat="server" Text='<%# Bind("Emergency_Evac") %>' />
+                                       <asp:TextBox ID="TextBox51" runat="server" Text='<%# Bind("Emergency_Evac") %>' TextMode="MultiLine" />
                                    </td>
                                </tr>
                                <tr>
@@ -558,14 +559,14 @@
                                    </td>
                                </tr>
                             </table>
-                            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                            <asp:LinkButton ID="UpdateButton" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Update" Text="Update" />
+                            <asp:LinkButton ID="UpdateCancelButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <table>
+                            <table style="width:100%">
                                <tr>
                                    <td>Emergency_Evac:<br />
-                                       <asp:TextBox ID="TextBox60" runat="server" Text='<%# Bind("Emergency_Evac") %>' />
+                                       <asp:TextBox ID="TextBox60" runat="server" Text='<%# Bind("Emergency_Evac") %>' TextMode="MultiLine" />
                                    </td>
                                </tr>
                                <tr>
@@ -597,14 +598,14 @@
                                    </td>
                                </tr>
                             </table>
-                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                            <asp:LinkButton ID="InsertButton" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
+                            <asp:LinkButton ID="InsertCancelButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <table>
+                            <table style="width:100%">
                                <tr>
                                    <td>Emergency_Evac:<br />
-                                       <asp:TextBox ID="TextBox69" runat="server" ReadOnly="true" Text='<%# Bind("Emergency_Evac") %>' />
+                                       <asp:TextBox ID="TextBox69" runat="server" ReadOnly="true" Text='<%# Bind("Emergency_Evac") %>' TextMode="MultiLine" />
                                    </td>
                                </tr>
                                <tr>
@@ -636,7 +637,7 @@
                                    </td>
                                </tr>
                             </table>
-                            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                            <asp:LinkButton ID="EditButton" runat="server" CssClass="btn btn-primary" CommandName="Edit"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
                             &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
                         </ItemTemplate>
                     </asp:FormView>
