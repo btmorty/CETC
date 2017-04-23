@@ -198,23 +198,19 @@ public partial class EditClient : System.Web.UI.Page
         }
     }
 
-    protected void ClientFormView_DataBound(object sender, EventArgs e)
-    {
-        if (ClientFormView.PageCount == 0)
-        {
-            ClientFormView.ChangeMode(FormViewMode.Insert);
-
-
-        }
-    }
-
     protected void EvacFormView_DataBound(object sender, EventArgs e)
     {
         if (EvacFormView.PageCount == 0)
         {
             EvacFormView.ChangeMode(FormViewMode.Insert);
+        }
+    }
 
-
+    protected void ContactListView_DataBound(object sender, EventArgs e)
+    {
+        if (EvacFormView.PageCount == 0)
+        {
+            EvacFormView.ChangeMode(FormViewMode.Insert);
         }
     }
 }

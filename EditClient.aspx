@@ -12,6 +12,7 @@
     </style>
     <asp:SqlDataSource ID="DDStatusSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [StatusID], [Status] FROM [DD_Status]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDStatesSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [State] FROM [DD_State]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="DDRelationshipsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Relationship] FROM [DD_Relationship]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religious_Affiliation], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy], [ClientID] FROM [Client] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Status] = @Status, [DOB] = @DOB, [Age] = @Age, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Phone] = @Phone, [Email] = @Email, [Sex] = @Sex, [Race] = @Race, [Religious_Affiliation] = @Religious_Affiliation, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [SSN] = @SSN, [Staff_Ratio] = @Staff_Ratio, [DSPD] = @DSPD, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Diagnosis] = @Diagnosis, [PhotoID] = @PhotoID, [DateCreated] = @DateCreated, [DateModified] = @DateModified, [ModifiedBy] = @ModifiedBy WHERE [ClientID] = @ClientID">
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
@@ -47,20 +48,20 @@
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ContactSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [ContactID], [FirstName], [LastName], [Relationship], [ClientID], [Emergency_Contact], [Email], [HomePhone], [WorkPhone], [MobilePhone], [Guardian], [Address], [City], [State], [Zip] FROM [Contact] WHERE ([ClientID] = @ClientID)" InsertCommand="INSERT INTO [Contact] ([FirstName], [LastName], [Relationship], [ClientID], [Emergency_Contact], [Email], [HomePhone], [WorkPhone], [MobilePhone], [Guardian], [Address], [City], [State], [Zip]) VALUES (@FirstName, @LastName, @Relationship, @ClientID, @Emergency_Contact, @Email, @HomePhone, @WorkPhone, @MobilePhone, @Guardian, @Address, @City, @State, @Zip)" UpdateCommand="UPDATE [Contact] SET [FirstName] = @FirstName, [LastName] = @LastName, [Relationship] = @Relationship, [ClientID] = @ClientID, [Emergency_Contact] = @Emergency_Contact, [Email] = @Email, [HomePhone] = @HomePhone, [WorkPhone] = @WorkPhone, [MobilePhone] = @MobilePhone, [Guardian] = @Guardian, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip WHERE [ContactID] = @ContactID" DeleteCommand="DELETE FROM [Contact] WHERE [ContactID] = @ContactID">
+    <asp:SqlDataSource ID="ContactSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [ContactID], [FirstName], [LastName], [ClientID], [Relationship], [Emergency_Contact], [Email], [HomePhone], [MobilePhone], [WorkPhone], [Guardian], [Address], [City], [State], [Zip] FROM [Contact] WHERE ([ClientID] = @ClientID)" InsertCommand="INSERT INTO [Contact] ([FirstName], [LastName], [ClientID], [Relationship], [Emergency_Contact], [Email], [HomePhone], [MobilePhone], [WorkPhone], [Guardian], [Address], [City], [State], [Zip]) VALUES (@FirstName, @LastName, @ClientID, @Relationship, @Emergency_Contact, @Email, @HomePhone, @MobilePhone, @WorkPhone, @Guardian, @Address, @City, @State, @Zip)" UpdateCommand="UPDATE [Contact] SET [FirstName] = @FirstName, [LastName] = @LastName, [ClientID] = @ClientID, [Relationship] = @Relationship, [Emergency_Contact] = @Emergency_Contact, [Email] = @Email, [HomePhone] = @HomePhone, [MobilePhone] = @MobilePhone, [WorkPhone] = @WorkPhone, [Guardian] = @Guardian, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip WHERE [ContactID] = @ContactID" DeleteCommand="DELETE FROM [Contact] WHERE [ContactID] = @ContactID">
         <DeleteParameters>
             <asp:Parameter Name="ContactID" Type="Int32" />
         </DeleteParameters>
         <InsertParameters>
             <asp:Parameter Name="FirstName" Type="String" />
             <asp:Parameter Name="LastName" Type="String" />
-            <asp:Parameter Name="Relationship" Type="String" />
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+            <asp:Parameter Name="Relationship" Type="String" />
             <asp:Parameter Name="Emergency_Contact" Type="Boolean" />
             <asp:Parameter Name="Email" Type="String" />
             <asp:Parameter Name="HomePhone" Type="String" />
-            <asp:Parameter Name="WorkPhone" Type="String" />
             <asp:Parameter Name="MobilePhone" Type="String" />
+            <asp:Parameter Name="WorkPhone" Type="String" />
             <asp:Parameter Name="Guardian" Type="Boolean" />
             <asp:Parameter Name="Address" Type="String" />
             <asp:Parameter Name="City" Type="String" />
@@ -73,13 +74,13 @@
         <UpdateParameters>
             <asp:Parameter Name="FirstName" Type="String" />
             <asp:Parameter Name="LastName" Type="String" />
-            <asp:Parameter Name="Relationship" Type="String" />
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+            <asp:Parameter Name="Relationship" Type="String" />
             <asp:Parameter Name="Emergency_Contact" Type="Boolean" />
             <asp:Parameter Name="Email" Type="String" />
             <asp:Parameter Name="HomePhone" Type="String" />
-            <asp:Parameter Name="WorkPhone" Type="String" />
             <asp:Parameter Name="MobilePhone" Type="String" />
+            <asp:Parameter Name="WorkPhone" Type="String" />
             <asp:Parameter Name="Guardian" Type="Boolean" />
             <asp:Parameter Name="Address" Type="String" />
             <asp:Parameter Name="City" Type="String" />
@@ -151,7 +152,7 @@
             <div class="centerForm">
                 <div class="row">
                     <div class="col-sm-9">
-                        <asp:FormView runat="server" DataSourceID="ClientSqlDataSource" ID="ClientFormView" DataKeyNames="ClientID" OnDataBound="ClientFormView_DataBound">
+                        <asp:FormView runat="server" DataSourceID="ClientSqlDataSource" ID="ClientFormView" DataKeyNames="ClientID">
                             <ItemTemplate>
                                 <table>
                                     <tr>
@@ -259,7 +260,7 @@
                                         <td>City:<br />
                                             <asp:TextBox ID="CityLabel" runat="server" Text='<%# Bind("City") %>' /></td>
                                         <td>State:<br />
-                                            <asp:DropDownList ID="ddState" runat="server" DataSourceID="SqlDataSourceStates" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                            <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                         <td>Zip Code:<br />
                                             <asp:TextBox ID="Zip_CodeLabel" runat="server" Text='<%# Bind("Zip") %>' /></td>
                                     </tr>
@@ -325,7 +326,7 @@
                 <hr>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <h3 class="text-center">Family/Guardian/Residential Contact Information</h3>
-                    <asp:ListView ID="ContactListView" runat="server" DataKeyNames="ContactID" DataSourceID="ContactSqlDataSource" InsertItemPosition="LastItem">
+                    <asp:ListView ID="ContactListView" runat="server" DataKeyNames="ContactID" DataSourceID="ContactSqlDataSource" InsertItemPosition="LastItem" OnDataBound="ContactListView_DataBound">
                         <EditItemTemplate>
                             <table>
                                     <tr>
@@ -336,7 +337,7 @@
                                             <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
                                         </td>
                                         <td>Relationship:<br />
-                                            <asp:TextBox ID="RelationshipTextBox" runat="server" Text='<%# Bind("Relationship") %>' />
+                                            <asp:DropDownList ID="ddRelationship" runat="server" DataSourceID="DDRelationshipsSqlDataSource" DataValueField="Relationship" SelectedValue='<%# Bind("Relationship") %>' />
                                         </td>
                                         <td>
                                             <asp:CheckBox ID="Emergency_ContactCheckBox" runat="server" Text="Emergency Contact" Checked='<%# Bind("Emergency_Contact") %>' /><br />
@@ -365,7 +366,7 @@
                                             <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
                                         </td>
                                         <td>State:<br />
-                                            <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
+                                            <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>' />
                                         </td>
                                         <td>Zip_Code:<br />
                                             <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip") %>' />
