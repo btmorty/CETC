@@ -176,7 +176,7 @@
         </UpdateParameters>
     </asp:SqlDataSource>
     
-    <asp:SqlDataSource ID="HealthProfileSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Health_Profile] WHERE [Health_Profile_ID] = @Health_Profile_ID" InsertCommand="INSERT INTO [Health_Profile] ([DOB], [Height], [Weight], [Hair], [Eyes], [Diagnosed_Condition], [Limitations], [Allergies], [Preferred_Hospital], [Hospital_Phone], [ClientID], [Address], [City], [State], [Zip]) VALUES (@DOB, @Height, @Weight, @Hair, @Eyes, @Diagnosed_Condition, @Limitations, @Allergies, @Preferred_Hospital, @Hospital_Phone, @ClientID, @Address, @City, @State, @Zip)" SelectCommand="SELECT [Health_Profile_ID], [DOB], [Height], [Weight], [Hair], [Eyes], [Diagnosed_Condition], [Limitations], [Allergies], [Preferred_Hospital], [Hospital_Phone], [ClientID], [Address], [City], [State], [Zip] FROM [Health_Profile] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Health_Profile] SET [DOB] = @DOB, [Height] = @Height, [Weight] = @Weight, [Hair] = @Hair, [Eyes] = @Eyes, [Diagnosed_Condition] = @Diagnosed_Condition, [Limitations] = @Limitations, [Allergies] = @Allergies, [Preferred_Hospital] = @Preferred_Hospital, [Hospital_Phone] = @Hospital_Phone, [ClientID] = @ClientID, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip WHERE [Health_Profile_ID] = @Health_Profile_ID">
+    <asp:SqlDataSource ID="HealthProfileSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Health_Profile] WHERE [Health_Profile_ID] = @Health_Profile_ID" InsertCommand="INSERT INTO [Health_Profile] ([DOB], [Height], [Weight], [Hair], [Eyes], [Diagnosed_Condition], [Limitations], [Allergies], [Preferred_Hospital], [Hospital_Phone], [ClientID], [Address], [City], [State], [Zip]) VALUES (@DOB, @Height, @Weight, @Hair, @Eyes, @Diagnosed_Condition, @Limitations, @Allergies, @Preferred_Hospital, @Hospital_Phone, @ClientID, @Address, @City, @State, @Zip)" SelectCommand="SELECT Health_Profile.Health_Profile_ID, Health_Profile.Height, Health_Profile.Weight, Health_Profile.Hair, Health_Profile.Eyes, Health_Profile.Diagnosed_Condition, Health_Profile.Limitations, Health_Profile.Allergies, Health_Profile.Preferred_Hospital, Health_Profile.Hospital_Phone, Health_Profile.ClientID, Health_Profile.Address, Health_Profile.City, Health_Profile.State, Health_Profile.Zip, Client.First_Name, Client.Last_Name, Client.DOB, Client.Sex FROM Health_Profile INNER JOIN Client ON Client.ClientID = Health_Profile.ClientID WHERE (Health_Profile.ClientID = @ClientID)" UpdateCommand="UPDATE [Health_Profile] SET [DOB] = @DOB, [Height] = @Height, [Weight] = @Weight, [Hair] = @Hair, [Eyes] = @Eyes, [Diagnosed_Condition] = @Diagnosed_Condition, [Limitations] = @Limitations, [Allergies] = @Allergies, [Preferred_Hospital] = @Preferred_Hospital, [Hospital_Phone] = @Hospital_Phone, [ClientID] = @ClientID, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip WHERE [Health_Profile_ID] = @Health_Profile_ID">
         <DeleteParameters>
             <asp:Parameter Name="Health_Profile_ID" Type="Int32" />
         </DeleteParameters>
@@ -1233,7 +1233,249 @@
         <hr>
         <%--//Page Header--%>
         <div class="centerForm">
-            <asp:FormView ID="HelthProfileFormView" runat="server"></asp:FormView>
+            <asp:FormView ID="HelthProfileFormView" DataSourceId="HealthProfileSqlDataSource" runat="server" DataKeyNames="Health_Profile_ID">
+                <EditItemTemplate>
+                    <table>
+                        <tr>
+                            <td>First Name:<br />
+                                <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true" Text='<%# Bind("First_Name") %>' />
+                            </td>
+                            <td>Last Name:<br />
+                                <asp:TextBox ID="TextBox2" runat="server" ReadOnly="true" Text='<%# Bind("Last_Name") %>' />
+                            </td>
+                            <td>Sex:<br />
+                                <asp:TextBox ID="TextBox12" runat="server" ReadOnly="true" Text='<%# Bind("Sex") %>' />
+                            </td>
+                            <td>DOB:<br />
+                                <asp:TextBox ID="TextBox11" runat="server" ReadOnly="true" Text='<%# Bind("DOB") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Height:<br />
+                                <asp:TextBox ID="TextBox37" runat="server" Text='<%# Bind("Height") %>' />
+                            </td>
+                            <td>Weight:<br />
+                                <asp:TextBox ID="TextBox38" runat="server" Text='<%# Bind("Weight") %>' />
+                            </td>
+                            <td>Hair:<br />
+                                <asp:TextBox ID="TextBox39" runat="server" Text='<%# Bind("Hair") %>' />
+                            </td>
+                            <td>Eyes:<br />
+                                <asp:TextBox ID="TextBox40" runat="server" Text='<%# Bind("Eyes") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Diagnosed Condition:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("Diagnosed_Condition") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Limitations:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="TextBox42" runat="server" Text='<%# Bind("Limitations") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Allergies:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="TextBox43" runat="server" Text='<%# Bind("Allergies") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Preferred Hospital:<br />
+                                <asp:TextBox ID="TextBox44" runat="server" Text='<%# Bind("Preferred_Hospital") %>' />
+                            </td>
+                            <td>Hospital Phone:<br />
+                                <asp:TextBox ID="TextBox45" runat="server" Text='<%# Bind("Hospital_Phone") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Address:<br />
+                    <asp:TextBox ID="TextBox46" runat="server" Text='<%# Bind("Address") %>' />
+                            </td>
+                            <td>City:<br />
+                    <asp:TextBox ID="TextBox47" runat="server" Text='<%# Bind("City") %>' />
+                            </td>
+                            <td>State:<br />
+                    <asp:TextBox ID="TextBox48" runat="server" Text='<%# Bind("State") %>' />
+                            </td>
+                            <td>Zip:<br />
+                    <asp:TextBox ID="TextBox49" runat="server" Text='<%# Bind("Zip") %>' />
+                            </td>
+                        </tr>
+                    </table>
+                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                    &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                </EditItemTemplate>
+                <InsertItemTemplate>
+                    <table>
+                        <tr>
+                            <td>First Name:<br />
+                                <asp:TextBox ID="TextBox50" runat="server" ReadOnly="true" Text='<%# Bind("First_Name") %>' />
+                            </td>
+                            <td>Last Name:<br />
+                                <asp:TextBox ID="TextBox78" runat="server" ReadOnly="true" Text='<%# Bind("Last_Name") %>' />
+                            </td>
+                            <td>Sex:<br />
+                                <asp:TextBox ID="TextBox79" runat="server" ReadOnly="true" Text='<%# Bind("Sex") %>' />
+                            </td>
+                            <td>DOB:<br />
+                                <asp:TextBox ID="TextBox80" runat="server" ReadOnly="true" Text='<%# Bind("DOB") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Height:<br />
+                                <asp:TextBox ID="TextBox81" runat="server" Text='<%# Bind("Height") %>' />
+                            </td>
+                            <td>Weight:<br />
+                                <asp:TextBox ID="TextBox82" runat="server" Text='<%# Bind("Weight") %>' />
+                            </td>
+                            <td>Hair:<br />
+                                <asp:TextBox ID="TextBox83" runat="server" Text='<%# Bind("Hair") %>' />
+                            </td>
+                            <td>Eyes:<br />
+                                <asp:TextBox ID="TextBox84" runat="server" Text='<%# Bind("Eyes") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Diagnosed Condition:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="TextBox85" runat="server" Text='<%# Bind("Diagnosed_Condition") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Limitations:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="TextBox86" runat="server" Text='<%# Bind("Limitations") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Allergies:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="TextBox87" runat="server" Text='<%# Bind("Allergies") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Preferred Hospital:<br />
+                                <asp:TextBox ID="TextBox88" runat="server" Text='<%# Bind("Preferred_Hospital") %>' />
+                            </td>
+                            <td>Hospital Phone:<br />
+                                <asp:TextBox ID="TextBox89" runat="server" Text='<%# Bind("Hospital_Phone") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Address:<br />
+                    <asp:TextBox ID="TextBox90" runat="server" Text='<%# Bind("Address") %>' />
+                            </td>
+                            <td>City:<br />
+                    <asp:TextBox ID="TextBox91" runat="server" Text='<%# Bind("City") %>' />
+                            </td>
+                            <td>State:<br />
+                    <asp:TextBox ID="TextBox92" runat="server" Text='<%# Bind("State") %>' />
+                            </td>
+                            <td>Zip:<br />
+                    <asp:TextBox ID="TextBox93" runat="server" Text='<%# Bind("Zip") %>' />
+                            </td>
+                        </tr>
+                    </table>
+                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                    &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                </InsertItemTemplate>
+                <ItemTemplate>
+                    <table>
+                        <tr>
+                            <td>First Name:<br />
+                                <asp:TextBox ID="TextBox94" runat="server" ReadOnly="true" Text='<%# Bind("First_Name") %>' />
+                            </td>
+                            <td>Last Name:<br />
+                                <asp:TextBox ID="TextBox95" runat="server" ReadOnly="true" Text='<%# Bind("Last_Name") %>' />
+                            </td>
+                            <td>Sex:<br />
+                                <asp:TextBox ID="TextBox96" runat="server" ReadOnly="true" Text='<%# Bind("Sex") %>' />
+                            </td>
+                            <td>DOB:<br />
+                                <asp:TextBox ID="TextBox97" runat="server" ReadOnly="true" Text='<%# Bind("DOB") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Height:<br />
+                                <asp:TextBox ID="TextBox98" runat="server" ReadOnly="true" Text='<%# Bind("Height") %>' />
+                            </td>
+                            <td>Weight:<br />
+                                <asp:TextBox ID="TextBox99" runat="server" ReadOnly="true" Text='<%# Bind("Weight") %>' />
+                            </td>
+                            <td>Hair:<br />
+                                <asp:TextBox ID="TextBox100" runat="server" ReadOnly="true" Text='<%# Bind("Hair") %>' />
+                            </td>
+                            <td>Eyes:<br />
+                                <asp:TextBox ID="TextBox101" runat="server" ReadOnly="true" Text='<%# Bind("Eyes") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Diagnosed Condition:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="TextBox102" runat="server" ReadOnly="true" Text='<%# Bind("Diagnosed_Condition") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Limitations:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="TextBox103" runat="server" ReadOnly="true" Text='<%# Bind("Limitations") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Allergies:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="TextBox104" runat="server" ReadOnly="true" Text='<%# Bind("Allergies") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Preferred Hospital:<br />
+                                <asp:TextBox ID="TextBox105" runat="server" ReadOnly="true" Text='<%# Bind("Preferred_Hospital") %>' />
+                            </td>
+                            <td>Hospital Phone:<br />
+                                <asp:TextBox ID="TextBox106" runat="server" ReadOnly="true" Text='<%# Bind("Hospital_Phone") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Address:<br />
+                    <asp:TextBox ID="TextBox107" runat="server" ReadOnly="true" Text='<%# Bind("Address") %>' />
+                            </td>
+                            <td>City:<br />
+                    <asp:TextBox ID="TextBox108" runat="server" ReadOnly="true" Text='<%# Bind("City") %>' />
+                            </td>
+                            <td>State:<br />
+                    <asp:TextBox ID="TextBox109" runat="server" ReadOnly="true" Text='<%# Bind("State") %>' />
+                            </td>
+                            <td>Zip:<br />
+                    <asp:TextBox ID="TextBox110" runat="server" ReadOnly="true" Text='<%# Bind("Zip") %>' />
+                            </td>
+                        </tr>
+                    </table>
+                    <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                    &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                    &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                </ItemTemplate>
+            </asp:FormView>
             <%--<div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                 <asp:Table ID="Table5" runat="server" HorizontalAlign="Center" Width="100%">
                     <asp:TableRow>
