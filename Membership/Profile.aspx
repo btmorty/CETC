@@ -9,7 +9,9 @@
             <div class="col-lg-12">
                     <h1 style="text-align: center">Welcome,
                             <asp:LoginName ID="LoginName1" runat="server" />
+                        
                        </h1>
+                <hr />
                         </div>
                 <hr>
         </div>

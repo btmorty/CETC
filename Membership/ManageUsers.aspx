@@ -4,11 +4,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="jumbotron">
                     <h2 class="text-center">Manage Users</h2>
-                </div>
-                <hr>
+            <hr />    
             </div>
+                
         </div>
     </div>
     <div>
@@ -95,7 +94,9 @@
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtCountry" runat="server"></asp:TextBox></td>
                 </tr>
+                
             </table>
+             <hr />
         </asp:Panel>
     </div>
 </asp:Content>
