@@ -329,7 +329,7 @@
                     <asp:ListView ID="ContactListView" runat="server" DataKeyNames="ContactID" DataSourceID="ContactSqlDataSource" InsertItemPosition="LastItem" OnDataBound="ContactListView_DataBound">
                         <EditItemTemplate>
                             <asp:HiddenField ID="ClientID" runat="server" Value='<%# Bind("ClientID") %>' />
-                            <table>
+                            <table style="width:100%">
                                     <tr>
                                         <td>First Name:<br />
                                             <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
@@ -385,7 +385,7 @@
                         </EmptyDataTemplate>
                         <InsertItemTemplate>
                             <asp:HiddenField ID="ClientID" runat="server" Value='<%# Bind("ClientID") %>' />
-                            <table>
+                            <table style="width:100%">
                                     <tr>
                                         <td>First Name:<br />
                                             <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
@@ -437,7 +437,7 @@
                                 <br />
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <table>
+                            <table style="width:100%">
                                     <tr>
                                         <td>First Name:<br />
                                             <asp:TextBox ID="FirstNameTextBox" runat="server" ReadOnly="true" Text='<%# Eval("FirstName") %>' />
