@@ -282,7 +282,7 @@
                 <hr>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <h3 class="text-center">Family/Guardian/Residential Contact Information</h3>
-                    <asp:ListView ID="ContactListView" runat="server" DataKeyNames="ContactID" DataSourceID="SqlDataSourceContacts" InsertItemPosition="LastItem">
+                    <asp:ListView ID="ContactListView" runat="server" DataKeyNames="ContactID" DataSourceID="ContactSqlDataSource" InsertItemPosition="LastItem">
                         <EditItemTemplate>
                             <table>
                                     <tr>
