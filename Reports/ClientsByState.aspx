@@ -29,6 +29,9 @@ WHERE @AddressID = AddressID">
     </div>
     <%--//Client Selection--%>
     <div class="text-center">
+        
+        <asp:Label ID="lblSelectState" runat="server" Text="Please select a State:"></asp:Label>
+        
         <asp:DropDownList ID="ddState1" runat="server" OnSelectedIndexChanged="ddState1_SelectedIndexChanged"></asp:DropDownList>
     </div>
     <br />

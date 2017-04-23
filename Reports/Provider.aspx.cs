@@ -17,18 +17,6 @@ public partial class SelectClient : System.Web.UI.Page
         }
     }
 
-    protected void btn_group_Click(object sender, EventArgs e)
-    {
-        LinkButton B = (LinkButton)sender;
-        Session["Selection"] = B.CommandName;
-        //B.CommandName --> pass to business tier method
-    }
-
-    protected void btnSelect_Click(object sender, EventArgs e)
-    {
-        
-    }
-
     protected void ClientGridView_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "Select")
@@ -36,5 +24,10 @@ public partial class SelectClient : System.Web.UI.Page
             string SchoolID = e.CommandArgument.ToString();
             Response.Redirect("~/EditClient.aspx?ClientID=" + e.CommandArgument);
         }
+    }
+
+    protected void ClientGridView_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }
