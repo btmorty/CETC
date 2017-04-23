@@ -89,11 +89,6 @@
             <asp:Parameter Name="ContactID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSourceCETCInfo" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [CECTID], [Service], [Coordinator], [DeptHead] FROM [CETC_INFO] WHERE ([ClientID] = @ClientID)">
-        <SelectParameters>
-            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
-        </SelectParameters>
-    </asp:SqlDataSource>
     <asp:SqlDataSource ID="EvacSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" InsertCommand="INSERT INTO [Emergency_Evac] ([ClientID], [Emergency_Evac], [Evac_Address_1], [Evac_City_1], [Evac_State_1], [Evac_Zip_1], [Evac_City_2], [Evac_Address_2], [Evac_State_2], [Evac_Zip_2]) VALUES (@ClientID, @Emergency_Evac, @Evac_Address_1, @Evac_City_1, @Evac_State_1, @Evac_Zip_1, @Evac_City_2, @Evac_Address_2, @Evac_State_2, @Evac_Zip_2)" SelectCommand="SELECT [EmergencyID], [ClientID], [Emergency_Evac], [Evac_Address_1], [Evac_City_1], [Evac_State_1], [Evac_Zip_1], [Evac_City_2], [Evac_Address_2], [Evac_State_2], [Evac_Zip_2] FROM [Emergency_Evac] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Emergency_Evac] SET [ClientID] = @ClientID, [Emergency_Evac] = @Emergency_Evac, [Evac_Address_1] = @Evac_Address_1, [Evac_City_1] = @Evac_City_1, [Evac_State_1] = @Evac_State_1, [Evac_Zip_1] = @Evac_Zip_1, [Evac_City_2] = @Evac_City_2, [Evac_Address_2] = @Evac_Address_2, [Evac_State_2] = @Evac_State_2, [Evac_Zip_2] = @Evac_Zip_2 WHERE [EmergencyID] = @EmergencyID">
         <InsertParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
@@ -123,6 +118,34 @@
             <asp:Parameter Name="Evac_Zip_2" Type="Int32" />
             <asp:Parameter Name="EmergencyID" Type="Int32" />
         </UpdateParameters>
+    </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="CetcInfoSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [CECTID], [Service], [Coordinator], [DeptHead], [ClientID] FROM [CETC_INFO] WHERE ([ClientID] = @ClientID)" DeleteCommand="DELETE FROM [CETC_INFO] WHERE [CECTID] = @CECTID" InsertCommand="INSERT INTO [CETC_INFO] ([Service], [Coordinator], [DeptHead], [ClientID]) VALUES (@Service, @Coordinator, @DeptHead, @ClientID)" UpdateCommand="UPDATE [CETC_INFO] SET [Service] = @Service, [Coordinator] = @Coordinator, [DeptHead] = @DeptHead, [ClientID] = @ClientID WHERE [CECTID] = @CECTID">
+        <DeleteParameters>
+            <asp:Parameter Name="CECTID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="Service" Type="String" />
+            <asp:Parameter Name="Coordinator" Type="String" />
+            <asp:Parameter Name="DeptHead" Type="String" />
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </InsertParameters>
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Service" Type="String" />
+            <asp:Parameter Name="Coordinator" Type="String" />
+            <asp:Parameter Name="DeptHead" Type="String" />
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+            <asp:Parameter Name="CECTID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="ProviderNonMedSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [ProviderNonMedID], [ProviderName], [FirstName], [LastName], [ClientID], [Email], [HomePhone], [Address], [City], [State], [Zip] FROM [ProviderNonMed] WHERE ([ClientID] = @ClientID)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
     </asp:SqlDataSource>
 
     <%--Page Navigation--%>
@@ -653,6 +676,7 @@
                             <hr />
                         </div>
                     </div>
+                    <asp:ListView ID="ServiceListView" runat="server" DataSourceID="CetcInfoSqlDataSource"></asp:ListView>
                     <asp:Table ID="Table9" runat="server" HorizontalAlign="Center" Width="100%">
                         <asp:TableRow>
                           <%--<asp:TableCell>
@@ -993,12 +1017,15 @@
                 </div>
             </div>
         </div>
-        <%--Client Health--%>
+        <%--<asp:TableCell>
+                                <asp:Label ID="lblSvc1" runat="server" Text="Service "></asp:Label><br />
+                                <asp:DropDownList ID="ddSvc1" runat="server" DataSourceID="SqlDataSourceService" DataTextField="Service"></asp:DropDownList>
+                            </asp:TableCell>--%>
     <div id="HealthProfile" class="tab-pane fade">
-        <%--//Page Header--%>
+        <%--Client Health--%>
         <h3 class="text-center">Health Profile Information</h3>
         <hr>
-        <%--//Data Entry Form--%>
+        <%--//Page Header--%>
         <div class="centerForm">
             <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                 <asp:Table ID="Table5" runat="server" HorizontalAlign="Center" Width="100%">
