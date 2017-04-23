@@ -147,6 +147,50 @@
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
+    
+    <asp:SqlDataSource ID="HealthProfileSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Health_Profile] WHERE [Health_Profile_ID] = @Health_Profile_ID" InsertCommand="INSERT INTO [Health_Profile] ([DOB], [Height], [Weight], [Hair], [Eyes], [Diagnosed_Condition], [Limitations], [Allergies], [Preferred_Hospital], [Hospital_Phone], [ClientID], [Address], [City], [State], [Zip]) VALUES (@DOB, @Height, @Weight, @Hair, @Eyes, @Diagnosed_Condition, @Limitations, @Allergies, @Preferred_Hospital, @Hospital_Phone, @ClientID, @Address, @City, @State, @Zip)" SelectCommand="SELECT [Health_Profile_ID], [DOB], [Height], [Weight], [Hair], [Eyes], [Diagnosed_Condition], [Limitations], [Allergies], [Preferred_Hospital], [Hospital_Phone], [ClientID], [Address], [City], [State], [Zip] FROM [Health_Profile] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Health_Profile] SET [DOB] = @DOB, [Height] = @Height, [Weight] = @Weight, [Hair] = @Hair, [Eyes] = @Eyes, [Diagnosed_Condition] = @Diagnosed_Condition, [Limitations] = @Limitations, [Allergies] = @Allergies, [Preferred_Hospital] = @Preferred_Hospital, [Hospital_Phone] = @Hospital_Phone, [ClientID] = @ClientID, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip WHERE [Health_Profile_ID] = @Health_Profile_ID">
+        <DeleteParameters>
+            <asp:Parameter Name="Health_Profile_ID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter DbType="Date" Name="DOB" />
+            <asp:Parameter Name="Height" Type="String" />
+            <asp:Parameter Name="Weight" Type="String" />
+            <asp:Parameter Name="Hair" Type="String" />
+            <asp:Parameter Name="Eyes" Type="String" />
+            <asp:Parameter Name="Diagnosed_Condition" Type="String" />
+            <asp:Parameter Name="Limitations" Type="String" />
+            <asp:Parameter Name="Allergies" Type="String" />
+            <asp:Parameter Name="Preferred_Hospital" Type="String" />
+            <asp:Parameter Name="Hospital_Phone" Type="String" />
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+            <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="City" Type="String" />
+            <asp:Parameter Name="State" Type="String" />
+            <asp:Parameter Name="Zip" Type="Int32" />
+        </InsertParameters>
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter DbType="Date" Name="DOB" />
+            <asp:Parameter Name="Height" Type="String" />
+            <asp:Parameter Name="Weight" Type="String" />
+            <asp:Parameter Name="Hair" Type="String" />
+            <asp:Parameter Name="Eyes" Type="String" />
+            <asp:Parameter Name="Diagnosed_Condition" Type="String" />
+            <asp:Parameter Name="Limitations" Type="String" />
+            <asp:Parameter Name="Allergies" Type="String" />
+            <asp:Parameter Name="Preferred_Hospital" Type="String" />
+            <asp:Parameter Name="Hospital_Phone" Type="String" />
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+            <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="City" Type="String" />
+            <asp:Parameter Name="State" Type="String" />
+            <asp:Parameter Name="Zip" Type="Int32" />
+            <asp:Parameter Name="Health_Profile_ID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
 
     <%--Page Navigation--%>
     <style>
@@ -963,7 +1007,8 @@
         <hr>
         <%--//Page Header--%>
         <div class="centerForm">
-            <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+            <asp:FormView ID="HelthProfileFormView" runat="server"></asp:FormView>
+            <%--<div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                 <asp:Table ID="Table5" runat="server" HorizontalAlign="Center" Width="100%">
                     <asp:TableRow>
                         <asp:TableCell>
@@ -1026,7 +1071,7 @@
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
-            </div>
+            </div>--%>
 
             <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                 <h3 class="text-center">Medical Provider</h3>
