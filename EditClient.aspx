@@ -195,8 +195,8 @@
     <%--//Validation Report--%>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
     <%--Face Sheet Panel--%>
-    <div class="tab-content">
-        <div id="FaceSheet" class="tab-pane fade in active">
+    <%--<div class="tab-content">
+        <div id="FaceSheet" class="tab-pane fade in active">--%>
         <h3 class="text-center">Face Sheet</h3>
             <hr />
             <%--//Data Entry Form--%>
@@ -1178,12 +1178,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+<%--  End Face Sheet Div      </div>--%>
         <%--<asp:TableCell>
                                 <asp:Label ID="lblSvc1" runat="server" Text="Service "></asp:Label><br />
                                 <asp:DropDownList ID="ddSvc1" runat="server" DataSourceID="SqlDataSourceService" DataTextField="Service"></asp:DropDownList>
                             </asp:TableCell>--%>
-    <div id="HealthProfile" class="tab-pane fade">
+<%--    <div id="HealthProfile" class="tab-pane fade">--%>
         <%--Client Health--%>
         <h3 class="text-center">Health Profile Information</h3>
         <hr>
@@ -2152,6 +2152,6 @@
                 </div>
             </div>
         </div>
-    </div>
-  </div>
+<%--  Ending Health Div  </div>
+ Ending Javascript div </div>--%>
 </asp:Content>
