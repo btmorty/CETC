@@ -328,6 +328,7 @@
                     <h3 class="text-center">Family/Guardian/Residential Contact Information</h3>
                     <asp:ListView ID="ContactListView" runat="server" DataKeyNames="ContactID" DataSourceID="ContactSqlDataSource" InsertItemPosition="LastItem" OnDataBound="ContactListView_DataBound">
                         <EditItemTemplate>
+                            <asp:HiddenField ID="ClientID" runat="server" Value='<%# Bind("ClientID") %>' />
                             <table>
                                     <tr>
                                         <td>First Name:<br />
@@ -383,6 +384,7 @@
                             <span>No data was returned.</span>
                         </EmptyDataTemplate>
                         <InsertItemTemplate>
+                            <asp:HiddenField ID="ClientID" runat="server" Value='<%# Bind("ClientID") %>' />
                             <table>
                                     <tr>
                                         <td>First Name:<br />
