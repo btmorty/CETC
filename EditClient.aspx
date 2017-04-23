@@ -825,8 +825,6 @@
                                 <td>Provider:<br />
                                 <asp:TextBox ID="ProviderNameTextBox" runat="server" Text='<%# Bind("Provider") %>' />
                                 </td>
-                            </tr>
-                            <tr>
                                 <td>First Name:<br />
                                 <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
                                 </td>
@@ -869,8 +867,6 @@
                                 <td>Provider:<br />
                                 <asp:TextBox ID="ProviderNameTextBox" runat="server" Text='<%# Bind("Provider") %>' />
                                 </td>
-                            </tr>
-                            <tr>
                                 <td>First Name:<br />
                                 <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
                                 </td>
@@ -902,7 +898,6 @@
                         <br />
                         <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
                         <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                        <br /><br /></span>
                     </InsertItemTemplate>
                     <ItemTemplate>
                         <asp:HiddenField runat="server" Value='<%# Eval("ProviderNonMedID") %>' />
@@ -911,8 +906,6 @@
                                 <td>Provider:<br />
                                 <asp:TextBox ID="ProviderNameTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Provider") %>' />
                                 </td>
-                            </tr>
-                            <tr>
                                 <td>First Name:<br />
                                 <asp:TextBox ID="FirstNameTextBox" runat="server" ReadOnly="true"  Text='<%# Eval("FirstName") %>' />
                                 </td>
@@ -944,7 +937,6 @@
                         <br />
                         <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
                         <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-<br /><br /></span>
                     </ItemTemplate>
                     <LayoutTemplate>
                         <div id="itemPlaceholderContainer" runat="server" style="">
@@ -953,290 +945,12 @@
                         <div style="">
                         </div>
                     </LayoutTemplate>
-                    <SelectedItemTemplate>
-                        <span style="">ProviderNonMedID:
-                        <asp:Label ID="ProviderNonMedIDLabel" runat="server" Text='<%# Eval("ProviderNonMedID") %>' />
-                        <br />
-                        ProviderName:
-                        <asp:Label ID="ProviderNameLabel" runat="server" Text='<%# Eval("ProviderName") %>' />
-                        <br />
-                        FirstName:
-                        <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
-                        <br />
-                        LastName:
-                        <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' />
-                        <br />
-                        ClientID:
-                        <asp:Label ID="ClientIDLabel" runat="server" Text='<%# Eval("ClientID") %>' />
-                        <br />
-                        Email:
-                        <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
-                        <br />
-                        HomePhone:
-                        <asp:Label ID="HomePhoneLabel" runat="server" Text='<%# Eval("HomePhone") %>' />
-                        <br />
-                        Address:
-                        <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                        <br />
-                        City:
-                        <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
-                        <br />
-                        State:
-                        <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
-                        <br />
-                        Zip:
-                        <asp:Label ID="ZipLabel" runat="server" Text='<%# Eval("Zip") %>' />
-                        <br />
-                        <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                        <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-<br /><br /></span>
-                    </SelectedItemTemplate>
+                    <ItemSeparatorTemplate>
+                        <hr style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;"/>
+                    </ItemSeparatorTemplate>
                     </asp:ListView>
-
-
-
-
-
-
-
-
-                    <asp:Table ID="Provider1" runat="server" HorizontalAlign="Center" Width="100%">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblProviderName" runat="server" Text="Provider "></asp:Label><br />
-                                <asp:TextBox ID="txtProviderName" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblProviderFirstName" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="txtProviderFirstName" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblProviderLastName" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="txtProviderLastName" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblProviderEMail" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="txtProviderEMail" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblProviderPhone" runat="server" Text="Phone "></asp:Label><br />
-                                <asp:TextBox ID="txtProviderPhone" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="lblProviderAddress" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="txtProviderAddress" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblProviderCity" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="txtProviderCity" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblProviderState" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddProvState1" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="lblProviderZip" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="txtProviderZip" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                    <hr id="Provider2hr" runat="server" style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" visible="False" />
-                    <asp:Table ID="Provider2" runat="server" HorizontalAlign="Center" Width="100%" Visible="False">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="Label4" runat="server" Text="Provider "></asp:Label><br />
-                                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label5" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label6" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label7" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label8" runat="server" Text="Phone "></asp:Label><br />
-                                <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="Label9" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label10" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label11" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddProvState2" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label15" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                    <hr id="Provider3hr" runat="server" style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" visible="False" />
-                    <asp:Table ID="Provider3" runat="server" HorizontalAlign="Center" Width="100%" Visible="False">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="Label16" runat="server" Text="Provider "></asp:Label><br />
-                                <asp:TextBox ID="TextBox13" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label17" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label18" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="TextBox15" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label19" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="TextBox16" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label20" runat="server" Text="Phone "></asp:Label><br />
-                                <asp:TextBox ID="TextBox17" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="Label21" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="TextBox18" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label22" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="TextBox19" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label23" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddProvState3" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label24" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="TextBox20" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                    <hr id="Provider4hr" runat="server" style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" visible="False" />
-                    <asp:Table ID="Provider4" runat="server" HorizontalAlign="Center" Width="100%" Visible="False">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="Label25" runat="server" Text="Provider "></asp:Label><br />
-                                <asp:TextBox ID="TextBox21" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label26" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="TextBox22" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label27" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="TextBox23" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label28" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="TextBox24" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label29" runat="server" Text="Phone "></asp:Label><br />
-                                <asp:TextBox ID="TextBox25" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="Label30" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="TextBox26" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label31" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="TextBox27" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label32" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddProvState4" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label33" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="TextBox28" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                    <hr id="Provider5hr" runat="server" style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" visible="False" />
-                    <asp:Table ID="Provider5" runat="server" HorizontalAlign="Center" Width="100%" Visible="False">
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="Label34" runat="server" Text="Provider "></asp:Label><br />
-                                <asp:TextBox ID="TextBox29" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label35" runat="server" Text="First Name "></asp:Label><br />
-                                <asp:TextBox ID="TextBox30" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label36" runat="server" Text="Last Name "></asp:Label><br />
-                                <asp:TextBox ID="TextBox31" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label37" runat="server" Text="E-Mail Address "></asp:Label><br />
-                                <asp:TextBox ID="TextBox32" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label38" runat="server" Text="Phone "></asp:Label><br />
-                                <asp:TextBox ID="TextBox33" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label ID="Label39" runat="server" Text="Address "></asp:Label><br />
-                                <asp:TextBox ID="TextBox34" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label40" runat="server" Text="City "></asp:Label><br />
-                                <asp:TextBox ID="TextBox35" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label41" runat="server" Text="State "></asp:Label><br />
-                                <asp:DropDownList ID="ddProvState5" runat="server"></asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label ID="Label42" runat="server" Text="Zip "></asp:Label><br />
-                                <asp:TextBox ID="TextBox36" runat="server"></asp:TextBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                </div>
-                <div>
-                    <br />
-                    <asp:LinkButton ID="btnAddProvider" runat="server" CssClass="btn btn-primary"  CommandName="AddProvider"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Provider</asp:LinkButton>
-                    <asp:Label ID="lblMaxProviders" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
-                </div>
-                <br />
-                <br />
-                <div style="text-align: center;">
-                    <div style="width: 350px; margin-left: auto; margin-right: auto;">
-                        <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-primary"> <span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Submit</asp:LinkButton>
-                        <asp:LinkButton ID="ResetBtn" runat="server" CssClass="btn btn-primary"> <span aria-hidden="true" class="glyphicon glyphicon-refresh"></span> Reset</asp:LinkButton>
-                    </div>
-                    <div>
-                        <asp:Label ID="lblResults" runat="server" Visible="false"></asp:Label>
-                    </div>
-                </div>
             </div>
 <%--  End Face Sheet Div      </div>--%>
-        <%--<asp:TableCell>
-                                <asp:Label ID="lblSvc1" runat="server" Text="Service "></asp:Label><br />
-                                <asp:DropDownList ID="ddSvc1" runat="server" DataSourceID="SqlDataSourceService" DataTextField="Service"></asp:DropDownList>
-                            </asp:TableCell>--%>
 <%--    <div id="HealthProfile" class="tab-pane fade">--%>
         <%--Client Health--%>
         <h3 class="text-center">Health Profile Information</h3>
@@ -1245,7 +959,76 @@
         <div class="centerForm">
             <asp:FormView ID="HelthProfileFormView" DataSourceId="HealthProfileSqlDataSource" runat="server" DataKeyNames="Health_Profile_ID">
                 <EditItemTemplate>
-                    <table>
+                    <asp:HiddenField runat="server" Value='<%# Eval("Health_Profile_ID") %>' />
+                    <table style="width:100%">
+                        <tr>
+                            <td>First Name:<br />
+                                <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true" Text='<%# Bind("First_Name") %>' />
+                            </td>
+                            <td>Last Name:<br />
+                                <asp:TextBox ID="TextBox2" runat="server" ReadOnly="true" Text='<%# Bind("Last_Name") %>' />
+                            </td>
+                            <td>Sex:<br />
+                                <asp:TextBox ID="TextBox12" runat="server" ReadOnly="true" Text='<%# Bind("Sex") %>' />
+                            </td>
+                            <td>DOB:<br />
+                                <asp:TextBox ID="TextBox11" runat="server" ReadOnly="true" Text='<%# Bind("DOB") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Height:<br />
+                                <asp:TextBox ID="TextBox37" runat="server" Text='<%# Bind("Height") %>' />
+                            </td>
+                            <td>Weight:<br />
+                                <asp:TextBox ID="TextBox38" runat="server" Text='<%# Bind("Weight") %>' />
+                            </td>
+                            <td>Hair:<br />
+                                <asp:TextBox ID="TextBox39" runat="server" Text='<%# Bind("Hair") %>' />
+                            </td>
+                            <td>Eyes:<br />
+                                <asp:TextBox ID="TextBox40" runat="server" Text='<%# Bind("Eyes") %>' />
+                            </td>
+                        </tr>
+                     <tr>
+                            <td>Diagnosis/Medical Condition:<br />
+                                <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("Diagnosed_Condition") %>' TextMode="MultiLine" />
+                            </td>
+                            <td>Medical Limitations/Adapitve Devices:<br />
+                                <asp:TextBox ID="TextBox42" runat="server" Text='<%# Bind("Limitations") %>' TextMode="MultiLine" />
+                            </td>
+                            <td>Allergies:<br />
+                                <asp:TextBox ID="TextBox43" runat="server" Text='<%# Bind("Allergies") %>' TextMode="MultiLine" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Preferred Hospital:<br />
+                                <asp:TextBox ID="TextBox44" runat="server" Text='<%# Bind("Preferred_Hospital") %>' />
+                            </td>
+                            <td>Hospital Phone:<br />
+                                <asp:TextBox ID="TextBox45" runat="server" Text='<%# Bind("Hospital_Phone") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Address:<br />
+                                <asp:TextBox ID="TextBox46" runat="server" Text='<%# Bind("Address") %>' />
+                            </td>
+                            <td>City:<br />
+                                <asp:TextBox ID="TextBox47" runat="server" Text='<%# Bind("City") %>' />
+                            </td>
+                            <td>State:<br />
+                                <asp:TextBox ID="TextBox48" runat="server" Text='<%# Bind("State") %>' />
+                            </td>
+                            <td>Zip:<br />
+                                <asp:TextBox ID="TextBox49" runat="server" Text='<%# Bind("Zip") %>' />
+                            </td>
+                        </tr>
+                    </table>
+                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                    <asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                </EditItemTemplate>
+                <InsertItemTemplate>
+                    <asp:HiddenField runat="server" Value='<%# Eval("Health_Profile_ID") %>' />
+                    <table style="width:100%">
                         <tr>
                             <td>First Name:<br />
                                 <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true" Text='<%# Bind("First_Name") %>' />
@@ -1275,30 +1058,17 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                Diagnosed Condition:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("Diagnosed_Condition") %>' />
+                            <td>Diagnosis/Medical Condition:<br />
+                                <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("Diagnosed_Condition") %>' TextMode="MultiLine" />
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                Limitations:
+                            <td>Medical Limitations/Adapitve Devices:<br />
+                                <asp:TextBox ID="TextBox42" runat="server" Text='<%# Bind("Limitations") %>' TextMode="MultiLine" />
                             </td>
-                            <td>
-                                <asp:TextBox ID="TextBox42" runat="server" Text='<%# Bind("Limitations") %>' />
+                            <td>Allergies:<br />
+                                <asp:TextBox ID="TextBox43" runat="server" Text='<%# Bind("Allergies") %>' TextMode="MultiLine" />
                             </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Allergies:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TextBox43" runat="server" Text='<%# Bind("Allergies") %>' />
-                            </td>
-                        </tr>
-                        <tr>
                             <td>Preferred Hospital:<br />
                                 <asp:TextBox ID="TextBox44" runat="server" Text='<%# Bind("Preferred_Hospital") %>' />
                             </td>
@@ -1308,182 +1078,90 @@
                         </tr>
                         <tr>
                             <td>Address:<br />
-                    <asp:TextBox ID="TextBox46" runat="server" Text='<%# Bind("Address") %>' />
+                                <asp:TextBox ID="TextBox46" runat="server" Text='<%# Bind("Address") %>' />
                             </td>
                             <td>City:<br />
-                    <asp:TextBox ID="TextBox47" runat="server" Text='<%# Bind("City") %>' />
+                                <asp:TextBox ID="TextBox47" runat="server" Text='<%# Bind("City") %>' />
                             </td>
                             <td>State:<br />
-                    <asp:TextBox ID="TextBox48" runat="server" Text='<%# Bind("State") %>' />
+                                <asp:TextBox ID="TextBox48" runat="server" Text='<%# Bind("State") %>' />
                             </td>
                             <td>Zip:<br />
-                    <asp:TextBox ID="TextBox49" runat="server" Text='<%# Bind("Zip") %>' />
-                            </td>
-                        </tr>
-                    </table>
-                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                    &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-                </EditItemTemplate>
-                <InsertItemTemplate>
-                    <table>
-                        <tr>
-                            <td>First Name:<br />
-                                <asp:TextBox ID="TextBox50" runat="server" ReadOnly="true" Text='<%# Bind("First_Name") %>' />
-                            </td>
-                            <td>Last Name:<br />
-                                <asp:TextBox ID="TextBox78" runat="server" ReadOnly="true" Text='<%# Bind("Last_Name") %>' />
-                            </td>
-                            <td>Sex:<br />
-                                <asp:TextBox ID="TextBox79" runat="server" ReadOnly="true" Text='<%# Bind("Sex") %>' />
-                            </td>
-                            <td>DOB:<br />
-                                <asp:TextBox ID="TextBox80" runat="server" ReadOnly="true" Text='<%# Bind("DOB") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Height:<br />
-                                <asp:TextBox ID="TextBox81" runat="server" Text='<%# Bind("Height") %>' />
-                            </td>
-                            <td>Weight:<br />
-                                <asp:TextBox ID="TextBox82" runat="server" Text='<%# Bind("Weight") %>' />
-                            </td>
-                            <td>Hair:<br />
-                                <asp:TextBox ID="TextBox83" runat="server" Text='<%# Bind("Hair") %>' />
-                            </td>
-                            <td>Eyes:<br />
-                                <asp:TextBox ID="TextBox84" runat="server" Text='<%# Bind("Eyes") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Diagnosed Condition:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TextBox85" runat="server" Text='<%# Bind("Diagnosed_Condition") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Limitations:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TextBox86" runat="server" Text='<%# Bind("Limitations") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Allergies:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TextBox87" runat="server" Text='<%# Bind("Allergies") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Preferred Hospital:<br />
-                                <asp:TextBox ID="TextBox88" runat="server" Text='<%# Bind("Preferred_Hospital") %>' />
-                            </td>
-                            <td>Hospital Phone:<br />
-                                <asp:TextBox ID="TextBox89" runat="server" Text='<%# Bind("Hospital_Phone") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Address:<br />
-                    <asp:TextBox ID="TextBox90" runat="server" Text='<%# Bind("Address") %>' />
-                            </td>
-                            <td>City:<br />
-                    <asp:TextBox ID="TextBox91" runat="server" Text='<%# Bind("City") %>' />
-                            </td>
-                            <td>State:<br />
-                    <asp:TextBox ID="TextBox92" runat="server" Text='<%# Bind("State") %>' />
-                            </td>
-                            <td>Zip:<br />
-                    <asp:TextBox ID="TextBox93" runat="server" Text='<%# Bind("Zip") %>' />
+                                <asp:TextBox ID="TextBox49" runat="server" Text='<%# Bind("Zip") %>' />
                             </td>
                         </tr>
                     </table>
                     <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                    &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                    <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                 </InsertItemTemplate>
                 <ItemTemplate>
-                    <table>
+                    <asp:HiddenField runat="server" Value='<%# Eval("Health_Profile_ID") %>' />
+                    <table style="width:100%">
                         <tr>
                             <td>First Name:<br />
-                                <asp:TextBox ID="TextBox94" runat="server" ReadOnly="true" Text='<%# Bind("First_Name") %>' />
+                                <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true" Text='<%# Eval("First_Name") %>' />
                             </td>
                             <td>Last Name:<br />
-                                <asp:TextBox ID="TextBox95" runat="server" ReadOnly="true" Text='<%# Bind("Last_Name") %>' />
+                                <asp:TextBox ID="TextBox2" runat="server" ReadOnly="true" Text='<%# Eval("Last_Name") %>' />
                             </td>
                             <td>Sex:<br />
-                                <asp:TextBox ID="TextBox96" runat="server" ReadOnly="true" Text='<%# Bind("Sex") %>' />
+                                <asp:TextBox ID="TextBox12" runat="server" ReadOnly="true" Text='<%# Eval("Sex") %>' />
                             </td>
                             <td>DOB:<br />
-                                <asp:TextBox ID="TextBox97" runat="server" ReadOnly="true" Text='<%# Bind("DOB") %>' />
+                                <asp:TextBox ID="TextBox11" runat="server" ReadOnly="true" Text='<%# Eval("DOB") %>' />
                             </td>
                         </tr>
                         <tr>
                             <td>Height:<br />
-                                <asp:TextBox ID="TextBox98" runat="server" ReadOnly="true" Text='<%# Bind("Height") %>' />
+                                <asp:TextBox ID="TextBox37" runat="server" ReadOnly="true"  Text='<%# Eval("Height") %>' />
                             </td>
                             <td>Weight:<br />
-                                <asp:TextBox ID="TextBox99" runat="server" ReadOnly="true" Text='<%# Bind("Weight") %>' />
+                                <asp:TextBox ID="TextBox38" runat="server" ReadOnly="true"  Text='<%# Eval("Weight") %>' />
                             </td>
                             <td>Hair:<br />
-                                <asp:TextBox ID="TextBox100" runat="server" ReadOnly="true" Text='<%# Bind("Hair") %>' />
+                                <asp:TextBox ID="TextBox39" runat="server" ReadOnly="true"  Text='<%# Eval("Hair") %>' />
                             </td>
                             <td>Eyes:<br />
-                                <asp:TextBox ID="TextBox101" runat="server" ReadOnly="true" Text='<%# Bind("Eyes") %>' />
+                                <asp:TextBox ID="TextBox40" runat="server" ReadOnly="true"  Text='<%# Eval("Eyes") %>' />
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                Diagnosed Condition:
+                            <td>Diagnosis/Medical Condition:<br />
+                                <asp:TextBox ID="TextBox41" runat="server" ReadOnly="true"   Text='<%# Eval("Diagnosed_Condition") %>' TextMode="MultiLine" />
                             </td>
-                            <td>
-                                <asp:TextBox ID="TextBox102" runat="server" ReadOnly="true" Text='<%# Bind("Diagnosed_Condition") %>' />
+                            <td>Medical Limitations/Adapitve Devices:<br />
+                                <asp:TextBox ID="TextBox42" runat="server" ReadOnly="true"   Text='<%# Eval("Limitations") %>' TextMode="MultiLine" />
                             </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Limitations:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TextBox103" runat="server" ReadOnly="true" Text='<%# Bind("Limitations") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Allergies:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TextBox104" runat="server" ReadOnly="true" Text='<%# Bind("Allergies") %>' />
+                            <td>Allergies:<br />
+                                <asp:TextBox ID="TextBox43" runat="server" ReadOnly="true"   Text='<%# Eval("Allergies") %>' TextMode="MultiLine" />
                             </td>
                         </tr>
                         <tr>
                             <td>Preferred Hospital:<br />
-                                <asp:TextBox ID="TextBox105" runat="server" ReadOnly="true" Text='<%# Bind("Preferred_Hospital") %>' />
+                                <asp:TextBox ID="TextBox44" runat="server" ReadOnly="true"  Text='<%# Eval("Preferred_Hospital") %>' />
                             </td>
                             <td>Hospital Phone:<br />
-                                <asp:TextBox ID="TextBox106" runat="server" ReadOnly="true" Text='<%# Bind("Hospital_Phone") %>' />
+                                <asp:TextBox ID="TextBox45" runat="server" ReadOnly="true"  Text='<%# Eval("Hospital_Phone") %>' />
                             </td>
                         </tr>
                         <tr>
                             <td>Address:<br />
-                    <asp:TextBox ID="TextBox107" runat="server" ReadOnly="true" Text='<%# Bind("Address") %>' />
+                                <asp:TextBox ID="TextBox46" runat="server" ReadOnly="true"  Text='<%# Eval("Address") %>' />
                             </td>
                             <td>City:<br />
-                    <asp:TextBox ID="TextBox108" runat="server" ReadOnly="true" Text='<%# Bind("City") %>' />
+                                <asp:TextBox ID="TextBox47" runat="server" ReadOnly="true"  Text='<%# Eval("City") %>' />
                             </td>
                             <td>State:<br />
-                    <asp:TextBox ID="TextBox109" runat="server" ReadOnly="true" Text='<%# Bind("State") %>' />
+                                <asp:TextBox ID="TextBox48" runat="server" ReadOnly="true"  Text='<%# Eval("State") %>' />
                             </td>
                             <td>Zip:<br />
-                    <asp:TextBox ID="TextBox110" runat="server" ReadOnly="true" Text='<%# Bind("Zip") %>' />
+                                <asp:TextBox ID="TextBox49" runat="server" ReadOnly="true"  Text='<%# Eval("Zip") %>' />
                             </td>
                         </tr>
                     </table>
                     <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
-                    &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
-                    &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                    <asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                    <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
                 </ItemTemplate>
             </asp:FormView>
 
