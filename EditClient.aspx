@@ -219,6 +219,31 @@
             <asp:Parameter Name="Health_Profile_ID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
+    <asp:sqldatasource ID="Insurence" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Insurance] WHERE [InsuranceID] = @InsuranceID" InsertCommand="INSERT INTO [Insurance] ([ClientID], [Medicaid_Number], [Medicare_Number], [Insurance_Name], [Policy_Number], [Life_Support]) VALUES (@ClientID, @Medicaid_Number, @Medicare_Number, @Insurance_Name, @Policy_Number, @Life_Support)" SelectCommand="SELECT [InsuranceID], [ClientID], [Medicaid_Number], [Medicare_Number], [Insurance_Name], [Policy_Number], [Life_Support] FROM [Insurance] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Insurance] SET [ClientID] = @ClientID, [Medicaid_Number] = @Medicaid_Number, [Medicare_Number] = @Medicare_Number, [Insurance_Name] = @Insurance_Name, [Policy_Number] = @Policy_Number, [Life_Support] = @Life_Support WHERE [InsuranceID] = @InsuranceID">
+        <DeleteParameters>
+            <asp:Parameter Name="InsuranceID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+            <asp:Parameter Name="Medicaid_Number" Type="String" />
+            <asp:Parameter Name="Medicare_Number" Type="String" />
+            <asp:Parameter Name="Insurance_Name" Type="String" />
+            <asp:Parameter Name="Policy_Number" Type="String" />
+            <asp:Parameter Name="Life_Support" Type="String" />
+        </InsertParameters>
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+            <asp:Parameter Name="Medicaid_Number" Type="String" />
+            <asp:Parameter Name="Medicare_Number" Type="String" />
+            <asp:Parameter Name="Insurance_Name" Type="String" />
+            <asp:Parameter Name="Policy_Number" Type="String" />
+            <asp:Parameter Name="Life_Support" Type="String" />
+            <asp:Parameter Name="InsuranceID" Type="Int32" />
+        </UpdateParameters>
+    </asp:sqldatasource>
 
     <%--Page Navigation--%>
     <style>
@@ -1476,70 +1501,6 @@
                     &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
                 </ItemTemplate>
             </asp:FormView>
-            <%--<div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                <asp:Table ID="Table5" runat="server" HorizontalAlign="Center" Width="100%">
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblHeight" runat="server" Text="Height "></asp:Label><br />
-                            <asp:TextBox ID="txtHeight" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblWeight" runat="server" Text="Weight "></asp:Label><br />
-                            <asp:TextBox ID="txtWeight" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblHair" runat="server" Text="Hair "></asp:Label><br />
-                            <asp:TextBox ID="txtHair" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblEyeColor" runat="server" Text="Eyes "></asp:Label><br />
-                            <asp:TextBox ID="txtEyeColor" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblDiagnosisMed" runat="server" Text="Diagnosis/Medical Condition "></asp:Label><br />
-                            <asp:TextBox ID="txtDiagnosisMed" runat="server" TextMode="MultiLine"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMedicalLim" runat="server" Text="Medical Limitations/Adaptive Devices "></asp:Label><br />
-                            <asp:TextBox ID="txtMedicalLim" runat="server" TextMode="MultiLine"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblAllergies" runat="server" Text="Allergies "></asp:Label><br />
-                            <asp:TextBox ID="txtAllergies" runat="server" TextMode="MultiLine"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblPreferredHospital" runat="server" Text="Preferred Hospital "></asp:Label><br />
-                            <asp:TextBox ID="txtPreferredHospital" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblPreferredHospitalPhone" runat="server" Text="Phone "></asp:Label><br />
-                            <asp:TextBox ID="txtPreferredHospitalPhone" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblPreferredHospitalAddress" runat="server" Text="Address "></asp:Label><br />
-                            <asp:TextBox ID="txtPreferredHospitalAddress" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblPreferredHospitalCity" runat="server" Text="City "></asp:Label><br />
-                            <asp:TextBox ID="txtPreferredHospitalCity" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblPreferredHospitalState" runat="server" Text="State "></asp:Label><br />
-                            <asp:DropDownList ID="ddStatePreferedHospital" runat="server"></asp:DropDownList>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblPreferredHospitalZip" runat="server" Text="Zip Code "></asp:Label><br />
-                            <asp:TextBox ID="txtPreferredHospitalZip" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-            </div>--%>
 
             <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                 <h3 class="text-center">Medical Provider</h3>
@@ -2397,9 +2358,94 @@
                     <asp:LinkButton ID="btnAddMed" runat="server" CssClass="btn btn-primary"  CommandName="AddMed"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Medication</asp:LinkButton>
                     <asp:Label ID="lblMedAddError" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
                 </div>
+                <asp:formview runat="server" DataKeyNames="InsuranceID" DataSourceID="Insurence">
+                    <EditItemTemplate>
+                        <table>
+                            <tr>
+                                <td>Medicaid Number:<br />
+                                    <asp:TextBox ID="TextBox111" runat="server" Text='<%# Bind("Medicaid_Number") %>' />
+                                </td>
+                                <td>Medicare Number:<br />
+                                    <asp:TextBox ID="TextBox112" runat="server" Text='<%# Bind("Medicare_Number") %>' />
+                                </td>
+                                <td>Insurance Name:<br />
+                                    <asp:TextBox ID="TextBox113" runat="server" Text='<%# Bind("Insurance_Name") %>' />
+                                </td>
+                                <td>Policy Number:<br />
+                                    <asp:TextBox ID="TextBox114" runat="server" Text='<%# Bind("Policy_Number") %>' />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Life Support:
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox115" runat="server" Text='<%# Bind("Life_Support") %>' />
+                                </td>
+                            </tr>            
+                        </table>
+                        &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <table>
+                            <tr>
+                                <td>Medicaid Number:<br />
+                                    <asp:TextBox ID="TextBox116" runat="server" Text='<%# Bind("Medicaid_Number") %>' />
+                                </td>
+                                <td>Medicare Number:<br />
+                                    <asp:TextBox ID="TextBox117" runat="server" Text='<%# Bind("Medicare_Number") %>' />
+                                </td>
+                                <td>Insurance Name:<br />
+                                    <asp:TextBox ID="TextBox118" runat="server" Text='<%# Bind("Insurance_Name") %>' />
+                                </td>
+                                <td>Policy Number:<br />
+                                    <asp:TextBox ID="TextBox119" runat="server" Text='<%# Bind("Policy_Number") %>' />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Life Support:
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox120" runat="server" Text='<%# Bind("Life_Support") %>' />
+                                </td>
+                            </tr>            
+                        </table>
+                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                        &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <table>
+                            <tr>
+                                <td>Medicaid Number:<br />
+                                    <asp:TextBox ID="TextBox121" runat="server" ReadOnly="true" Text='<%# Bind("Medicaid_Number") %>' />
+                                </td>
+                                <td>Medicare Number:<br />
+                                    <asp:TextBox ID="TextBox122" runat="server" ReadOnly="true" Text='<%# Bind("Medicare_Number") %>' />
+                                </td>
+                                <td>Insurance Name:<br />
+                                    <asp:TextBox ID="TextBox123" runat="server" ReadOnly="true" Text='<%# Bind("Insurance_Name") %>' />
+                                </td>
+                                <td>Policy Number:<br />
+                                    <asp:TextBox ID="TextBox124" runat="server" ReadOnly="true" Text='<%# Bind("Policy_Number") %>' />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Life Support:
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox125" runat="server" ReadOnly="true" Text='<%# Bind("Life_Support") %>' />
+                                </td>
+                            </tr>            
+                        </table>
+                        <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                        &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                        &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                    </ItemTemplate>
+                </asp:formview>
 
-
-                <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+                <%--<div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <h3 class="text-center">Medical Information</h3>
                     <asp:Table ID="Table8" runat="server" HorizontalAlign="Center" Width="100%">
                         <asp:TableRow>
@@ -2425,7 +2471,7 @@
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
-                </div>
+                </div>--%>
             </div>
             <br />
             <br />
