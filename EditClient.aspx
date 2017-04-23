@@ -523,101 +523,119 @@
                     <h3 class="text-center">Emergency Information</h3>
                     <asp:FormView ID="EvacFormView" runat="server" DataSourceID="EvacSqlDataSource" DataKeyNames="EmergencyID" OnDataBound="EvacFormView_DataBound">
                         <EditItemTemplate>
-                            Emergency_Evac:
-                            <asp:TextBox ID="Emergency_EvacTextBox" runat="server" Text='<%# Bind("Emergency_Evac") %>' />
-                            <br />
-                            Evac_Address_1:
-                            <asp:TextBox ID="Evac_Address_1TextBox" runat="server" Text='<%# Bind("Evac_Address_1") %>' />
-                            <br />
-                            Evac_City_1:
-                            <asp:TextBox ID="Evac_City_1TextBox" runat="server" Text='<%# Bind("Evac_City_1") %>' />
-                            <br />
-                            Evac_State_1:
-                            <asp:TextBox ID="Evac_State_1TextBox" runat="server" Text='<%# Bind("Evac_State_1") %>' />
-                            <br />
-                            Evac_Zip_1:
-                            <asp:TextBox ID="Evac_Zip_1TextBox" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
-                            <br />
-                            Evac_City_2:
-                            <asp:TextBox ID="Evac_City_2TextBox" runat="server" Text='<%# Bind("Evac_City_2") %>' />
-                            <br />
-                            Evac_Address_2:
-                            <asp:TextBox ID="Evac_Address_2TextBox" runat="server" Text='<%# Bind("Evac_Address_2") %>' />
-                            <br />
-                            Evac_State_2:
-                            <asp:TextBox ID="Evac_State_2TextBox" runat="server" Text='<%# Bind("Evac_State_2") %>' />
-                            <br />
-                            Evac_Zip_2:
-                            <asp:TextBox ID="Evac_Zip_2TextBox" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
-                            <br />
+                            <table>
+                               <tr>
+                                   <td>Emergency_Evac:<br />
+                                       <asp:TextBox ID="TextBox51" runat="server" Text='<%# Bind("Emergency_Evac") %>' />
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td>Evacuation Address 1:<br />
+                                        <asp:TextBox ID="TextBox52" runat="server" Text='<%# Bind("Evac_Address_1") %>' />
+                                   </td>
+                                   <td>Evacuation City 1:<br />
+                                        <asp:TextBox ID="TextBox53" runat="server" Text='<%# Bind("Evac_City_1") %>' />
+                                   </td>
+                                   <td>Evacuation State 1:<br />
+                                        <asp:TextBox ID="TextBox54" runat="server" Text='<%# Bind("Evac_State_1") %>' />
+                                   </td>
+                                   <td>Evacuation Zip 1:<br />
+                                        <asp:TextBox ID="TextBox55" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
+                                   </td>
+                               </tr>
+                                <tr>
+                                   <td>Evacuation Addres 2:<br />
+                                        <asp:TextBox ID="TextBox56" runat="server" Text='<%# Bind("Evac_Address_2") %>' />
+                                   </td>
+                                   <td>Evacuation City 2:<br />
+                                        <asp:TextBox ID="TextBox57" runat="server" Text='<%# Bind("Evac_City_2") %>' />
+                                   </td>
+                                   <td>Evacuation State 2:<br />
+                                        <asp:TextBox ID="TextBox58" runat="server" Text='<%# Bind("Evac_State_2") %>' />
+                                   </td>
+                                   <td>Evacuation Zip 2:<br />
+                                        <asp:TextBox ID="TextBox59" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
+                                   </td>
+                               </tr>
+                            </table>
                             <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
                             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            Emergency_Evac:
-                            <asp:TextBox ID="Emergency_EvacTextBox" runat="server" Text='<%# Bind("Emergency_Evac") %>' />
-                            <br />
-                            Evac_Address_1:
-                            <asp:TextBox ID="Evac_Address_1TextBox" runat="server" Text='<%# Bind("Evac_Address_1") %>' />
-                            <br />
-                            Evac_City_1:
-                            <asp:TextBox ID="Evac_City_1TextBox" runat="server" Text='<%# Bind("Evac_City_1") %>' />
-                            <br />
-                            Evac_State_1:
-                            <asp:TextBox ID="Evac_State_1TextBox" runat="server" Text='<%# Bind("Evac_State_1") %>' />
-                            <br />
-                            Evac_Zip_1:
-                            <asp:TextBox ID="Evac_Zip_1TextBox" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
-                            <br />
-                            Evac_City_2:
-                            <asp:TextBox ID="Evac_City_2TextBox" runat="server" Text='<%# Bind("Evac_City_2") %>' />
-                            <br />
-                            Evac_Address_2:
-                            <asp:TextBox ID="Evac_Address_2TextBox" runat="server" Text='<%# Bind("Evac_Address_2") %>' />
-                            <br />
-                            Evac_State_2:
-                            <asp:TextBox ID="Evac_State_2TextBox" runat="server" Text='<%# Bind("Evac_State_2") %>' />
-                            <br />
-                            Evac_Zip_2:
-                            <asp:TextBox ID="Evac_Zip_2TextBox" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
-                            <br />
+                            <table>
+                               <tr>
+                                   <td>Emergency_Evac:<br />
+                                       <asp:TextBox ID="TextBox60" runat="server" Text='<%# Bind("Emergency_Evac") %>' />
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td>Evacuation Address 1:<br />
+                                        <asp:TextBox ID="TextBox61" runat="server" Text='<%# Bind("Evac_Address_1") %>' />
+                                   </td>
+                                   <td>Evacuation City 1:<br />
+                                        <asp:TextBox ID="TextBox62" runat="server" Text='<%# Bind("Evac_City_1") %>' />
+                                   </td>
+                                   <td>Evacuation State 1:<br />
+                                        <asp:TextBox ID="TextBox63" runat="server" Text='<%# Bind("Evac_State_1") %>' />
+                                   </td>
+                                   <td>Evacuation Zip 1:<br />
+                                        <asp:TextBox ID="TextBox64" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
+                                   </td>
+                               </tr>
+                                <tr>
+                                   <td>Evacuation Addres 2:<br />
+                                        <asp:TextBox ID="TextBox65" runat="server" Text='<%# Bind("Evac_Address_2") %>' />
+                                   </td>
+                                   <td>Evacuation City 2:<br />
+                                        <asp:TextBox ID="TextBox66" runat="server" Text='<%# Bind("Evac_City_2") %>' />
+                                   </td>
+                                   <td>Evacuation State 2:<br />
+                                        <asp:TextBox ID="TextBox67" runat="server" Text='<%# Bind("Evac_State_2") %>' />
+                                   </td>
+                                   <td>Evacuation Zip 2:<br />
+                                        <asp:TextBox ID="TextBox68" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
+                                   </td>
+                               </tr>
+                            </table>
                             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
                             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            EmergencyID:
-                            <asp:TextBox ID="EmergencyIDLabel" runat="server" Text='<%# Eval("EmergencyID") %>' />
-                            <br />
-                            ClientID:
-                            <asp:Label ID="ClientIDLabel" runat="server" Text='<%# Bind("ClientID") %>' />
-                            <br />
-                            Emergency_Evac:
-                            <asp:Label ID="Emergency_EvacLabel" runat="server" Text='<%# Bind("Emergency_Evac") %>' />
-                            <br />
-                            Evac_Address_1:
-                            <asp:Label ID="Evac_Address_1Label" runat="server" Text='<%# Bind("Evac_Address_1") %>' />
-                            <br />
-                            Evac_City_1:
-                            <asp:Label ID="Evac_City_1Label" runat="server" Text='<%# Bind("Evac_City_1") %>' />
-                            <br />
-                            Evac_State_1:
-                            <asp:Label ID="Evac_State_1Label" runat="server" Text='<%# Bind("Evac_State_1") %>' />
-                            <br />
-                            Evac_Zip_1:
-                            <asp:Label ID="Evac_Zip_1Label" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
-                            <br />
-                            Evac_City_2:
-                            <asp:Label ID="Evac_City_2Label" runat="server" Text='<%# Bind("Evac_City_2") %>' />
-                            <br />
-                            Evac_Address_2:
-                            <asp:Label ID="Evac_Address_2Label" runat="server" Text='<%# Bind("Evac_Address_2") %>' />
-                            <br />
-                            Evac_State_2:
-                            <asp:Label ID="Evac_State_2Label" runat="server" Text='<%# Bind("Evac_State_2") %>' />
-                            <br />
-                            Evac_Zip_2:
-                            <asp:Label ID="Evac_Zip_2Label" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
-                            <br />
+                            <table>
+                               <tr>
+                                   <td>Emergency_Evac:<br />
+                                       <asp:TextBox ID="TextBox69" runat="server" ReadOnly="true" Text='<%# Bind("Emergency_Evac") %>' />
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td>Evacuation Address 1:<br />
+                                        <asp:TextBox ID="TextBox70" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Address_1") %>' />
+                                   </td>
+                                   <td>Evacuation City 1:<br />
+                                        <asp:TextBox ID="TextBox71" runat="server" ReadOnly="true" Text='<%# Bind("Evac_City_1") %>' />
+                                   </td>
+                                   <td>Evacuation State 1:<br />
+                                        <asp:TextBox ID="TextBox72" runat="server" ReadOnly="true" Text='<%# Bind("Evac_State_1") %>' />
+                                   </td>
+                                   <td>Evacuation Zip 1:<br />
+                                        <asp:TextBox ID="TextBox73" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Zip_1") %>' />
+                                   </td>
+                               </tr>
+                                <tr>
+                                   <td>Evacuation Addres 2:<br />
+                                        <asp:TextBox ID="TextBox74" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Address_2") %>' />
+                                   </td>
+                                   <td>Evacuation City 2:<br />
+                                        <asp:TextBox ID="TextBox75" runat="server" ReadOnly="true" Text='<%# Bind("Evac_City_2") %>' />
+                                   </td>
+                                   <td>Evacuation State 2:<br />
+                                        <asp:TextBox ID="TextBox76" runat="server" ReadOnly="true" Text='<%# Bind("Evac_State_2") %>' />
+                                   </td>
+                                   <td>Evacuation Zip 2:<br />
+                                        <asp:TextBox ID="TextBox77" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Zip_2") %>' />
+                                   </td>
+                               </tr>
+                            </table>
                             <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
                             &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
                         </ItemTemplate>
