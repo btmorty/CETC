@@ -7,11 +7,11 @@
      <div class="container">
       <div class="row">
             <div class="col-lg-12">
-                <div class="jumbotron">
-                    <h2 class="text-center">User Profile</h2>
-                </div>
+                    <h1 style="text-align: center">Welcome,
+                            <asp:LoginName ID="LoginName1" runat="server" />
+                       </h1>
+                        </div>
                 <hr>
-            </div>
         </div>
       </div>
      <div>

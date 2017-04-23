@@ -1,7 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CurrentUserInfo.ascx.cs" Inherits="Membership_CurrentUserInfo" %>
-<h1 style="text-align: center">Welcome,
-    <asp:LoginName ID="LoginName1" runat="server" />
-</h1>
+
 <h3 style="text-align: center">Change your password</h3>
 <div style="width: 400px; margin-left: auto; margin-right: auto;">
     <asp:ChangePassword ID="ChangePassword1" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" Width="327px">
@@ -16,7 +14,7 @@
 </div>
     
 <h3 style="text-align: center">View/Edit your Profile Data</h3>
-<div style="width: 400px; margin-left: auto; margin-right: auto;">
+<div style="width: 300px; margin-left: auto; margin-right: auto;">
     <table>
         <tr>
             <td>

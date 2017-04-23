@@ -36,7 +36,8 @@
                     </EditItemTemplate>
                 </asp:TemplateField>
                 <asp:ButtonField CommandName="Select" HeaderText="View Profile" ShowHeader="True" Text="View" />
-                <asp:ButtonField CommandName="Select" HeaderText="Delete Profile" ShowHeader="True" Text="Delete" />
+
+                <asp:ButtonField CommandName="DeleteUser" HeaderText="Delete Profile" ShowHeader="True" Text="Delete" />
             </Columns>
         </asp:GridView>
         <br />
@@ -48,21 +49,21 @@
             <table>
                 <tr>
                     <td>
-                        <asp:Label ID="Label1" runat="server" Text="First Name "></asp:Label></td>
+                        <asp:Label ID="Label1" runat="server" Text="First Name "> </asp:Label></td>
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtFirstName" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label2" runat="server" Text="Last Name "></asp:Label></td>
+                        <asp:Label ID="Label2" runat="server" Text="Last Name "> </asp:Label></td>
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtLastName" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label3" runat="server" Text="Birth Date "></asp:Label></td>
+                        <asp:Label ID="Label3" runat="server" Text="Birth Date "> </asp:Label></td>
                     <td>
-                        <asp:TextBox ReadOnly="true" ID="txtBirthDate" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ReadOnly="true" ID="txtBirthDate" runat="server"> </asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
