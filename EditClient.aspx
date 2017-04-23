@@ -47,33 +47,45 @@
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ContactSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Contact.ContactID, Contact.FirstName, Contact.LastName, Contact.Relationship, Contact.Emergency_Contact, Contact.Email, Contact.HomePhone, Contact.WorkPhone, Contact.MobilePhone, Contact.Guardian, Address.Address, Address.City, Address.State, Address.Zip_Code FROM Contact INNER JOIN Address ON Contact.AddressID = Address.AddressID WHERE (Contact.ClientID = @ClientID)" InsertCommand="InsertContact" InsertCommandType="StoredProcedure" UpdateCommand="UpdateContact" UpdateCommandType="StoredProcedure">
+    <asp:SqlDataSource ID="ContactSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [ContactID], [FirstName], [LastName], [Relationship], [ClientID], [Emergency_Contact], [Email], [HomePhone], [WorkPhone], [MobilePhone], [Guardian], [Address], [City], [State], [Zip] FROM [Contact] WHERE ([ClientID] = @ClientID)" InsertCommand="INSERT INTO [Contact] ([FirstName], [LastName], [Relationship], [ClientID], [Emergency_Contact], [Email], [HomePhone], [WorkPhone], [MobilePhone], [Guardian], [Address], [City], [State], [Zip]) VALUES (@FirstName, @LastName, @Relationship, @ClientID, @Emergency_Contact, @Email, @HomePhone, @WorkPhone, @MobilePhone, @Guardian, @Address, @City, @State, @Zip)" UpdateCommand="UPDATE [Contact] SET [FirstName] = @FirstName, [LastName] = @LastName, [Relationship] = @Relationship, [ClientID] = @ClientID, [Emergency_Contact] = @Emergency_Contact, [Email] = @Email, [HomePhone] = @HomePhone, [WorkPhone] = @WorkPhone, [MobilePhone] = @MobilePhone, [Guardian] = @Guardian, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip WHERE [ContactID] = @ContactID" DeleteCommand="DELETE FROM [Contact] WHERE [ContactID] = @ContactID">
+        <DeleteParameters>
+            <asp:Parameter Name="ContactID" Type="Int32" />
+        </DeleteParameters>
         <InsertParameters>
-            <asp:Parameter Name="ClientID" Type="Int32" />
-            <asp:Parameter Name="AddressID" Type="Int32" />
-            <asp:Parameter Name="First_Name" Type="String" />
-            <asp:Parameter Name="Last_Name" Type="String" />
+            <asp:Parameter Name="FirstName" Type="String" />
+            <asp:Parameter Name="LastName" Type="String" />
             <asp:Parameter Name="Relationship" Type="String" />
-            <asp:Parameter Name="Emergency_Contact" Type="String" />
-            <asp:Parameter Name="Guardian" Type="String" />
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+            <asp:Parameter Name="Emergency_Contact" Type="Boolean" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="HomePhone" Type="String" />
+            <asp:Parameter Name="WorkPhone" Type="String" />
+            <asp:Parameter Name="MobilePhone" Type="String" />
+            <asp:Parameter Name="Guardian" Type="Boolean" />
             <asp:Parameter Name="Address" Type="String" />
             <asp:Parameter Name="City" Type="String" />
             <asp:Parameter Name="State" Type="String" />
-            <asp:Parameter Name="Zip" Type="String" />
-            <asp:Parameter Name="Email" Type="String" />
-            <asp:Parameter Name="Home_Phone" Type="String" />
-            <asp:Parameter Name="Mobile_Phone" Type="String" />
-            <asp:Parameter Name="Work_Phone" Type="String" />
+            <asp:Parameter Name="Zip" Type="Int32" />
         </InsertParameters>
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
         <UpdateParameters>
-            <asp:Parameter Name="ClientID" Type="Int32" />
-            <asp:Parameter Name="CETCID" Type="Int32" />
-            <asp:Parameter Name="Service" Type="String" />
-            <asp:Parameter Name="DeptHead" Type="String" />
-            <asp:Parameter Name="Coordinator" Type="String" />
+            <asp:Parameter Name="FirstName" Type="String" />
+            <asp:Parameter Name="LastName" Type="String" />
+            <asp:Parameter Name="Relationship" Type="String" />
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+            <asp:Parameter Name="Emergency_Contact" Type="Boolean" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="HomePhone" Type="String" />
+            <asp:Parameter Name="WorkPhone" Type="String" />
+            <asp:Parameter Name="MobilePhone" Type="String" />
+            <asp:Parameter Name="Guardian" Type="Boolean" />
+            <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="City" Type="String" />
+            <asp:Parameter Name="State" Type="String" />
+            <asp:Parameter Name="Zip" Type="Int32" />
+            <asp:Parameter Name="ContactID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceCETCInfo" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [CECTID], [Service], [Coordinator], [DeptHead] FROM [CETC_INFO] WHERE ([ClientID] = @ClientID)">
@@ -81,6 +93,37 @@
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
+    <asp:SqlDataSource ID="EvacSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" InsertCommand="INSERT INTO [Emergency_Evac] ([ClientID], [Emergency_Evac], [Evac_Address_1], [Evac_City_1], [Evac_State_1], [Evac_Zip_1], [Evac_City_2], [Evac_Address_2], [Evac_State_2], [Evac_Zip_2]) VALUES (@ClientID, @Emergency_Evac, @Evac_Address_1, @Evac_City_1, @Evac_State_1, @Evac_Zip_1, @Evac_City_2, @Evac_Address_2, @Evac_State_2, @Evac_Zip_2)" SelectCommand="SELECT [EmergencyID], [ClientID], [Emergency_Evac], [Evac_Address_1], [Evac_City_1], [Evac_State_1], [Evac_Zip_1], [Evac_City_2], [Evac_Address_2], [Evac_State_2], [Evac_Zip_2] FROM [Emergency_Evac] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Emergency_Evac] SET [ClientID] = @ClientID, [Emergency_Evac] = @Emergency_Evac, [Evac_Address_1] = @Evac_Address_1, [Evac_City_1] = @Evac_City_1, [Evac_State_1] = @Evac_State_1, [Evac_Zip_1] = @Evac_Zip_1, [Evac_City_2] = @Evac_City_2, [Evac_Address_2] = @Evac_Address_2, [Evac_State_2] = @Evac_State_2, [Evac_Zip_2] = @Evac_Zip_2 WHERE [EmergencyID] = @EmergencyID">
+        <InsertParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+            <asp:Parameter Name="Emergency_Evac" Type="String" />
+            <asp:Parameter Name="Evac_Address_1" Type="String" />
+            <asp:Parameter Name="Evac_City_1" Type="String" />
+            <asp:Parameter Name="Evac_State_1" Type="String" />
+            <asp:Parameter Name="Evac_Zip_1" Type="Int32" />
+            <asp:Parameter Name="Evac_City_2" Type="String" />
+            <asp:Parameter Name="Evac_Address_2" Type="String" />
+            <asp:Parameter Name="Evac_State_2" Type="String" />
+            <asp:Parameter Name="Evac_Zip_2" Type="Int32" />
+        </InsertParameters>
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+            <asp:Parameter Name="Emergency_Evac" Type="String" />
+            <asp:Parameter Name="Evac_Address_1" Type="String" />
+            <asp:Parameter Name="Evac_City_1" Type="String" />
+            <asp:Parameter Name="Evac_State_1" Type="String" />
+            <asp:Parameter Name="Evac_Zip_1" Type="Int32" />
+            <asp:Parameter Name="Evac_City_2" Type="String" />
+            <asp:Parameter Name="Evac_Address_2" Type="String" />
+            <asp:Parameter Name="Evac_State_2" Type="String" />
+            <asp:Parameter Name="Evac_Zip_2" Type="Int32" />
+            <asp:Parameter Name="EmergencyID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+
     <%--Page Navigation--%>
     <style>
         .nav-tabs > li {
@@ -108,7 +151,7 @@
             <div class="centerForm">
                 <div class="row">
                     <div class="col-sm-9">
-                        <asp:FormView runat="server" DataSourceID="ClientSqlDataSource" ID="ClientFormView" DataKeyNames="ClientID">
+                        <asp:FormView runat="server" DataSourceID="ClientSqlDataSource" ID="ClientFormView" DataKeyNames="ClientID" OnDataBound="ClientFormView_DataBound">
                             <ItemTemplate>
                                 <table>
                                     <tr>
@@ -325,7 +368,7 @@
                                             <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
                                         </td>
                                         <td>Zip_Code:<br />
-                                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip_Code") %>' />
+                                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip") %>' />
                                         </td>
                                     </tr>
                                 </table>
@@ -380,7 +423,7 @@
                                             <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
                                         </td>
                                         <td>Zip_Code:<br />
-                                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip_Code") %>' />
+                                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip") %>' />
                                         </td>
                                     </tr>
                                 </table>
@@ -432,7 +475,7 @@
                                             <asp:TextBox ID="StateTextBox" runat="server" ReadOnly="true" Text='<%# Eval("State") %>' />
                                         </td>
                                         <td>Zip_Code:<br />
-                                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Zip_Code") %>' />
+                                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Zip") %>' />
                                         </td>
                                     </tr>
                                 </table>
@@ -452,8 +495,108 @@
                 <hr>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <h3 class="text-center">Emergency Information</h3>
-
-                    <asp:Label ID="lblEmergyEvacNeeds" runat="server" Text="Emergency Evacuation Needs "></asp:Label><br />
+                    <asp:FormView ID="EvacFormView" runat="server" DataSourceID="EvacSqlDataSource" DataKeyNames="EmergencyID" OnDataBound="EvacFormView_DataBound">
+                        <EditItemTemplate>
+                            Emergency_Evac:
+                            <asp:TextBox ID="Emergency_EvacTextBox" runat="server" Text='<%# Bind("Emergency_Evac") %>' />
+                            <br />
+                            Evac_Address_1:
+                            <asp:TextBox ID="Evac_Address_1TextBox" runat="server" Text='<%# Bind("Evac_Address_1") %>' />
+                            <br />
+                            Evac_City_1:
+                            <asp:TextBox ID="Evac_City_1TextBox" runat="server" Text='<%# Bind("Evac_City_1") %>' />
+                            <br />
+                            Evac_State_1:
+                            <asp:TextBox ID="Evac_State_1TextBox" runat="server" Text='<%# Bind("Evac_State_1") %>' />
+                            <br />
+                            Evac_Zip_1:
+                            <asp:TextBox ID="Evac_Zip_1TextBox" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
+                            <br />
+                            Evac_City_2:
+                            <asp:TextBox ID="Evac_City_2TextBox" runat="server" Text='<%# Bind("Evac_City_2") %>' />
+                            <br />
+                            Evac_Address_2:
+                            <asp:TextBox ID="Evac_Address_2TextBox" runat="server" Text='<%# Bind("Evac_Address_2") %>' />
+                            <br />
+                            Evac_State_2:
+                            <asp:TextBox ID="Evac_State_2TextBox" runat="server" Text='<%# Bind("Evac_State_2") %>' />
+                            <br />
+                            Evac_Zip_2:
+                            <asp:TextBox ID="Evac_Zip_2TextBox" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
+                            <br />
+                            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            Emergency_Evac:
+                            <asp:TextBox ID="Emergency_EvacTextBox" runat="server" Text='<%# Bind("Emergency_Evac") %>' />
+                            <br />
+                            Evac_Address_1:
+                            <asp:TextBox ID="Evac_Address_1TextBox" runat="server" Text='<%# Bind("Evac_Address_1") %>' />
+                            <br />
+                            Evac_City_1:
+                            <asp:TextBox ID="Evac_City_1TextBox" runat="server" Text='<%# Bind("Evac_City_1") %>' />
+                            <br />
+                            Evac_State_1:
+                            <asp:TextBox ID="Evac_State_1TextBox" runat="server" Text='<%# Bind("Evac_State_1") %>' />
+                            <br />
+                            Evac_Zip_1:
+                            <asp:TextBox ID="Evac_Zip_1TextBox" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
+                            <br />
+                            Evac_City_2:
+                            <asp:TextBox ID="Evac_City_2TextBox" runat="server" Text='<%# Bind("Evac_City_2") %>' />
+                            <br />
+                            Evac_Address_2:
+                            <asp:TextBox ID="Evac_Address_2TextBox" runat="server" Text='<%# Bind("Evac_Address_2") %>' />
+                            <br />
+                            Evac_State_2:
+                            <asp:TextBox ID="Evac_State_2TextBox" runat="server" Text='<%# Bind("Evac_State_2") %>' />
+                            <br />
+                            Evac_Zip_2:
+                            <asp:TextBox ID="Evac_Zip_2TextBox" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
+                            <br />
+                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            EmergencyID:
+                            <asp:TextBox ID="EmergencyIDLabel" runat="server" Text='<%# Eval("EmergencyID") %>' />
+                            <br />
+                            ClientID:
+                            <asp:Label ID="ClientIDLabel" runat="server" Text='<%# Bind("ClientID") %>' />
+                            <br />
+                            Emergency_Evac:
+                            <asp:Label ID="Emergency_EvacLabel" runat="server" Text='<%# Bind("Emergency_Evac") %>' />
+                            <br />
+                            Evac_Address_1:
+                            <asp:Label ID="Evac_Address_1Label" runat="server" Text='<%# Bind("Evac_Address_1") %>' />
+                            <br />
+                            Evac_City_1:
+                            <asp:Label ID="Evac_City_1Label" runat="server" Text='<%# Bind("Evac_City_1") %>' />
+                            <br />
+                            Evac_State_1:
+                            <asp:Label ID="Evac_State_1Label" runat="server" Text='<%# Bind("Evac_State_1") %>' />
+                            <br />
+                            Evac_Zip_1:
+                            <asp:Label ID="Evac_Zip_1Label" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
+                            <br />
+                            Evac_City_2:
+                            <asp:Label ID="Evac_City_2Label" runat="server" Text='<%# Bind("Evac_City_2") %>' />
+                            <br />
+                            Evac_Address_2:
+                            <asp:Label ID="Evac_Address_2Label" runat="server" Text='<%# Bind("Evac_Address_2") %>' />
+                            <br />
+                            Evac_State_2:
+                            <asp:Label ID="Evac_State_2Label" runat="server" Text='<%# Bind("Evac_State_2") %>' />
+                            <br />
+                            Evac_Zip_2:
+                            <asp:Label ID="Evac_Zip_2Label" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
+                            <br />
+                            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                            &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                        </ItemTemplate>
+                    </asp:FormView>
+                    <%--<asp:Label ID="lblEmergyEvacNeeds" runat="server" Text="Emergency Evacuation Needs "></asp:Label><br />
                     <asp:TextBox ID="txtEmergyEvacNeeds" runat="server" Columns="30" TextMode="multiline" Width="94%"></asp:TextBox>
 
                     <asp:Table ID="Table4" runat="server" HorizontalAlign="Center" Width="100%">
@@ -493,7 +636,7 @@
                                 <asp:TextBox ID="txtEmergyEvacNeedsZip2" runat="server" Columns="30"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
-                    </asp:Table>
+                    </asp:Table>--%>
                 </div>
                 <hr />
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
@@ -509,10 +652,10 @@
                     </div>
                     <asp:Table ID="Table9" runat="server" HorizontalAlign="Center" Width="100%">
                         <asp:TableRow>
-                            <asp:TableCell>
+                          <%--<asp:TableCell>
                                 <asp:Label ID="lblSvc1" runat="server" Text="Service "></asp:Label><br />
                                 <asp:DropDownList ID="ddSvc1" runat="server" DataSourceID="SqlDataSourceService" DataTextField="Service"></asp:DropDownList>
-                            </asp:TableCell>
+                            </asp:TableCell>--%>
                             <asp:TableCell>
                                 <asp:Label ID="lblCoor1" runat="server" Text="Coordinator "></asp:Label><br />
                                 <asp:TextBox ID="txtCoor1" runat="server"></asp:TextBox>
