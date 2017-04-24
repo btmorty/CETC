@@ -219,7 +219,40 @@
             <asp:Parameter Name="Health_Profile_ID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:sqldatasource ID="Insurence" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Insurance] WHERE [InsuranceID] = @InsuranceID" InsertCommand="INSERT INTO [Insurance] ([ClientID], [Medicaid_Number], [Medicare_Number], [Insurance_Name], [Policy_Number], [Life_Support]) VALUES (@ClientID, @Medicaid_Number, @Medicare_Number, @Insurance_Name, @Policy_Number, @Life_Support)" SelectCommand="SELECT [InsuranceID], [ClientID], [Medicaid_Number], [Medicare_Number], [Insurance_Name], [Policy_Number], [Life_Support] FROM [Insurance] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Insurance] SET [ClientID] = @ClientID, [Medicaid_Number] = @Medicaid_Number, [Medicare_Number] = @Medicare_Number, [Insurance_Name] = @Insurance_Name, [Policy_Number] = @Policy_Number, [Life_Support] = @Life_Support WHERE [InsuranceID] = @InsuranceID">
+    <asp:SqlDataSource ID="MedProvidersSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Medical_Provider] WHERE [ProviderID] = @ProviderID" InsertCommand="INSERT INTO [Medical_Provider] ([Specialty], [ClientID], [FirstName], [LastName], [Email], [Address], [Phone], [City], [State], [Zip]) VALUES (@Specialty, @ClientID, @FirstName, @LastName, @Email, @Address, @Phone, @City, @State, @Zip)" SelectCommand="SELECT [ProviderID], [Specialty], [ClientID], [FirstName], [LastName], [Email], [Address], [Phone], [City], [State], [Zip] FROM [Medical_Provider] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Medical_Provider] SET [Specialty] = @Specialty, [ClientID] = @ClientID, [FirstName] = @FirstName, [LastName] = @LastName, [Email] = @Email, [Address] = @Address, [Phone] = @Phone, [City] = @City, [State] = @State, [Zip] = @Zip WHERE [ProviderID] = @ProviderID">
+        <DeleteParameters>
+            <asp:Parameter Name="ProviderID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="Specialty" Type="String" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="FirstName" Type="String" />
+            <asp:Parameter Name="LastName" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="Phone" Type="String" />
+            <asp:Parameter Name="City" Type="String" />
+            <asp:Parameter Name="State" Type="String" />
+            <asp:Parameter Name="Zip" Type="Int32" />
+        </InsertParameters>
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Specialty" Type="String" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="FirstName" Type="String" />
+            <asp:Parameter Name="LastName" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="Phone" Type="String" />
+            <asp:Parameter Name="City" Type="String" />
+            <asp:Parameter Name="State" Type="String" />
+            <asp:Parameter Name="Zip" Type="Int32" />
+            <asp:Parameter Name="ProviderID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+    <asp:sqldatasource ID="InsurenceSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Insurance] WHERE [InsuranceID] = @InsuranceID" InsertCommand="INSERT INTO [Insurance] ([ClientID], [Medicaid_Number], [Medicare_Number], [Insurance_Name], [Policy_Number], [Life_Support]) VALUES (@ClientID, @Medicaid_Number, @Medicare_Number, @Insurance_Name, @Policy_Number, @Life_Support)" SelectCommand="SELECT [InsuranceID], [ClientID], [Medicaid_Number], [Medicare_Number], [Insurance_Name], [Policy_Number], [Life_Support] FROM [Insurance] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Insurance] SET [ClientID] = @ClientID, [Medicaid_Number] = @Medicaid_Number, [Medicare_Number] = @Medicare_Number, [Insurance_Name] = @Insurance_Name, [Policy_Number] = @Policy_Number, [Life_Support] = @Life_Support WHERE [InsuranceID] = @InsuranceID">
         <DeleteParameters>
             <asp:Parameter Name="InsuranceID" Type="Int32" />
         </DeleteParameters>
@@ -1165,8 +1198,200 @@
                 </ItemTemplate>
             </asp:FormView>
 
+            
+            <h3 class="text-center">Medical Provider</h3>
             <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                <h3 class="text-center">Medical Provider</h3>
+            <asp:ListView ID="MedProviderListView" runat="server" DataKeyNames="ProviderID" DataSourceID="MedProvidersSqlDataSource" InsertItemPosition="LastItem">
+                <AlternatingItemTemplate>
+                    <span style="">ProviderID:
+                    <asp:Label ID="ProviderIDLabel" runat="server" Text='<%# Eval("ProviderID") %>' />
+                    <br />
+                    Specialty:
+                    <asp:Label ID="SpecialtyLabel" runat="server" Text='<%# Eval("Specialty") %>' />
+                    <br />
+                    ClientID:
+                    <asp:Label ID="ClientIDLabel" runat="server" Text='<%# Eval("ClientID") %>' />
+                    <br />
+                    FirstName:
+                    <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
+                    <br />
+                    LastName:
+                    <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' />
+                    <br />
+                    Email:
+                    <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
+                    <br />
+                    Address:
+                    <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
+                    <br />
+                    Phone:
+                    <asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' />
+                    <br />
+                    City:
+                    <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
+                    <br />
+                    State:
+                    <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
+                    <br />
+                    Zip:
+                    <asp:Label ID="ZipLabel" runat="server" Text='<%# Eval("Zip") %>' />
+                    <br />
+                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
+                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+<br /><br /></span>
+                </AlternatingItemTemplate>
+                <EditItemTemplate>
+                    <span style="">ProviderID:
+                    <asp:Label ID="ProviderIDLabel1" runat="server" Text='<%# Eval("ProviderID") %>' />
+                    <br />
+                    Specialty:
+                    <asp:TextBox ID="SpecialtyTextBox" runat="server" Text='<%# Bind("Specialty") %>' />
+                    <br />
+                    ClientID:
+                    <asp:TextBox ID="ClientIDTextBox" runat="server" Text='<%# Bind("ClientID") %>' />
+                    <br />
+                    FirstName:
+                    <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
+                    <br />
+                    LastName:
+                    <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
+                    <br />
+                    Email:
+                    <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
+                    <br />
+                    Address:
+                    <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
+                    <br />
+                    Phone:
+                    <asp:TextBox ID="PhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' />
+                    <br />
+                    City:
+                    <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+                    <br />
+                    State:
+                    <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
+                    <br />
+                    Zip:
+                    <asp:TextBox ID="ZipTextBox" runat="server" Text='<%# Bind("Zip") %>' />
+                    <br />
+                    <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
+                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                    <br /><br /></span>
+                </EditItemTemplate>
+                <EmptyDataTemplate>
+                    <span>No data was returned.</span>
+                </EmptyDataTemplate>
+                <InsertItemTemplate>
+                    <span style="">Specialty:
+                    <asp:TextBox ID="SpecialtyTextBox" runat="server" Text='<%# Bind("Specialty") %>' />
+                    <br />ClientID:
+                    <asp:TextBox ID="ClientIDTextBox" runat="server" Text='<%# Bind("ClientID") %>' />
+                    <br />FirstName:
+                    <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
+                    <br />LastName:
+                    <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
+                    <br />Email:
+                    <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
+                    <br />Address:
+                    <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
+                    <br />Phone:
+                    <asp:TextBox ID="PhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' />
+                    <br />City:
+                    <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+                    <br />State:
+                    <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
+                    <br />Zip:
+                    <asp:TextBox ID="ZipTextBox" runat="server" Text='<%# Bind("Zip") %>' />
+                    <br />
+                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
+                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                    <br /><br /></span>
+                </InsertItemTemplate>
+                <ItemTemplate>
+                    <span style="">ProviderID:
+                    <asp:Label ID="ProviderIDLabel" runat="server" Text='<%# Eval("ProviderID") %>' />
+                    <br />
+                    Specialty:
+                    <asp:Label ID="SpecialtyLabel" runat="server" Text='<%# Eval("Specialty") %>' />
+                    <br />
+                    ClientID:
+                    <asp:Label ID="ClientIDLabel" runat="server" Text='<%# Eval("ClientID") %>' />
+                    <br />
+                    FirstName:
+                    <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
+                    <br />
+                    LastName:
+                    <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' />
+                    <br />
+                    Email:
+                    <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
+                    <br />
+                    Address:
+                    <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
+                    <br />
+                    Phone:
+                    <asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' />
+                    <br />
+                    City:
+                    <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
+                    <br />
+                    State:
+                    <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
+                    <br />
+                    Zip:
+                    <asp:Label ID="ZipLabel" runat="server" Text='<%# Eval("Zip") %>' />
+                    <br />
+                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
+                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+<br /><br /></span>
+                </ItemTemplate>
+                <LayoutTemplate>
+                    <div id="itemPlaceholderContainer" runat="server" style="">
+                        <span runat="server" id="itemPlaceholder" />
+                    </div>
+                    <div style="">
+                    </div>
+                </LayoutTemplate>
+                <SelectedItemTemplate>
+                    <span style="">ProviderID:
+                    <asp:Label ID="ProviderIDLabel" runat="server" Text='<%# Eval("ProviderID") %>' />
+                    <br />
+                    Specialty:
+                    <asp:Label ID="SpecialtyLabel" runat="server" Text='<%# Eval("Specialty") %>' />
+                    <br />
+                    ClientID:
+                    <asp:Label ID="ClientIDLabel" runat="server" Text='<%# Eval("ClientID") %>' />
+                    <br />
+                    FirstName:
+                    <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
+                    <br />
+                    LastName:
+                    <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' />
+                    <br />
+                    Email:
+                    <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
+                    <br />
+                    Address:
+                    <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
+                    <br />
+                    Phone:
+                    <asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' />
+                    <br />
+                    City:
+                    <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
+                    <br />
+                    State:
+                    <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
+                    <br />
+                    Zip:
+                    <asp:Label ID="ZipLabel" runat="server" Text='<%# Eval("Zip") %>' />
+                    <br />
+                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
+                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+<br /><br /></span>
+                </SelectedItemTemplate>
+                </asp:ListView>
+                
                 <asp:Table ID="tbDoctor1" runat="server" HorizontalAlign="Center" Width="100%">
                     <asp:TableRow>
                         <asp:TableCell>
