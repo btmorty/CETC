@@ -35,7 +35,7 @@
         </div>
         <div style="text-align: center;">
             <div style="width: 350px; margin-left: auto; margin-right: auto;">
-                <asp:Login ID="Login1" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" CreateUserText="New User?" CreateUserUrl="CreateUser.aspx" DestinationPageUrl="~/index.aspx" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" PasswordRecoveryText="Forgot Password?" PasswordRecoveryUrl="RecoverPassword.aspx" Width="350px">
+                <asp:Login ID="Login1" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" DestinationPageUrl="~/index.aspx" PasswordRecoveryText="Forgot Password?" PasswordRecoveryUrl="RecoverPassword.aspx" Width="350px">
                     <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
                     <LoginButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284775" CssClass="button" />
                     <TextBoxStyle Font-Size="0.8em" />
@@ -46,3 +46,5 @@
     </form>
 </body>
 </html>
+
+<%--CreateUserText="New User?" CreateUserUrl="CreateUser.aspx"  Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333"--%>
