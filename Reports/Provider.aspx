@@ -14,7 +14,7 @@
             <asp:SessionParameter DefaultValue="" Name="Last_Name" SessionField="Selection" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
-     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.Last_Name, Client.First_Name, Client.Status, Medical_Provider.Specialty, ProviderNonMed.ProviderName, Medical_Provider.LastName FROM Client INNER JOIN Medical_Provider ON Client.ClientID = Medical_Provider.ClientID INNER JOIN ProviderNonMed ON Client.ClientID = ProviderNonMed.ClientID"></asp:SqlDataSource>
+     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.Last_Name, Client.First_Name, Client.Status, Medical_Provider.Specialty, Medical_Provider.LastName, ProviderNonMed.Provider FROM Client INNER JOIN Medical_Provider ON Client.ClientID = Medical_Provider.ClientID INNER JOIN ProviderNonMed ON Client.ClientID = ProviderNonMed.ClientID"></asp:SqlDataSource>
     <%--//Page Header--%>
     <div class="container">
         <div class="row">
@@ -43,10 +43,10 @@
 
             <Columns>
                 <asp:BoundField DataField="Specialty" HeaderText="Specialty" SortExpression="Specialty" />
-                <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
-                <asp:BoundField DataField="ProviderName" HeaderText="ProviderName" SortExpression="ProviderName" />
-                <asp:BoundField DataField="Last_Name" HeaderText="Client Last Name" SortExpression="Last_Name" />
-                <asp:BoundField DataField="First_Name" HeaderText="Client First Name" SortExpression="First_Name" />
+                <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="LastName" />
+                <asp:BoundField DataField="Provider" HeaderText="Provider" SortExpression="Provider" />
+                <asp:BoundField DataField="Last_Name" HeaderText="Last Name" SortExpression="Last_Name" />
+                <asp:BoundField DataField="First_Name" HeaderText="First Name" SortExpression="First_Name" />
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
             </Columns>
 
