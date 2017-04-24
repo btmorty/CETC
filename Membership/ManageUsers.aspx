@@ -34,7 +34,7 @@
                         <asp:LinkButton ID="LinkButton3" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
                     </EditItemTemplate>
                 </asp:TemplateField>
-                <asp:ButtonField CommandName="Select" HeaderText="View Profile" ShowHeader="True" Text="View" />
+                <asp:ButtonField CommandName="Select" HeaderText="View Profile" ShowHeader="False" Text="View" />
 
                 <asp:ButtonField CommandName="DeleteUser" HeaderText="Delete Profile" ShowHeader="True" Text="Delete" />
             </Columns>
@@ -94,10 +94,18 @@
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtCountry" runat="server"></asp:TextBox></td>
                 </tr>
+     
+               
                 
             </table>
+            
+            
              <hr />
         </asp:Panel>
+    </div>
+    <%--Link to new user page--%>
+    <div>
+        <<asp:LinkButton href="CreateUser.aspx" ID="NewUser" runat="server">Add New User</asp:LinkButton>
     </div>
 </asp:Content>
 
