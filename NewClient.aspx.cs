@@ -13,7 +13,7 @@ public partial class NewClient : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
     }
 
     protected void btnUpload_Click(object sender, EventArgs e)
@@ -53,9 +53,10 @@ public partial class NewClient : System.Web.UI.Page
 
     protected void ClientSqlDataSource_Inserted(object sender, SqlDataSourceStatusEventArgs e)
     {
+
         if (e.Exception == null)
         {
-            Response.Redirect("~/EditClient.aspx?ClientID=" + (string)e.Command.Parameters["@ClientID"].Value);
+            Response.Redirect("~/EditClient.aspx?ClientID=" + e.Command.Parameters["@NewClientID"].Value.ToString());
         }
         else
         {

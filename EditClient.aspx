@@ -2246,7 +2246,7 @@
                     <asp:LinkButton ID="btnAddMed" runat="server" CssClass="btn btn-primary"  CommandName="AddMed"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Medication</asp:LinkButton>
                     <asp:Label ID="lblMedAddError" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
                 </div>
-                <asp:formview runat="server" DataKeyNames="InsuranceID" DataSourceID="Insurence">
+                <asp:formview runat="server" DataKeyNames="InsuranceID" DataSourceID="InsurenceSqlDataSource">
                     <EditItemTemplate>
                         <table>
                             <tr>
