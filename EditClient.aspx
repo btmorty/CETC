@@ -1202,148 +1202,125 @@
             <h3 class="text-center">Medical Provider</h3>
             <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
             <asp:ListView ID="MedProviderListView" runat="server" DataKeyNames="ProviderID" DataSourceID="MedProvidersSqlDataSource" InsertItemPosition="LastItem">
-                <AlternatingItemTemplate>
-                    <span style="">ProviderID:
-                    <asp:Label ID="ProviderIDLabel" runat="server" Text='<%# Eval("ProviderID") %>' />
-                    <br />
-                    Specialty:
-                    <asp:Label ID="SpecialtyLabel" runat="server" Text='<%# Eval("Specialty") %>' />
-                    <br />
-                    ClientID:
-                    <asp:Label ID="ClientIDLabel" runat="server" Text='<%# Eval("ClientID") %>' />
-                    <br />
-                    FirstName:
-                    <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
-                    <br />
-                    LastName:
-                    <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' />
-                    <br />
-                    Email:
-                    <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
-                    <br />
-                    Address:
-                    <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                    <br />
-                    Phone:
-                    <asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' />
-                    <br />
-                    City:
-                    <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
-                    <br />
-                    State:
-                    <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
-                    <br />
-                    Zip:
-                    <asp:Label ID="ZipLabel" runat="server" Text='<%# Eval("Zip") %>' />
-                    <br />
-                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-<br /><br /></span>
-                </AlternatingItemTemplate>
                 <EditItemTemplate>
-                    <span style="">ProviderID:
-                    <asp:Label ID="ProviderIDLabel1" runat="server" Text='<%# Eval("ProviderID") %>' />
-                    <br />
-                    Specialty:
-                    <asp:TextBox ID="SpecialtyTextBox" runat="server" Text='<%# Bind("Specialty") %>' />
-                    <br />
-                    ClientID:
-                    <asp:TextBox ID="ClientIDTextBox" runat="server" Text='<%# Bind("ClientID") %>' />
-                    <br />
-                    FirstName:
-                    <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
-                    <br />
-                    LastName:
-                    <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
-                    <br />
-                    Email:
-                    <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
-                    <br />
-                    Address:
-                    <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
-                    <br />
-                    Phone:
-                    <asp:TextBox ID="PhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' />
-                    <br />
-                    City:
-                    <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
-                    <br />
-                    State:
-                    <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
-                    <br />
-                    Zip:
-                    <asp:TextBox ID="ZipTextBox" runat="server" Text='<%# Bind("Zip") %>' />
+                    <asp:HiddenField ID="ProviderID" runat="server" Value='<%# Eval("ProviderID") %>' />
+                    <table style="width:100%">
+                        <tr>
+                            <td>Specialty:<br />
+                                <asp:TextBox ID="SpecialtyTextBox" runat="server" Text='<%# Bind("Specialty") %>' />
+                            </td>
+                            <td>FirstName:<br />
+                                <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
+                            </td>
+                            <td>LastName:<br />
+                                <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
+                            </td>
+                            <td>Email:<br />
+                                <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
+                            </td>
+                            <td>Phone:<br />
+                                <asp:TextBox ID="PhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Address:<br />
+                                <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
+                            </td>
+                            <td>City:<br />
+                                <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+                            </td>
+                            <td>State:<br />
+                                <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
+                            </td>
+                            <td>Zip:<br />
+                                <asp:TextBox ID="ZipTextBox" runat="server" Text='<%# Bind("Zip") %>' />
+                            </td>
+                        </tr>
+                    </table>
                     <br />
                     <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                    <br /><br /></span>
                 </EditItemTemplate>
                 <EmptyDataTemplate>
                     <span>No data was returned.</span>
                 </EmptyDataTemplate>
                 <InsertItemTemplate>
-                    <span style="">Specialty:
-                    <asp:TextBox ID="SpecialtyTextBox" runat="server" Text='<%# Bind("Specialty") %>' />
-                    <br />ClientID:
-                    <asp:TextBox ID="ClientIDTextBox" runat="server" Text='<%# Bind("ClientID") %>' />
-                    <br />FirstName:
-                    <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
-                    <br />LastName:
-                    <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
-                    <br />Email:
-                    <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
-                    <br />Address:
-                    <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
-                    <br />Phone:
-                    <asp:TextBox ID="PhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' />
-                    <br />City:
-                    <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
-                    <br />State:
-                    <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
-                    <br />Zip:
-                    <asp:TextBox ID="ZipTextBox" runat="server" Text='<%# Bind("Zip") %>' />
+                    <asp:HiddenField ID="ProviderID" runat="server" Value='<%# Eval("ProviderID") %>' />
+                    <table style="width:100%">
+                        <tr>
+                            <td>Specialty:<br />
+                                <asp:TextBox ID="SpecialtyTextBox" runat="server" Text='<%# Bind("Specialty") %>' />
+                            </td>
+                            <td>FirstName:<br />
+                                <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
+                            </td>
+                            <td>LastName:<br />
+                                <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
+                            </td>
+                            <td>Email:<br />
+                                <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
+                            </td>
+                            <td>Phone:<br />
+                                <asp:TextBox ID="PhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Address:<br />
+                                <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
+                            </td>
+                            <td>City:<br />
+                                <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+                            </td>
+                            <td>State:<br />
+                                <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
+                            </td>
+                            <td>Zip:<br />
+                                <asp:TextBox ID="ZipTextBox" runat="server" Text='<%# Bind("Zip") %>' />
+                            </td>
+                        </tr>
+                    </table>
                     <br />
                     <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                    <br /><br /></span>
                 </InsertItemTemplate>
                 <ItemTemplate>
-                    <span style="">ProviderID:
-                    <asp:Label ID="ProviderIDLabel" runat="server" Text='<%# Eval("ProviderID") %>' />
-                    <br />
-                    Specialty:
-                    <asp:Label ID="SpecialtyLabel" runat="server" Text='<%# Eval("Specialty") %>' />
-                    <br />
-                    ClientID:
-                    <asp:Label ID="ClientIDLabel" runat="server" Text='<%# Eval("ClientID") %>' />
-                    <br />
-                    FirstName:
-                    <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
-                    <br />
-                    LastName:
-                    <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' />
-                    <br />
-                    Email:
-                    <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
-                    <br />
-                    Address:
-                    <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                    <br />
-                    Phone:
-                    <asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' />
-                    <br />
-                    City:
-                    <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
-                    <br />
-                    State:
-                    <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
-                    <br />
-                    Zip:
-                    <asp:Label ID="ZipLabel" runat="server" Text='<%# Eval("Zip") %>' />
+                    <asp:HiddenField ID="ProviderID" runat="server" Value='<%# Eval("ProviderID") %>' />
+                    <table style="width:100%">
+                        <tr>
+                            <td>Specialty:<br />
+                                <asp:TextBox ID="SpecialtyTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Specialty") %>' />
+                            </td>
+                            <td>FirstName:<br />
+                                <asp:TextBox ID="FirstNameTextBox" runat="server" ReadOnly="true"  Text='<%# Eval("FirstName") %>' />
+                            </td>
+                            <td>LastName:<br />
+                                <asp:TextBox ID="LastNameTextBox" runat="server" ReadOnly="true"  Text='<%# Eval("LastName") %>' />
+                            </td>
+                            <td>Email:<br />
+                                <asp:TextBox ID="EmailTextBox" runat="server" ReadOnly="true"  Text='<%# Eval("Email") %>' />
+                            </td>
+                            <td>Phone:<br />
+                                <asp:TextBox ID="PhoneTextBox" runat="server" ReadOnly="true"  Text='<%# Eval("Phone") %>' />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Address:<br />
+                                <asp:TextBox ID="AddressTextBox" runat="server" ReadOnly="true"  Text='<%# Eval("Address") %>' />
+                            </td>
+                            <td>City:<br />
+                                <asp:TextBox ID="CityTextBox" runat="server" ReadOnly="true"  Text='<%# Eval("City") %>' />
+                            </td>
+                            <td>State:<br />
+                                <asp:TextBox ID="StateTextBox" runat="server" ReadOnly="true"  Text='<%# Eval("State") %>' />
+                            </td>
+                            <td>Zip:<br />
+                                <asp:TextBox ID="ZipTextBox" runat="server" ReadOnly="true"  Text='<%# Eval("Zip") %>' />
+                            </td>
+                        </tr>
+                    </table>
                     <br />
                     <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
                     <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-<br /><br /></span>
                 </ItemTemplate>
                 <LayoutTemplate>
                     <div id="itemPlaceholderContainer" runat="server" style="">
@@ -1352,500 +1329,7 @@
                     <div style="">
                     </div>
                 </LayoutTemplate>
-                <SelectedItemTemplate>
-                    <span style="">ProviderID:
-                    <asp:Label ID="ProviderIDLabel" runat="server" Text='<%# Eval("ProviderID") %>' />
-                    <br />
-                    Specialty:
-                    <asp:Label ID="SpecialtyLabel" runat="server" Text='<%# Eval("Specialty") %>' />
-                    <br />
-                    ClientID:
-                    <asp:Label ID="ClientIDLabel" runat="server" Text='<%# Eval("ClientID") %>' />
-                    <br />
-                    FirstName:
-                    <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
-                    <br />
-                    LastName:
-                    <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' />
-                    <br />
-                    Email:
-                    <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email") %>' />
-                    <br />
-                    Address:
-                    <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                    <br />
-                    Phone:
-                    <asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' />
-                    <br />
-                    City:
-                    <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
-                    <br />
-                    State:
-                    <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
-                    <br />
-                    Zip:
-                    <asp:Label ID="ZipLabel" runat="server" Text='<%# Eval("Zip") %>' />
-                    <br />
-                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-<br /><br /></span>
-                </SelectedItemTemplate>
                 </asp:ListView>
-                
-                <asp:Table ID="tbDoctor1" runat="server" HorizontalAlign="Center" Width="100%">
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPSpecialty1" runat="server" Text="Specialty "></asp:Label><br />
-                            <asp:TextBox ID="txtMPSpecialty1" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPFName1" runat="server" Text="First Name "></asp:Label><br />
-                            <asp:TextBox ID="txtMPFName1" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPLName1" runat="server" Text="LastName "></asp:Label><br />
-                            <asp:TextBox ID="txtMPLName1" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPAddress1" runat="server" Text="Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPAddress1" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPCity1" runat="server" Text="City "></asp:Label><br />
-                            <asp:TextBox ID="txtMPCity1" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPState1" runat="server" Text="State "></asp:Label><br />
-                            <asp:DropDownList ID="ddMPState1" runat="server"></asp:DropDownList>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPZip1" runat="server" Text="Zip Code "></asp:Label><br />
-                            <asp:TextBox ID="txtMPZip1" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPEmail1" runat="server" Text="E-Mail Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPEmail1" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPPhone1" runat="server" Text="Phone Number "></asp:Label><br />
-                            <asp:TextBox ID="txtMPPhone1" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-                <hr id="hrDoctor2" runat="server" style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" visible="False" />
-                <asp:Table ID="tbDoctor2" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPSpecialty2" runat="server" Text="Specialty "></asp:Label><br />
-                            <asp:TextBox ID="txtMPSpecialty2" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPFname2" runat="server" Text="First Name "></asp:Label><br />
-                            <asp:TextBox ID="txtMPFname2" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPLname2" runat="server" Text="LastName "></asp:Label><br />
-                            <asp:TextBox ID="txtMPLname2" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPAddress2" runat="server" Text="Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPAddress2" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPCity2" runat="server" Text="City "></asp:Label><br />
-                            <asp:TextBox ID="txtMPCity2" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPState2" runat="server" Text="State "></asp:Label><br />
-                            <asp:DropDownList ID="ddMPState2" runat="server"></asp:DropDownList>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPZip2" runat="server" Text="Zip Code "></asp:Label><br />
-                            <asp:TextBox ID="txtMPZip2" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPEmail2" runat="server" Text="E-Mail Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPEmail2" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPPhone2" runat="server" Text="Phone Number "></asp:Label><br />
-                            <asp:TextBox ID="txtMPPhone2" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-                <hr id="hrDoctor3" runat="server" style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" visible="False" />
-                <asp:Table ID="tbDoctor3" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPSpecialty3" runat="server" Text="Specialty "></asp:Label><br />
-                            <asp:TextBox ID="txtMPSpecialty3" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPFname3" runat="server" Text="First Name "></asp:Label><br />
-                            <asp:TextBox ID="txtMPFname3" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPLname3" runat="server" Text="LastName "></asp:Label><br />
-                            <asp:TextBox ID="txtMPLname3" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPAddress3" runat="server" Text="Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPAddress3" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPCity3" runat="server" Text="City "></asp:Label><br />
-                            <asp:TextBox ID="txtMPCity3" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPState3" runat="server" Text="State "></asp:Label><br />
-                            <asp:DropDownList ID="ddMPState3" runat="server"></asp:DropDownList>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPZip3" runat="server" Text="Zip Code "></asp:Label><br />
-                            <asp:TextBox ID="txtMPZip3" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPEmail3" runat="server" Text="E-Mail Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPEmail3" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPPhone3" runat="server" Text="Phone Number "></asp:Label><br />
-                            <asp:TextBox ID="txtMPPhone3" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-                <hr id="hrDoctor4" runat="server" style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" visible="False" />
-                <asp:Table ID="tbDoctor4" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPSpecialty4" runat="server" Text="Specialty "></asp:Label><br />
-                            <asp:TextBox ID="txtMPSpecialty4" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPFname4" runat="server" Text="First Name "></asp:Label><br />
-                            <asp:TextBox ID="txtMPFname4" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPLname4" runat="server" Text="LastName "></asp:Label><br />
-                            <asp:TextBox ID="txtMPLname4" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPAddress4" runat="server" Text="Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPAddress4" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPCity4" runat="server" Text="City "></asp:Label><br />
-                            <asp:TextBox ID="txtMPCity4" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPState4" runat="server" Text="State "></asp:Label><br />
-                            <asp:DropDownList ID="ddMPState4" runat="server"></asp:DropDownList>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPZip4" runat="server" Text="Zip Code "></asp:Label><br />
-                            <asp:TextBox ID="txtMPZip4" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPEmail4" runat="server" Text="E-Mail Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPEmail4" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPPhone4" runat="server" Text="Phone Number "></asp:Label><br />
-                            <asp:TextBox ID="txtMPPhone4" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-                <hr id="hrDoctor5" runat="server" style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" visible="False" />
-                <asp:Table ID="tbDoctor5" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPSpecialty5" runat="server" Text="Specialty "></asp:Label><br />
-                            <asp:TextBox ID="txtMPSpecialty5" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPFname5" runat="server" Text="First Name "></asp:Label><br />
-                            <asp:TextBox ID="txtMPFname5" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPLname5" runat="server" Text="LastName "></asp:Label><br />
-                            <asp:TextBox ID="txtMPLname5" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPAddress5" runat="server" Text="Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPAddress5" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPCity5" runat="server" Text="City "></asp:Label><br />
-                            <asp:TextBox ID="txtMPCity5" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPState5" runat="server" Text="State "></asp:Label><br />
-                            <asp:DropDownList ID="ddMPState5" runat="server"></asp:DropDownList>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPZip5" runat="server" Text="Zip Code "></asp:Label><br />
-                            <asp:TextBox ID="txtMPZip5" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPEmail5" runat="server" Text="E-Mail Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPEmail5" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPPhone5" runat="server" Text="Phone Number "></asp:Label><br />
-                            <asp:TextBox ID="txtMPPhone5" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-                <hr id="hrDoctor6" runat="server" style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" visible="False" />
-                <asp:Table ID="tbDoctor6" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPSpecialty6" runat="server" Text="Specialty "></asp:Label><br />
-                            <asp:TextBox ID="txtMPSpecialty6" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPFname6" runat="server" Text="First Name "></asp:Label><br />
-                            <asp:TextBox ID="txtMPFname6" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPLname6" runat="server" Text="LastName "></asp:Label><br />
-                            <asp:TextBox ID="txtMPLname6" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPAddress6" runat="server" Text="Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPAddress6" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPCity6" runat="server" Text="City "></asp:Label><br />
-                            <asp:TextBox ID="txtMPCity6" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPState6" runat="server" Text="State "></asp:Label><br />
-                            <asp:DropDownList ID="ddMPState6" runat="server"></asp:DropDownList>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPZip6" runat="server" Text="Zip Code "></asp:Label><br />
-                            <asp:TextBox ID="txtMPZip6" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPEmail6" runat="server" Text="E-Mail Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPEmail6" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPPhone6" runat="server" Text="Phone Number "></asp:Label><br />
-                            <asp:TextBox ID="txtMPPhone6" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-                <hr id="hrDoctor7" runat="server" style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" visible="False" />
-                <asp:Table ID="tbDoctor7" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPSpecialty7" runat="server" Text="Specialty "></asp:Label><br />
-                            <asp:TextBox ID="txtMPSpecialty7" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPFname7" runat="server" Text="First Name "></asp:Label><br />
-                            <asp:TextBox ID="txtMPFname7" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPLname7" runat="server" Text="LastName "></asp:Label><br />
-                            <asp:TextBox ID="txtMPLname7" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPAddress7" runat="server" Text="Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPAddress7" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPCity7" runat="server" Text="City "></asp:Label><br />
-                            <asp:TextBox ID="txtMPCity7" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPState7" runat="server" Text="State "></asp:Label><br />
-                            <asp:DropDownList ID="ddMPState7" runat="server"></asp:DropDownList>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPZip7" runat="server" Text="Zip Code "></asp:Label><br />
-                            <asp:TextBox ID="txtMPZip7" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPEmail7" runat="server" Text="E-Mail Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPEmail7" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPPhone7" runat="server" Text="Phone Number "></asp:Label><br />
-                            <asp:TextBox ID="txtMPPhone7" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-                <hr id="hrDoctor8" runat="server" style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" visible="False" />
-                <asp:Table ID="tbDoctor8" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPSpecialty8" runat="server" Text="Specialty "></asp:Label><br />
-                            <asp:TextBox ID="txtMPSpecialty8" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPFname8" runat="server" Text="First Name "></asp:Label><br />
-                            <asp:TextBox ID="txtMPFname8" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPLname8" runat="server" Text="LastName "></asp:Label><br />
-                            <asp:TextBox ID="txtMPLname8" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPAddress8" runat="server" Text="Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPAddress8" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPCity8" runat="server" Text="City "></asp:Label><br />
-                            <asp:TextBox ID="txtMPCity8" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPState8" runat="server" Text="State "></asp:Label><br />
-                            <asp:DropDownList ID="ddMPState8" runat="server"></asp:DropDownList>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPZip8" runat="server" Text="Zip Code "></asp:Label><br />
-                            <asp:TextBox ID="txtMPZip8" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPEmail8" runat="server" Text="E-Mail Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPEmail8" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPPhone8" runat="server" Text="Phone Number "></asp:Label><br />
-                            <asp:TextBox ID="txtMPPhone8lbl" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-                <hr id="hrDoctor9" runat="server" style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" visible="False" />
-                <asp:Table ID="tbDoctor9" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPSpecialty9" runat="server" Text="Specialty "></asp:Label><br />
-                            <asp:TextBox ID="txtMPSecialty9" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPFname9" runat="server" Text="First Name "></asp:Label><br />
-                            <asp:TextBox ID="txtMPFname9" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPLname9" runat="server" Text="LastName "></asp:Label><br />
-                            <asp:TextBox ID="txtMPLname9" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPAddress9" runat="server" Text="Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPAddress9" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPCity9" runat="server" Text="City "></asp:Label><br />
-                            <asp:TextBox ID="txtMPCity9" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPState9" runat="server" Text="State "></asp:Label><br />
-                            <asp:DropDownList ID="ddMPState9" runat="server"></asp:DropDownList>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPZip9" runat="server" Text="Zip Code "></asp:Label><br />
-                            <asp:TextBox ID="txtMPZip9" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPEmail9" runat="server" Text="E-Mail Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPEmail9" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPPhone9" runat="server" Text="Phone Number "></asp:Label><br />
-                            <asp:TextBox ID="txtMPPhone9" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-                <hr id="hrDoctor10" runat="server" style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;" visible="False" />
-                <asp:Table ID="tbDoctor10" runat="server" HorizontalAlign="Center" Width="100%" Visible="false">
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPSpecialty10" runat="server" Text="Specialty "></asp:Label><br />
-                            <asp:TextBox ID="txtMPSpecialty10" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPFname10" runat="server" Text="First Name "></asp:Label><br />
-                            <asp:TextBox ID="txtMPFname10" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPLname10" runat="server" Text="LastName "></asp:Label><br />
-                            <asp:TextBox ID="txtMPLname10" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPAddress10" runat="server" Text="Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPAddress10" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPCity10" runat="server" Text="City "></asp:Label><br />
-                            <asp:TextBox ID="txtMPCity10" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPState10" runat="server" Text="State "></asp:Label><br />
-                            <asp:DropDownList ID="ddMPState10" runat="server"></asp:DropDownList>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPZip10" runat="server" Text="Zip Code "></asp:Label><br />
-                            <asp:TextBox ID="txtMPZip10" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPEmail10" runat="server" Text="E-Mail Address "></asp:Label><br />
-                            <asp:TextBox ID="txtMPEmail10" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                        <asp:TableCell>
-                            <asp:Label ID="lblMPPhone10" runat="server" Text="Phone Number "></asp:Label><br />
-                            <asp:TextBox ID="txtMPPhone10" runat="server"></asp:TextBox>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-                <div>
-                    <br />
-                    <asp:LinkButton ID="btnAddDoc" runat="server" CssClass="btn btn-primary"  CommandName="AddDoc"> <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Medical Provider</asp:LinkButton>
-                    <asp:Label ID="lblMaxDoc" runat="server" Visible="False" Style="color: red; font-weight: bold;"></asp:Label>
-                </div>
             </div>
             <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                 <h3 class="text-center">Medications</h3>
