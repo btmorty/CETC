@@ -252,6 +252,29 @@
             <asp:Parameter Name="ProviderID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
+    <asp:SqlDataSource ID="MedSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Medication] WHERE [MedicationID] = @MedicationID" InsertCommand="INSERT INTO [Medication] ([Medication_Name], [Purpose], [Dosage], [Non_Perscription], [ClientID]) VALUES (@Medication_Name, @Purpose, @Dosage, @Non_Perscription, @ClientID)" SelectCommand="SELECT [MedicationID], [Medication_Name], [Purpose], [Dosage], [Non_Perscription], [ClientID] FROM [Medication] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Medication] SET [Medication_Name] = @Medication_Name, [Purpose] = @Purpose, [Dosage] = @Dosage, [Non_Perscription] = @Non_Perscription, [ClientID] = @ClientID WHERE [MedicationID] = @MedicationID">
+        <DeleteParameters>
+            <asp:Parameter Name="MedicationID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="Medication_Name" Type="String" />
+            <asp:Parameter Name="Purpose" Type="String" />
+            <asp:Parameter Name="Dosage" Type="String" />
+            <asp:Parameter Name="Non_Perscription" Type="String" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+        </InsertParameters>
+        <SelectParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Medication_Name" Type="String" />
+            <asp:Parameter Name="Purpose" Type="String" />
+            <asp:Parameter Name="Dosage" Type="String" />
+            <asp:Parameter Name="Non_Perscription" Type="String" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:Parameter Name="MedicationID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
     <asp:sqldatasource ID="InsurenceSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Insurance] WHERE [InsuranceID] = @InsuranceID" InsertCommand="INSERT INTO [Insurance] ([ClientID], [Medicaid_Number], [Medicare_Number], [Insurance_Name], [Policy_Number], [Life_Support]) VALUES (@ClientID, @Medicaid_Number, @Medicare_Number, @Insurance_Name, @Policy_Number, @Life_Support)" SelectCommand="SELECT [InsuranceID], [ClientID], [Medicaid_Number], [Medicare_Number], [Insurance_Name], [Policy_Number], [Life_Support] FROM [Insurance] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Insurance] SET [ClientID] = @ClientID, [Medicaid_Number] = @Medicaid_Number, [Medicare_Number] = @Medicare_Number, [Insurance_Name] = @Insurance_Name, [Policy_Number] = @Policy_Number, [Life_Support] = @Life_Support WHERE [InsuranceID] = @InsuranceID">
         <DeleteParameters>
             <asp:Parameter Name="InsuranceID" Type="Int32" />
@@ -1197,8 +1220,7 @@
                     <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
                 </ItemTemplate>
             </asp:FormView>
-
-            
+            <%--Medical Provider Section--%>
             <h3 class="text-center">Medical Provider</h3>
             <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
             <asp:ListView ID="MedProviderListView" runat="server" DataKeyNames="ProviderID" DataSourceID="MedProvidersSqlDataSource" InsertItemPosition="LastItem">
@@ -1331,8 +1353,90 @@
                 </LayoutTemplate>
                 </asp:ListView>
             </div>
+            <hr />
+            <%--Medications Section--%>
+            <h3 class="text-center">Medications</h3>
             <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                <h3 class="text-center">Medications</h3>
+                <asp:ListView ID="MedListView" runat="server" DataKeyNames="MedicationID" DataSourceID="MedSqlDataSource" InsertItemPosition="LastItem">
+                    <EditItemTemplate>
+                        <asp:HiddenField ID="MedicationID" runat="server" Value='<%# Eval("MedicationID") %>' />
+                        <table style="width:100%">
+                            <tr>
+                                <td>Medication_Name:<br />
+                                    <asp:TextBox ID="Medication_NameTextBox" runat="server" Text='<%# Bind("Medication_Name") %>' />
+                                </td>
+                                <td>Purpose:<br />
+                                    <asp:TextBox ID="PurposeTextBox" runat="server" Text='<%# Bind("Purpose") %>' />
+                                </td>
+                                <td>Dosage:<br />
+                                    <asp:TextBox ID="DosageTextBox" runat="server" Text='<%# Bind("Dosage") %>' />
+                                </td>
+                                <td>Non_Perscription:<br />
+                                    <asp:TextBox ID="Non_PerscriptionTextBox" runat="server" Text='<%# Bind("Non_Perscription") %>' />
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
+                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                    </EditItemTemplate>
+                    <EmptyDataTemplate>
+                        <span>No data was returned.</span>
+                    </EmptyDataTemplate>
+                    <InsertItemTemplate>
+                        <asp:HiddenField ID="MedicationID" runat="server" Value='<%# Eval("MedicationID") %>' />
+                        <table style="width:100%">
+                            <tr>
+                                <td>Medication_Name:<br />
+                                    <asp:TextBox ID="Medication_NameTextBox" runat="server" Text='<%# Bind("Medication_Name") %>' />
+                                </td>
+                                <td>Purpose:<br />
+                                    <asp:TextBox ID="PurposeTextBox" runat="server" Text='<%# Bind("Purpose") %>' />
+                                </td>
+                                <td>Dosage:<br />
+                                    <asp:TextBox ID="DosageTextBox" runat="server" Text='<%# Bind("Dosage") %>' />
+                                </td>
+                                <td>Non_Perscription:<br />
+                                    <asp:TextBox ID="Non_PerscriptionTextBox" runat="server" Text='<%# Bind("Non_Perscription") %>' />
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
+                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:HiddenField ID="MedicationID" runat="server" Value='<%# Eval("MedicationID") %>' />
+                        <table style="width:100%">
+                            <tr>
+                                <td>Medication_Name:<br />
+                                    <asp:TextBox ID="Medication_NameTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Medication_Name") %>' />
+                                </td>
+                                <td>Purpose:<br />
+                                    <asp:TextBox ID="PurposeTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Purpose") %>' />
+                                </td>
+                                <td>Dosage:<br />
+                                    <asp:TextBox ID="DosageTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Dosage") %>' />
+                                </td>
+                                <td>Non_Perscription:<br />
+                                    <asp:TextBox ID="Non_PerscriptionTextBox" ReadOnly="true" runat="server" Text='<%# Eval("Non_Perscription") %>' />
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
+                        <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                    </ItemTemplate>
+                    <LayoutTemplate>
+                        <div id="itemPlaceholderContainer" runat="server" style="">
+                            <span runat="server" id="itemPlaceholder" />
+                        </div>
+                        <div style="">
+                        </div>
+                    </LayoutTemplate>
+                </asp:ListView>
+
+
                 <asp:Table ID="Table7" runat="server" HorizontalAlign="Center" Width="100%">
                     <asp:TableRow>
                         <asp:TableCell>
