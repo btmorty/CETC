@@ -225,7 +225,7 @@
         </DeleteParameters>
         <InsertParameters>
             <asp:Parameter Name="Specialty" Type="String" />
-            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
             <asp:Parameter Name="FirstName" Type="String" />
             <asp:Parameter Name="LastName" Type="String" />
             <asp:Parameter Name="Email" Type="String" />
@@ -240,7 +240,7 @@
         </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Name="Specialty" Type="String" />
-            <asp:Parameter Name="ClientID" Type="Int32" />
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
             <asp:Parameter Name="FirstName" Type="String" />
             <asp:Parameter Name="LastName" Type="String" />
             <asp:Parameter Name="Email" Type="String" />
@@ -252,26 +252,28 @@
             <asp:Parameter Name="ProviderID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="MedSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Medication] WHERE [MedicationID] = @MedicationID" InsertCommand="INSERT INTO [Medication] ([Medication_Name], [Purpose], [Dosage], [Non_Perscription], [ClientID]) VALUES (@Medication_Name, @Purpose, @Dosage, @Non_Perscription, @ClientID)" SelectCommand="SELECT [MedicationID], [Medication_Name], [Purpose], [Dosage], [Non_Perscription], [ClientID] FROM [Medication] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Medication] SET [Medication_Name] = @Medication_Name, [Purpose] = @Purpose, [Dosage] = @Dosage, [Non_Perscription] = @Non_Perscription, [ClientID] = @ClientID WHERE [MedicationID] = @MedicationID">
+    <asp:SqlDataSource ID="MedSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Medication] WHERE [MedicationID] = @MedicationID" InsertCommand="INSERT INTO [Medication] ([ClientID], [Medication_Name], [Dosage], [Purpose], [Physician], [Non_Perscription]) VALUES (@ClientID, @Medication_Name, @Dosage, @Purpose, @Physician, @Non_Perscription)" SelectCommand="SELECT [MedicationID], [ClientID], [Medication_Name], [Dosage], [Purpose], [Physician], [Non_Perscription] FROM [Medication] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Medication] SET [ClientID] = @ClientID, [Medication_Name] = @Medication_Name, [Dosage] = @Dosage, [Purpose] = @Purpose, [Physician] = @Physician, [Non_Perscription] = @Non_Perscription WHERE [MedicationID] = @MedicationID">
         <DeleteParameters>
             <asp:Parameter Name="MedicationID" Type="Int32" />
         </DeleteParameters>
         <InsertParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
             <asp:Parameter Name="Medication_Name" Type="String" />
-            <asp:Parameter Name="Purpose" Type="String" />
             <asp:Parameter Name="Dosage" Type="String" />
+            <asp:Parameter Name="Purpose" Type="String" />
+            <asp:Parameter Name="Physician" Type="String" />
             <asp:Parameter Name="Non_Perscription" Type="String" />
-            <asp:Parameter Name="ClientID" Type="Int32" />
         </InsertParameters>
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
         <UpdateParameters>
+            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
             <asp:Parameter Name="Medication_Name" Type="String" />
-            <asp:Parameter Name="Purpose" Type="String" />
             <asp:Parameter Name="Dosage" Type="String" />
+            <asp:Parameter Name="Purpose" Type="String" />
+            <asp:Parameter Name="Physician" Type="String" />
             <asp:Parameter Name="Non_Perscription" Type="String" />
-            <asp:Parameter Name="ClientID" Type="Int32" />
             <asp:Parameter Name="MedicationID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
@@ -1365,13 +1367,16 @@
                                 <td>Medication_Name:<br />
                                     <asp:TextBox ID="Medication_NameTextBox" runat="server" Text='<%# Bind("Medication_Name") %>' />
                                 </td>
-                                <td>Purpose:<br />
-                                    <asp:TextBox ID="PurposeTextBox" runat="server" Text='<%# Bind("Purpose") %>' />
-                                </td>
                                 <td>Dosage:<br />
                                     <asp:TextBox ID="DosageTextBox" runat="server" Text='<%# Bind("Dosage") %>' />
                                 </td>
-                                <td>Non_Perscription:<br />
+                                <td>Purpose:<br />
+                                    <asp:TextBox ID="PurposeTextBox" runat="server" Text='<%# Bind("Purpose") %>' />
+                                </td>
+                                <td>Physician:<br />
+                                    <asp:TextBox ID="PhysicianTextBox" runat="server" Text='<%# Bind("Physician") %>' />
+                                </td>
+                                <td>Non-Perscription:<br />
                                     <asp:TextBox ID="Non_PerscriptionTextBox" runat="server" Text='<%# Bind("Non_Perscription") %>' />
                                 </td>
                             </tr>
@@ -1390,13 +1395,16 @@
                                 <td>Medication_Name:<br />
                                     <asp:TextBox ID="Medication_NameTextBox" runat="server" Text='<%# Bind("Medication_Name") %>' />
                                 </td>
-                                <td>Purpose:<br />
-                                    <asp:TextBox ID="PurposeTextBox" runat="server" Text='<%# Bind("Purpose") %>' />
-                                </td>
                                 <td>Dosage:<br />
                                     <asp:TextBox ID="DosageTextBox" runat="server" Text='<%# Bind("Dosage") %>' />
                                 </td>
-                                <td>Non_Perscription:<br />
+                                <td>Purpose:<br />
+                                    <asp:TextBox ID="PurposeTextBox" runat="server" Text='<%# Bind("Purpose") %>' />
+                                </td>
+                                <td>Physician:<br />
+                                    <asp:TextBox ID="PhysicianTextBox" runat="server" Text='<%# Bind("Physician") %>' />
+                                </td>
+                                <td>Non-Perscription:<br />
                                     <asp:TextBox ID="Non_PerscriptionTextBox" runat="server" Text='<%# Bind("Non_Perscription") %>' />
                                 </td>
                             </tr>
@@ -1412,14 +1420,17 @@
                                 <td>Medication_Name:<br />
                                     <asp:TextBox ID="Medication_NameTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Medication_Name") %>' />
                                 </td>
-                                <td>Purpose:<br />
-                                    <asp:TextBox ID="PurposeTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Purpose") %>' />
-                                </td>
                                 <td>Dosage:<br />
                                     <asp:TextBox ID="DosageTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Dosage") %>' />
                                 </td>
-                                <td>Non_Perscription:<br />
-                                    <asp:TextBox ID="Non_PerscriptionTextBox" ReadOnly="true" runat="server" Text='<%# Eval("Non_Perscription") %>' />
+                                <td>Purpose:<br />
+                                    <asp:TextBox ID="PurposeTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Purpose") %>' />
+                                </td>
+                                <td>Physician:<br />
+                                    <asp:TextBox ID="PhysicianTextBox" runat="server" Text='<%# Bind("Physician") %>' />
+                                </td>
+                                <td>Non-Perscription:<br />
+                                    <asp:TextBox ID="Non_PerscriptionTextBox" runat="server" Text='<%# Bind("Non_Perscription") %>' />
                                 </td>
                             </tr>
                         </table>
