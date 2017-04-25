@@ -108,8 +108,8 @@
         </asp:Panel>
     </div>
     <%--Link to new user page--%>
-    <div>
-        <<asp:LinkButton href="CreateUser.aspx" ID="NewUser" runat="server">Add New User</asp:LinkButton>
+    <div style="margin-left: auto; margin-right: auto; text-align: center;">
+        <asp:LinkButton href="CreateUser.aspx" ID="NewUser" runat="server">Add New User</asp:LinkButton>
     </div>
 </asp:Content>
 

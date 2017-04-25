@@ -31,7 +31,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="DataEntryHome.aspx" runat="server">Data Entry<span class="sr-only">(current)</span></a></li>
+                            <li><a href="DataEntryHome.aspx" runat="server">Data Entry</a></li>
                             <li><a href="~/Reports/ReportsHome.aspx" runat="server">Reports</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
@@ -51,7 +51,7 @@
                                             </RoleGroups>
                                         </asp:LoginView>
                                     <li style="padding-left:22px;">
-                                        <span><span class="glyphicon glyphicon-log-out"></span> <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Membership/Login.aspx" /></span>
+                                        <span><span class="glyphicon glyphicon-log-out"></span> <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Membership/Login.aspx" OnLoggingOut="LoginStatus1_LoggingOut" /></span>
                                     </li>
                                 </ul>
                             </li>

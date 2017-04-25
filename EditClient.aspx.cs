@@ -15,16 +15,37 @@ public partial class EditClient : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
 
     {
-        if (!IsPostBack)
-        {
-            MembershipUser CurrentUser = Membership.GetUser(User.Identity.Name);
-            Session["CurrentUser"] = CurrentUser.ToString();
-        }
-
         //Retrieve ClientID from QueryString and store in session variable
-        if (Request.QueryString != null)
+        if (Request.QueryString["ClientID"] != null)
         {
             Session["ClientID"] = Request.QueryString["ClientID"];
+
+            MembershipUser CurrentUser = Membership.GetUser(User.Identity.Name);
+            Session["CurrentUser"] = CurrentUser.ToString();
+
+            //Retrive Profile picture from DB
+
+            string queryString = "SELECT [PhotoID]  FROM Client WHERE ClientID = @ClientID";
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@ClientID", Session["ClientID"].ToString());
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                try
+                {
+                    while (reader.Read())
+                    {
+                        imgProfile.ImageUrl = "ClientImages/" + reader["PhotoID"];
+                    }
+                }
+                finally
+                {
+                    reader.Close();
+                }
+            }
         }
 
         //only perform the following the first time the page loads
@@ -56,6 +77,34 @@ public partial class EditClient : System.Web.UI.Page
                         string path = Server.MapPath("ClientImages/") + imageUpload.PostedFile.FileName;
                         imageUpload.SaveAs(path);
                         imgProfile.ImageUrl = "ClientImages/" + imageUpload.PostedFile.FileName;
+
+                        //add to database
+                        string FileName = imageUpload.PostedFile.FileName;
+                        String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
+                        SqlConnection con = new SqlConnection(strConnString);
+                        string strQuery = "INSERT INTO dbo.Client (PhotoID)" + " values(@PhotoID)";
+                        SqlCommand cmd = new SqlCommand(strQuery);
+                        cmd.Parameters.AddWithValue("@PhotoID", FileName);
+                        cmd.Parameters.AddWithValue("@FilePath", "~/_PublicData/Images/" + FileName);
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Connection = con;
+                        try
+                        {
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        catch (Exception ex)
+                        {
+                            lblUploadStatus.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+                        }
+
+                        finally
+                        {
+                            con.Close();
+                            con.Dispose();
+                        }
+
                         lblUploadStatus.Text = "Upload status: File uploaded!";
                     }
                     else

@@ -16,9 +16,10 @@
     <asp:SqlDataSource ID="DDResidentialStatusSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Residential_Status] FROM [DD_Residential_Status]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDPreferredLanguageSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Preferred_Language] FROM [DD_Preferred_Language]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDReligionSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Religion] FROM [DD_Religion]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [ClientID], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religious_Affiliation], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy] FROM [Client] " InsertCommand="INSERT INTO [Client] ([First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religious_Affiliation], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy]) VALUES (@First_Name, @Last_Name, @Status, @DOB, @Age, @Address, @City, @State, @Zip, @Phone, @Email, @Sex, @Race, @Religious_Affiliation, @Residential_Status, @Preferred_Language, @SSN, @Staff_Ratio, @DSPD, @SSI, @SSA, @Modes_Communication, @Diagnosis, @PhotoID, @DateCreated, @DateModified, @ModifiedBy) SELECT @NewClientID=SCOPE_IDENTITY();" OnInserted="ClientSqlDataSource_Inserted">
+    <asp:SqlDataSource ID="DDSexSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Sex] FROM [DD_Sex]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [ClientID], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religion], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy] FROM [Client] " InsertCommand="INSERT INTO [Client] ([First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religion], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy]) VALUES (@First_Name, @Last_Name, @Status, @DOB, @Age, @Address, @City, @State, @Zip, @Phone, @Email, @Sex, @Race, @Religion, @Residential_Status, @Preferred_Language, @SSN, @Staff_Ratio, @DSPD, @SSI, @SSA, @Modes_Communication, @Diagnosis, @PhotoID, GETDATE(), @DateModified, @ModifiedBy) SELECT @NewClientID=SCOPE_IDENTITY();" OnInserted="ClientSqlDataSource_Inserted">
         <InsertParameters>
-            <asp:parameter direction="Output" name="NewClientID" type="Int32" />
+            <asp:Parameter Direction="Output" Name="NewClientID" Type="Int32" />
             <asp:Parameter Name="First_Name" Type="String" />
             <asp:Parameter Name="Last_Name" Type="String" />
             <asp:Parameter Name="Status" Type="String" />
@@ -32,7 +33,7 @@
             <asp:Parameter Name="Email" Type="String" />
             <asp:Parameter Name="Sex" Type="String" />
             <asp:Parameter Name="Race" Type="String" />
-            <asp:Parameter Name="Religious_Affiliation" Type="String" />
+            <asp:Parameter Name="Religion" Type="String" />
             <asp:Parameter Name="Residential_Status" Type="String" />
             <asp:Parameter Name="Preferred_Language" Type="String" />
             <asp:Parameter Name="SSN" Type="Int32" />
@@ -48,15 +49,12 @@
             <asp:Parameter Name="ModifiedBy" Type="String" />
         </InsertParameters>
     </asp:SqlDataSource>
-    <h3 class="text-center">Face Sheet</h3>
+    <h3 class="text-center">New Client Information</h3>
     <hr />
     <%--//Data Entry Form--%>
-    <div class="centerForm">
-        <div class="row">
-            <div class="col-sm-9">
-                <asp:FormView runat="server" DataSourceID="ClientSqlDataSource" ID="ClientFormView" DataKeyNames="ClientID" OnDataBound="ClientFormView_DataBound">
+                <asp:FormView runat="server" DataSourceID="ClientSqlDataSource" ID="ClientFormView" DataKeyNames="ClientID" OnDataBound="ClientFormView_DataBound" DefaultMode="Insert" HorizontalAlign="Center" Width="60%">
                     <InsertItemTemplate>
-                        <table>
+                        <table style="width:100%">
                             <tr>
                                 <td>Status:<br />
                                     <asp:DropDownList ID="ddStatus" runat="server" SelectedValue='<%# Bind("Status") %>'>
@@ -99,17 +97,17 @@
                                 <td>SSN:<br />
                                     <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' /></td>
                                 <td>Sex:<br />
-                                    <asp:TextBox ID="SexLabel" runat="server" Text='<%# Bind("Sex") %>' /></td>
+                                    <asp:DropDownList ID="DropDownListSex" runat="server" DataSourceID="DDSexSqlDataSource" DataValueField="Sex" SelectedValue='<%# Bind("Sex") %>'></asp:DropDownList></td>
                             </tr>
                             <tr>
                                 <td>Race:<br />
                                     <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="DDRaceSqlDataSource" DataValueField="Race" SelectedValue='<%# Bind("Race") %>'></asp:DropDownList></td>
                                 <td>Residential Status:<br />
-                                     <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="DDResidentialStatusSqlDataSource" DataValueField="Residential_Status" SelectedValue='<%# Bind("Residential_Status") %>'></asp:DropDownList></td>
+                                    <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="DDResidentialStatusSqlDataSource" DataValueField="Residential_Status" SelectedValue='<%# Bind("Residential_Status") %>'></asp:DropDownList></td>
                                 <td>Preferred Language:<br />
                                     <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="DDPreferredLanguageSqlDataSource" DataValueField="Preferred_Language" SelectedValue='<%# Bind("Preferred_Language") %>'></asp:DropDownList></td>
                                 <td>Religious Affiliation:<br />
-                                     <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="DDReligionSqlDataSource" DataValueField="Religion" SelectedValue='<%# Bind("Religion") %>'></asp:DropDownList></td>
+                                    <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="DDReligionSqlDataSource" DataValueField="Religion" SelectedValue='<%# Bind("Religion") %>'></asp:DropDownList></td>
                             </tr>
                             <tr>
                                 <td>Staffing Ratio:<br />
@@ -123,7 +121,7 @@
                                 <td>SSA:<br />
                                     <asp:TextBox ID="SSALabel" runat="server" Text='<%# Bind("SSA") %>' /></td>
                                 <td>Modes of Communication:<br />
-                                    <asp:TextBox ID="Modes_CommunicationLabel" runat="server" Text='<%# Bind("Modes_Communication") %>' /></td>
+                                    <asp:TextBox ID="CommunicationLabel" runat="server" Text='<%# Bind("Modes_Communication") %>' /></td>
                                 <td>Diagnosis:<br />
                                     <asp:TextBox ID="DiagnosisLabel" runat="server" Text='<%# Bind("Diagnosis") %>' /></td>
                             </tr>
@@ -135,21 +133,9 @@
                         <br />
                     </InsertItemTemplate>
                 </asp:FormView>
-            </div>
-            <div class="col-sm-3">
-                <asp:Image ID="imgProfile" runat="server" BorderStyle="Solid" BorderWidth="1" Height="200px" ImageAlign="Middle" Width="200px" /><br />
                 <br />
-                <asp:Label ID="lblFileUpload" runat="server" Text="Upload Image "></asp:Label>
-                <asp:FileUpload ID="imageUpload" runat="server" /><br />
-                <asp:LinkButton ID="btnUpload" runat="server" CssClass="btn btn-primary" OnClick="btnUpload_Click"> <span aria-hidden="true" class="glyphicon glyphicon-upload"></span>Upload Picture</asp:LinkButton>
                 <br />
-                <asp:Label ID="lblUploadStatus" runat="server" Visible="False" ForeColor="Red" Text="Upload status: " />
-            </div>
-        </div>
-        <br />
-        <br />
-        <div>
-          <asp:Label ID="lblResults" runat="server" Visible="false"></asp:Label>
-        </div>
-    </div>
+                <div>
+                    <asp:Label ID="lblResults" runat="server" Visible="false"></asp:Label>
+                </div>
 </asp:Content>

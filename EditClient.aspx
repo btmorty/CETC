@@ -17,8 +17,8 @@
     <asp:SqlDataSource ID="DDResidentialStatusSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Residential_Status] FROM [DD_Residential_Status]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDPreferredLanguageSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Preferred_Language] FROM [DD_Preferred_Language]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDReligionSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Religion] FROM [DD_Religion]"></asp:SqlDataSource>
-
-    <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religious_Affiliation], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy], [ClientID] FROM [Client] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Status] = @Status, [DOB] = @DOB, [Age] = @Age, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Phone] = @Phone, [Email] = @Email, [Sex] = @Sex, [Race] = @Race, [Religious_Affiliation] = @Religious_Affiliation, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [SSN] = @SSN, [Staff_Ratio] = @Staff_Ratio, [DSPD] = @DSPD, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Diagnosis] = @Diagnosis, [PhotoID] = @PhotoID, [DateCreated] = @DateCreated, [DateModified] = GETDATE(), [ModifiedBy] = @ModifiedBy WHERE [ClientID] = @ClientID">
+    <asp:SqlDataSource ID="DDSexSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Sex] FROM [DD_Sex]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religion], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy], [ClientID] FROM [Client] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Status] = @Status, [DOB] = @DOB, [Age] = @Age, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Phone] = @Phone, [Email] = @Email, [Sex] = @Sex, [Race] = @Race, [Religion] = @Religion, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [SSN] = @SSN, [Staff_Ratio] = @Staff_Ratio, [DSPD] = @DSPD, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Diagnosis] = @Diagnosis, [PhotoID] = @PhotoID, [DateCreated] = @DateCreated, [DateModified] = GETDATE(), [ModifiedBy] = @ModifiedBy WHERE [ClientID] = @ClientID">
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
@@ -36,7 +36,7 @@
             <asp:Parameter Name="Email" Type="String" />
             <asp:Parameter Name="Sex" Type="String" />
             <asp:Parameter Name="Race" Type="String" />
-            <asp:Parameter Name="Religious_Affiliation" Type="String" />
+            <asp:Parameter Name="Religion" Type="String" />
             <asp:Parameter Name="Residential_Status" Type="String" />
             <asp:Parameter Name="Preferred_Language" Type="String" />
             <asp:Parameter Name="SSN" Type="Int32" />
@@ -181,7 +181,7 @@
         </UpdateParameters>
     </asp:SqlDataSource>
     
-    <asp:SqlDataSource ID="HealthProfileSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Health_Profile] WHERE [Health_Profile_ID] = @Health_Profile_ID" InsertCommand="INSERT INTO [Health_Profile] ([DOB], [Height], [Weight], [Hair], [Eyes], [Diagnosed_Condition], [Limitations], [Allergies], [Preferred_Hospital], [Hospital_Phone], [ClientID], [Address], [City], [State], [Zip]) VALUES (@DOB, @Height, @Weight, @Hair, @Eyes, @Diagnosed_Condition, @Limitations, @Allergies, @Preferred_Hospital, @Hospital_Phone, @ClientID, @Address, @City, @State, @Zip)" SelectCommand="SELECT Health_Profile.Health_Profile_ID, Health_Profile.Height, Health_Profile.Weight, Health_Profile.Hair, Health_Profile.Eyes, Health_Profile.Diagnosed_Condition, Health_Profile.Limitations, Health_Profile.Allergies, Health_Profile.Preferred_Hospital, Health_Profile.Hospital_Phone, Health_Profile.ClientID, Health_Profile.Address, Health_Profile.City, Health_Profile.State, Health_Profile.Zip, Client.First_Name, Client.Last_Name, Client.DOB, Client.Sex FROM Health_Profile INNER JOIN Client ON Client.ClientID = Health_Profile.ClientID WHERE (Health_Profile.ClientID = @ClientID)" UpdateCommand="UPDATE [Health_Profile] SET [DOB] = @DOB, [Height] = @Height, [Weight] = @Weight, [Hair] = @Hair, [Eyes] = @Eyes, [Diagnosed_Condition] = @Diagnosed_Condition, [Limitations] = @Limitations, [Allergies] = @Allergies, [Preferred_Hospital] = @Preferred_Hospital, [Hospital_Phone] = @Hospital_Phone, [ClientID] = @ClientID, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip WHERE [Health_Profile_ID] = @Health_Profile_ID">
+    <asp:SqlDataSource ID="HealthProfileSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Health_Profile] WHERE [Health_Profile_ID] = @Health_Profile_ID" InsertCommand="INSERT INTO [Health_Profile] ([DOB], [Height], [Weight], [Hair], [Eyes], [Diagnosis], [Limitations], [Allergies], [Preferred_Hospital], [Hospital_Phone], [ClientID], [Address], [City], [State], [Zip]) VALUES (@DOB, @Height, @Weight, @Hair, @Eyes, @Diagnosis, @Limitations, @Allergies, @Preferred_Hospital, @Hospital_Phone, @ClientID, @Address, @City, @State, @Zip)" SelectCommand="SELECT Health_Profile.Health_Profile_ID, Health_Profile.Height, Health_Profile.Weight, Health_Profile.Hair, Health_Profile.Eyes, Health_Profile.Diagnosis, Health_Profile.Limitations, Health_Profile.Allergies, Health_Profile.Preferred_Hospital, Health_Profile.Hospital_Phone, Health_Profile.ClientID, Health_Profile.Address, Health_Profile.City, Health_Profile.State, Health_Profile.Zip, Client.First_Name, Client.Last_Name, Client.DOB, Client.Sex FROM Health_Profile INNER JOIN Client ON Client.ClientID = Health_Profile.ClientID WHERE (Health_Profile.ClientID = @ClientID)" UpdateCommand="UPDATE [Health_Profile] SET [DOB] = @DOB, [Height] = @Height, [Weight] = @Weight, [Hair] = @Hair, [Eyes] = @Eyes, [Diagnosis] = @Diagnosis, [Limitations] = @Limitations, [Allergies] = @Allergies, [Preferred_Hospital] = @Preferred_Hospital, [Hospital_Phone] = @Hospital_Phone, [ClientID] = @ClientID, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip WHERE [Health_Profile_ID] = @Health_Profile_ID">
         <DeleteParameters>
             <asp:Parameter Name="Health_Profile_ID" Type="Int32" />
         </DeleteParameters>
@@ -191,7 +191,7 @@
             <asp:Parameter Name="Weight" Type="String" />
             <asp:Parameter Name="Hair" Type="String" />
             <asp:Parameter Name="Eyes" Type="String" />
-            <asp:Parameter Name="Diagnosed_Condition" Type="String" />
+            <asp:Parameter Name="Diagnosis" Type="String" />
             <asp:Parameter Name="Limitations" Type="String" />
             <asp:Parameter Name="Allergies" Type="String" />
             <asp:Parameter Name="Preferred_Hospital" Type="String" />
@@ -211,7 +211,7 @@
             <asp:Parameter Name="Weight" Type="String" />
             <asp:Parameter Name="Hair" Type="String" />
             <asp:Parameter Name="Eyes" Type="String" />
-            <asp:Parameter Name="Diagnosed_Condition" Type="String" />
+            <asp:Parameter Name="Diagnosis" Type="String" />
             <asp:Parameter Name="Limitations" Type="String" />
             <asp:Parameter Name="Allergies" Type="String" />
             <asp:Parameter Name="Preferred_Hospital" Type="String" />
@@ -387,7 +387,7 @@
                                      <td>Preferred Language:<br />
                                             <asp:TextBox ID="Preferred_LanguageLabel" runat="server" ReadOnly="true" Text='<%# Bind("Preferred_Language") %>' /></td>
                                      <td>Religious Affiliation:<br />
-                                            <asp:TextBox ID="Religious_AffiliationLabel" runat="server" ReadOnly="true" Text='<%# Bind("Religious_Affiliation") %>' /></td>
+                                            <asp:TextBox ID="Religious_AffiliationLabel" runat="server" ReadOnly="true" Text='<%# Bind("Religion") %>' /></td>
                                     </tr>
                                     <tr>
                                         <td>Staffing Ratio:<br />
@@ -400,7 +400,7 @@
                                     <tr>
                                         <td>SSA:<br />
                                             <asp:TextBox ID="SSALabel" runat="server" ReadOnly="true" Text='<%# Eval("SSA") %>' /></td>
-                                        <td>Modes_Communication:<br />
+                                        <td>Modes of Communication:<br />
                                             <asp:TextBox ID="Modes_CommunicationLabel" ReadOnly="true" runat="server" Text='<%# Eval("Modes_Communication") %>' /></td>
                                         <td>Diagnosis:<br />
                                             <asp:TextBox ID="DiagnosisLabel" ReadOnly="true" runat="server" Text='<%# Eval("Diagnosis") %>' /></td>
@@ -455,7 +455,7 @@
                                         <td>SSN:<br />
                                             <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' /></td>
                                         <td>Sex:<br />
-                                            <asp:TextBox ID="SexLabel" runat="server" Text='<%# Bind("Sex") %>' /></td>
+                                           <asp:DropDownList ID="DropDownListSex" runat="server" DataSourceID="DDSexSqlDataSource" DataValueField="Sex" SelectedValue='<%# Bind("Sex") %>'></asp:DropDownList></td>
                                     </tr>
                                     <tr>
                                 <td>Race:<br />
@@ -478,7 +478,7 @@
                                     <tr>
                                         <td>SSA:<br />
                                             <asp:TextBox ID="SSALabel" runat="server" Text='<%# Bind("SSA") %>' /></td>
-                                        <td>Modes_Communication:<br />
+                                        <td>Modes of Communication:<br />
                                             <asp:TextBox ID="Modes_CommunicationLabel" runat="server" Text='<%# Bind("Modes_Communication") %>' /></td>
                                         <td>Diagnosis:<br />
                                             <asp:TextBox ID="DiagnosisLabel" runat="server" Text='<%# Bind("Diagnosis") %>' /></td>
@@ -499,7 +499,7 @@
                         <asp:Image ID="imgProfile" runat="server" BorderStyle="Solid" BorderWidth="1" Height="200px" ImageAlign="Middle" Width="200px" /><br />
                         <br />
                         <asp:Label ID="lblFileUpload" runat="server" Text="Upload Image "></asp:Label>
-                        <asp:FileUpload ID="imageUpload" runat="server" />
+                        <asp:FileUpload ID="imageUpload" runat="server" /><br />
                         <asp:LinkButton ID="btnUpload" runat="server" CssClass="btn btn-primary" OnClick="btnUpload_Click"> <span aria-hidden="true" class="glyphicon glyphicon-upload"></span>Upload Picture</asp:LinkButton>
                         <br />
                         <asp:Label ID="lblUploadStatus" runat="server" Visible="False" ForeColor="Red" Text="Upload status: " />
@@ -577,7 +577,7 @@
                                             <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
                                         </td>
                                         <td>Relationship:<br />
-                                            <asp:TextBox ID="RelationshipTextBox" runat="server" Text='<%# Bind("Relationship") %>' />
+                                            <asp:DropDownList ID="ddRelationship" runat="server" DataSourceID="DDRelationshipsSqlDataSource" DataValueField="Relationship" SelectedValue='<%# Bind("Relationship") %>' />
                                         </td>
                                         <td>
                                             <asp:CheckBox ID="Emergency_ContactCheckBox" runat="server" Text="Emergency Contact" Checked='<%# Bind("Emergency_Contact") %>' /><br />
@@ -658,7 +658,7 @@
                                             <asp:TextBox ID="CityTextBox" runat="server" ReadOnly="true" Text='<%# Eval("City") %>' />
                                         </td>
                                         <td>State:<br />
-                                            <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                            <asp:TextBox ID="txtbState" runat="server" ReadOnly="true" Text='<%# Eval("State") %>' />
                                         </td>
                                         <td>Zip Code:<br />
                                             <asp:TextBox ID="Zip_CodeTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Zip") %>' />
@@ -694,7 +694,7 @@
                                         <asp:TextBox ID="TextBox53" runat="server" Text='<%# Bind("Evac_City_1") %>' />
                                    </td>
                                    <td>Evacuation State 1:<br />
-                                         <asp:DropDownList ID="DropDownList5" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                         <asp:DropDownList ID="DropDownList5" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
                                    </td>
                                    <td>Evacuation Zip 1:<br />
                                         <asp:TextBox ID="TextBox55" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
@@ -708,7 +708,7 @@
                                         <asp:TextBox ID="TextBox57" runat="server" Text='<%# Bind("Evac_City_2") %>' />
                                    </td>
                                    <td>Evacuation State 2:<br />
-                                         <asp:DropDownList ID="DropDownList6" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                         <asp:DropDownList ID="DropDownList6" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
                                    </td>
                                    <td>Evacuation Zip 2:<br />
                                         <asp:TextBox ID="TextBox59" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
@@ -730,7 +730,7 @@
                                         <asp:TextBox ID="TextBox62" runat="server" Text='<%# Bind("Evac_City_1") %>' />
                                    </td>
                                    <td>Evacuation State 1:<br />
-                                         <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                         <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
                                    </td>
                                    <td>Evacuation Zip 1:<br />
                                         <asp:TextBox ID="TextBox64" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
@@ -744,7 +744,7 @@
                                         <asp:TextBox ID="TextBox66" runat="server" Text='<%# Bind("Evac_City_2") %>' />
                                    </td>
                                    <td>Evacuation State 2:<br />
-                                         <asp:DropDownList ID="DropDownList8" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                         <asp:DropDownList ID="DropDownList8" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
                                    </td>
                                    <td>Evacuation Zip 2:<br />
                                         <asp:TextBox ID="TextBox68" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
@@ -756,39 +756,38 @@
                         </InsertItemTemplate>
                         <ItemTemplate>
                             Emergency Evacuation Needs:<br />
-                            <asp:TextBox ID="TextBox69" runat="server" ReadOnly="true" Text='<%# Bind("Emergency_Evac") %>' TextMode="MultiLine" Width="100%" />
+                            <asp:TextBox ID="TextBox69" runat="server" ReadOnly="true" Text='<%# Eval("Emergency_Evac") %>' TextMode="MultiLine" Width="100%" />
                             <table style="width:100%">
                                <tr>
                                    <td>Evacuation Address 1:<br />
-                                        <asp:TextBox ID="TextBox70" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Address_1") %>' />
+                                        <asp:TextBox ID="TextBox70" runat="server" ReadOnly="true" Text='<%# Eval("Evac_Address_1") %>' />
                                    </td>
                                    <td>Evacuation City 1:<br />
-                                        <asp:TextBox ID="TextBox71" runat="server" ReadOnly="true" Text='<%# Bind("Evac_City_1") %>' />
+                                        <asp:TextBox ID="TextBox71" runat="server" ReadOnly="true" Text='<%# Eval("Evac_City_1") %>' />
                                    </td>
                                    <td>Evacuation State 1:<br />
-                                         <asp:DropDownList ID="DropDownList9" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                         <asp:Textbox ID="DropDownList9" runat="server" Text='<%# Eval("State") %>'></asp:Textbox>
                                    </td>
                                    <td>Evacuation Zip 1:<br />
-                                        <asp:TextBox ID="TextBox73" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Zip_1") %>' />
+                                        <asp:TextBox ID="TextBox73" runat="server" ReadOnly="true" Text='<%# Eval("Evac_Zip_1") %>' />
                                    </td>
                                </tr>
                                 <tr>
                                    <td>Evacuation Addres 2:<br />
-                                        <asp:TextBox ID="TextBox74" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Address_2") %>' />
+                                        <asp:TextBox ID="TextBox74" runat="server" ReadOnly="true" Text='<%# Eval("Evac_Address_2") %>' />
                                    </td>
                                    <td>Evacuation City 2:<br />
-                                        <asp:TextBox ID="TextBox75" runat="server" ReadOnly="true" Text='<%# Bind("Evac_City_2") %>' />
+                                        <asp:TextBox ID="TextBox75" runat="server" ReadOnly="true" Text='<%# Eval("Evac_City_2") %>' />
                                    </td>
                                    <td>Evacuation State 2:<br />
-                                        <asp:DropDownList ID="DropDownList10" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                        <asp:TextBox ID="DropDownList10" runat="server" Text='<%# Eval("State") %>'></asp:TextBox>
                                    </td>
                                    <td>Evacuation Zip 2:<br />
-                                        <asp:TextBox ID="TextBox77" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Zip_2") %>' />
+                                        <asp:TextBox ID="TextBox77" runat="server" ReadOnly="true" Text='<%# Eval("Evac_Zip_2") %>' />
                                    </td>
                                </tr>
                             </table>
                             <asp:LinkButton ID="btnEvacEdit" runat="server" CssClass="btn btn-primary" CommandName="Edit"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
-                            <asp:LinkButton ID="btnEvacNew" runat="server" CausesValidation="False" CommandName="New" Text="New" />
                         </ItemTemplate>
                     </asp:FormView>
                     </div>
@@ -1057,7 +1056,7 @@
                                     </tr>
                                     <tr>
                                         <td>Diagnosis/Medical Condition:<br />
-                                            <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("Diagnosed_Condition") %>' TextMode="MultiLine" />
+                                            <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("Diagnosis") %>' TextMode="MultiLine" />
                                         </td>
                                         <td>Medical Limitations/Adapitve Devices:<br />
                                             <asp:TextBox ID="TextBox42" runat="server" Text='<%# Bind("Limitations") %>' TextMode="MultiLine" />
@@ -1125,7 +1124,7 @@
                                     </tr>
                                     <tr>
                                         <td>Diagnosis/Medical Condition:<br />
-                                            <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("Diagnosed_Condition") %>' TextMode="MultiLine" />
+                                            <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("Diagnosis") %>' TextMode="MultiLine" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -1193,7 +1192,7 @@
                                     </tr>
                                     <tr>
                                         <td>Diagnosis/Medical Condition:<br />
-                                            <asp:TextBox ID="TextBox41" runat="server" ReadOnly="true" Text='<%# Eval("Diagnosed_Condition") %>' TextMode="MultiLine" />
+                                            <asp:TextBox ID="TextBox41" runat="server" ReadOnly="true" Text='<%# Eval("Diagnosis") %>' TextMode="MultiLine" />
                                         </td>
                                         <td>Medical Limitations/Adapitve Devices:<br />
                                             <asp:TextBox ID="TextBox42" runat="server" ReadOnly="true" Text='<%# Eval("Limitations") %>' TextMode="MultiLine" />
