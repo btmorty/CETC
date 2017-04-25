@@ -13,6 +13,11 @@
     <asp:SqlDataSource ID="DDStatusSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [StatusID], [Status] FROM [DD_Status]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDStatesSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [State] FROM [DD_State]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDRelationshipsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Relationship] FROM [DD_Relationship]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="DDRaceSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Race] FROM [DD_Race]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="DDResidentialStatusSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Residential_Status] FROM [DD_Residential_Status]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="DDPreferredLanguageSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Preferred_Language] FROM [DD_Preferred_Language]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="DDReligionSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Religion] FROM [DD_Religion]"></asp:SqlDataSource>
+
     <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religious_Affiliation], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy], [ClientID] FROM [Client] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Status] = @Status, [DOB] = @DOB, [Age] = @Age, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Phone] = @Phone, [Email] = @Email, [Sex] = @Sex, [Race] = @Race, [Religious_Affiliation] = @Religious_Affiliation, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [SSN] = @SSN, [Staff_Ratio] = @Staff_Ratio, [DSPD] = @DSPD, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Diagnosis] = @Diagnosis, [PhotoID] = @PhotoID, [DateCreated] = @DateCreated, [DateModified] = GETDATE(), [ModifiedBy] = @ModifiedBy WHERE [ClientID] = @ClientID">
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
@@ -375,14 +380,14 @@
                                             <asp:TextBox ID="SexLabel" runat="server" ReadOnly="true" Text='<%# Eval("Sex") %>' /></td>
                                     </tr>
                                     <tr>
-                                        <td>Race:<br />
-                                            <asp:TextBox ID="RaceLabel" runat="server" ReadOnly="true" Text='<%# Eval("Race") %>' /></td>
-                                        <td>Residential Status:<br />
-                                            <asp:TextBox ID="Residential_StatusLabel" runat="server" ReadOnly="true" Text='<%# Eval("Residential_Status") %>' /></td>
-                                        <td>Preferred Language:<br />
-                                            <asp:TextBox ID="Preferred_LanguageLabel" runat="server" ReadOnly="true" Text='<%# Eval("Preferred_Language") %>' /></td>
-                                        <td>Religious Affiliation:<br />
-                                            <asp:TextBox ID="Religious_AffiliationLabel" runat="server" ReadOnly="true" Text='<%# Eval("Religious_Affiliation") %>' /></td>
+                                     <td>Race:<br />
+                                            <asp:TextBox ID="RaceLabel" runat="server" ReadOnly="true" Text='<%# Bind("Race") %>' /></td>
+                                     <td>Residential Status:<br />
+                                            <asp:TextBox ID="Residential_StatusLabel" runat="server" ReadOnly="true" Text='<%# Bind("Residential_Status") %>' /></td>
+                                     <td>Preferred Language:<br />
+                                            <asp:TextBox ID="Preferred_LanguageLabel" runat="server" ReadOnly="true" Text='<%# Bind("Preferred_Language") %>' /></td>
+                                     <td>Religious Affiliation:<br />
+                                            <asp:TextBox ID="Religious_AffiliationLabel" runat="server" ReadOnly="true" Text='<%# Bind("Religious_Affiliation") %>' /></td>
                                     </tr>
                                     <tr>
                                         <td>Staffing Ratio:<br />
@@ -453,14 +458,14 @@
                                             <asp:TextBox ID="SexLabel" runat="server" Text='<%# Bind("Sex") %>' /></td>
                                     </tr>
                                     <tr>
-                                        <td>Race:<br />
-                                            <asp:TextBox ID="RaceLabel" runat="server" Text='<%# Bind("Race") %>' /></td>
-                                        <td>Residential Status:<br />
-                                            <asp:TextBox ID="Residential_StatusLabel" runat="server" Text='<%# Bind("Residential_Status") %>' /></td>
-                                        <td>Preferred Language:<br />
-                                            <asp:TextBox ID="Preferred_LanguageLabel" runat="server" Text='<%# Bind("Preferred_Language") %>' /></td>
-                                        <td>Religious Affiliation:<br />
-                                            <asp:TextBox ID="Religious_AffiliationLabel" runat="server" Text='<%# Bind("Religious_Affiliation") %>' /></td>
+                                <td>Race:<br />
+                                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="DDRaceSqlDataSource" DataValueField="Race" SelectedValue='<%# Bind("Race") %>'></asp:DropDownList></td>
+                                <td>Residential Status:<br />
+                                     <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="DDResidentialStatusSqlDataSource" DataValueField="Residential_Status" SelectedValue='<%# Bind("Residential_Status") %>'></asp:DropDownList></td>
+                                <td>Preferred Language:<br />
+                                    <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="DDPreferredLanguageSqlDataSource" DataValueField="Preferred_Language" SelectedValue='<%# Bind("Preferred_Language") %>'></asp:DropDownList></td>
+                                <td>Religious Affiliation:<br />
+                                     <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="DDReligionSqlDataSource" DataValueField="Religion" SelectedValue='<%# Bind("Religion") %>'></asp:DropDownList></td>
                                     </tr>
                                     <tr>
                                         <td>Staffing Ratio:<br />
@@ -653,7 +658,7 @@
                                             <asp:TextBox ID="CityTextBox" runat="server" ReadOnly="true" Text='<%# Eval("City") %>' />
                                         </td>
                                         <td>State:<br />
-                                            <asp:TextBox ID="StateTextBox" runat="server" ReadOnly="true" Text='<%# Eval("State") %>' />
+                                            <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                         </td>
                                         <td>Zip Code:<br />
                                             <asp:TextBox ID="Zip_CodeTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Zip") %>' />
@@ -689,7 +694,7 @@
                                         <asp:TextBox ID="TextBox53" runat="server" Text='<%# Bind("Evac_City_1") %>' />
                                    </td>
                                    <td>Evacuation State 1:<br />
-                                        <asp:TextBox ID="TextBox54" runat="server" Text='<%# Bind("Evac_State_1") %>' />
+                                         <asp:DropDownList ID="DropDownList5" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                    </td>
                                    <td>Evacuation Zip 1:<br />
                                         <asp:TextBox ID="TextBox55" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
@@ -703,7 +708,7 @@
                                         <asp:TextBox ID="TextBox57" runat="server" Text='<%# Bind("Evac_City_2") %>' />
                                    </td>
                                    <td>Evacuation State 2:<br />
-                                        <asp:TextBox ID="TextBox58" runat="server" Text='<%# Bind("Evac_State_2") %>' />
+                                         <asp:DropDownList ID="DropDownList6" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                    </td>
                                    <td>Evacuation Zip 2:<br />
                                         <asp:TextBox ID="TextBox59" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
@@ -725,7 +730,7 @@
                                         <asp:TextBox ID="TextBox62" runat="server" Text='<%# Bind("Evac_City_1") %>' />
                                    </td>
                                    <td>Evacuation State 1:<br />
-                                        <asp:TextBox ID="TextBox63" runat="server" Text='<%# Bind("Evac_State_1") %>' />
+                                         <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                    </td>
                                    <td>Evacuation Zip 1:<br />
                                         <asp:TextBox ID="TextBox64" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
@@ -739,7 +744,7 @@
                                         <asp:TextBox ID="TextBox66" runat="server" Text='<%# Bind("Evac_City_2") %>' />
                                    </td>
                                    <td>Evacuation State 2:<br />
-                                        <asp:TextBox ID="TextBox67" runat="server" Text='<%# Bind("Evac_State_2") %>' />
+                                         <asp:DropDownList ID="DropDownList8" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                    </td>
                                    <td>Evacuation Zip 2:<br />
                                         <asp:TextBox ID="TextBox68" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
@@ -761,7 +766,7 @@
                                         <asp:TextBox ID="TextBox71" runat="server" ReadOnly="true" Text='<%# Bind("Evac_City_1") %>' />
                                    </td>
                                    <td>Evacuation State 1:<br />
-                                        <asp:TextBox ID="TextBox72" runat="server" ReadOnly="true" Text='<%# Bind("Evac_State_1") %>' />
+                                         <asp:DropDownList ID="DropDownList9" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                    </td>
                                    <td>Evacuation Zip 1:<br />
                                         <asp:TextBox ID="TextBox73" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Zip_1") %>' />
@@ -775,7 +780,7 @@
                                         <asp:TextBox ID="TextBox75" runat="server" ReadOnly="true" Text='<%# Bind("Evac_City_2") %>' />
                                    </td>
                                    <td>Evacuation State 2:<br />
-                                        <asp:TextBox ID="TextBox76" runat="server" ReadOnly="true" Text='<%# Bind("Evac_State_2") %>' />
+                                        <asp:DropDownList ID="DropDownList10" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                    </td>
                                    <td>Evacuation Zip 2:<br />
                                         <asp:TextBox ID="TextBox77" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Zip_2") %>' />
@@ -904,7 +909,7 @@
                                 <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
                                 </td>
                                 <td>State:<br />
-                                <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
+                                 <asp:DropDownList ID="DropDownList11" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                 </td>
                                 <td>Zip:<br />
                                 <asp:TextBox ID="ZipTextBox" runat="server" Text='<%# Bind("Zip") %>' />
@@ -946,7 +951,7 @@
                                 <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
                                 </td>
                                 <td>State:<br />
-                                <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
+                                 <asp:DropDownList ID="DropDownList12" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                 </td>
                                 <td>Zip:<br />
                                 <asp:TextBox ID="ZipTextBox" runat="server" Text='<%# Bind("Zip") %>' />
@@ -1077,7 +1082,7 @@
                                             <asp:TextBox ID="TextBox47" runat="server" Text='<%# Bind("City") %>' />
                                         </td>
                                         <td>State:<br />
-                                            <asp:TextBox ID="TextBox48" runat="server" Text='<%# Bind("State") %>' />
+                                             <asp:DropDownList ID="DropDownList13" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                         </td>
                                         <td>Zip:<br />
                                             <asp:TextBox ID="TextBox49" runat="server" Text='<%# Bind("Zip") %>' />
@@ -1145,7 +1150,7 @@
                                             <asp:TextBox ID="TextBox47" runat="server" Text='<%# Bind("City") %>' />
                                         </td>
                                         <td>State:<br />
-                                            <asp:TextBox ID="TextBox48" runat="server" Text='<%# Bind("State") %>' />
+                                             <asp:DropDownList ID="DropDownList14" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                         </td>
                                         <td>Zip:<br />
                                             <asp:TextBox ID="TextBox49" runat="server" Text='<%# Bind("Zip") %>' />
@@ -1258,7 +1263,7 @@
                                             <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
                                         </td>
                                         <td>State:<br />
-                                            <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
+                                             <asp:DropDownList ID="DropDownList15" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                         </td>
                                         <td>Zip:<br />
                                             <asp:TextBox ID="ZipTextBox" runat="server" Text='<%# Bind("Zip") %>' />
@@ -1300,7 +1305,7 @@
                                             <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
                                         </td>
                                         <td>State:<br />
-                                            <asp:TextBox ID="StateTextBox" runat="server" Text='<%# Bind("State") %>' />
+                                            <asp:DropDownList ID="DropDownList16" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                         </td>
                                         <td>Zip:<br />
                                             <asp:TextBox ID="ZipTextBox" runat="server" Text='<%# Bind("Zip") %>' />
@@ -1380,8 +1385,8 @@
                                         <td>Physician:<br />
                                             <asp:TextBox ID="PhysicianTextBox" runat="server" Text='<%# Bind("Physician") %>' />
                                         </td>
-                                        <td>Non-Perscription:<br />
-                                            <asp:TextBox ID="Non_PerscriptionTextBox" runat="server" Text='<%# Bind("Non_Perscription") %>' />
+                                        <td>
+                                            <asp:CheckBox ID="Non_PerscriptionCheckBox" runat="server" Text="Non_Perscription" Checked='<%# Bind("Non_Perscription") %>' />
                                         </td>
                                     </tr>
                                 </table>
@@ -1409,7 +1414,7 @@
                                             <asp:TextBox ID="PhysicianTextBox" runat="server" Text='<%# Bind("Physician") %>' />
                                         </td>
                                         <td>Non-Perscription:<br />
-                                            <asp:TextBox ID="Non_PerscriptionTextBox" runat="server" Text='<%# Bind("Non_Perscription") %>' />
+                                            <asp:CheckBox ID="Non_PerscriptionCheckBox" runat="server" Text="Non_Perscription" Checked='<%# Bind("Non_Perscription") %>' />
                                         </td>
                                     </tr>
                                 </table>

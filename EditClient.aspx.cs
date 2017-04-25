@@ -78,6 +78,7 @@ public partial class EditClient : System.Web.UI.Page
             EvacFormView.ChangeMode(FormViewMode.Insert);
         }
     }
+
     protected void HealthProfileFormView_DataBound(object sender, EventArgs e)
     {
         if (HelthProfileFormView.PageCount == 0)
@@ -85,6 +86,7 @@ public partial class EditClient : System.Web.UI.Page
             HelthProfileFormView.ChangeMode(FormViewMode.Insert);
         }
     }
+
     protected void InsuranceFormView_DataBound(object sender, EventArgs e)
     {
         if (InsuranceFormView.PageCount == 0)
@@ -93,5 +95,3 @@ public partial class EditClient : System.Web.UI.Page
         }
     }
 }
-
-
