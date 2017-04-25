@@ -547,7 +547,7 @@
                                         <td>State:<br />
                                             <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>' />
                                         </td>
-                                        <td>Zip_Code:<br />
+                                        <td>Zip Code:<br />
                                             <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip") %>' />
                                         </td>
                                     </tr>
@@ -603,7 +603,7 @@
                                         <td>State:<br />
                                             <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
                                         </td>
-                                        <td>Zip_Code:<br />
+                                        <td>Zip Code:<br />
                                             <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip") %>' />
                                         </td>
                                     </tr>
@@ -655,7 +655,7 @@
                                         <td>State:<br />
                                             <asp:TextBox ID="StateTextBox" runat="server" ReadOnly="true" Text='<%# Eval("State") %>' />
                                         </td>
-                                        <td>Zip_Code:<br />
+                                        <td>Zip Code:<br />
                                             <asp:TextBox ID="Zip_CodeTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Zip") %>' />
                                         </td>
                                     </tr>
@@ -1364,7 +1364,7 @@
                         <asp:HiddenField ID="MedicationID" runat="server" Value='<%# Eval("MedicationID") %>' />
                         <table style="width:100%">
                             <tr>
-                                <td>Medication_Name:<br />
+                                <td>Medication Name:<br />
                                     <asp:TextBox ID="Medication_NameTextBox" runat="server" Text='<%# Bind("Medication_Name") %>' />
                                 </td>
                                 <td>Dosage:<br />
@@ -1392,7 +1392,7 @@
                         <asp:HiddenField ID="MedicationID" runat="server" Value='<%# Eval("MedicationID") %>' />
                         <table style="width:100%">
                             <tr>
-                                <td>Medication_Name:<br />
+                                <td>Medication Name:<br />
                                     <asp:TextBox ID="Medication_NameTextBox" runat="server" Text='<%# Bind("Medication_Name") %>' />
                                 </td>
                                 <td>Dosage:<br />
@@ -1417,7 +1417,7 @@
                         <asp:HiddenField ID="MedicationID" runat="server" Value='<%# Eval("MedicationID") %>' />
                         <table style="width:100%">
                             <tr>
-                                <td>Medication_Name:<br />
+                                <td>Medication Name:<br />
                                     <asp:TextBox ID="Medication_NameTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Medication_Name") %>' />
                                 </td>
                                 <td>Dosage:<br />
