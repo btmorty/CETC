@@ -400,7 +400,7 @@
                                     <tr>
                                         <td>SSA:<br />
                                             <asp:TextBox ID="SSALabel" runat="server" ReadOnly="true" Text='<%# Eval("SSA") %>' /></td>
-                                        <td>Modes_Communication:<br />
+                                        <td>Modes of Communication:<br />
                                             <asp:TextBox ID="Modes_CommunicationLabel" ReadOnly="true" runat="server" Text='<%# Eval("Modes_Communication") %>' /></td>
                                         <td>Diagnosis:<br />
                                             <asp:TextBox ID="DiagnosisLabel" ReadOnly="true" runat="server" Text='<%# Eval("Diagnosis") %>' /></td>
@@ -478,7 +478,7 @@
                                     <tr>
                                         <td>SSA:<br />
                                             <asp:TextBox ID="SSALabel" runat="server" Text='<%# Bind("SSA") %>' /></td>
-                                        <td>Modes_Communication:<br />
+                                        <td>Modes of Communication:<br />
                                             <asp:TextBox ID="Modes_CommunicationLabel" runat="server" Text='<%# Bind("Modes_Communication") %>' /></td>
                                         <td>Diagnosis:<br />
                                             <asp:TextBox ID="DiagnosisLabel" runat="server" Text='<%# Bind("Diagnosis") %>' /></td>
@@ -499,7 +499,7 @@
                         <asp:Image ID="imgProfile" runat="server" BorderStyle="Solid" BorderWidth="1" Height="200px" ImageAlign="Middle" Width="200px" /><br />
                         <br />
                         <asp:Label ID="lblFileUpload" runat="server" Text="Upload Image "></asp:Label>
-                        <asp:FileUpload ID="imageUpload" runat="server" />
+                        <asp:FileUpload ID="imageUpload" runat="server" /><br />
                         <asp:LinkButton ID="btnUpload" runat="server" CssClass="btn btn-primary" OnClick="btnUpload_Click"> <span aria-hidden="true" class="glyphicon glyphicon-upload"></span>Upload Picture</asp:LinkButton>
                         <br />
                         <asp:Label ID="lblUploadStatus" runat="server" Visible="False" ForeColor="Red" Text="Upload status: " />
@@ -577,7 +577,7 @@
                                             <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
                                         </td>
                                         <td>Relationship:<br />
-                                            <asp:TextBox ID="RelationshipTextBox" runat="server" Text='<%# Bind("Relationship") %>' />
+                                            <asp:DropDownList ID="ddRelationship" runat="server" DataSourceID="DDRelationshipsSqlDataSource" DataValueField="Relationship" SelectedValue='<%# Bind("Relationship") %>' />
                                         </td>
                                         <td>
                                             <asp:CheckBox ID="Emergency_ContactCheckBox" runat="server" Text="Emergency Contact" Checked='<%# Bind("Emergency_Contact") %>' /><br />
