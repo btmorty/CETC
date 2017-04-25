@@ -114,4 +114,10 @@ public partial class Membership_ManageUsers : System.Web.UI.Page
         txtZip.Text = prof.Address.Zip;
         txtCountry.Text = prof.Address.Country;
     }
+
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        GridView1.EditIndex = -1;
+        GridView1.DataBind();
+    }
 }

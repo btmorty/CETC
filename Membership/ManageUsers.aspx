@@ -11,7 +11,7 @@
         </div>
     </div>
     <div>
-        <asp:GridView ID="GridView1" DataKeyNames="UserName" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CellPadding="2" CellSpacing="2" HorizontalAlign="Center" Width="1000px">
+        <asp:GridView ID="GridView1" DataKeyNames="UserName" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CellPadding="2" CellSpacing="2" HorizontalAlign="Center" Width="1000px" OnRowDeleting="GridView1_RowDeleting">
             <Columns>
                 <asp:BoundField DataField="UserName" HeaderText="User Name" ReadOnly="True" SortExpression="UserName" />
                 <asp:BoundField DataField="Email" HeaderText="Email Address" ReadOnly="True" SortExpression="Email" />
@@ -36,8 +36,15 @@
                 </asp:TemplateField>
                 <asp:ButtonField CommandName="Select" HeaderText="View Profile" ShowHeader="False" Text="View" />
 
-                <asp:ButtonField CommandName="DeleteUser" HeaderText="Delete Profile" ShowHeader="True" Text="Delete" />
-
+                <asp:TemplateField HeaderText="Delete Profile">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButton4" runat="server" CausesValidation="false" CommandName="DeleteUser" Text="Delete User"></asp:LinkButton>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:LinkButton ID="LinkButton5" runat="server" CommandName="Delete">Delete</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton6" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
+                    </EditItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
         <br />
@@ -81,7 +88,7 @@
                     <td>
                         <asp:Label ID="Label6" runat="server" Text="State "></asp:Label></td>
                     <td>
-                        <asp:TextBox ReadOnly="true" ID="txtState" runat="server" Height="16px"></asp:TextBox></td>
+                        <asp:TextBox ReadOnly="true" ID="txtState" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
@@ -95,7 +102,9 @@
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtCountry" runat="server"></asp:TextBox></td>
                 </tr>
-                  
+     
+               
+                
             </table>
             
             
@@ -103,8 +112,8 @@
         </asp:Panel>
     </div>
     <%--Link to new user page--%>
-    <div style="margin-left: auto; margin-right: auto; text-align: center;">
-        <asp:LinkButton href="CreateUser.aspx" ID="NewUser" runat="server"> Add New User</asp:LinkButton>
+    <div>
+        <<asp:LinkButton href="CreateUser.aspx" ID="NewUser" runat="server">Add New User</asp:LinkButton>
     </div>
 </asp:Content>
 
