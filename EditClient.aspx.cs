@@ -16,13 +16,10 @@ public partial class EditClient : System.Web.UI.Page
 
     {
         //Retrieve ClientID from QueryString and store in session variable
-        if (Request.QueryString != null)
+        if (Request.QueryString["ClientID"] != null)
         {
             Session["ClientID"] = Request.QueryString["ClientID"];
-        }
 
-        if (!IsPostBack)
-        {
             MembershipUser CurrentUser = Membership.GetUser(User.Identity.Name);
             Session["CurrentUser"] = CurrentUser.ToString();
 

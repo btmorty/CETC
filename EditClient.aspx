@@ -658,7 +658,7 @@
                                             <asp:TextBox ID="CityTextBox" runat="server" ReadOnly="true" Text='<%# Eval("City") %>' />
                                         </td>
                                         <td>State:<br />
-                                            <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                            <asp:TextBox ID="txtbState" runat="server" ReadOnly="true" Text='<%# Eval("State") %>' />
                                         </td>
                                         <td>Zip Code:<br />
                                             <asp:TextBox ID="Zip_CodeTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Zip") %>' />
@@ -694,7 +694,7 @@
                                         <asp:TextBox ID="TextBox53" runat="server" Text='<%# Bind("Evac_City_1") %>' />
                                    </td>
                                    <td>Evacuation State 1:<br />
-                                         <asp:DropDownList ID="DropDownList5" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                         <asp:DropDownList ID="DropDownList5" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
                                    </td>
                                    <td>Evacuation Zip 1:<br />
                                         <asp:TextBox ID="TextBox55" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
@@ -708,7 +708,7 @@
                                         <asp:TextBox ID="TextBox57" runat="server" Text='<%# Bind("Evac_City_2") %>' />
                                    </td>
                                    <td>Evacuation State 2:<br />
-                                         <asp:DropDownList ID="DropDownList6" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                         <asp:DropDownList ID="DropDownList6" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
                                    </td>
                                    <td>Evacuation Zip 2:<br />
                                         <asp:TextBox ID="TextBox59" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
@@ -730,7 +730,7 @@
                                         <asp:TextBox ID="TextBox62" runat="server" Text='<%# Bind("Evac_City_1") %>' />
                                    </td>
                                    <td>Evacuation State 1:<br />
-                                         <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                         <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
                                    </td>
                                    <td>Evacuation Zip 1:<br />
                                         <asp:TextBox ID="TextBox64" runat="server" Text='<%# Bind("Evac_Zip_1") %>' />
@@ -744,7 +744,7 @@
                                         <asp:TextBox ID="TextBox66" runat="server" Text='<%# Bind("Evac_City_2") %>' />
                                    </td>
                                    <td>Evacuation State 2:<br />
-                                         <asp:DropDownList ID="DropDownList8" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                         <asp:DropDownList ID="DropDownList8" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
                                    </td>
                                    <td>Evacuation Zip 2:<br />
                                         <asp:TextBox ID="TextBox68" runat="server" Text='<%# Bind("Evac_Zip_2") %>' />
@@ -756,39 +756,38 @@
                         </InsertItemTemplate>
                         <ItemTemplate>
                             Emergency Evacuation Needs:<br />
-                            <asp:TextBox ID="TextBox69" runat="server" ReadOnly="true" Text='<%# Bind("Emergency_Evac") %>' TextMode="MultiLine" Width="100%" />
+                            <asp:TextBox ID="TextBox69" runat="server" ReadOnly="true" Text='<%# Eval("Emergency_Evac") %>' TextMode="MultiLine" Width="100%" />
                             <table style="width:100%">
                                <tr>
                                    <td>Evacuation Address 1:<br />
-                                        <asp:TextBox ID="TextBox70" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Address_1") %>' />
+                                        <asp:TextBox ID="TextBox70" runat="server" ReadOnly="true" Text='<%# Eval("Evac_Address_1") %>' />
                                    </td>
                                    <td>Evacuation City 1:<br />
-                                        <asp:TextBox ID="TextBox71" runat="server" ReadOnly="true" Text='<%# Bind("Evac_City_1") %>' />
+                                        <asp:TextBox ID="TextBox71" runat="server" ReadOnly="true" Text='<%# Eval("Evac_City_1") %>' />
                                    </td>
                                    <td>Evacuation State 1:<br />
-                                         <asp:DropDownList ID="DropDownList9" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                         <asp:Textbox ID="DropDownList9" runat="server" Text='<%# Eval("State") %>'></asp:Textbox>
                                    </td>
                                    <td>Evacuation Zip 1:<br />
-                                        <asp:TextBox ID="TextBox73" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Zip_1") %>' />
+                                        <asp:TextBox ID="TextBox73" runat="server" ReadOnly="true" Text='<%# Eval("Evac_Zip_1") %>' />
                                    </td>
                                </tr>
                                 <tr>
                                    <td>Evacuation Addres 2:<br />
-                                        <asp:TextBox ID="TextBox74" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Address_2") %>' />
+                                        <asp:TextBox ID="TextBox74" runat="server" ReadOnly="true" Text='<%# Eval("Evac_Address_2") %>' />
                                    </td>
                                    <td>Evacuation City 2:<br />
-                                        <asp:TextBox ID="TextBox75" runat="server" ReadOnly="true" Text='<%# Bind("Evac_City_2") %>' />
+                                        <asp:TextBox ID="TextBox75" runat="server" ReadOnly="true" Text='<%# Eval("Evac_City_2") %>' />
                                    </td>
                                    <td>Evacuation State 2:<br />
-                                        <asp:DropDownList ID="DropDownList10" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                        <asp:TextBox ID="DropDownList10" runat="server" Text='<%# Eval("State") %>'></asp:TextBox>
                                    </td>
                                    <td>Evacuation Zip 2:<br />
-                                        <asp:TextBox ID="TextBox77" runat="server" ReadOnly="true" Text='<%# Bind("Evac_Zip_2") %>' />
+                                        <asp:TextBox ID="TextBox77" runat="server" ReadOnly="true" Text='<%# Eval("Evac_Zip_2") %>' />
                                    </td>
                                </tr>
                             </table>
                             <asp:LinkButton ID="btnEvacEdit" runat="server" CssClass="btn btn-primary" CommandName="Edit"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
-                            <asp:LinkButton ID="btnEvacNew" runat="server" CausesValidation="False" CommandName="New" Text="New" />
                         </ItemTemplate>
                     </asp:FormView>
                     </div>
