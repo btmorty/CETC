@@ -181,7 +181,7 @@
         </UpdateParameters>
     </asp:SqlDataSource>
     
-    <asp:SqlDataSource ID="HealthProfileSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Health_Profile] WHERE [Health_Profile_ID] = @Health_Profile_ID" InsertCommand="INSERT INTO [Health_Profile] ([DOB], [Height], [Weight], [Hair], [Eyes], [Diagnosed_Condition], [Limitations], [Allergies], [Preferred_Hospital], [Hospital_Phone], [ClientID], [Address], [City], [State], [Zip]) VALUES (@DOB, @Height, @Weight, @Hair, @Eyes, @Diagnosed_Condition, @Limitations, @Allergies, @Preferred_Hospital, @Hospital_Phone, @ClientID, @Address, @City, @State, @Zip)" SelectCommand="SELECT Health_Profile.Health_Profile_ID, Health_Profile.Height, Health_Profile.Weight, Health_Profile.Hair, Health_Profile.Eyes, Health_Profile.Diagnosed_Condition, Health_Profile.Limitations, Health_Profile.Allergies, Health_Profile.Preferred_Hospital, Health_Profile.Hospital_Phone, Health_Profile.ClientID, Health_Profile.Address, Health_Profile.City, Health_Profile.State, Health_Profile.Zip, Client.First_Name, Client.Last_Name, Client.DOB, Client.Sex FROM Health_Profile INNER JOIN Client ON Client.ClientID = Health_Profile.ClientID WHERE (Health_Profile.ClientID = @ClientID)" UpdateCommand="UPDATE [Health_Profile] SET [DOB] = @DOB, [Height] = @Height, [Weight] = @Weight, [Hair] = @Hair, [Eyes] = @Eyes, [Diagnosed_Condition] = @Diagnosed_Condition, [Limitations] = @Limitations, [Allergies] = @Allergies, [Preferred_Hospital] = @Preferred_Hospital, [Hospital_Phone] = @Hospital_Phone, [ClientID] = @ClientID, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip WHERE [Health_Profile_ID] = @Health_Profile_ID">
+    <asp:SqlDataSource ID="HealthProfileSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Health_Profile] WHERE [Health_Profile_ID] = @Health_Profile_ID" InsertCommand="INSERT INTO [Health_Profile] ([DOB], [Height], [Weight], [Hair], [Eyes], [Diagnosis], [Limitations], [Allergies], [Preferred_Hospital], [Hospital_Phone], [ClientID], [Address], [City], [State], [Zip]) VALUES (@DOB, @Height, @Weight, @Hair, @Eyes, @Diagnosis, @Limitations, @Allergies, @Preferred_Hospital, @Hospital_Phone, @ClientID, @Address, @City, @State, @Zip)" SelectCommand="SELECT Health_Profile.Health_Profile_ID, Health_Profile.Height, Health_Profile.Weight, Health_Profile.Hair, Health_Profile.Eyes, Health_Profile.Diagnosis, Health_Profile.Limitations, Health_Profile.Allergies, Health_Profile.Preferred_Hospital, Health_Profile.Hospital_Phone, Health_Profile.ClientID, Health_Profile.Address, Health_Profile.City, Health_Profile.State, Health_Profile.Zip, Client.First_Name, Client.Last_Name, Client.DOB, Client.Sex FROM Health_Profile INNER JOIN Client ON Client.ClientID = Health_Profile.ClientID WHERE (Health_Profile.ClientID = @ClientID)" UpdateCommand="UPDATE [Health_Profile] SET [DOB] = @DOB, [Height] = @Height, [Weight] = @Weight, [Hair] = @Hair, [Eyes] = @Eyes, [Diagnosis] = @Diagnosis, [Limitations] = @Limitations, [Allergies] = @Allergies, [Preferred_Hospital] = @Preferred_Hospital, [Hospital_Phone] = @Hospital_Phone, [ClientID] = @ClientID, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip WHERE [Health_Profile_ID] = @Health_Profile_ID">
         <DeleteParameters>
             <asp:Parameter Name="Health_Profile_ID" Type="Int32" />
         </DeleteParameters>
@@ -191,7 +191,7 @@
             <asp:Parameter Name="Weight" Type="String" />
             <asp:Parameter Name="Hair" Type="String" />
             <asp:Parameter Name="Eyes" Type="String" />
-            <asp:Parameter Name="Diagnosed_Condition" Type="String" />
+            <asp:Parameter Name="Diagnosis" Type="String" />
             <asp:Parameter Name="Limitations" Type="String" />
             <asp:Parameter Name="Allergies" Type="String" />
             <asp:Parameter Name="Preferred_Hospital" Type="String" />
@@ -211,7 +211,7 @@
             <asp:Parameter Name="Weight" Type="String" />
             <asp:Parameter Name="Hair" Type="String" />
             <asp:Parameter Name="Eyes" Type="String" />
-            <asp:Parameter Name="Diagnosed_Condition" Type="String" />
+            <asp:Parameter Name="Diagnosis" Type="String" />
             <asp:Parameter Name="Limitations" Type="String" />
             <asp:Parameter Name="Allergies" Type="String" />
             <asp:Parameter Name="Preferred_Hospital" Type="String" />
@@ -1057,7 +1057,7 @@
                                     </tr>
                                     <tr>
                                         <td>Diagnosis/Medical Condition:<br />
-                                            <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("Diagnosed_Condition") %>' TextMode="MultiLine" />
+                                            <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("Diagnosis") %>' TextMode="MultiLine" />
                                         </td>
                                         <td>Medical Limitations/Adapitve Devices:<br />
                                             <asp:TextBox ID="TextBox42" runat="server" Text='<%# Bind("Limitations") %>' TextMode="MultiLine" />
@@ -1125,7 +1125,7 @@
                                     </tr>
                                     <tr>
                                         <td>Diagnosis/Medical Condition:<br />
-                                            <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("Diagnosed_Condition") %>' TextMode="MultiLine" />
+                                            <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("Diagnosis") %>' TextMode="MultiLine" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -1193,7 +1193,7 @@
                                     </tr>
                                     <tr>
                                         <td>Diagnosis/Medical Condition:<br />
-                                            <asp:TextBox ID="TextBox41" runat="server" ReadOnly="true" Text='<%# Eval("Diagnosed_Condition") %>' TextMode="MultiLine" />
+                                            <asp:TextBox ID="TextBox41" runat="server" ReadOnly="true" Text='<%# Eval("Diagnosis") %>' TextMode="MultiLine" />
                                         </td>
                                         <td>Medical Limitations/Adapitve Devices:<br />
                                             <asp:TextBox ID="TextBox42" runat="server" ReadOnly="true" Text='<%# Eval("Limitations") %>' TextMode="MultiLine" />
