@@ -40,8 +40,9 @@
                 <asp:ControlParameter ControlID="ddState1" Name="State" PropertyName="SelectedValue" Type="String" DefaultValue="--" />
             </SelectParameters>
     </asp:SqlDataSource>
-        <asp:GridView ID="ClientGridView" DataSourceID="SqlDataSource2" AutoGenerateColumns="False" EmptyDataText="Please select a state." AllowPaging="True" HorizontalAlign="Center" runat="server" DataKeyNames="ClientID" AllowSorting="True" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False">
+        <asp:GridView ID="ClientGridView" DataSourceID="SqlDataSource2" AutoGenerateColumns="False" EmptyDataText="Please select a state." AllowPaging="True" HorizontalAlign="Center" runat="server" DataKeyNames="ClientID" AllowSorting="True" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" OnRowCommand="ClientGridView_RowCommand">
             <Columns>
+                <asp:CommandField ShowSelectButton="True" />
                 <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
                 <asp:BoundField DataField="First_Name" HeaderText="First Name" SortExpression="First_Name" />
                 <asp:BoundField DataField="Last_Name" HeaderText="Last Name" SortExpression="Last_Name" />
