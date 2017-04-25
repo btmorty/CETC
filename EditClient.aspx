@@ -18,7 +18,7 @@
     <asp:SqlDataSource ID="DDPreferredLanguageSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Preferred_Language] FROM [DD_Preferred_Language]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDReligionSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Religion] FROM [DD_Religion]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDSexSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Sex] FROM [DD_Sex]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religious_Affiliation], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy], [ClientID] FROM [Client] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Status] = @Status, [DOB] = @DOB, [Age] = @Age, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Phone] = @Phone, [Email] = @Email, [Sex] = @Sex, [Race] = @Race, [Religious_Affiliation] = @Religious_Affiliation, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [SSN] = @SSN, [Staff_Ratio] = @Staff_Ratio, [DSPD] = @DSPD, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Diagnosis] = @Diagnosis, [PhotoID] = @PhotoID, [DateCreated] = @DateCreated, [DateModified] = GETDATE(), [ModifiedBy] = @ModifiedBy WHERE [ClientID] = @ClientID">
+    <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religion], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy], [ClientID] FROM [Client] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Status] = @Status, [DOB] = @DOB, [Age] = @Age, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Phone] = @Phone, [Email] = @Email, [Sex] = @Sex, [Race] = @Race, [Religion] = @Religion, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [SSN] = @SSN, [Staff_Ratio] = @Staff_Ratio, [DSPD] = @DSPD, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Diagnosis] = @Diagnosis, [PhotoID] = @PhotoID, [DateCreated] = @DateCreated, [DateModified] = GETDATE(), [ModifiedBy] = @ModifiedBy WHERE [ClientID] = @ClientID">
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
@@ -36,7 +36,7 @@
             <asp:Parameter Name="Email" Type="String" />
             <asp:Parameter Name="Sex" Type="String" />
             <asp:Parameter Name="Race" Type="String" />
-            <asp:Parameter Name="Religious_Affiliation" Type="String" />
+            <asp:Parameter Name="Religion" Type="String" />
             <asp:Parameter Name="Residential_Status" Type="String" />
             <asp:Parameter Name="Preferred_Language" Type="String" />
             <asp:Parameter Name="SSN" Type="Int32" />
@@ -387,7 +387,7 @@
                                      <td>Preferred Language:<br />
                                             <asp:TextBox ID="Preferred_LanguageLabel" runat="server" ReadOnly="true" Text='<%# Bind("Preferred_Language") %>' /></td>
                                      <td>Religious Affiliation:<br />
-                                            <asp:TextBox ID="Religious_AffiliationLabel" runat="server" ReadOnly="true" Text='<%# Bind("Religious_Affiliation") %>' /></td>
+                                            <asp:TextBox ID="Religious_AffiliationLabel" runat="server" ReadOnly="true" Text='<%# Bind("Religion") %>' /></td>
                                     </tr>
                                     <tr>
                                         <td>Staffing Ratio:<br />
