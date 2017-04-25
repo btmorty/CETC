@@ -37,6 +37,7 @@
                 <asp:ButtonField CommandName="Select" HeaderText="View Profile" ShowHeader="False" Text="View" />
 
                 <asp:ButtonField CommandName="DeleteUser" HeaderText="Delete Profile" ShowHeader="True" Text="Delete" />
+
             </Columns>
         </asp:GridView>
         <br />
@@ -80,7 +81,7 @@
                     <td>
                         <asp:Label ID="Label6" runat="server" Text="State "></asp:Label></td>
                     <td>
-                        <asp:TextBox ReadOnly="true" ID="txtState" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ReadOnly="true" ID="txtState" runat="server" Height="16px"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
@@ -94,9 +95,7 @@
                     <td>
                         <asp:TextBox ReadOnly="true" ID="txtCountry" runat="server"></asp:TextBox></td>
                 </tr>
-     
-               
-                
+                  
             </table>
             
             
@@ -104,8 +103,8 @@
         </asp:Panel>
     </div>
     <%--Link to new user page--%>
-    <div>
-        <<asp:LinkButton href="CreateUser.aspx" ID="NewUser" runat="server">Add New User</asp:LinkButton>
+    <div style="margin-left: auto; margin-right: auto; text-align: center;">
+        <asp:LinkButton href="CreateUser.aspx" ID="NewUser" runat="server"> Add New User</asp:LinkButton>
     </div>
 </asp:Content>
 

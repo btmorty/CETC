@@ -12,6 +12,10 @@
     </style>
     <asp:SqlDataSource ID="DDStatusSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [StatusID], [Status] FROM [DD_Status]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDStatesSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [State] FROM [DD_State]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="DDRaceSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Race] FROM [DD_Race]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="DDResidentialStatusDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Residential_Status] FROM [DD_Residential_Status]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="DDPreferredLanguageDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Preferred_Language] FROM [DD_Preferred_Language]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="DDReligionDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Religion] FROM [DD_Religion]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [ClientID], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religious_Affiliation], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy] FROM [Client] " InsertCommand="INSERT INTO [Client] ([First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religious_Affiliation], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy]) VALUES (@First_Name, @Last_Name, @Status, @DOB, @Age, @Address, @City, @State, @Zip, @Phone, @Email, @Sex, @Race, @Religious_Affiliation, @Residential_Status, @Preferred_Language, @SSN, @Staff_Ratio, @DSPD, @SSI, @SSA, @Modes_Communication, @Diagnosis, @PhotoID, @DateCreated, @DateModified, @ModifiedBy) SELECT @NewClientID=SCOPE_IDENTITY();" OnInserted="ClientSqlDataSource_Inserted">
         <InsertParameters>
             <asp:parameter direction="Output" name="NewClientID" type="Int32" />
@@ -99,13 +103,13 @@
                             </tr>
                             <tr>
                                 <td>Race:<br />
-                                    <asp:TextBox ID="RaceLabel" runat="server" Text='<%# Bind("Race") %>' /></td>
+                                    <asp:DropDownList ID="DropDownListRace" runat="server" DataSourceID="DDRaceSqlDataSource" DataValueField="Race" SelectedValue='<%# Bind("Race") %>'></asp:DropDownList></td>
                                 <td>Residential Status:<br />
-                                    <asp:TextBox ID="Residential_StatusLabel" runat="server" Text='<%# Bind("Residential_Status") %>' /></td>
+                                     <asp:DropDownList ID="DropDownListResidentialStatus" runat="server" DataSourceID="DDResidentialStatusDataSource" DataValueField="Residential_Status" SelectedValue='<%# Bind("Residential_Status") %>'></asp:DropDownList></td>
                                 <td>Preferred Language:<br />
-                                    <asp:TextBox ID="Preferred_LanguageLabel" runat="server" Text='<%# Bind("Preferred_Language") %>' /></td>
+                                    <asp:DropDownList ID="DropDownListPreferredLanguage" runat="server" DataSourceID="DDPreferredLanguageDataSource" DataValueField="Preferred_Language" SelectedValue='<%# Bind("Preferred_Language") %>'></asp:DropDownList></td>
                                 <td>Religious Affiliation:<br />
-                                    <asp:TextBox ID="Religious_AffiliationLabel" runat="server" Text='<%# Bind("Religious_Affiliation") %>' /></td>
+                                     <asp:DropDownList ID="DropDownListReligion" runat="server" DataSourceID="DDReligionDataSource" DataValueField="Religion" SelectedValue='<%# Bind("Religion") %>'></asp:DropDownList></td>
                             </tr>
                             <tr>
                                 <td>Staffing Ratio:<br />
