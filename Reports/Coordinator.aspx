@@ -9,9 +9,6 @@
         padding-bottom: 5px;
         }
     </style>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT CETC_INFO.Coordinator FROM CETC_INFO INNER JOIN Client ON CETC_INFO.ClientID = Client.ClientID">
-    </asp:SqlDataSource>
-     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.First_Name, Client.Last_Name, Client.Status, CETC_INFO.Coordinator FROM Client INNER JOIN CETC_INFO ON Client.ClientID = CETC_INFO.ClientID"></asp:SqlDataSource>
 <%--//Page Header--%>
     <div class="container">
         <div class="row">
@@ -29,13 +26,17 @@
           
         <asp:Label ID="lblSelectCoordinator" runat="server" Text="Please select a Coordinator:"></asp:Label><br />
           
-        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Coordinator" DataValueField="CECTID" Height="16px" Width="151px">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT CETC_INFO.Coordinator, CETC_INFO.ClientID FROM CETC_INFO INNER JOIN Client ON CETC_INFO.ClientID = Client.ClientID">
+    </asp:SqlDataSource>
+          
+        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Coordinator" DataValueField="ClientID" Height="16px" Width="151px">
         </asp:DropDownList>
         
     </div>
     <br />
     <br />
 <%--//List View Output--%>
+     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.First_Name, Client.Last_Name, Client.Status, CETC_INFO.Coordinator FROM Client INNER JOIN CETC_INFO ON Client.ClientID = CETC_INFO.ClientID"></asp:SqlDataSource>
         <asp:GridView ID="ClientGridView" AutoGenerateColumns="False" EmptyDataText="No data available." AllowPaging="True" HorizontalAlign="Center" runat="server" AllowSorting="True" OnRowCommand="ClientGridView_RowCommand" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" DataSourceID="SqlDataSource2">
 
             <Columns>

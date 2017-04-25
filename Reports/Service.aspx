@@ -9,7 +9,7 @@
         padding-bottom: 5px;
         }
     </style>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT CETC_INFO.Service FROM CETC_INFO INNER JOIN Client ON CETC_INFO.ClientID = Client.ClientID">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT CETC_INFO.Service, CETC_INFO.ClientID FROM CETC_INFO INNER JOIN Client ON CETC_INFO.ClientID = Client.ClientID">
     </asp:SqlDataSource>
      <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.First_Name, Client.Last_Name, Client.Status, CETC_INFO.Service FROM Client INNER JOIN CETC_INFO ON Client.ClientID = CETC_INFO.ClientID"></asp:SqlDataSource>
 <%--//Page Header--%>
@@ -29,7 +29,7 @@
           
         <asp:Label ID="lblSelectService" runat="server" Text="Please select a Service:"></asp:Label><br />
           
-        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Service" DataValueField="CECTID" Height="16px" Width="151px">
+        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Service" DataValueField="ClientID" Height="16px" Width="151px">
         </asp:DropDownList>
         
     </div>
