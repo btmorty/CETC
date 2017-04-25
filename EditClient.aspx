@@ -17,7 +17,8 @@
     <asp:SqlDataSource ID="DDResidentialStatusSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Residential_Status] FROM [DD_Residential_Status]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDPreferredLanguageSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Preferred_Language] FROM [DD_Preferred_Language]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDReligionSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Religion] FROM [DD_Religion]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religious_Affiliation], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy], [ClientID] FROM [Client] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Status] = @Status, [DOB] = @DOB, [Age] = @Age, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Phone] = @Phone, [Email] = @Email, [Sex] = @Sex, [Race] = @Race, [Religious_Affiliation] = @Religious_Affiliation, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [SSN] = @SSN, [Staff_Ratio] = @Staff_Ratio, [DSPD] = @DSPD, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Diagnosis] = @Diagnosis, [PhotoID] = @PhotoID, [DateCreated] = @DateCreated, [DateModified] = @DateModified, [ModifiedBy] = @ModifiedBy WHERE [ClientID] = @ClientID">
+
+    <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religious_Affiliation], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy], [ClientID] FROM [Client] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Status] = @Status, [DOB] = @DOB, [Age] = @Age, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Phone] = @Phone, [Email] = @Email, [Sex] = @Sex, [Race] = @Race, [Religious_Affiliation] = @Religious_Affiliation, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [SSN] = @SSN, [Staff_Ratio] = @Staff_Ratio, [DSPD] = @DSPD, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Diagnosis] = @Diagnosis, [PhotoID] = @PhotoID, [DateCreated] = @DateCreated, [DateModified] = GETDATE(), [ModifiedBy] = @ModifiedBy WHERE [ClientID] = @ClientID">
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
@@ -48,7 +49,7 @@
             <asp:Parameter Name="PhotoID" Type="String" />
             <asp:Parameter Name="DateCreated" Type="DateTime" />
             <asp:Parameter Name="DateModified" Type="DateTime" />
-            <asp:Parameter Name="ModifiedBy" Type="String" />
+            <asp:SessionParameter Name="ModifiedBy" Type="String" SessionField="CurrentUser" />
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
@@ -420,11 +421,11 @@
                                             </asp:DropDownList>
                                         </td>
                                         <td>Date Created:<br />
-                                            <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true" Text='<%# Eval("DateCreated","{0:MM/dd/yyyy}") %>' /></td>
+                                            <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true" Text='<%# Bind("DateCreated","{0:MM/dd/yyyy}") %>' /></td>
                                         <td>Date Modified:<br />
-                                            <asp:TextBox ID="txtDateModified" runat="server" ReadOnly="true"/></td>
+                                            <asp:TextBox ID="txtDateModified" runat="server" ReadOnly="true" Text='<%# Bind("DateModified","{0:MM/dd/yyyy}") %>' /></td>
                                         <td>Last Modified By:<br />
-                                            <asp:TextBox ID="txtLastModifiedBy" runat="server" ReadOnly="true" Text='<%# Eval("ModifiedBy") %>' /></td>
+                                            <asp:TextBox ID="txtLastModifiedBy" runat="server" ReadOnly="true" Text='<%# Bind("ModifiedBy") %>' /></td>
                                     </tr>
                                     <tr>
                                         <td>First Name:<br />

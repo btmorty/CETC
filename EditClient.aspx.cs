@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -14,6 +15,12 @@ public partial class EditClient : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
 
     {
+        if (!IsPostBack)
+        {
+            MembershipUser CurrentUser = Membership.GetUser(User.Identity.Name);
+            Session["CurrentUser"] = CurrentUser.ToString();
+        }
+
         //Retrieve ClientID from QueryString and store in session variable
         if (Request.QueryString != null)
         {
