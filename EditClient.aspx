@@ -1233,10 +1233,10 @@
                             <td>Specialty:<br />
                                 <asp:TextBox ID="SpecialtyTextBox" runat="server" Text='<%# Bind("Specialty") %>' />
                             </td>
-                            <td>FirstName:<br />
+                            <td>First Name:<br />
                                 <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
                             </td>
-                            <td>LastName:<br />
+                            <td>Last Name:<br />
                                 <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
                             </td>
                             <td>Email:<br />
@@ -1275,10 +1275,10 @@
                             <td>Specialty:<br />
                                 <asp:TextBox ID="SpecialtyTextBox" runat="server" Text='<%# Bind("Specialty") %>' />
                             </td>
-                            <td>FirstName:<br />
+                            <td>First Name:<br />
                                 <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
                             </td>
-                            <td>LastName:<br />
+                            <td>Last Name:<br />
                                 <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
                             </td>
                             <td>Email:<br />
@@ -1314,10 +1314,10 @@
                             <td>Specialty:<br />
                                 <asp:TextBox ID="SpecialtyTextBox" runat="server" ReadOnly="true" Text='<%# Eval("Specialty") %>' />
                             </td>
-                            <td>FirstName:<br />
+                            <td>First Name:<br />
                                 <asp:TextBox ID="FirstNameTextBox" runat="server" ReadOnly="true"  Text='<%# Eval("FirstName") %>' />
                             </td>
-                            <td>LastName:<br />
+                            <td>Last Name:<br />
                                 <asp:TextBox ID="LastNameTextBox" runat="server" ReadOnly="true"  Text='<%# Eval("LastName") %>' />
                             </td>
                             <td>Email:<br />
