@@ -14,4 +14,13 @@ public partial class SelectClient : System.Web.UI.Page
             ClientGridView.DataBind();
         }
     }
+
+    protected void ClientGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "Select")
+        {
+            string SchoolID = e.CommandArgument.ToString();
+            Response.Redirect("~/EditClient.aspx?ClientID=" + e.CommandArgument);
+        }
+    }
 }
