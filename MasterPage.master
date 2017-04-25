@@ -51,7 +51,7 @@
                                             </RoleGroups>
                                         </asp:LoginView>
                                     <li style="padding-left:22px;">
-                                        <span><span class="glyphicon glyphicon-log-out"></span> <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Membership/Login.aspx" /></span>
+                                        <span><span class="glyphicon glyphicon-log-out"></span> <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Membership/Login.aspx" OnLoggingOut="LoginStatus1_LoggingOut" /></span>
                                     </li>
                                 </ul>
                             </li>
