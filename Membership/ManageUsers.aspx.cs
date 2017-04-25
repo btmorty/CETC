@@ -21,6 +21,7 @@ public partial class Membership_ManageUsers : System.Web.UI.Page
 
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
+
         //check each membership user to see if they are an admin, and check the box in the grid view
 
         //make sure we are looking at the datarow, not a header rows
@@ -47,6 +48,7 @@ public partial class Membership_ManageUsers : System.Web.UI.Page
             {
                 e.Row.BackColor = System.Drawing.Color.Yellow;
             }
+
         }
     }
 
@@ -117,7 +119,8 @@ public partial class Membership_ManageUsers : System.Web.UI.Page
 
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        GridView1.EditIndex = -1;
+        int index = Convert.ToInt32(e.RowIndex);
+        GridView1.DeleteRow(e.RowIndex);
         GridView1.DataBind();
     }
 }

@@ -37,14 +37,10 @@
                 <asp:ButtonField CommandName="Select" HeaderText="View Profile" ShowHeader="False" Text="View" />
 
                 <asp:TemplateField HeaderText="Delete Profile">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton4" runat="server" CausesValidation="false" CommandName="DeleteUser" Text="Delete User"></asp:LinkButton>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:LinkButton ID="LinkButton5" runat="server" CommandName="Delete">Delete</asp:LinkButton>
-                        <asp:LinkButton ID="LinkButton6" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
-                    </EditItemTemplate>
-                </asp:TemplateField>
+                     <ItemTemplate>
+                         <asp:LinkButton ID="LinkButton4" runat="server" CausesValidation="false" CommandName="Delete" Text="Delete" OnClientClick="return confrim('Are you sure you want to delete this user?')"></asp:LinkButton>
+                     </ItemTemplate>
+                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
         <br />
