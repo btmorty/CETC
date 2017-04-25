@@ -1412,7 +1412,7 @@
                                         <td>Physician:<br />
                                             <asp:TextBox ID="PhysicianTextBox" runat="server" Text='<%# Bind("Physician") %>' />
                                         </td>
-                                        <td>Non-Perscription:<br />
+                                        <td>
                                             <asp:CheckBox ID="Non_PerscriptionCheckBox" runat="server" Text="Non_Perscription" Checked='<%# Bind("Non_Perscription") %>' />
                                         </td>
                                     </tr>
@@ -1437,8 +1437,8 @@
                                         <td>Physician:<br />
                                             <asp:TextBox ID="PhysicianTextBox" runat="server" Text='<%# Bind("Physician") %>' />
                                         </td>
-                                        <td>Non-Perscription:<br />
-                                            <asp:TextBox ID="Non_PerscriptionTextBox" runat="server" Text='<%# Bind("Non_Perscription") %>' />
+                                        <td>
+                                            <asp:CheckBox ID="Non_PerscriptionCheckBox" runat="server" ReadOnly="true" Text="Non_Perscription" Checked='<%# Bind("Non_Perscription") %>' />
                                         </td>
                                     </tr>
                                 </table>
