@@ -35,15 +35,22 @@
     </div>
     <br />
     <br />
-    <%--//List View Output--%>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [ClientID], [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religious_Affiliation], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [DateCreated], [DateModified], [ModifiedBy] FROM [Client] WHERE ([State] = @State)">
+    <%--//GridView Output--%>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [ClientID], [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religion], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [DateCreated], [DateModified], [ModifiedBy] FROM [Client] WHERE ([State] = @State)">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddState1" Name="State" PropertyName="SelectedValue" Type="String" DefaultValue="--" />
             </SelectParameters>
     </asp:SqlDataSource>
         <asp:GridView ID="ClientGridView" DataSourceID="SqlDataSource2" AutoGenerateColumns="False" EmptyDataText="Please select a state." AllowPaging="True" HorizontalAlign="Center" runat="server" DataKeyNames="ClientID" AllowSorting="True" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" OnRowCommand="ClientGridView_RowCommand">
             <Columns>
-                <asp:CommandField ShowSelectButton="True" />
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="Button1" runat="server" CssClass="btn btn-primary btn-xs" CausesValidation="false" CommandName="Select" Text="Select" NavigateURL="" CommandArgument='<%# Eval("ClientID") %>'></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField DataField="ClientID" HeaderText="Client ID" InsertVisible="False" ReadOnly="True" SortExpression="ClientID" Visible="False" >
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                </asp:BoundField>
                 <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
                 <asp:BoundField DataField="First_Name" HeaderText="First Name" SortExpression="First_Name" />
                 <asp:BoundField DataField="Last_Name" HeaderText="Last Name" SortExpression="Last_Name" />
@@ -57,7 +64,7 @@
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                 <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="Sex" />
                 <asp:BoundField DataField="Race" HeaderText="Race" SortExpression="Race" />
-                <asp:BoundField DataField="Religious_Affiliation" HeaderText="Religious Affiliation" SortExpression="Religious_Affiliation" />
+                <asp:BoundField DataField="Religion" HeaderText="Religion" SortExpression="Religion" />
                 <asp:BoundField DataField="Residential_Status" HeaderText="Residential Status" SortExpression="Residential_Status" />
                 <asp:BoundField DataField="Preferred_Language" HeaderText="Preferred Language" SortExpression="Preferred_Language" />
                 <asp:BoundField DataField="SSN" HeaderText="SSN" SortExpression="SSN" />

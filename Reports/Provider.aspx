@@ -26,10 +26,10 @@
           
         <asp:Label ID="lblSelectProvider" runat="server" Text="Please select a Provider:"></asp:Label><br />
           
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Medical_Provider.ClientID, Medical_Provider.LastName FROM Medical_Provider INNER JOIN Client ON Medical_Provider.ClientID = Client.ClientID">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT ProviderNonMed.Provider, ProviderNonMed.ClientID FROM ProviderNonMed INNER JOIN Client ON ProviderNonMed.ClientID = Client.ClientID">
     </asp:SqlDataSource>
           
-        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="LastName" DataValueField="ClientID" Height="16px" Width="151px">
+        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Provider" DataValueField="ClientID" Height="16px" Width="151px" AutoPostBack="True">
         </asp:DropDownList>
         
         <br />
@@ -37,15 +37,20 @@
     </div>
     <br />
     <br />
-    <%--//List View Output--%>
-     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Medical_Provider.Specialty, Medical_Provider.LastName, ProviderNonMed.Provider, Client.* FROM Client INNER JOIN Medical_Provider ON Client.ClientID = Medical_Provider.ClientID INNER JOIN ProviderNonMed ON Client.ClientID = ProviderNonMed.ClientID"></asp:SqlDataSource>
+    <%--//Grid View Output--%>
+     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT ProviderNonMed.Provider, Client.ClientID, Client.First_Name, Client.Last_Name, Client.Status, Client.DOB, Client.Age, Client.Address, Client.City, Client.State, Client.Zip, Client.Phone, Client.Email, Client.Sex, Client.Race, Client.Religion, Client.Residential_Status, Client.Preferred_Language, Client.SSN, Client.Staff_Ratio, Client.DSPD, Client.SSI, Client.SSA, Client.Modes_Communication, Client.Diagnosis, Client.PhotoID, Client.DateCreated, Client.DateModified, Client.ModifiedBy FROM Client INNER JOIN ProviderNonMed ON Client.ClientID = ProviderNonMed.ClientID"></asp:SqlDataSource>
         <asp:GridView ID="ClientGridView" AutoGenerateColumns="False" EmptyDataText="Please select a Provider." AllowPaging="True" HorizontalAlign="Center" runat="server" AllowSorting="True" OnRowCommand="ClientGridView_RowCommand" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" DataSourceID="SqlDataSource2" OnSelectedIndexChanged="ClientGridView_SelectedIndexChanged" DataKeyNames="ClientID">
 
             <Columns>
-                <asp:BoundField DataField="Specialty" HeaderText="Specialty" SortExpression="Specialty" />
-                <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="Button1" runat="server" CssClass="btn btn-primary btn-xs" CausesValidation="false" CommandName="Select" Text="Select" NavigateURL="" CommandArgument='<%# Eval("ClientID") %>'></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField DataField="ClientID" HeaderText="Client ID" InsertVisible="False" ReadOnly="True" SortExpression="ClientID" Visible="False" >
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                </asp:BoundField>
                 <asp:BoundField DataField="Provider" HeaderText="Provider" SortExpression="Provider" />
-                <asp:BoundField DataField="ClientID" HeaderText="ClientID" SortExpression="ClientID" InsertVisible="False" ReadOnly="True" />
                 <asp:BoundField DataField="First_Name" HeaderText="First Name" SortExpression="First_Name" />
                 <asp:BoundField DataField="Last_Name" HeaderText="Last Name" SortExpression="Last_Name" />
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />

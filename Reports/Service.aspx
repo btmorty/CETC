@@ -29,7 +29,7 @@
           
         <asp:Label ID="lblSelectService" runat="server" Text="Please select a Service:"></asp:Label><br />
           
-        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Service" DataValueField="ClientID" Height="16px" Width="151px">
+        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Service" DataValueField="ClientID" Height="16px" Width="151px" AutoPostBack="True">
         </asp:DropDownList>
         
         <br />
@@ -42,9 +42,17 @@
         <asp:GridView ID="ClientGridView" AutoGenerateColumns="False" EmptyDataText="No data available." AllowPaging="True" HorizontalAlign="Center" runat="server" AllowSorting="True" OnRowCommand="ClientGridView_RowCommand" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" DataSourceID="SqlDataSource2" DataKeyNames="ClientID">
 
             <Columns>
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="Button1" runat="server" CssClass="btn btn-primary btn-xs" CausesValidation="false" CommandName="Select" Text="Select" NavigateURL="" CommandArgument='<%# Eval("ClientID") %>'></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField DataField="ClientID" HeaderText="Client ID" InsertVisible="False" ReadOnly="True" SortExpression="ClientID" Visible="False" >
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                </asp:BoundField>
                 <asp:BoundField DataField="Service" HeaderText="Service" SortExpression="Service" />
-                <asp:BoundField DataField="First_Name" HeaderText="First_Name" SortExpression="First_Name" />
-                <asp:BoundField DataField="Last_Name" HeaderText="Last_Name" SortExpression="Last_Name" />
+                <asp:BoundField DataField="First_Name" HeaderText="First Name" SortExpression="First_Name" />
+                <asp:BoundField DataField="Last_Name" HeaderText="Last Name" SortExpression="Last_Name" />
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
                 <asp:BoundField DataField="DOB" HeaderText="DOB" SortExpression="DOB" />
                 <asp:BoundField DataField="Age" HeaderText="Age" SortExpression="Age" />
@@ -58,18 +66,17 @@
                 <asp:BoundField DataField="Race" HeaderText="Race" SortExpression="Race" />
                 <asp:BoundField DataField="Religion" HeaderText="Religion" SortExpression="Religion" />
                 <asp:BoundField DataField="Residential_Status" HeaderText="Residential_Status" SortExpression="Residential_Status" />
-                <asp:BoundField DataField="Preferred_Language" HeaderText="Preferred_Language" SortExpression="Preferred_Language" />
+                <asp:BoundField DataField="Preferred_Language" HeaderText="Preferred Language" SortExpression="Preferred_Language" />
                 <asp:BoundField DataField="SSN" HeaderText="SSN" SortExpression="SSN" />
                 <asp:BoundField DataField="Staff_Ratio" HeaderText="Staff_Ratio" SortExpression="Staff_Ratio" />
                 <asp:BoundField DataField="DSPD" HeaderText="DSPD" SortExpression="DSPD" />
                 <asp:BoundField DataField="SSI" HeaderText="SSI" SortExpression="SSI" />
                 <asp:BoundField DataField="SSA" HeaderText="SSA" SortExpression="SSA" />
-                <asp:BoundField DataField="Modes_Communication" HeaderText="Modes_Communication" SortExpression="Modes_Communication" />
+                <asp:BoundField DataField="Modes_Communication" HeaderText="Modes of Communication" SortExpression="Modes_Communication" />
                 <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis" SortExpression="Diagnosis" />
-                <asp:BoundField DataField="PhotoID" HeaderText="PhotoID" SortExpression="PhotoID" />
-                <asp:BoundField DataField="DateCreated" HeaderText="DateCreated" SortExpression="DateCreated" />
-                <asp:BoundField DataField="DateModified" HeaderText="DateModified" SortExpression="DateModified" />
-                <asp:BoundField DataField="ModifiedBy" HeaderText="ModifiedBy" SortExpression="ModifiedBy" />
+                <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" />
+                <asp:BoundField DataField="DateModified" HeaderText="Date Modified" SortExpression="DateModified" />
+                <asp:BoundField DataField="ModifiedBy" HeaderText="Modified By" SortExpression="ModifiedBy" />
             </Columns>
 
 <HeaderStyle HorizontalAlign="Center" Wrap="False"></HeaderStyle>
