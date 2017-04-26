@@ -318,6 +318,11 @@
         .nav-tabs {
             text-align: center;
         }
+        .center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
     </style>
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#FaceSheet">Face Sheet</a></li>
@@ -678,11 +683,11 @@
                   </div>
                 <hr>
                 <%--Emergency Information--%>
+                <h3 class="text-center">Emergency Information</h3>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                    <h3 class="text-center">Emergency Information</h3>
                     <asp:FormView ID="EvacFormView" runat="server" DataSourceID="EvacSqlDataSource" DataKeyNames="EmergencyID" OnDataBound="EvacFormView_DataBound">
                         <EditItemTemplate>
-                            Emergency Evacuation Needs:<br />
+                            <Label>Emergency Evacuation Needs:</Label><br />
                               <asp:TextBox ID="TextBox51" runat="server" Text='<%# Bind("Emergency_Evac") %>' TextMode="MultiLine" Width="100%" />
                             <table style="width:100%">
                                <tr>
@@ -718,8 +723,8 @@
                             <asp:LinkButton ID="btnEvacCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            Emergency Evacuation Needs:<br />
-                                       <asp:TextBox ID="TextBox60" runat="server" Text='<%# Bind("Emergency_Evac") %>' TextMode="MultiLine" Width="100%" />
+                            <Label>Emergency Evacuation Needs:</Label><br />
+                            <asp:TextBox ID="TextBox60" runat="server" Text='<%# Bind("Emergency_Evac") %>' TextMode="MultiLine" Width="100%" />
                             <table style="width:100%">
                                <tr>
                                    <td>Evacuation Address 1:<br />
@@ -754,7 +759,7 @@
                             <asp:LinkButton ID="btnEvacCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            Emergency Evacuation Needs:<br />
+                            <Label>Emergency Evacuation Needs:</Label><br />
                             <asp:TextBox ID="TextBox69" runat="server" ReadOnly="true" Text='<%# Eval("Emergency_Evac") %>' TextMode="MultiLine" Width="100%" />
                             <table style="width:100%">
                                <tr>
@@ -789,11 +794,11 @@
                             <asp:LinkButton ID="btnEvacEdit" runat="server" CssClass="btn btn-primary" CommandName="Edit"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
                         </ItemTemplate>
                     </asp:FormView>
-                    </div>
+                </div>
                 <hr />
                 <%--CETC Information--%>
+                <h3 class="text-center">CETC Information</h3>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                    <h3 class="text-center">CETC Information</h3>
                     <div class="row">
                         <div class="col-sm-4">
                             <asp:Label ID="lblCETCDirector" runat="server"></asp:Label><br />
@@ -1011,7 +1016,7 @@
                     </ItemSeparatorTemplate>
                     </asp:ListView>
             </div>
-       </div>
+            </div>
             </div>
         <div id="HealthProfile" class="tab-pane fade">
         <%--Client Health--%>
@@ -1020,8 +1025,8 @@
         <%--//Page Header--%>
                 <div class="centerForm">
                     <%--Health Information --%>
+                   <h3 class="text-center">Health Information</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                        <h3 class="text-center">Health Information</h3>
                         <asp:FormView ID="HelthProfileFormView" DataSourceID="HealthProfileSqlDataSource" runat="server" DataKeyNames="Health_Profile_ID" OnDataBound="HealthProfileFormView_DataBound">
                             <EditItemTemplate>
                                 <asp:HiddenField runat="server" Value='<%# Eval("Health_Profile_ID") %>' />
@@ -1231,8 +1236,8 @@
                         </asp:FormView>
                     </div>
                     <%--Medical Provider Section--%>
+                    <h3 class="text-center">Medical Provider</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                        <h3 class="text-center">Medical Provider</h3>
                         <asp:ListView ID="MedProviderListView" runat="server" DataKeyNames="ProviderID" DataSourceID="MedProvidersSqlDataSource" InsertItemPosition="LastItem">
                             <EditItemTemplate>
                                 <asp:HiddenField ID="ProviderID" runat="server" Value='<%# Eval("ProviderID") %>' />
@@ -1365,8 +1370,8 @@
                     </div>
                     <hr />
                     <%--Medications Section--%>
+                    <h3 class="text-center">Medications</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                        <h3 class="text-center">Medications</h3>
                         <asp:ListView ID="MedListView" runat="server" DataKeyNames="MedicationID" DataSourceID="MedSqlDataSource" InsertItemPosition="LastItem">
                             <EditItemTemplate>
                                 <asp:HiddenField ID="MedicationID" runat="server" Value='<%# Eval("MedicationID") %>' />
@@ -1456,8 +1461,8 @@
                         </asp:ListView>
                     </div>
                     <%--Insurance Information --%>
-                    <div>
-                        <h3 class="text-center">Insurance</h3>
+                    <h3 class="text-center">Insurance</h3>
+                    <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                         <asp:FormView ID="InsuranceFormView" runat="server" DataKeyNames="InsuranceID" DataSourceID="InsurenceSqlDataSource" OnDataBound="InsuranceFormView_DataBound">
                             <EditItemTemplate>
                                 <table>
@@ -1546,9 +1551,6 @@
                 </div>
             <br />
             <br />
-                <div>
-                    <asp:Label ID="Label1" runat="server" Visible="false"></asp:Label>
-                </div>
             </div>
     </div>
 </asp:Content>
