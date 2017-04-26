@@ -1,7 +1,14 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CurrentUserInfo.ascx.cs" Inherits="Membership_CurrentUserInfo" %>
+<style>
+        .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    </style>
 
 <h3 style="text-align: center">Change your password</h3>
-<div style="width: 400px; margin-left: auto; margin-right: auto;">
+<div class="center">
     <asp:ChangePassword ID="ChangePassword1" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" Width="327px" ContinueDestinationPageUrl="~/Membership/Profile.aspx">
         <CancelButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284775" />
         <ChangePasswordButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284775" />
@@ -14,7 +21,7 @@
 </div>
     
 <h3 style="text-align: center">View/Edit your Profile Data</h3>
-<div style="width: 300px; margin-left: auto; margin-right: auto;">
+<div class="center">
     <table>
         <tr>
             <td>
