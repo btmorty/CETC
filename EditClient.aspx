@@ -916,8 +916,8 @@
                             </tr>
                         </table>
                         <br />
-                        <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                        <asp:Button ID="UpdateButton" runat="server" CssClass="btn btn-primary" CommandName="Update" Text="Update" />
+                        <asp:Button ID="CancelButton" runat="server" CssClass="btn btn-primary" CommandName="Cancel" Text="Cancel" />
                     </EditItemTemplate>
                     <EmptyDataTemplate>
                         <span>No data was returned.</span>
@@ -958,8 +958,8 @@
                             </tr>
                         </table>
                         <br />
-                        <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                        <asp:Button ID="InsertButton" runat="server" CssClass="btn btn-primary" CommandName="Insert" Text="Insert" />
+                        <asp:Button ID="CancelButton" runat="server" CssClass="btn btn-primary" CommandName="Cancel" Text="Clear" />
                     </InsertItemTemplate>
                     <ItemTemplate>
                         <asp:HiddenField runat="server" Value='<%# Eval("NonMedProviderID") %>' />
@@ -997,8 +997,8 @@
                             </tr>
                         </table>
                         <br />
-                        <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                        <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                        <asp:Button ID="EditButton" runat="server" CssClass="btn btn-primary" CommandName="Edit" Text="Edit" />
+                        <asp:Button ID="DeleteButton" runat="server" CssClass="btn btn-primary" CommandName="Delete" Text="Delete" />
                     </ItemTemplate>
                     <LayoutTemplate>
                         <div id="itemPlaceholderContainer" runat="server" style="">
@@ -1088,8 +1088,8 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                                <asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                                <asp:LinkButton ID="UpdateButton" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Update" Text="Update" />
+                                <asp:LinkButton ID="UpdateCancelButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                             </EditItemTemplate>
                             <InsertItemTemplate>
                                 <asp:HiddenField runat="server" Value='<%# Eval("Health_Profile_ID") %>' />
@@ -1156,8 +1156,8 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <asp:LinkButton ID="btnHealthInfoInsertButton" runat="server" CausesValidation="True" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
-                                <asp:LinkButton ID="btnHealthInfoInsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnHealthInfoInsertButton" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
+                                <asp:LinkButton ID="btnHealthInfoInsertCancelButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </InsertItemTemplate>
                             <ItemTemplate>
                                 <asp:HiddenField runat="server" Value='<%# Eval("Health_Profile_ID") %>' />
@@ -1224,9 +1224,9 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
-                                <asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
-                                <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                                <asp:LinkButton ID="EditButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                                <asp:LinkButton ID="DeleteButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                                <asp:LinkButton ID="NewButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="New" Text="New" />
                             </ItemTemplate>
                         </asp:FormView>
                     </div>
@@ -1270,8 +1270,8 @@
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                                <asp:Button ID="UpdateButton" runat="server" CssClass="btn btn-primary" CommandName="Update" Text="Update" />
+                                <asp:Button ID="CancelButton" runat="server" CssClass="btn btn-primary" CommandName="Cancel" Text="Cancel" />
                             </EditItemTemplate>
                             <EmptyDataTemplate>
                                 <span>No data was returned.</span>
@@ -1312,8 +1312,8 @@
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                                <asp:Button ID="InsertButton" runat="server" CssClass="btn btn-primary" CommandName="Insert" Text="Insert" />
+                                <asp:Button ID="CancelButton" runat="server" CssClass="btn btn-primary" CommandName="Cancel" Text="Clear" />
                             </InsertItemTemplate>
                             <ItemTemplate>
                                 <asp:HiddenField ID="ProviderID" runat="server" Value='<%# Eval("ProviderID") %>' />
@@ -1351,8 +1351,8 @@
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                                <asp:Button ID="EditButton" runat="server" CssClass="btn btn-primary" CommandName="Edit" Text="Edit" />
+                                <asp:Button ID="DeleteButton" runat="server" CssClass="btn btn-primary" CommandName="Delete" Text="Delete" />
                             </ItemTemplate>
                             <LayoutTemplate>
                                 <div id="itemPlaceholderContainer" runat="server" style="">
@@ -1390,8 +1390,8 @@
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                                <asp:Button ID="UpdateButton" runat="server" CssClass="btn btn-primary" CommandName="Update" Text="Update" />
+                                <asp:Button ID="CancelButton" runat="server" CssClass="btn btn-primary" CommandName="Cancel" Text="Cancel" />
                             </EditItemTemplate>
                             <EmptyDataTemplate>
                                 <span>No data was returned.</span>
@@ -1418,8 +1418,8 @@
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                                <asp:Button ID="InsertButton" runat="server" CssClass="btn btn-primary" CommandName="Insert" Text="Insert" />
+                                <asp:Button ID="CancelButton" runat="server" CssClass="btn btn-primary" CommandName="Cancel" Text="Clear" />
                             </InsertItemTemplate>
                             <ItemTemplate>
                                 <asp:HiddenField ID="MedicationID" runat="server" Value='<%# Eval("MedicationID") %>' />
@@ -1443,8 +1443,8 @@
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                                <asp:Button ID="EditButton" runat="server" CssClass="btn btn-primary"  CommandName="Edit" Text="Edit" />
+                                <asp:Button ID="DeleteButton" runat="server" CssClass="btn btn-primary" CommandName="Delete" Text="Delete" />
                             </ItemTemplate>
                             <LayoutTemplate>
                                 <div id="itemPlaceholderContainer" runat="server" style="">
@@ -1881,8 +1881,8 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                                <asp:LinkButton ID="UpdateButton" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Update" Text="Update" />
+                                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                             </EditItemTemplate>
                             <InsertItemTemplate>
                                 <table>
@@ -1908,8 +1908,8 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
-                                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="InsertButton" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
+                                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </InsertItemTemplate>
                             <ItemTemplate>
                                 <table>
@@ -1935,9 +1935,9 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
-                                &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
-                                &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                                <asp:LinkButton ID="EditButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                                &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                                &nbsp;<asp:LinkButton ID="NewButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="New" Text="New" />
                             </ItemTemplate>
                         </asp:FormView>
                     </div>
