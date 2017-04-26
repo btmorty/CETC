@@ -923,7 +923,7 @@
                         <span>No data was returned.</span>
                     </EmptyDataTemplate>
                     <InsertItemTemplate>
-                        <asp:HiddenField runat="server" Value='<%# Eval("ProviderNonMedID") %>' />
+                        <asp:HiddenField runat="server" Value='<%# Eval("NonMedProviderID") %>' />
                         <table>
                             <tr>
                                 <td>Provider:<br />
@@ -962,7 +962,7 @@
                         <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
                     </InsertItemTemplate>
                     <ItemTemplate>
-                        <asp:HiddenField runat="server" Value='<%# Eval("ProviderNonMedID") %>' />
+                        <asp:HiddenField runat="server" Value='<%# Eval("NonMedProviderID") %>' />
                         <table>
                             <tr>
                                 <td>Provider:<br />
