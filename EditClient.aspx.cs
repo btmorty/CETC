@@ -55,10 +55,6 @@ public partial class EditClient : System.Web.UI.Page
             lblCETCAddress.Text = "Address: 275 West 400 South Logan, UT 84321";
             lblCETCPhone.Text = "Phone: (435) 752-7952";
             lblCETCFax.Text = "Fax: 435-752-7958";
-
-            ////Set Current Date
-            //lblDate.Text = System.DateTime.Now.ToShortDateString();
-            //lblDate.ForeColor = System.Drawing.Color.Blue;
         }
     }
 
