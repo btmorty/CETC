@@ -79,13 +79,11 @@ public partial class EditClient : System.Web.UI.Page
                         imgProfile.ImageUrl = "ClientImages/" + imageUpload.PostedFile.FileName;
 
                         //add to database
-                        string FileName = imageUpload.PostedFile.FileName;
                         String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
                         SqlConnection con = new SqlConnection(strConnString);
-                        string strQuery = "INSERT INTO dbo.Client (PhotoID)" + " values(@PhotoID)";
+                        string strQuery = "UPDATE dbo.Client SET PhotoID = @PhotoID";
                         SqlCommand cmd = new SqlCommand(strQuery);
-                        cmd.Parameters.AddWithValue("@PhotoID", FileName);
-                        cmd.Parameters.AddWithValue("@FilePath", "~/_PublicData/Images/" + FileName);
+                        cmd.Parameters.AddWithValue("@PhotoID", imageUpload.PostedFile.FileName.ToString());
                         cmd.CommandType = CommandType.Text;
                         cmd.Connection = con;
                         try
