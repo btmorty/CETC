@@ -7,13 +7,11 @@ using System.Web.UI.WebControls;
 
 public partial class SelectClient : System.Web.UI.Page
 {
-    string nameSelection;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if(!IsPostBack)
         {
-            //remove any prior existing session variables
-            Session.Contents.Remove("Selection");
+            ClientGridView.DataBind();
         }
     }
 
