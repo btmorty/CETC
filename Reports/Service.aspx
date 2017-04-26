@@ -38,12 +38,11 @@
     <br />
     <br />
 <%--//List View Output--%>
-     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT CETC_INFO.Service, Client.* FROM Client INNER JOIN CETC_INFO ON Client.ClientID = CETC_INFO.ClientID"></asp:SqlDataSource>
+     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.ClientID, Client.First_Name, Client.Last_Name, Client.Status, Client.DOB, Client.Age, Client.Address, Client.City, Client.State, Client.Zip, Client.Phone, Client.Email, Client.Sex, Client.Race, Client.Religion, Client.Residential_Status, Client.Preferred_Language, Client.SSN, Client.Staff_Ratio, Client.DSPD, Client.SSI, Client.SSA, Client.Modes_Communication, Client.Diagnosis, Client.PhotoID, Client.DateCreated, Client.DateModified, Client.ModifiedBy, CETC_INFO.Service FROM Client INNER JOIN CETC_INFO ON Client.ClientID = CETC_INFO.ClientID"></asp:SqlDataSource>
         <asp:GridView ID="ClientGridView" AutoGenerateColumns="False" EmptyDataText="No data available." AllowPaging="True" HorizontalAlign="Center" runat="server" AllowSorting="True" OnRowCommand="ClientGridView_RowCommand" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" DataSourceID="SqlDataSource2" DataKeyNames="ClientID">
 
             <Columns>
                 <asp:BoundField DataField="Service" HeaderText="Service" SortExpression="Service" />
-                <asp:BoundField DataField="ClientID" HeaderText="ClientID" SortExpression="ClientID" InsertVisible="False" ReadOnly="True" />
                 <asp:BoundField DataField="First_Name" HeaderText="First_Name" SortExpression="First_Name" />
                 <asp:BoundField DataField="Last_Name" HeaderText="Last_Name" SortExpression="Last_Name" />
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
@@ -57,7 +56,7 @@
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                 <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="Sex" />
                 <asp:BoundField DataField="Race" HeaderText="Race" SortExpression="Race" />
-                <asp:BoundField DataField="Religious_Affiliation" HeaderText="Religious_Affiliation" SortExpression="Religious_Affiliation" />
+                <asp:BoundField DataField="Religion" HeaderText="Religion" SortExpression="Religion" />
                 <asp:BoundField DataField="Residential_Status" HeaderText="Residential_Status" SortExpression="Residential_Status" />
                 <asp:BoundField DataField="Preferred_Language" HeaderText="Preferred_Language" SortExpression="Preferred_Language" />
                 <asp:BoundField DataField="SSN" HeaderText="SSN" SortExpression="SSN" />

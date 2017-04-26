@@ -26,10 +26,7 @@
           
         <asp:Label ID="lblSelectCoordinator" runat="server" Text="Please select a Coordinator:"></asp:Label><br />
           
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT DISTINCT CETC_INFO.Coordinator, CETC_INFO.ClientID FROM CETC_INFO INNER JOIN Client ON CETC_INFO.ClientID = Client.ClientID WHERE (CETC_INFO.ClientID = @ClientID)">
-        <SelectParameters>
-            <asp:Parameter Name="ClientID" Type="Int32" />
-        </SelectParameters>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT CETC_INFO.Coordinator, CETC_INFO.ClientID FROM CETC_INFO INNER JOIN Client ON CETC_INFO.ClientID = Client.ClientID">
     </asp:SqlDataSource>
           
         <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Coordinator" DataValueField="ClientID" Height="16px" Width="151px">
@@ -39,12 +36,12 @@
     <br />
     <br />
 <%--//List View Output--%>
-     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.ClientID, Client.First_Name, Client.Last_Name, Client.Status, Client.DOB, Client.Age, Client.Address, Client.City, Client.State, Client.Zip, Client.Phone, Client.Email, Client.Sex, Client.Race, Client.Religious_Affiliation, Client.Residential_Status, Client.Preferred_Language, Client.SSN, Client.Staff_Ratio, Client.DSPD, Client.SSI, Client.SSA, Client.Modes_Communication, Client.Diagnosis, Client.PhotoID, Client.DateCreated, Client.DateModified, Client.ModifiedBy, CETC_INFO.Coordinator FROM Client INNER JOIN CETC_INFO ON Client.ClientID = CETC_INFO.ClientID WHERE (Client.ClientID = @ClientID)">
+     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.ClientID, Client.First_Name, Client.Last_Name, Client.Status, Client.DOB, Client.Age, Client.Address, Client.City, Client.State, Client.Zip, Client.Phone, Client.Email, Client.Sex, Client.Race, Client.Religion, Client.Residential_Status, Client.Preferred_Language, Client.SSN, Client.Staff_Ratio, Client.DSPD, Client.SSI, Client.SSA, Client.Modes_Communication, Client.Diagnosis, Client.PhotoID, Client.DateCreated, Client.DateModified, Client.ModifiedBy, CETC_INFO.Coordinator FROM Client INNER JOIN CETC_INFO ON Client.ClientID = CETC_INFO.ClientID WHERE (Client.ClientID = @ClientID)">
          <SelectParameters>
              <asp:ControlParameter ControlID="DropDownList1" Name="ClientID" PropertyName="SelectedValue" Type="Int32" />
          </SelectParameters>
     </asp:SqlDataSource>
-        <asp:GridView ID="ClientGridView" AutoGenerateColumns="False" EmptyDataText="Please select a Coordinator." AllowPaging="True" HorizontalAlign="Center" runat="server" AllowSorting="True" OnRowCommand="ClientGridView_RowCommand" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" DataSourceID="SqlDataSource2">
+        <asp:GridView ID="ClientGridView" AutoGenerateColumns="False" EmptyDataText="Please select a Coordinator." AllowPaging="True" HorizontalAlign="Center" runat="server" AllowSorting="True" OnRowCommand="ClientGridView_RowCommand" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" DataSourceID="SqlDataSource2" DataKeyNames="ClientID">
 
             <Columns>
                 <asp:BoundField DataField="Coordinator" HeaderText="Coordinator" SortExpression="Coordinator" />
@@ -58,22 +55,22 @@
                 <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
                 <asp:BoundField DataField="Zip" HeaderText="Zip" SortExpression="Zip" />
                 <asp:BoundField DataField="Phone" HeaderText="Phone" SortExpression="Phone" />
-                <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="Sex" />
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="Sex" />
                 <asp:BoundField DataField="Race" HeaderText="Race" SortExpression="Race" />
-                <asp:BoundField DataField="Religious_Affiliation" HeaderText="Religious Affiliation" SortExpression="Religious_Affiliation" />
+                <asp:BoundField DataField="Religion" HeaderText="Religion" SortExpression="Religion" />
                 <asp:BoundField DataField="Residential_Status" HeaderText="Residential Status" SortExpression="Residential_Status" />
                 <asp:BoundField DataField="Preferred_Language" HeaderText="Preferred Language" SortExpression="Preferred_Language" />
                 <asp:BoundField DataField="SSN" HeaderText="SSN" SortExpression="SSN" />
-                <asp:BoundField DataField="Staff_Ratio" HeaderText="Staff_Ratio" SortExpression="Staff_Ratio" />
+                <asp:BoundField DataField="Staff_Ratio" HeaderText="Staff Ratio" SortExpression="Staff_Ratio" />
                 <asp:BoundField DataField="DSPD" HeaderText="DSPD" SortExpression="DSPD" />
                 <asp:BoundField DataField="SSI" HeaderText="SSI" SortExpression="SSI" />
                 <asp:BoundField DataField="SSA" HeaderText="SSA" SortExpression="SSA" />
-                <asp:BoundField DataField="Modes_Communication" HeaderText="Modes Communication" SortExpression="Modes_Communication" />
+                <asp:BoundField DataField="Modes_Communication" HeaderText="Modes of Communication" SortExpression="Modes_Communication" />
                 <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis" SortExpression="Diagnosis" />
                 <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" />
                 <asp:BoundField DataField="DateModified" HeaderText="Date Modified" SortExpression="DateModified" />
-                <asp:BoundField DataField="ModifiedBy" HeaderText="ModifiedBy" SortExpression="ModifiedBy" />
+                <asp:BoundField DataField="ModifiedBy" HeaderText="Modified By" SortExpression="ModifiedBy" />
             </Columns>
 
 <HeaderStyle HorizontalAlign="Center" Wrap="False"></HeaderStyle>

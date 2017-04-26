@@ -804,7 +804,7 @@
                             <hr />
                         </div>
                     </div>
-                    <%--Services Information--%>
+                <%--Services Information--%>
                     <asp:ListView ID="ServiceListView" runat="server" DataSourceID="CetcInfoSqlDataSource" DataKeyNames="CECTID" InsertItemPosition="LastItem">
                         <EditItemTemplate>
                             <asp:HiddenField ID="CECTIDLabel1" runat="server" Value='<%# Eval("CECTID") %>' />
@@ -881,7 +881,7 @@
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                 <asp:ListView ID="NonMedProviderListView" runat="server" DataKeyNames="NonMedProviderID" DataSourceID="ProviderNonMedSqlDataSource" InsertItemPosition="LastItem">
                     <EditItemTemplate>
-                        <asp:HiddenField runat="server" Value='<%# Eval("ProviderNonMedID") %>' />
+                        <asp:HiddenField runat="server" Value='<%# Eval("NonMedProviderID") %>' />
                         <table>
                             <tr>
                                 <td>Provider:<br />
