@@ -29,7 +29,8 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT DISTINCT [Provider] FROM [ProviderNonMed]">
     </asp:SqlDataSource>
           
-        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Provider" DataValueField="Provider" Height="16px" Width="151px" AutoPostBack="True">
+        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Provider" DataValueField="Provider" Height="16px" Width="151px" AutoPostBack="True" AppendDataBoundItems="True">
+        <asp:ListItem>--</asp:ListItem>
         </asp:DropDownList>
         
         <br />

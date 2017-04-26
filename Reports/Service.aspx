@@ -29,7 +29,8 @@
           
         <asp:Label ID="lblSelectService" runat="server" Text="Please select a Service:"></asp:Label><br />
           
-        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Service" DataValueField="Service" Height="16px" Width="151px" AutoPostBack="True">
+        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Service" DataValueField="Service" Height="16px" Width="151px" AutoPostBack="True" AppendDataBoundItems="True">
+        <asp:ListItem>--</asp:ListItem>
         </asp:DropDownList>
         
         <br />
