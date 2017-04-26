@@ -26,10 +26,10 @@
           
         <asp:Label ID="lblSelectProvider" runat="server" Text="Please select a Provider:"></asp:Label><br />
           
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [ProviderID], [ClientID], [LastName] FROM [Medical_Provider]">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Medical_Provider.ClientID, Medical_Provider.LastName FROM Medical_Provider INNER JOIN Client ON Medical_Provider.ClientID = Client.ClientID">
     </asp:SqlDataSource>
           
-        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Last_Name" DataValueField="ProviderID" Height="16px" Width="151px">
+        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="LastName" DataValueField="ClientID" Height="16px" Width="151px">
         </asp:DropDownList>
         
         <br />
@@ -46,8 +46,8 @@
                 <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
                 <asp:BoundField DataField="Provider" HeaderText="Provider" SortExpression="Provider" />
                 <asp:BoundField DataField="ClientID" HeaderText="ClientID" SortExpression="ClientID" InsertVisible="False" ReadOnly="True" />
-                <asp:BoundField DataField="First_Name" HeaderText="First_Name" SortExpression="First_Name" />
-                <asp:BoundField DataField="Last_Name" HeaderText="Last_Name" SortExpression="Last_Name" />
+                <asp:BoundField DataField="First_Name" HeaderText="First Name" SortExpression="First_Name" />
+                <asp:BoundField DataField="Last_Name" HeaderText="Last Name" SortExpression="Last_Name" />
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
                 <asp:BoundField DataField="DOB" HeaderText="DOB" SortExpression="DOB" />
                 <asp:BoundField DataField="Age" HeaderText="Age" SortExpression="Age" />
@@ -59,7 +59,7 @@
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                 <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="Sex" />
                 <asp:BoundField DataField="Race" HeaderText="Race" SortExpression="Race" />
-                <asp:BoundField DataField="Religious_Affiliation" HeaderText="Religious_Affiliation" SortExpression="Religious_Affiliation" />
+                <asp:BoundField DataField="Religion" HeaderText="Religion" SortExpression="Religion" />
                 <asp:BoundField DataField="Residential_Status" HeaderText="Residential_Status" SortExpression="Residential_Status" />
                 <asp:BoundField DataField="Preferred_Language" HeaderText="Preferred_Language" SortExpression="Preferred_Language" />
                 <asp:BoundField DataField="SSN" HeaderText="SSN" SortExpression="SSN" />
