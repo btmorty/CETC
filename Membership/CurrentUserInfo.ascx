@@ -28,42 +28,6 @@
             <td>
                 <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox></td>
         </tr>
-        <tr>
-            <td>
-                <asp:Label ID="Label3" runat="server" Text="Birth Date "></asp:Label></td>
-            <td>
-                <asp:TextBox ID="txtBirthDate" runat="server"></asp:TextBox></td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Label ID="Label4" runat="server" Text="Street "></asp:Label></td>
-            <td>
-                <asp:TextBox ID="txtStreet" runat="server"></asp:TextBox></td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Label ID="Label5" runat="server" Text="City "></asp:Label></td>
-            <td>
-                <asp:TextBox ID="txtCity" runat="server"></asp:TextBox></td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Label ID="Label6" runat="server" Text="State "></asp:Label></td>
-            <td>
-                <asp:TextBox ID="txtState" runat="server"></asp:TextBox></td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Label ID="Label7" runat="server" Text="Zip Code "></asp:Label></td>
-            <td>
-                <asp:TextBox ID="txtZip" runat="server"></asp:TextBox></td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Label ID="Label8" runat="server" Text="Country"></asp:Label></td>
-            <td>
-                <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox></td>
-        </tr>
     </table>
 </div>
 <br />

@@ -23,7 +23,14 @@ public partial class Membership_ManageUsers : System.Web.UI.Page
     {
         string username = CreateUserWizard1.UserName;
         Roles.AddUserToRole(username, "User");
-        GridView1.DataBind();
+
+        //Get the profile of the user by finding the profile by name
+        TextBox oUserName = (TextBox)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("UserName");
+        ProfileCommon oProfile = Profile.GetProfile(oUserName.Text);
+
+        oProfile.FirstName = ((TextBox)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("txtfname")).Text;
+        oProfile.LastName = ((TextBox)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("txtlname")).Text;
+        oProfile.Save();
     }
 
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -55,6 +62,17 @@ public partial class Membership_ManageUsers : System.Web.UI.Page
             {
                 e.Row.BackColor = System.Drawing.Color.Yellow;
             }
+
+            //retrieve the first name textbox
+            Label fname = (Label)e.Row.FindControl("fname");
+            Label lname = (Label)e.Row.FindControl("lname");
+
+            //Retrieve the profile as a ProfileCommon
+            ProfileCommon oProfile = Profile.GetProfile(username);
+
+            //load the profile values into the text boxes
+            fname.Text = oProfile.FirstName.ToString();
+            lname.Text = oProfile.LastName.ToString();
 
         }
     }
@@ -98,61 +116,16 @@ public partial class Membership_ManageUsers : System.Web.UI.Page
         GridView1.DataBind();
     }
 
-    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        //Make the panel visible
-        lblProfileHeader.Visible = true;
-        Panel1.Visible = true;
-
-        //Retrieve the profile for the user that was selected
-        string username = GridView1.SelectedDataKey.Value.ToString();
-
-        //Retrieve the profile as a ProfileCommon
-        ProfileCommon prof = Profile.GetProfile(username);
-
-        //load the profile values into the text boxes
-        txtFirstName.Text = prof.FirstName;
-        txtLastName.Text = prof.LastName;
-        if (Profile.BirthDate != DateTime.MinValue)
+        if (e.CommandName == "DeleteUser")
         {
-            txtBirthDate.Text = prof.BirthDate.ToLongDateString();
+            LinkButton lnkBtn = (LinkButton)e.CommandSource;    // the button
+            GridViewRow myRow = (GridViewRow)lnkBtn.Parent.Parent;  // the row
+            GridView myGrid = (GridView)sender; // the gridview
+            string username = myGrid.DataKeys[myRow.RowIndex].Value.ToString(); // value of the datakey 
+            Membership.DeleteUser(username);
+            Response.Redirect("~/Membership/ManageUsers.aspx");
         }
-        txtStreet.Text = prof.Address.Street;
-        txtCity.Text = prof.Address.City;
-        txtState.Text = prof.Address.State;
-        txtZip.Text = prof.Address.Zip;
-        txtCountry.Text = prof.Address.Country;
-    }
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        SaveProfile();
-        UpdateConfirm.Text = "Profile Updated!";
-    }
-
-    private void SaveProfile()
-    {
-        //Retrieve the profile for the user that was selected
-        string username = GridView1.SelectedDataKey.Value.ToString();
-
-        //Retrieve the profile as a ProfileCommon
-        ProfileCommon prof = Profile.GetProfile(username);
-
-        //Save the values from the text boxes into the profile
-        prof.FirstName = txtFirstName.Text;
-        prof.LastName = txtLastName.Text;
-        prof.BirthDate = Convert.ToDateTime(txtBirthDate.Text);
-        prof.Address.Street = txtStreet.Text;
-        prof.Address.City = txtCity.Text;
-        prof.Address.State = txtState.Text;
-        prof.Address.Zip = txtZip.Text;
-        prof.Address.Country = txtCountry.Text;
-    }
-
-
-    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
-    {
-        int index = Convert.ToInt32(e.RowIndex);
-        GridView1.DeleteRow(e.RowIndex);
-        GridView1.DataBind();
     }
 }
