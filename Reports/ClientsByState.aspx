@@ -30,7 +30,8 @@
         
         <asp:Label ID="lblSelectState" runat="server" Text="Please select a State:"></asp:Label>
         
-        <asp:DropDownList ID="ddState1" runat="server" DataSourceID="SqlDataSource1" DataTextField="State" DataValueField="State1" OnDataBinding="Page_Load" AutoPostBack="True">
+        <asp:DropDownList ID="ddState1" runat="server" DataSourceID="SqlDataSource1" DataTextField="State" DataValueField="State1" OnDataBinding="Page_Load" AutoPostBack="True" AppendDataBoundItems="True">
+            <asp:ListItem>--</asp:ListItem>
         </asp:DropDownList>
     </div>
     <br />
