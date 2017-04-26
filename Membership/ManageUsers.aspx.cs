@@ -19,6 +19,13 @@ public partial class Membership_ManageUsers : System.Web.UI.Page
         }
     }
 
+    protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
+    {
+        string username = CreateUserWizard1.UserName;
+        Roles.AddUserToRole(username, "User");
+        GridView1.DataBind();
+    }
+
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
 
@@ -116,6 +123,31 @@ public partial class Membership_ManageUsers : System.Web.UI.Page
         txtZip.Text = prof.Address.Zip;
         txtCountry.Text = prof.Address.Country;
     }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        SaveProfile();
+        UpdateConfirm.Text = "Profile Updated!";
+    }
+
+    private void SaveProfile()
+    {
+        //Retrieve the profile for the user that was selected
+        string username = GridView1.SelectedDataKey.Value.ToString();
+
+        //Retrieve the profile as a ProfileCommon
+        ProfileCommon prof = Profile.GetProfile(username);
+
+        //Save the values from the text boxes into the profile
+        prof.FirstName = txtFirstName.Text;
+        prof.LastName = txtLastName.Text;
+        prof.BirthDate = Convert.ToDateTime(txtBirthDate.Text);
+        prof.Address.Street = txtStreet.Text;
+        prof.Address.City = txtCity.Text;
+        prof.Address.State = txtState.Text;
+        prof.Address.Zip = txtZip.Text;
+        prof.Address.Country = txtCountry.Text;
+    }
+
 
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {

@@ -7,9 +7,27 @@
                     <h2 class="text-center">Manage Users</h2>
             <hr />    
             </div>
-                
         </div>
     </div>
+
+    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" OnCreatedUser="CreateUserWizard1_CreatedUser" LoginCreatedUser="False" DisplayCancelButton="True">
+            <ContinueButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
+            <CreateUserButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
+            <TitleTextStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <WizardSteps>
+                <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
+                </asp:CreateUserWizardStep>
+                <asp:CompleteWizardStep ID="CompleteWizardStep1" runat="server">
+                </asp:CompleteWizardStep>
+            </WizardSteps>
+            <HeaderStyle BackColor="#5D7B9D" BorderStyle="Solid" Font-Bold="True" Font-Size="0.9em" ForeColor="White" HorizontalAlign="Center" />
+            <NavigationButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
+            <SideBarButtonStyle BorderWidth="0px" Font-Names="Verdana" ForeColor="White" />
+            <SideBarStyle BackColor="#5D7B9D" BorderWidth="0px" Font-Size="0.9em" VerticalAlign="Top" />
+            <StepStyle BorderWidth="0px" />
+        </asp:CreateUserWizard>
+    <br />
+    <br />
     <div>
         <asp:GridView ID="GridView1" DataKeyNames="UserName" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CellPadding="2" CellSpacing="2" HorizontalAlign="Center" Width="1000px" OnRowDeleting="GridView1_RowDeleting">
             <Columns>
@@ -54,49 +72,49 @@
                     <td>
                         <asp:Label ID="Label1" runat="server" Text="First Name "> </asp:Label></td>
                     <td>
-                        <asp:TextBox ReadOnly="true" ID="txtFirstName" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
                         <asp:Label ID="Label2" runat="server" Text="Last Name "> </asp:Label></td>
                     <td>
-                        <asp:TextBox ReadOnly="true" ID="txtLastName" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
                         <asp:Label ID="Label3" runat="server" Text="Birth Date "> </asp:Label></td>
                     <td>
-                        <asp:TextBox ReadOnly="true" ID="txtBirthDate" runat="server"> </asp:TextBox></td>
+                        <asp:TextBox ID="txtBirthDate" runat="server"> </asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
                         <asp:Label ID="Label4" runat="server" Text="Street "></asp:Label></td>
                     <td>
-                        <asp:TextBox ReadOnly="true" ID="txtStreet" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txtStreet" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
                         <asp:Label ID="Label5" runat="server" Text="City "></asp:Label></td>
                     <td>
-                        <asp:TextBox ReadOnly="true" ID="txtCity" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txtCity" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
                         <asp:Label ID="Label6" runat="server" Text="State "></asp:Label></td>
                     <td>
-                        <asp:TextBox ReadOnly="true" ID="txtState" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txtState" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
                         <asp:Label ID="Label7" runat="server" Text="Zip Code "></asp:Label></td>
                     <td>
-                        <asp:TextBox ReadOnly="true" ID="txtZip" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txtZip" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
                         <asp:Label ID="Label8" runat="server" Text="Country "></asp:Label></td>
                     <td>
-                        <asp:TextBox ReadOnly="true" ID="txtCountry" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox></td>
                 </tr>
      
                
@@ -107,9 +125,10 @@
              <hr />
         </asp:Panel>
     </div>
-    <%--Link to new user page--%>
-    <div style="margin-left: auto; margin-right: auto; text-align: center;">
-        <asp:LinkButton href="CreateUser.aspx" ID="NewUser" runat="server">Add New User</asp:LinkButton>
-    </div>
+    <div style="width: 250px; margin-left: auto; margin-right: auto; text-align: center;">
+    <asp:Button ID="Button1" runat="server" Text="Update Profile" OnClick="Button1_Click" />
+    <br />
+    <asp:Label ID="UpdateConfirm" runat="server"></asp:Label>
+</div>
 </asp:Content>
 
