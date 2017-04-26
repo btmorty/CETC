@@ -861,8 +861,8 @@
                                 </tr>
                                 </table>
                             <br />
-                            <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                            <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                            <asp:Button ID="EditButton" runat="server" CssClass="btn btn-primary" CommandName="Edit" Text="Edit" />
+                            <asp:Button ID="DeleteButton" runat="server" CssClass="btn btn-primary" CommandName="Delete" Text="Delete" />
                         </ItemTemplate>
                         <LayoutTemplate>
                             <div id="itemPlaceholderContainer" runat="server" style="">
