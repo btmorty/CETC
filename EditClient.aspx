@@ -181,12 +181,11 @@
         </UpdateParameters>
     </asp:SqlDataSource>
     
-    <asp:SqlDataSource ID="HealthProfileSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Health_Profile] WHERE [Health_Profile_ID] = @Health_Profile_ID" InsertCommand="INSERT INTO [Health_Profile] ([DOB], [Height], [Weight], [Hair], [Eyes], [Diagnosis], [Limitations], [Allergies], [Preferred_Hospital], [Hospital_Phone], [ClientID], [Address], [City], [State], [Zip]) VALUES (@DOB, @Height, @Weight, @Hair, @Eyes, @Diagnosis, @Limitations, @Allergies, @Preferred_Hospital, @Hospital_Phone, @ClientID, @Address, @City, @State, @Zip)" SelectCommand="SELECT Health_Profile.Health_Profile_ID, Health_Profile.Height, Health_Profile.Weight, Health_Profile.Hair, Health_Profile.Eyes, Health_Profile.Diagnosis, Health_Profile.Limitations, Health_Profile.Allergies, Health_Profile.Preferred_Hospital, Health_Profile.Hospital_Phone, Health_Profile.ClientID, Health_Profile.Address, Health_Profile.City, Health_Profile.State, Health_Profile.Zip, Client.First_Name, Client.Last_Name, Client.DOB, Client.Sex FROM Health_Profile INNER JOIN Client ON Client.ClientID = Health_Profile.ClientID WHERE (Health_Profile.ClientID = @ClientID)" UpdateCommand="UPDATE [Health_Profile] SET [DOB] = @DOB, [Height] = @Height, [Weight] = @Weight, [Hair] = @Hair, [Eyes] = @Eyes, [Diagnosis] = @Diagnosis, [Limitations] = @Limitations, [Allergies] = @Allergies, [Preferred_Hospital] = @Preferred_Hospital, [Hospital_Phone] = @Hospital_Phone, [ClientID] = @ClientID, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip WHERE [Health_Profile_ID] = @Health_Profile_ID">
+    <asp:SqlDataSource ID="HealthProfileSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" DeleteCommand="DELETE FROM [Health_Profile] WHERE [Health_Profile_ID] = @Health_Profile_ID" InsertCommand="INSERT INTO [Health_Profile] ([Height], [Weight], [Hair], [Eyes], [Diagnosis], [Limitations], [Allergies], [Preferred_Hospital], [Hospital_Phone], [ClientID], [Address], [City], [State], [Zip]) VALUES (@Height, @Weight, @Hair, @Eyes, @Diagnosis, @Limitations, @Allergies, @Preferred_Hospital, @Hospital_Phone, @ClientID, @Address, @City, @State, @Zip)" SelectCommand="SELECT Health_Profile.Health_Profile_ID, Health_Profile.Height, Health_Profile.Weight, Health_Profile.Hair, Health_Profile.Eyes, Health_Profile.Diagnosis, Health_Profile.Limitations, Health_Profile.Allergies, Health_Profile.Preferred_Hospital, Health_Profile.Hospital_Phone, Health_Profile.ClientID, Health_Profile.Address, Health_Profile.City, Health_Profile.State, Health_Profile.Zip, Client.First_Name, Client.Last_Name, Client.DOB, Client.Sex FROM Health_Profile INNER JOIN Client ON Client.ClientID = Health_Profile.ClientID WHERE (Health_Profile.ClientID = @ClientID)" UpdateCommand="UPDATE Health_Profile SET Height = @Height, Weight = @Weight, Hair = @Hair, Eyes = @Eyes, Diagnosis = @Diagnosis, Limitations = @Limitations, Allergies = @Allergies, Preferred_Hospital = @Preferred_Hospital, Hospital_Phone = @Hospital_Phone, ClientID = @ClientID, Address = @Address, City = @City, State = @State, Zip = @Zip WHERE (Health_Profile_ID = @Health_Profile_ID)">
         <DeleteParameters>
             <asp:Parameter Name="Health_Profile_ID" Type="Int32" />
         </DeleteParameters>
         <InsertParameters>
-            <asp:Parameter DbType="Date" Name="DOB" />
             <asp:Parameter Name="Height" Type="String" />
             <asp:Parameter Name="Weight" Type="String" />
             <asp:Parameter Name="Hair" Type="String" />
@@ -206,7 +205,6 @@
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
         <UpdateParameters>
-            <asp:Parameter DbType="Date" Name="DOB" />
             <asp:Parameter Name="Height" Type="String" />
             <asp:Parameter Name="Weight" Type="String" />
             <asp:Parameter Name="Hair" Type="String" />
@@ -1028,16 +1026,16 @@
                                 <table style="width: 100%">
                                     <tr>
                                         <td>First Name:<br />
-                                            <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true" Text='<%# Bind("First_Name") %>' />
+                                            <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true" Text='<%# Eval("First_Name") %>' />
                                         </td>
                                         <td>Last Name:<br />
-                                            <asp:TextBox ID="TextBox2" runat="server" ReadOnly="true" Text='<%# Bind("Last_Name") %>' />
+                                            <asp:TextBox ID="TextBox2" runat="server" ReadOnly="true" Text='<%# Eval("Last_Name") %>' />
                                         </td>
                                         <td>Sex:<br />
-                                            <asp:TextBox ID="TextBox12" runat="server" ReadOnly="true" Text='<%# Bind("Sex") %>' />
+                                            <asp:TextBox ID="TextBox12" runat="server" ReadOnly="true" Text='<%# Eval("Sex") %>' />
                                         </td>
                                         <td>DOB:<br />
-                                            <asp:TextBox ID="TextBox11" runat="server" ReadOnly="true" Text='<%# Bind("DOB") %>' />
+                                            <asp:TextBox ID="TextBox11" runat="server" ReadOnly="true" Text='<%# Eval("DOB") %>' />
                                         </td>
                                     </tr>
                                     <tr>
@@ -1096,16 +1094,16 @@
                                 <table style="width: 100%">
                                     <tr>
                                         <td>First Name:<br />
-                                            <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true" Text='<%# Bind("First_Name") %>' />
+                                            <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true" Text='<%# Eval("First_Name") %>' />
                                         </td>
                                         <td>Last Name:<br />
-                                            <asp:TextBox ID="TextBox2" runat="server" ReadOnly="true" Text='<%# Bind("Last_Name") %>' />
+                                            <asp:TextBox ID="TextBox2" runat="server" ReadOnly="true" Text='<%# Eval("Last_Name") %>' />
                                         </td>
                                         <td>Sex:<br />
-                                            <asp:TextBox ID="TextBox12" runat="server" ReadOnly="true" Text='<%# Bind("Sex") %>' />
+                                            <asp:TextBox ID="TextBox12" runat="server" ReadOnly="true" Text='<%# Eval("Sex") %>' />
                                         </td>
                                         <td>DOB:<br />
-                                            <asp:TextBox ID="TextBox11" runat="server" ReadOnly="true" Text='<%# Bind("DOB") %>' />
+                                            <asp:TextBox ID="TextBox11" runat="server" ReadOnly="true" Text='<%# Eval("DOB") %>' />
                                         </td>
                                     </tr>
                                     <tr>
