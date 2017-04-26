@@ -324,15 +324,34 @@
         align-items: center;
         }
     </style>
+
+    <script>
+        $(function () {
+            //for bootstrap 3 use 'shown.bs.tab' instead of 'shown' in the next line
+            $('a[data-toggle="tab"]').on('click', function (e) {
+                //save the latest tab; use cookies if you like 'em better:
+                localStorage.setItem('lastTab', $(e.target).attr('href'));
+            });
+
+            //go to the latest tab, if it exists:
+            var lastTab = localStorage.getItem('lastTab');
+
+            if (lastTab) {
+                $('a[href="' + lastTab + '"]').click();
+            }
+        });
+    </script>
+
+
     <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#FaceSheet">Face Sheet</a></li>
+        <li><a data-toggle="tab" href="#FaceSheet">Face Sheet</a></li>
         <li><a data-toggle="tab" href="#HealthProfile">Health Profile</a></li>
     </ul>
     <%--//Validation Report--%>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
 <%--Face Sheet Panel--%>
     <div class="tab-content">
-        <div id="FaceSheet" class="tab-pane fade in active">
+        <div id="FaceSheet" class="tab-pane fade">
         <h3 class="text-center">Face Sheet</h3>
             <hr />
             <%--//Data Entry Form--%>
