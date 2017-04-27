@@ -15,14 +15,18 @@ public partial class EditClient : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
 
     {
-        //Retrieve ClientID from QueryString and store in session variable
+        //Retrieve ClientID from QueryString, check validity, store as session variable
         if (Request.QueryString["ClientID"] != null)
         {
-            Session["ClientID"] = Request.QueryString["ClientID"];
-
-            MembershipUser CurrentUser = Membership.GetUser(User.Identity.Name);
-            Session["CurrentUser"] = CurrentUser.ToString();
-
+            int num;
+            if (!int.TryParse(Request.QueryString["ClientID"], out num))
+            {
+                throw new HttpException(404, "Query String Value Contained invalid Characters");
+            }
+            else
+            {
+                Session["ClientID"] = Request.QueryString["ClientID"];
+            }
             //Retrive Profile picture from DB
 
             string queryString = "SELECT [PhotoID]  FROM Client WHERE ClientID = @ClientID";
@@ -135,6 +139,69 @@ public partial class EditClient : System.Web.UI.Page
         if (InsuranceFormView.PageCount == 0)
         {
             InsuranceFormView.ChangeMode(FormViewMode.Insert);
+        }
+    }
+
+    protected void ListView_ItemCommand(object sender, ListViewCommandEventArgs e)
+    {
+        if (e.CommandName != "Cancel")
+        {
+            String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
+            SqlConnection con = new SqlConnection(strConnString);
+            string strQuery = "UPDATE dbo.Client SET DateModified = @DateModified, ModifiedBy = @ModifiedBy WHERE ClientID = " + Request.QueryString["ClientID"];
+            SqlCommand cmd = new SqlCommand(strQuery);
+            cmd.Parameters.AddWithValue("@DateModified", DateTime.Now.ToShortDateString());
+            cmd.Parameters.AddWithValue("@ModifiedBy", Membership.GetUser(User.Identity.Name).ToString());
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con;
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                ClientFormView.DataBind();
+            }
+
+            catch (Exception ex)
+            {
+                errorStatus.Text = "Update Failed" + ex.Message;
+            }
+
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+    }
+    protected void FormView_ItemCommand(object sender, FormViewCommandEventArgs e)
+    {
+        if (e.CommandName != "Cancel")
+        {
+            String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
+            SqlConnection con = new SqlConnection(strConnString);
+            string strQuery = "UPDATE dbo.Client SET DateModified = @DateModified, ModifiedBy = @ModifiedBy WHERE ClientID = " + Request.QueryString["ClientID"];
+            SqlCommand cmd = new SqlCommand(strQuery);
+            cmd.Parameters.AddWithValue("@DateModified", DateTime.Now.ToShortDateString());
+            cmd.Parameters.AddWithValue("@ModifiedBy", Membership.GetUser(User.Identity.Name).ToString());
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con;
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                ClientFormView.DataBind();
+            }
+
+            catch (Exception ex)
+            {
+                errorStatus.Text = "Update Failed" + ex.Message;
+            }
+
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
         }
     }
 }

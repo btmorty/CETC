@@ -19,7 +19,7 @@
     <asp:SqlDataSource ID="DDReligionSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Religion] FROM [DD_Religion]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDSexSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Sex] FROM [DD_Sex]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDServiceSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Service] FROM [DD_Service]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religion], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy], [ClientID] FROM [Client] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Status] = @Status, [DOB] = @DOB, [Age] = @Age, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Phone] = @Phone, [Email] = @Email, [Sex] = @Sex, [Race] = @Race, [Religion] = @Religion, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [SSN] = @SSN, [Staff_Ratio] = @Staff_Ratio, [DSPD] = @DSPD, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Diagnosis] = @Diagnosis, [PhotoID] = @PhotoID, [DateCreated] = @DateCreated, [DateModified] = GETDATE(), [ModifiedBy] = @ModifiedBy WHERE [ClientID] = @ClientID">
+    <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religion], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy], [ClientID] FROM [Client] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Status] = @Status, [DOB] = @DOB, [Age] = @Age, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Phone] = @Phone, [Email] = @Email, [Sex] = @Sex, [Race] = @Race, [Religion] = @Religion, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [SSN] = @SSN, [Staff_Ratio] = @Staff_Ratio, [DSPD] = @DSPD, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Diagnosis] = @Diagnosis, [PhotoID] = @PhotoID, [DateCreated] = @DateCreated WHERE [ClientID] = @ClientID">
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
@@ -49,8 +49,6 @@
             <asp:Parameter Name="Diagnosis" Type="String" />
             <asp:Parameter Name="PhotoID" Type="String" />
             <asp:Parameter Name="DateCreated" Type="DateTime" />
-            <asp:Parameter Name="DateModified" Type="DateTime" />
-            <asp:SessionParameter Name="ModifiedBy" Type="String" SessionField="CurrentUser" />
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
@@ -349,6 +347,7 @@
     </ul>
     <%--//Validation Report--%>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
+    <asp:Label ID="errorStatus" runat="server" ForeColor="Red" Visible="false" />
 <%--Face Sheet Panel--%>
     <div class="tab-content">
         <div id="FaceSheet" class="tab-pane fade">
@@ -358,7 +357,7 @@
             <div class="centerForm">
                 <div class="row">
                     <div class="col-sm-9">
-                        <asp:FormView runat="server" DataSourceID="ClientSqlDataSource" ID="ClientFormView" DataKeyNames="ClientID">
+                        <asp:FormView runat="server" DataSourceID="ClientSqlDataSource" ID="ClientFormView" DataKeyNames="ClientID" OnItemCommand="FormView_ItemCommand" >
                             <ItemTemplate>
                                 <table>
                                     <tr>
@@ -532,7 +531,7 @@
                 <hr>
                     <h3 class="text-center">Family/Guardian/Residential Contact Information</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                    <asp:ListView ID="ContactListView" runat="server" DataKeyNames="ContactID" DataSourceID="ContactSqlDataSource" InsertItemPosition="LastItem">
+                    <asp:ListView ID="ContactListView" runat="server" DataKeyNames="ContactID" DataSourceID="ContactSqlDataSource" InsertItemPosition="LastItem" OnItemCommand="ListView_ItemCommand">
                         <EditItemTemplate>
                             <asp:HiddenField ID="ClientID" runat="server" Value='<%# Bind("ClientID") %>' />
                             <table style="width:100%">
@@ -704,7 +703,7 @@
                 <%--Emergency Information--%>
                 <h3 class="text-center">Emergency Information</h3>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                    <asp:FormView ID="EvacFormView" runat="server" DataSourceID="EvacSqlDataSource" DataKeyNames="EmergencyID" OnDataBound="EvacFormView_DataBound">
+                    <asp:FormView ID="EvacFormView" runat="server" DataSourceID="EvacSqlDataSource" DataKeyNames="EmergencyID" OnDataBound="EvacFormView_DataBound" OnItemCommand="FormView_ItemCommand">
                         <EditItemTemplate>
                             <Label>Emergency Evacuation Needs:</Label><br />
                               <asp:TextBox ID="TextBox51" runat="server" Text='<%# Bind("Emergency_Evac") %>' TextMode="MultiLine" Width="100%" />
@@ -828,7 +827,7 @@
                         </div>
                     </div>
                 <%--Services Information--%>
-                    <asp:ListView ID="ServiceListView" runat="server" DataSourceID="CetcInfoSqlDataSource" DataKeyNames="CECTID" InsertItemPosition="LastItem">
+                    <asp:ListView ID="ServiceListView" runat="server" DataSourceID="CetcInfoSqlDataSource" DataKeyNames="CECTID" InsertItemPosition="LastItem" OnItemCommand="ListView_ItemCommand">
                         <EditItemTemplate>
                             <asp:HiddenField ID="CECTIDLabel1" runat="server" Value='<%# Eval("CECTID") %>' />
                             <table style="width:100%">
@@ -902,7 +901,7 @@
                 <%--Provider Information--%>
                 <h3 class="text-center">Providers</h3>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                <asp:ListView ID="NonMedProviderListView" runat="server" DataKeyNames="NonMedProviderID" DataSourceID="ProviderNonMedSqlDataSource" InsertItemPosition="LastItem">
+                <asp:ListView ID="NonMedProviderListView" runat="server" DataKeyNames="NonMedProviderID" DataSourceID="ProviderNonMedSqlDataSource" InsertItemPosition="LastItem" OnItemCommand="ListView_ItemCommand">
                     <EditItemTemplate>
                         <asp:HiddenField runat="server" Value='<%# Eval("NonMedProviderID") %>' />
                         <table>
@@ -1046,7 +1045,7 @@
                     <%--Health Information --%>
                    <h3 class="text-center">Health Information</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                        <asp:FormView ID="HelthProfileFormView" DataSourceID="HealthProfileSqlDataSource" runat="server" DataKeyNames="Health_Profile_ID" OnDataBound="HealthProfileFormView_DataBound">
+                        <asp:FormView ID="HelthProfileFormView" DataSourceID="HealthProfileSqlDataSource" runat="server" DataKeyNames="Health_Profile_ID" OnDataBound="HealthProfileFormView_DataBound" OnItemCommand="FormView_ItemCommand">
                             <EditItemTemplate>
                                 <asp:HiddenField runat="server" Value='<%# Eval("Health_Profile_ID") %>' />
                                 <table style="width: 100%">
@@ -1257,7 +1256,7 @@
                     <%--Medical Provider Section--%>
                     <h3 class="text-center">Medical Provider</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                        <asp:ListView ID="MedProviderListView" runat="server" DataKeyNames="ProviderID" DataSourceID="MedProvidersSqlDataSource" InsertItemPosition="LastItem">
+                        <asp:ListView ID="MedProviderListView" runat="server" DataKeyNames="ProviderID" DataSourceID="MedProvidersSqlDataSource" InsertItemPosition="LastItem" OnItemCommand="ListView_ItemCommand">
                             <EditItemTemplate>
                                 <asp:HiddenField ID="ProviderID" runat="server" Value='<%# Eval("ProviderID") %>' />
                                 <table style="width: 100%">
@@ -1391,7 +1390,7 @@
                     <%--Medications Section--%>
                     <h3 class="text-center">Medications</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                        <asp:ListView ID="MedListView" runat="server" DataKeyNames="MedicationID" DataSourceID="MedSqlDataSource" InsertItemPosition="LastItem">
+                        <asp:ListView ID="MedListView" runat="server" DataKeyNames="MedicationID" DataSourceID="MedSqlDataSource" InsertItemPosition="LastItem" OnItemCommand="ListView_ItemCommand">
                             <EditItemTemplate>
                                 <asp:HiddenField ID="MedicationID" runat="server" Value='<%# Eval("MedicationID") %>' />
                                 <table style="width: 100%">
@@ -1482,7 +1481,7 @@
                     <%--Insurance Information --%>
                     <h3 class="text-center">Insurance</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                        <asp:FormView ID="InsuranceFormView" runat="server" DataKeyNames="InsuranceID" DataSourceID="InsurenceSqlDataSource" OnDataBound="InsuranceFormView_DataBound">
+                        <asp:FormView ID="InsuranceFormView" runat="server" DataKeyNames="InsuranceID" DataSourceID="InsurenceSqlDataSource" OnDataBound="InsuranceFormView_DataBound" OnItemCommand="FormView_ItemCommand">
                             <EditItemTemplate>
                                 <table>
                                     <tr>
