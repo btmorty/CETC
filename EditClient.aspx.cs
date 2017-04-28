@@ -10,7 +10,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class EditClient : System.Web.UI.Page
+public partial class EditClient : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
 
@@ -59,6 +59,9 @@ public partial class EditClient : System.Web.UI.Page
             lblCETCAddress.Text = "Address: 275 West 400 South Logan, UT 84321";
             lblCETCPhone.Text = "Phone: (435) 752-7952";
             lblCETCFax.Text = "Fax: 435-752-7958";
+
+            //Log User Visit
+            base.LogActivity("Visited Edit Client Page of Client ID " + Session["ClientID"], true);
         }
     }
 
@@ -90,6 +93,8 @@ public partial class EditClient : System.Web.UI.Page
                         {
                             con.Open();
                             cmd.ExecuteNonQuery();
+                            //Log User Edit
+                            base.LogActivity("Uploaded Photo for Client ID " + Session["ClientID"], true);
                         }
 
                         catch (Exception ex)
@@ -159,6 +164,8 @@ public partial class EditClient : System.Web.UI.Page
                 con.Open();
                 cmd.ExecuteNonQuery();
                 ClientFormView.DataBind();
+                //Log User Edit
+                base.LogActivity("Edited Client Profile of Client ID " + Session["ClientID"], true);
             }
 
             catch (Exception ex)
@@ -190,6 +197,8 @@ public partial class EditClient : System.Web.UI.Page
                 con.Open();
                 cmd.ExecuteNonQuery();
                 ClientFormView.DataBind();
+                //Log User Edit
+                base.LogActivity("Edited Client Profile of Client ID " + Session["ClientID"], true);
             }
 
             catch (Exception ex)
