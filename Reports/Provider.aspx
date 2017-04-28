@@ -1,51 +1,41 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Provider.aspx.cs" Inherits="SelectClient" %>
+﻿<%@ Page Title="Provider Report" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" EnableEventValidation="false" CodeFile="Provider.aspx.cs" Inherits="SelectClient" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
     <style>
         th, td {
             padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 5px;
-        padding-bottom: 5px;
+            padding-right: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
     </style>
     <%--//Page Header--%>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="jumbotron">
-                    <h2 class="text-center">Reports </h2>
-                    <h3 class="text-center">Provider</h3>
-                </div>
-                <hr>
-            </div>
-        </div>
-    </div>
+    <h3 class="text-center">Provider Report</h3>
+    <hr />
     <%--//Client Selection--%>
     <div class="text-center">
-          
+
         <asp:Label ID="lblSelectProvider" runat="server" Text="Please select a Provider:"></asp:Label><br />
-          
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT DISTINCT [Provider] FROM [ProviderNonMed]">
-    </asp:SqlDataSource>
-          
+
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT DISTINCT [Provider] FROM [ProviderNonMed]"></asp:SqlDataSource>
+
         <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Provider" DataValueField="Provider" Height="16px" Width="151px" AutoPostBack="True" AppendDataBoundItems="True">
-        <asp:ListItem>--</asp:ListItem>
+            <asp:ListItem>--</asp:ListItem>
         </asp:DropDownList>
-        
+
         <br />
-        
+
     </div>
     <br />
     <br />
     <%--//Grid View Output--%>
-     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.ClientID, Client.First_Name, Client.Last_Name, Client.Status, Client.DOB, Client.Age, Client.Address, Client.City, Client.State, Client.Zip, Client.Phone, Client.Email, Client.Sex, Client.Race, Client.Religion, Client.Residential_Status, Client.Preferred_Language, Client.SSN, Client.Staff_Ratio, Client.DSPD, Client.SSI, Client.SSA, Client.Modes_Communication, Client.Diagnosis, Client.DateCreated, Client.DateModified, Client.ModifiedBy, ProviderNonMed.Provider FROM Client INNER JOIN ProviderNonMed ON Client.ClientID = ProviderNonMed.ClientID WHERE (ProviderNonMed.Provider = @Provider)">
-         <SelectParameters>
-             <asp:ControlParameter ControlID="DropDownList1" Name="Provider" PropertyName="SelectedValue" />
-         </SelectParameters>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.ClientID, Client.First_Name, Client.Last_Name, Client.Status, Client.DOB, Client.Age, Client.Address, Client.City, Client.State, Client.Zip, Client.Phone, Client.Email, Client.Sex, Client.Race, Client.Religion, Client.Residential_Status, Client.Preferred_Language, Client.SSN, Client.Staff_Ratio, Client.DSPD, Client.SSI, Client.SSA, Client.Modes_Communication, Client.Diagnosis, Client.DateCreated, Client.DateModified, Client.ModifiedBy, ProviderNonMed.Provider FROM Client INNER JOIN ProviderNonMed ON Client.ClientID = ProviderNonMed.ClientID WHERE (ProviderNonMed.Provider = @Provider)">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="DropDownList1" Name="Provider" PropertyName="SelectedValue" />
+        </SelectParameters>
     </asp:SqlDataSource>
-        <asp:GridView ID="ClientGridView" AutoGenerateColumns="False" EmptyDataText="Please select a Provider." AllowPaging="True" HorizontalAlign="Center" runat="server" AllowSorting="True" OnRowCommand="ClientGridView_RowCommand" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" DataSourceID="SqlDataSource2" OnSelectedIndexChanged="ClientGridView_SelectedIndexChanged" DataKeyNames="ClientID">
-
+    <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
+        <asp:GridView ID="ClientGridView" AutoGenerateColumns="False" EmptyDataText="Please select a Provider." AllowPaging="True" HorizontalAlign="Center" runat="server" AllowSorting="True" OnRowCommand="ClientGridView_RowCommand" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" DataSourceID="SqlDataSource2" DataKeyNames="ClientID">
             <Columns>
                 <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>
@@ -53,10 +43,10 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="Provider" HeaderText="Provider" SortExpression="Provider" />
-                <asp:BoundField DataField="ClientID" HeaderText="Client ID" InsertVisible="False" ReadOnly="True" SortExpression="ClientID" Visible="False" >
-                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                <asp:BoundField DataField="ClientID" HeaderText="Client ID" InsertVisible="False" ReadOnly="True" SortExpression="ClientID" Visible="False">
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                 </asp:BoundField>
-                <asp:BoundField DataField="First_Name" HeaderText="First Name" SortExpression="First_Name" />               
+                <asp:BoundField DataField="First_Name" HeaderText="First Name" SortExpression="First_Name" />
                 <asp:BoundField DataField="Last_Name" HeaderText="Last Name" SortExpression="Last_Name" />
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
                 <asp:BoundField DataField="DOB" HeaderText="DOB" SortExpression="DOB" />
@@ -83,9 +73,12 @@
                 <asp:BoundField DataField="DateModified" HeaderText="Date Modified" SortExpression="DateModified" />
                 <asp:BoundField DataField="ModifiedBy" HeaderText="Modified By" SortExpression="ModifiedBy" />
             </Columns>
-
-<HeaderStyle HorizontalAlign="Center" Wrap="False"></HeaderStyle>
+            <HeaderStyle HorizontalAlign="Center" Wrap="False"></HeaderStyle>
             <RowStyle CssClass="tablePadding" HorizontalAlign="Center" Wrap="False" />
         </asp:GridView>
+    </asp:Panel>
+    <br />
+    <div class="text-center">
+        <asp:LinkButton ID="btnExport" runat="server" CssClass="btn btn-primary" OnClick="ExportToExcel"><span aria-hidden="true" class="glyphicon glyphicon-download-alt"></span> Export To Excel</asp:LinkButton>
+    </div>
 </asp:Content>
-

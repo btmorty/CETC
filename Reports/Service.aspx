@@ -1,51 +1,39 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Service.aspx.cs" Inherits="SelectClient" %>
+﻿<%@ Page Title="Service Report" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" EnableEventValidation="false" CodeFile="Service.aspx.cs" Inherits="SelectClient" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
     <style>
         th, td {
             padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 5px;
-        padding-bottom: 5px;
+            padding-right: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
     </style>
-<%--//Page Header--%>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="jumbotron">
-                    <h2 class="text-center">Reports </h2>
-                    <h3 class="text-center">Service</h3>
-                </div>
-                <hr>
-            </div>
-        </div>
-    </div>
-<%--//Client Selection--%>
+    <%--//Page Header--%>
+    <h3 class="text-center">Service Report</h3>
+    <hr />
+    <%--//Client Selection--%>
     <div class="text-center">
-          
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT DISTINCT [Service] FROM [CETC_INFO]">
-    </asp:SqlDataSource>
-          
+
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT DISTINCT [Service] FROM [CETC_INFO]"></asp:SqlDataSource>
+
         <asp:Label ID="lblSelectService" runat="server" Text="Please select a Service:"></asp:Label><br />
-          
+
         <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Service" DataValueField="Service" Height="16px" Width="151px" AutoPostBack="True" AppendDataBoundItems="True">
-        <asp:ListItem>--</asp:ListItem>
+            <asp:ListItem>--</asp:ListItem>
         </asp:DropDownList>
-        
         <br />
-        
     </div>
     <br />
     <br />
-<%--//List View Output--%>
-     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.ClientID, Client.First_Name, Client.Last_Name, Client.Status, Client.DOB, Client.Age, Client.Address, Client.City, Client.State, Client.Zip, Client.Phone, Client.Email, Client.Sex, Client.Race, Client.Religion, Client.Residential_Status, Client.Preferred_Language, Client.SSN, Client.Staff_Ratio, Client.DSPD, Client.SSI, Client.SSA, Client.Modes_Communication, Client.Diagnosis, Client.PhotoID, Client.DateCreated, Client.DateModified, Client.ModifiedBy, CETC_INFO.Service FROM Client INNER JOIN CETC_INFO ON Client.ClientID = CETC_INFO.ClientID WHERE (Service = @Service)">
-         <SelectParameters>
-             <asp:ControlParameter ControlID="DropDownList1" Name="Service" PropertyName="SelectedValue" />
-         </SelectParameters>
+    <%--//List View Output--%>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT Client.ClientID, Client.First_Name, Client.Last_Name, Client.Status, Client.DOB, Client.Age, Client.Address, Client.City, Client.State, Client.Zip, Client.Phone, Client.Email, Client.Sex, Client.Race, Client.Religion, Client.Residential_Status, Client.Preferred_Language, Client.SSN, Client.Staff_Ratio, Client.DSPD, Client.SSI, Client.SSA, Client.Modes_Communication, Client.Diagnosis, Client.PhotoID, Client.DateCreated, Client.DateModified, Client.ModifiedBy, CETC_INFO.Service FROM Client INNER JOIN CETC_INFO ON Client.ClientID = CETC_INFO.ClientID WHERE (Service = @Service)">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="DropDownList1" Name="Service" PropertyName="SelectedValue" />
+        </SelectParameters>
     </asp:SqlDataSource>
+    <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
         <asp:GridView ID="ClientGridView" AutoGenerateColumns="False" EmptyDataText="No data available." AllowPaging="True" HorizontalAlign="Center" runat="server" AllowSorting="True" OnRowCommand="ClientGridView_RowCommand" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" DataSourceID="SqlDataSource2" DataKeyNames="ClientID">
-
             <Columns>
                 <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>
@@ -53,8 +41,8 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="Service" HeaderText="Service" SortExpression="Service" />
-                <asp:BoundField DataField="ClientID" HeaderText="Client ID" InsertVisible="False" ReadOnly="True" SortExpression="ClientID" Visible="False" >
-                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                <asp:BoundField DataField="ClientID" HeaderText="Client ID" InsertVisible="False" ReadOnly="True" SortExpression="ClientID" Visible="False">
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                 </asp:BoundField>
                 <asp:BoundField DataField="First_Name" HeaderText="First Name" SortExpression="First_Name" />
                 <asp:BoundField DataField="Last_Name" HeaderText="Last Name" SortExpression="Last_Name" />
@@ -83,9 +71,13 @@
                 <asp:BoundField DataField="DateModified" HeaderText="Date Modified" SortExpression="DateModified" />
                 <asp:BoundField DataField="ModifiedBy" HeaderText="Modified By" SortExpression="ModifiedBy" />
             </Columns>
-
-<HeaderStyle HorizontalAlign="Center" Wrap="False"></HeaderStyle>
+            <HeaderStyle HorizontalAlign="Center" Wrap="False"></HeaderStyle>
             <RowStyle CssClass="tablePadding" HorizontalAlign="Center" Wrap="False" />
         </asp:GridView>
+    </asp:Panel>
+    <br />
+    <div class="text-center">
+        <asp:LinkButton ID="btnExport" runat="server" CssClass="btn btn-primary" OnClick="ExportToExcel"><span aria-hidden="true" class="glyphicon glyphicon-download-alt"></span> Export To Excel</asp:LinkButton>
+    </div>
 </asp:Content>
 
