@@ -11,7 +11,6 @@
     </style>
     <%--//Page Header--%>
     <div class="container">
-<%--        htings--%>
         <div class="row">
             <div class="col-lg-12">
                 <div class="jumbotron">
