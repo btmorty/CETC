@@ -10,7 +10,7 @@ using System.Drawing;
 using System.Data.SqlClient;
 using System.Configuration;
 
-public partial class ClientsByState : System.Web.UI.Page
+public partial class ClientsByState : BasePage
 {
 
     protected void Page_Load(object sender, EventArgs e)
@@ -18,6 +18,8 @@ public partial class ClientsByState : System.Web.UI.Page
         if (!IsPostBack)
         {
             ClientGridView.DataBind();
+            //Log User Activity
+            base.LogActivity("Viewed Clients By State Report", true);
         }
     }
 
@@ -53,5 +55,7 @@ public partial class ClientsByState : System.Web.UI.Page
         ClientGridView.RenderControl(htmltextwrtter);
         Response.Write(strwritter.ToString());
         Response.End();
+        //Log User Activity
+        base.LogActivity("Exported Clients By State Report", true);
     }
 }

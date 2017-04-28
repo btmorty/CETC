@@ -10,13 +10,15 @@ using System.Drawing;
 using System.Data.SqlClient;
 using System.Configuration;
 
-public partial class Coordinator : System.Web.UI.Page
+public partial class Coordinator : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             ClientGridView.DataBind();
+            //Log User Activity
+            base.LogActivity("Viewed Coordinator Report", true);
         }
     }
 
@@ -52,5 +54,7 @@ public partial class Coordinator : System.Web.UI.Page
         ClientGridView.RenderControl(htmltextwrtter);
         Response.Write(strwritter.ToString());
         Response.End();
+        //Log User Activity
+        base.LogActivity("Exported Coordinator Report", true);
     }
 }

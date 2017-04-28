@@ -17,6 +17,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         FormsAuthentication.SignOut();
         Roles.DeleteCookie();
+        //Redirect to home
         Response.Redirect("~/index.aspx");
     }
 }

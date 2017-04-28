@@ -24,11 +24,6 @@ public partial class SelectClient : System.Web.UI.Page
         //B.CommandName --> pass to business tier method
     }
 
-    protected void btnSelect_Click(object sender, EventArgs e)
-    {
-        
-    }
-
     protected void ClientGridView_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "Select")
