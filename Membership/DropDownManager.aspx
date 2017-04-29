@@ -24,10 +24,18 @@
             padding-left: 15px;
             padding-right: 15px;
         }
+
+        div.centered {
+            text-align: center;
+        }
+
+            div.centered table {
+                margin: 0 auto;
+                text-align: left;
+            }
     </style>
     <%--//Page Header--%>
     <h2 class="text-center">Drop Down List Manager</h2>
-    <h3 class="text-center">&nbsp;</h3>
     <hr>
     <br />
 
@@ -82,117 +90,136 @@ WHERE [Race] = @Race">
         </SelectParameters>
     </asp:SqlDataSource>
 
-    <div class="text-left">
-        <table>
-            <tr>
-                <td class="auto-style1">
-                    <asp:Label ID="lblRace" runat="server" Text="Race List: "></asp:Label><br />
-                    <asp:DropDownList ID="ddlRace" runat="server" DataSourceID="sdsRace" DataTextField="Race" DataValueField="Race" Height="17px" Width="261px" AutoPostBack="True" OnDataBinding="Page_Load">
-                    </asp:DropDownList>
-                </td>
+    <div class="centered">
+                <table>
+                    <tr>
+                        <td class="auto-style1">
+                            <div class="centered">
+                            <label>Race List:</label><br />
+                            <asp:DropDownList ID="ddlRace" runat="server" DataSourceID="sdsRace" DataTextField="Race" DataValueField="Race" Height="17px" Width="261px" AutoPostBack="True" OnDataBinding="Page_Load">
+                            </asp:DropDownList>
+                            <br />
+                            <label>Value to be added:</label><br />
+                            <asp:TextBox ID="txtRace" runat="server"></asp:TextBox>
+                            </div>
+                        </td>
 
-                <td class="auto-style1">
-                    <asp:Label ID="lblResStatus" runat="server" Text="Residential Status List: "></asp:Label><br />
-                    <asp:DropDownList ID="ddlResStatus" runat="server" DataSourceID="sdsResStatus" DataTextField="Residential_Status" DataValueField="Residential_Status" Height="16px" Width="260px" AppendDataBoundItems="False" OnDataBinding="Page_Load" AutoPostBack="True">
-                    </asp:DropDownList>
-                </td>
+                        <td class="auto-style1">
+                            <div class="centered">
+                            <asp:Label ID="lblResStatus" runat="server" Text="Residential Status List: "></asp:Label><br />
+                            <asp:DropDownList ID="ddlResStatus" runat="server" DataSourceID="sdsResStatus" DataTextField="Residential_Status" DataValueField="Residential_Status" Height="16px" Width="260px" AppendDataBoundItems="False" OnDataBinding="Page_Load" AutoPostBack="True">
+                            </asp:DropDownList>
+                            </div>
+                        </td>
 
-                <td class="auto-style1">
-                    <asp:Label ID="lblPrefLanguage" runat="server" Text="Preferred Language List: "></asp:Label><br />
-                    <asp:DropDownList ID="ddlPrefLanguage" runat="server" DataSourceID="sdsPrefLang" DataTextField="Preferred_Language" DataValueField="Preferred_Language" Height="19px" Width="260px" AppendDataBoundItems="False" OnDataBinding="Page_Load" AutoPostBack="True">
-                    </asp:DropDownList>
-                </td>
+                        <td class="auto-style1">
+                            <div class="centered">
+                            <asp:Label ID="lblPrefLanguage" runat="server" Text="Preferred Language List: "></asp:Label><br />
+                            <asp:DropDownList ID="ddlPrefLanguage" runat="server" DataSourceID="sdsPrefLang" DataTextField="Preferred_Language" DataValueField="Preferred_Language" Height="19px" Width="260px" AppendDataBoundItems="False" OnDataBinding="Page_Load" AutoPostBack="True">
+                            </asp:DropDownList>
+                            </div>
+                        </td>
+                    </tr>
 
-                <td class="auto-style1">
-                    <asp:Label ID="lblReligion" runat="server" Text="Religion List: "></asp:Label><br />
-                    <asp:DropDownList ID="ddlReligion" runat="server" DataSourceID="sdsReligion" DataTextField="Religion" DataValueField="Religion" Height="16px" Width="261px" OnDataBinding="Page_Load" AutoPostBack="True">
-                    </asp:DropDownList>
-                </td>
+                    <tr>
+                        <td>
+                            <asp:DetailsView ID="RaceView" runat="server" AutoGenerateRows="False" CellPadding="4" DataSourceID="sdsRace0" ForeColor="#333333" GridLines="None" Height="50px" Width="260px" AutoGenerateInsertButton="True" OnItemInserted="RaceView_ItemInserted" OnItemInserting="RaceView_ItemInserting">
+                                <AlternatingRowStyle BackColor="White" />
+                                <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
+                                <EditRowStyle BackColor="#2461BF" />
+                                <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
+                                <Fields>
+                                    <asp:BoundField DataField="Race" HeaderText="Race" SortExpression="Race" />
+                                </Fields>
+                                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#EFF3FB" />
+                            </asp:DetailsView>
+                        </td>
+                        <td>
+                            <asp:DetailsView ID="ResidentialStatusView" runat="server" AutoGenerateRows="False" CellPadding="4" DataSourceID="sdsResStatus0" ForeColor="#333333" GridLines="None" Height="50px" Width="260px" AutoGenerateInsertButton="True" OnItemInserted="ResidentialStatusView_ItemInserted" OnItemInserting="ResidentialStatusView_ItemInserting">
+                                <AlternatingRowStyle BackColor="White" />
+                                <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
+                                <EditRowStyle BackColor="#2461BF" />
+                                <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
+                                <Fields>
+                                    <asp:BoundField DataField="Residential_Status" HeaderText="Residential Status" SortExpression="Residential_Status" />
+                                </Fields>
+                                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#EFF3FB" />
+                            </asp:DetailsView>
+                        </td>
+                        <td>
+                            <asp:DetailsView ID="PreferredLanguageView" runat="server" AutoGenerateRows="False" CellPadding="4" DataSourceID="sdsPrefLang0" ForeColor="#333333" GridLines="None" Height="50px" Width="260px" AutoGenerateInsertButton="True" OnItemInserted="PreferredLanguageView_ItemInserted" OnItemInserting="PreferredLanguageView_ItemInserting">
+                                <AlternatingRowStyle BackColor="White" />
+                                <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
+                                <EditRowStyle BackColor="#2461BF" />
+                                <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
+                                <Fields>
+                                    <asp:BoundField DataField="Preferred_Language" HeaderText="Preferred Language" SortExpression="Preferred_Language" />
+                                </Fields>
+                                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#EFF3FB" />
+                            </asp:DetailsView>
+                        </td>
+                    </tr>
+                </table>
+                <hr />
+                <table>
+                    <tr>
+                        <td class="auto-style1">
+                            <div class="centered">
+                            <asp:Label ID="lblReligion" runat="server" Text="Religion List: "></asp:Label><br />
+                            <asp:DropDownList ID="ddlReligion" runat="server" DataSourceID="sdsReligion" DataTextField="Religion" DataValueField="Religion" Height="16px" Width="261px" OnDataBinding="Page_Load" AutoPostBack="True">
+                            </asp:DropDownList>
+                            </div>
+                        </td>
 
-                <td class="auto-style1">
-                    <asp:Label ID="lblService" runat="server" Text="CETC Service List: "></asp:Label><br />
-                    <asp:DropDownList ID="ddlService" runat="server" DataSourceID="sdsService" DataTextField="Service" DataValueField="Service" Height="22px" Width="260px" AppendDataBoundItems="False" OnDataBinding="Page_Load" AutoPostBack="True">
-                    </asp:DropDownList>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <asp:DetailsView ID="RaceView" runat="server" AutoGenerateRows="False" CellPadding="4" DataSourceID="sdsRace0" ForeColor="#333333" GridLines="None" Height="50px" Width="260px" AutoGenerateInsertButton="True" OnItemInserted="RaceView_ItemInserted" OnItemInserting="RaceView_ItemInserting">
-                        <AlternatingRowStyle BackColor="White" />
-                        <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
-                        <EditRowStyle BackColor="#2461BF" />
-                        <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
-                        <Fields>
-                            <asp:BoundField DataField="Race" HeaderText="Race" SortExpression="Race" />
-                        </Fields>
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#EFF3FB" />
-                    </asp:DetailsView>
-                </td>
-                <td>
-                    <asp:DetailsView ID="ResidentialStatusView" runat="server" AutoGenerateRows="False" CellPadding="4" DataSourceID="sdsResStatus0" ForeColor="#333333" GridLines="None" Height="50px" Width="260px" AutoGenerateInsertButton="True" OnItemInserted="ResidentialStatusView_ItemInserted" OnItemInserting="ResidentialStatusView_ItemInserting">
-                        <AlternatingRowStyle BackColor="White" />
-                        <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
-                        <EditRowStyle BackColor="#2461BF" />
-                        <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
-                        <Fields>
-                            <asp:BoundField DataField="Residential_Status" HeaderText="Residential Status" SortExpression="Residential_Status" />
-                        </Fields>
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#EFF3FB" />
-                    </asp:DetailsView>
-                </td>
-                <td>
-                    <asp:DetailsView ID="PreferredLanguageView" runat="server" AutoGenerateRows="False" CellPadding="4" DataSourceID="sdsPrefLang0" ForeColor="#333333" GridLines="None" Height="50px" Width="260px" AutoGenerateInsertButton="True" OnItemInserted="PreferredLanguageView_ItemInserted" OnItemInserting="PreferredLanguageView_ItemInserting">
-                        <AlternatingRowStyle BackColor="White" />
-                        <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
-                        <EditRowStyle BackColor="#2461BF" />
-                        <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
-                        <Fields>
-                            <asp:BoundField DataField="Preferred_Language" HeaderText="Preferred Language" SortExpression="Preferred_Language" />
-                        </Fields>
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#EFF3FB" />
-                    </asp:DetailsView>
-                </td>
-                <td>
-                    <asp:DetailsView ID="ReligionView" runat="server" AutoGenerateRows="False" CellPadding="4" DataSourceID="sdsReligion0" ForeColor="#333333" GridLines="None" Height="50px" Width="260px" AutoGenerateInsertButton="True" OnItemInserted="ReligionView_ItemInserted" OnItemInserting="ReligionView_ItemInserting">
-                        <AlternatingRowStyle BackColor="White" />
-                        <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
-                        <EditRowStyle BackColor="#2461BF" />
-                        <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
-                        <Fields>
-                            <asp:BoundField DataField="Religion" HeaderText="Religion" SortExpression="Religion" />
-                        </Fields>
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#EFF3FB" />
-                    </asp:DetailsView>
-                </td>
-                <td>
-                    <asp:DetailsView ID="ServiceView" runat="server" AutoGenerateRows="False" CellPadding="4" DataKeyNames="Service" DataSourceID="sdsService0" ForeColor="#333333" GridLines="None" Height="50px" Width="260px" AutoGenerateInsertButton="True" OnItemInserted="ServiceView_ItemInserted" OnItemInserting="ServiceView_ItemInserting">
-                        <AlternatingRowStyle BackColor="White" />
-                        <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
-                        <EditRowStyle BackColor="#2461BF" />
-                        <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
-                        <Fields>
-                            <asp:BoundField DataField="Service" HeaderText="Service" ReadOnly="True" SortExpression="Service" />
-                        </Fields>
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#EFF3FB" />
-                    </asp:DetailsView>
-                </td>
-            </tr>
-        </table>
-    </div>
+                        <td class="auto-style1">
+                            <div class="centered">
+                            <asp:Label ID="lblService" runat="server" Text="CETC Service List: "></asp:Label><br />
+                            <asp:DropDownList ID="ddlService" runat="server" DataSourceID="sdsService" DataTextField="Service" DataValueField="Service" Height="22px" Width="260px" AppendDataBoundItems="False" OnDataBinding="Page_Load" AutoPostBack="True">
+                            </asp:DropDownList>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:DetailsView ID="ReligionView" runat="server" AutoGenerateRows="False" CellPadding="4" DataSourceID="sdsReligion0" ForeColor="#333333" GridLines="None" Height="50px" Width="260px" AutoGenerateInsertButton="True" OnItemInserted="ReligionView_ItemInserted" OnItemInserting="ReligionView_ItemInserting">
+                                <AlternatingRowStyle BackColor="White" />
+                                <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
+                                <EditRowStyle BackColor="#2461BF" />
+                                <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
+                                <Fields>
+                                    <asp:BoundField DataField="Religion" HeaderText="Religion" SortExpression="Religion" />
+                                </Fields>
+                                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#EFF3FB" />
+                            </asp:DetailsView>
+                        </td>
+                        <td>
+                            <asp:DetailsView ID="ServiceView" runat="server" AutoGenerateRows="False" CellPadding="4" DataKeyNames="Service" DataSourceID="sdsService0" ForeColor="#333333" GridLines="None" Height="50px" Width="260px" AutoGenerateInsertButton="True" OnItemInserted="ServiceView_ItemInserted" OnItemInserting="ServiceView_ItemInserting">
+                                <AlternatingRowStyle BackColor="White" />
+                                <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
+                                <EditRowStyle BackColor="#2461BF" />
+                                <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
+                                <Fields>
+                                    <asp:BoundField DataField="Service" HeaderText="Service" ReadOnly="True" SortExpression="Service" />
+                                </Fields>
+                                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#EFF3FB" />
+                            </asp:DetailsView>
+                        </td>
+                    </tr>
+                </table>
+        </div>
 </asp:Content>
