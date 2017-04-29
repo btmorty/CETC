@@ -46,6 +46,10 @@
             </Columns>
         </asp:GridView>
     </div>
+    <br />
+    <div class="text-center">
+        <asp:LinkButton ID="btnExport" runat="server" CssClass="btn btn-primary" OnClick="ExportToExcel"><span aria-hidden="true" class="glyphicon glyphicon-download-alt"></span> Export To Excel</asp:LinkButton>
+    </div>
     <asp:SqlDataSource ID="ActivityLogDataSource" runat="server"
         ConnectionString="<%$ ConnectionStrings:MembershipDB %>"
         SelectCommand="usp_GetUserActivityLog" SelectCommandType="StoredProcedure">
