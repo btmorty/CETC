@@ -14,6 +14,23 @@
         padding-bottom: 5px;
         }
     </style>
+    <script type="text/javascript">
+    function getPassword()
+    {
+        var pwd = prompt('Please type "Delete" to confirm that you want to delete the Activity Log:', '');
+        
+        if(pwd != null)
+        {
+            if (pwd == document.getElementById('<%= hidPassword.ClientID %>').value)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    </script>
+    <asp:HiddenField ID="hidPassword" runat="server" Value="Delete" />
+
     <h2>Activity History for
         <asp:Label ID="UserToView" runat="server"></asp:Label>
     </h2>
@@ -50,6 +67,11 @@
     <div class="text-center">
         <asp:LinkButton ID="btnExport" runat="server" CssClass="btn btn-primary" OnClick="ExportToExcel"><span aria-hidden="true" class="glyphicon glyphicon-download-alt"></span> Export To Excel</asp:LinkButton>
     </div>
+    <br />
+    <div class="text-center">
+        <asp:LinkButton ID="btnDelete" runat="server" CssClass="btn btn-primary" OnClientClick="return getPassword()" OnClick="DeleteActvityLog"><span aria-hidden="true" class="glyphicon glyphicon-refresh"></span> Reset Activity Log</asp:LinkButton>
+    </div>
+    <asp:Label ID="lblStatus" runat="server" Visible="False"></asp:Label>
     <asp:SqlDataSource ID="ActivityLogDataSource" runat="server"
         ConnectionString="<%$ ConnectionStrings:MembershipDB %>"
         SelectCommand="usp_GetUserActivityLog" SelectCommandType="StoredProcedure">

@@ -73,4 +73,34 @@ public partial class ActivityHistoryByUser : BasePage
         base.LogActivity("Exported User Activity Log", true);
     }
 
+
+    protected void DeleteActvityLog(object sender, EventArgs e)
+    {
+        String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["MembershipDB"].ConnectionString;
+        SqlConnection con = new SqlConnection(strConnString);
+        string strQuery = "DELETE FROM dbo.ActivityLog";
+        SqlCommand cmd = new SqlCommand(strQuery);
+        cmd.CommandType = CommandType.Text;
+        cmd.Connection = con;
+        try
+        {
+            con.Open();
+            cmd.ExecuteNonQuery();
+            //Log User Edit
+            base.LogActivity("Deleted Activity Log!", true);
+            gvActivityLog.DataBind();
+        }
+
+        catch (Exception ex)
+        {
+            lblStatus.Text = "Delete Failed. The following error occured: " + ex.Message;
+            lblStatus.Visible = true;
+        }
+
+        finally
+        {
+            con.Close();
+            con.Dispose();
+        }
+    }
 }
