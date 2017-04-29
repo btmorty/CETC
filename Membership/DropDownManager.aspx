@@ -14,17 +14,6 @@
             height: 52px;
         }
 
-        .auto-style2 {
-            position: relative;
-            min-height: 1px;
-            float: left;
-            width: 100%;
-            left: 0px;
-            top: -22px;
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-
         div.centered {
             text-align: center;
         }
@@ -34,7 +23,7 @@
                 text-align: left;
             }
     </style>
-    <%--//Page Header--%>
+<%--//Page Header--%>
     <h2 class="text-center">Drop Down List Manager</h2>
     <hr>
     <br />
@@ -109,6 +98,9 @@ WHERE [Race] = @Race">
                             <asp:Label ID="lblResStatus" runat="server" Text="Residential Status List: "></asp:Label><br />
                             <asp:DropDownList ID="ddlResStatus" runat="server" DataSourceID="sdsResStatus" DataTextField="Residential_Status" DataValueField="Residential_Status" Height="16px" Width="260px" AppendDataBoundItems="False" OnDataBinding="Page_Load" AutoPostBack="True">
                             </asp:DropDownList>
+                            <br />
+                            <label>Value to be added:</label><br />
+                            <asp:TextBox ID="txtResidentialStatus" runat="server"></asp:TextBox>
                             </div>
                         </td>
 
@@ -117,6 +109,9 @@ WHERE [Race] = @Race">
                             <asp:Label ID="lblPrefLanguage" runat="server" Text="Preferred Language List: "></asp:Label><br />
                             <asp:DropDownList ID="ddlPrefLanguage" runat="server" DataSourceID="sdsPrefLang" DataTextField="Preferred_Language" DataValueField="Preferred_Language" Height="19px" Width="260px" AppendDataBoundItems="False" OnDataBinding="Page_Load" AutoPostBack="True">
                             </asp:DropDownList>
+                            <br />
+                            <label>Value to be added:</label><br />
+                            <asp:TextBox ID="txtPReferredLanguage" runat="server"></asp:TextBox>
                             </div>
                         </td>
                     </tr>
@@ -177,6 +172,9 @@ WHERE [Race] = @Race">
                             <asp:Label ID="lblReligion" runat="server" Text="Religion List: "></asp:Label><br />
                             <asp:DropDownList ID="ddlReligion" runat="server" DataSourceID="sdsReligion" DataTextField="Religion" DataValueField="Religion" Height="16px" Width="261px" OnDataBinding="Page_Load" AutoPostBack="True">
                             </asp:DropDownList>
+                            <br />
+                            <label>Value to be added:</label><br />
+                            <asp:TextBox ID="txtReligion" runat="server"></asp:TextBox>
                             </div>
                         </td>
 
@@ -185,6 +183,9 @@ WHERE [Race] = @Race">
                             <asp:Label ID="lblService" runat="server" Text="CETC Service List: "></asp:Label><br />
                             <asp:DropDownList ID="ddlService" runat="server" DataSourceID="sdsService" DataTextField="Service" DataValueField="Service" Height="22px" Width="260px" AppendDataBoundItems="False" OnDataBinding="Page_Load" AutoPostBack="True">
                             </asp:DropDownList>
+                            <br />
+                            <label>Value to be added:</label><br />
+                            <asp:TextBox ID="txtService" runat="server"></asp:TextBox>
                             </div>
                         </td>
                     </tr>

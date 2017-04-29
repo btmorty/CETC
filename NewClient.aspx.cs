@@ -36,4 +36,9 @@ public partial class NewClient : BasePage
             e.ExceptionHandled = true;
         }
     }
+
+    protected void ClientFormView_PageIndexChanging(object sender, FormViewPageEventArgs e)
+    {
+
+    }
 }

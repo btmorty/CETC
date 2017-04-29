@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeFile="NewClient.aspx.cs" Inherits="NewClient" %>
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
     <%--CSS for Tables--%>
     <style>
@@ -8,6 +10,9 @@
             padding-right: 10px;
             padding-top: 5px;
             padding-bottom: 5px;
+        }
+        .auto-style1 {
+            height: 75px;
         }
     </style>
     <asp:SqlDataSource ID="DDStatusSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [StatusID], [Status] FROM [DD_Status]"></asp:SqlDataSource>
@@ -52,7 +57,7 @@
     <h3 class="text-center">New Client Information</h3>
     <hr />
     <%--//Data Entry Form--%>
-                <asp:FormView runat="server" DataSourceID="ClientSqlDataSource" ID="ClientFormView" DataKeyNames="ClientID" OnDataBound="ClientFormView_DataBound" DefaultMode="Insert" HorizontalAlign="Center" Width="60%">
+                <asp:FormView runat="server" DataSourceID="ClientSqlDataSource" ID="ClientFormView" DataKeyNames="ClientID" OnDataBound="ClientFormView_DataBound" DefaultMode="Insert" HorizontalAlign="Center" Width="73%">
                     <InsertItemTemplate>
                         <table style="width:100%">
                             <tr>
@@ -60,7 +65,7 @@
                                     <asp:DropDownList ID="ddStatus" runat="server" SelectedValue='<%# Bind("Status") %>'>
                                         <asp:ListItem>Active</asp:ListItem>
                                         <asp:ListItem>In-Active</asp:ListItem>
-                                    </asp:DropDownList>
+                                    </asp:DropDownList>                                   
                                 </td>
                                 <td>Date Created:<br />
                                     <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true" Text='<%# Eval("DateCreated","{0:MM/dd/yyyy}") %>' /></td>
@@ -70,44 +75,82 @@
                                     <asp:TextBox ID="txtLastModifiedBy" runat="server" ReadOnly="true" Text='<%# Eval("ModifiedBy") %>' /></td>
                             </tr>
                             <tr>
-                                <td>First Name:<br />
-                                    <asp:TextBox ID="First_NameLabel" runat="server" Text='<%# Bind("First_Name") %>' /></td>
-                                <td>Last Name:<br />
-                                    <asp:TextBox ID="Last_NameLabel" runat="server" Text='<%# Bind("Last_Name") %>' /></td>
-                                <td>Date of Birth:<br />
-                                    <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Bind("DOB", "{0:yyyy-MM-dd}") %>' TextMode="Date" /></td>
-                                <td>Age:<br />
-                                    <asp:TextBox ID="AgeLabel" runat="server" Text='<%# Bind("Age") %>' TextMode="Number" /></td>
+                                <td class="auto-style1">First Name:<br />
+                                    <asp:TextBox ID="First_NameLabel" runat="server" Text='<%# Bind("First_Name") %>' />
+                                    <!-- Validator(s) for First_NameLabel here-->
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="*" ErrorMessage="Please enter a first name" Display="Dynamic" ControlToValidate="First_NameLabel" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <br />
+                                </td>
+                                <td class="auto-style1">Last Name:<br />
+                                    <asp:TextBox ID="Last_NameLabel" runat="server" Text='<%# Bind("Last_Name") %>' />
+                                    <!-- Validator(s) for Last_NameLabel here-->
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Text="*" ErrorMessage="Please enter a last name" Display="Dynamic" ControlToValidate="Last_NameLabel" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <br />
+                                </td>
+                                <td class="auto-style1">Date of Birth:<br />
+                                    <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Bind("DOB", "{0:yyyy-MM-dd}") %>' TextMode="Date" />
+                                    <!-- Validator(s) for DOBLabel here-->
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Text="*" ErrorMessage="Please enter birth date" ControlToValidate="DOBLabel" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <br />
+                                <td class="auto-style1">Age:<br />
+                                    <asp:TextBox ID="AgeLabel" runat="server" Text='<%# Bind("Age") %>' TextMode="Number" MaxLength="2" />
+                                    <!-- Validator(s) for AgeLabel here-->
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Text="*" ErrorMessage="Please enter age" ControlToValidate="AgeLabel" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="AgeLabel" ErrorMessage="Please enter a valid age" MaximumValue="99" MinimumValue="1" ForeColor="Red">Please enter an age between 1 and 99</asp:RangeValidator>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Address:<br />
-                                    <asp:TextBox ID="AddressLabel" runat="server" Text='<%# Bind("Address") %>' /></td>
+                                    <asp:TextBox ID="AddressLabel" runat="server" Text='<%# Bind("Address") %>' />
+                                    <br />
+                                </td>
                                 <td>City:<br />
-                                    <asp:TextBox ID="CityLabel" runat="server" Text='<%# Bind("City") %>' /></td>
+                                    <asp:TextBox ID="CityLabel" runat="server" Text='<%# Bind("City") %>' />
+                                    <br />
+                                </td>
                                 <td>State:<br />
-                                    <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
+                                    <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
+                                    <br />
+                                </td>
                                 <td>Zip Code:<br />
-                                    <asp:TextBox ID="Zip_CodeLabel" runat="server" Text='<%# Bind("Zip") %>' /></td>
+                                    <asp:TextBox ID="Zip_CodeLabel" runat="server" Text='<%# Bind("Zip") %>' MaxLength="5" />
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Zip_CodeLabel" ErrorMessage="Please enter a valid zip code" ValidationExpression="\d{5}(-\d{4})?" ForeColor="Red"></asp:RegularExpressionValidator>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Email:<br />
-                                    <asp:TextBox ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>' TextMode="Email" /></td>
+                                    <asp:TextBox ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>' TextMode="Email" /><br />
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="EmailLabel" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red"></asp:RegularExpressionValidator>
+                                </td>
                                 <td>Phone:<br />
-                                    <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" /></td>
+                                    <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" MaxLength="13" />                                    
+                                    (###-###-####)<br />
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="PhoneLabel" ErrorMessage="Please enter a valid phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red"></asp:RegularExpressionValidator>
+                                </td>
                                 <td>SSN:<br />
-                                    <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' /></td>
+                                    <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' MaxLength="11" />
+                                    (###-##-####)<br />
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="SSNLabel" ErrorMessage="Please enter a valid social security number" ValidationExpression="\d{3}-\d{2}-\d{4}" ForeColor="Red"></asp:RegularExpressionValidator>
+                                </td>
                                 <td>Sex:<br />
-                                    <asp:DropDownList ID="DropDownListSex" runat="server" DataSourceID="DDSexSqlDataSource" DataValueField="Sex" SelectedValue='<%# Bind("Sex") %>'></asp:DropDownList></td>
+                                    <asp:DropDownList ID="DropDownListSex" runat="server" DataSourceID="DDSexSqlDataSource" DataValueField="Sex" SelectedValue='<%# Bind("Sex") %>'></asp:DropDownList>
+                                    <br />
+                                    <br />
+                                </td>
                             </tr>
                             <tr>
                                 <td>Race:<br />
-                                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="DDRaceSqlDataSource" DataValueField="Race" SelectedValue='<%# Bind("Race") %>'></asp:DropDownList></td>
+                                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="DDRaceSqlDataSource" DataValueField="Race" SelectedValue='<%# Bind("Race") %>'></asp:DropDownList>
+                                </td>
                                 <td>Residential Status:<br />
-                                    <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="DDResidentialStatusSqlDataSource" DataValueField="Residential_Status" SelectedValue='<%# Bind("Residential_Status") %>'></asp:DropDownList></td>
+                                    <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="DDResidentialStatusSqlDataSource" DataValueField="Residential_Status" SelectedValue='<%# Bind("Residential_Status") %>'></asp:DropDownList>
+                                </td>
                                 <td>Preferred Language:<br />
-                                    <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="DDPreferredLanguageSqlDataSource" DataValueField="Preferred_Language" SelectedValue='<%# Bind("Preferred_Language") %>'></asp:DropDownList></td>
+                                    <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="DDPreferredLanguageSqlDataSource" DataValueField="Preferred_Language" SelectedValue='<%# Bind("Preferred_Language") %>'></asp:DropDownList>
+                                </td>
                                 <td>Religious Affiliation:<br />
-                                    <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="DDReligionSqlDataSource" DataValueField="Religion" SelectedValue='<%# Bind("Religion") %>'></asp:DropDownList></td>
+                                    <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="DDReligionSqlDataSource" DataValueField="Religion" SelectedValue='<%# Bind("Religion") %>'></asp:DropDownList>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Staffing Ratio:<br />
@@ -137,5 +180,7 @@
                 <br />
                 <div>
                     <asp:Label ID="lblResults" runat="server" Visible="false"></asp:Label>
+                    <br />
+                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
                 </div>
 </asp:Content>
