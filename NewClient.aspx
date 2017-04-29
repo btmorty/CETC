@@ -88,7 +88,7 @@
                                     <br />
                                 </td>
                                 <td class="auto-style1">Date of Birth:<br />
-                                    <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Bind("DOB", "{0:yyyy-MM-dd}") %>' TextMode="Date" />
+                                    <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Bind("DOB", "{0:MM/dd/yyyy}") %>' TextMode="Date" />
                                     <!-- Validator(s) for DOBLabel here-->
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Text="*" ErrorMessage="Please enter birth date" ControlToValidate="DOBLabel" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                     <br />
@@ -114,22 +114,26 @@
                                 </td>
                                 <td>Zip Code:<br />
                                     <asp:TextBox ID="Zip_CodeLabel" runat="server" Text='<%# Bind("Zip") %>' MaxLength="5" />
+                                    <!-- Validator(s) for Zip_CodeLabel here-->
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Zip_CodeLabel" ErrorMessage="Please enter a valid zip code" ValidationExpression="\d{5}(-\d{4})?" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Email:<br />
                                     <asp:TextBox ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>' TextMode="Email" /><br />
+                                    <!-- Validator(s) for EmailLabel here-->
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="EmailLabel" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                                 <td>Phone:<br />
                                     <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" MaxLength="13" />                                    
                                     (###-###-####)<br />
+                                    <!-- Validator(s) for PhoneLabel here-->
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="PhoneLabel" ErrorMessage="Please enter a valid phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                                 <td>SSN:<br />
                                     <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' MaxLength="11" />
                                     (###-##-####)<br />
+                                    <!-- Validator(s) for SSNLabel here-->
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="SSNLabel" ErrorMessage="Please enter a valid social security number" ValidationExpression="\d{3}-\d{2}-\d{4}" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                                 <td>Sex:<br />
