@@ -389,15 +389,15 @@
                                             <asp:TextBox ID="StateLabel" runat="server" ReadOnly="true" Text='<%# Eval("State") %>' />
                                         </td>
                                         <td>Zip Code:<br />
-                                            <asp:TextBox ID="Zip_CodeLabel" runat="server" ReadOnly="true" Text='<%# Eval("Zip") %>' /></td>
+                                            <asp:TextBox ID="Zip_CodeLabel" runat="server" ReadOnly="true" Text='<%# Eval("Zip") %>' /></td>                                        
                                     </tr>
                                     <tr>
                                         <td>Email:<br />
-                                            <asp:TextBox ID="EmailLabel" runat="server" ReadOnly="true" Text='<%# Eval("Email") %>' /></td>
+                                            <asp:TextBox ID="EmailLabel" runat="server" ReadOnly="true" Text='<%# Eval("Email") %>' /></td>                                        
                                         <td>Phone:<br />
-                                            <asp:TextBox ID="PhoneLabel" runat="server" ReadOnly="true" Text='<%# Eval("Phone") %>' /></td>
+                                            <asp:TextBox ID="PhoneLabel" runat="server" ReadOnly="true" Text='<%# Eval("Phone") %>' /></td>                                          
                                         <td>SSN:<br />
-                                            <asp:TextBox ID="SSNLabel" runat="server" ReadOnly="true" Text='<%# Eval("SSN") %>' /></td>
+                                            <asp:TextBox ID="SSNLabel" runat="server" ReadOnly="true" Text='<%# Eval("SSN") %>' /></td>                                           
                                         <td>Sex:<br />
                                             <asp:TextBox ID="SexLabel" runat="server" ReadOnly="true" Text='<%# Eval("Sex") %>' /></td>
                                     </tr>
@@ -455,9 +455,15 @@
                                         <td>Last Name:<br />
                                             <asp:TextBox ID="Last_NameLabel" runat="server" Text='<%# Bind("Last_Name") %>' /></td>
                                         <td>Date of Birth:<br />
-                                            <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Bind("DOB", "{0:yyyy-MM-dd}") %>' TextMode="Date" /></td>
+                                            <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Bind("DOB", "{0:MM/dd/yyyy}") %>' TextMode="Date" />
+                                            <!-- Validator(s) for DOBLabel here-->
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Text="*" ErrorMessage="Please enter birth date" ControlToValidate="DOBLabel" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        </td>
                                         <td>Age:<br />
-                                            <asp:TextBox ID="AgeLabel" runat="server" Text='<%# Bind("Age") %>' TextMode="Number" /></td>
+                                            <asp:TextBox ID="AgeLabel" runat="server" Text='<%# Bind("Age") %>' TextMode="Number" MaxLength="2" />
+                                            <!-- Validator(s) for AgeLabel here-->
+                                            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="AgeLabel" ErrorMessage="Please enter a valid age" MaximumValue="99" MinimumValue="1" ForeColor="Red">Please enter an age between 1 and 99</asp:RangeValidator>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Address:<br />
@@ -467,15 +473,29 @@
                                         <td>State:<br />
                                             <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                         <td>Zip Code:<br />
-                                            <asp:TextBox ID="Zip_CodeLabel" runat="server" Text='<%# Bind("Zip") %>' /></td>
+                                            <asp:TextBox ID="Zip_CodeLabel" runat="server" Text='<%# Bind("Zip") %>' MaxLength="5" />
+                                            <!-- Validator(s) for Zip_CodeLabel here-->
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Zip_CodeLabel" ErrorMessage="Please enter a valid zip code" ValidationExpression="\d{5}(-\d{4})?" ForeColor="Red"></asp:RegularExpressionValidator>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Email:<br />
-                                            <asp:TextBox ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>' TextMode="Email" /></td>
+                                            <asp:TextBox ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>' TextMode="Email" />
+                                            <!-- Validator(s) for EmailLabel here-->
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="EmailLabel" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red"></asp:RegularExpressionValidator>
+                                        </td>
                                         <td>Phone:<br />
-                                            <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" /></td>
+                                            <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" MaxLength="13" />
+                                            (###-###-####)<br />
+                                            <!-- Validator(s) for PhoneLabel here-->
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="PhoneLabel" ErrorMessage="Please enter a valid phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red"></asp:RegularExpressionValidator>
+                                        </td>
                                         <td>SSN:<br />
-                                            <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' /></td>
+                                            <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' MaxLength="11" />
+                                            (###-##-####)<br />
+                                            <!-- Validator(s) for SSNLabel here-->
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="SSNLabel" ErrorMessage="Please enter a valid social security number" ValidationExpression="\d{3}-\d{2}-\d{4}" ForeColor="Red"></asp:RegularExpressionValidator>
+                                        </td>
                                         <td>Sex:<br />
                                            <asp:DropDownList ID="DropDownListSex" runat="server" DataSourceID="DDSexSqlDataSource" DataValueField="Sex" SelectedValue='<%# Bind("Sex") %>'></asp:DropDownList></td>
                                     </tr>
@@ -507,8 +527,8 @@
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:LinkButton ID="btnClientSave" runat="server" CssClass="btn btn-primary" CommandName="Update"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
-                                <asp:LinkButton ID="btnClientCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnClientSave" runat="server" CssClass="btn btn-primary" CommandName="Update" CausesValidation="True"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
+                                <asp:LinkButton ID="btnClientCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel" CausesValidation="False"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                                 <br />
                                 <br />
                             </EditItemTemplate>
@@ -580,8 +600,9 @@
                                     </tr>
                                 </table>
                             <br />
-                                <asp:LinkButton ID="btnContactSave" runat="server" CssClass="btn btn-primary" CommandName="Update"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
-                                <asp:LinkButton ID="btnContactCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnContactSave" runat="server" CssClass="btn btn-primary" CommandName="Update" CausesValidation="True"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
+                                <asp:LinkButton ID="btnContactCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel" CausesValidation="False"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnContactDelete" runat="server" CssClass="btn btn-primary" CommandName="Delete"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
                                 <br />
                                 <br />
                         </EditItemTemplate>
@@ -637,7 +658,7 @@
                                 </table>
                             <br />
                                 <asp:LinkButton ID="btnContactInsert" runat="server" CssClass="btn btn-primary" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
-                                <asp:LinkButton ID="btnContactCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <%--<asp:LinkButton ID="btnContactCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>--%>
                                 <br />
                                 <br />
                         </InsertItemTemplate>
@@ -1294,7 +1315,7 @@
                                 </table>
                                 <br />
                                 <asp:LinkButton ID="btnProviderUpdate" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Update"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Update</asp:LinkButton>
-                                <asp:LinkButton ID="btnProviderCancel" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnProviderCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </EditItemTemplate>
                             <EmptyDataTemplate>
                                 <span>No data was returned.</span>
@@ -1336,7 +1357,7 @@
                                 </table>
                                 <br />
                                 <asp:LinkButton ID="btnProviderInsert" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
-                                <asp:LinkButton ID="btnProviderCancel" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnProviderCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </InsertItemTemplate>
                             <ItemTemplate>
                                 <asp:HiddenField ID="ProviderID" runat="server" Value='<%# Eval("ProviderID") %>' />
@@ -1414,7 +1435,7 @@
                                 </table>
                                 <br />
                                 <asp:LinkButton ID="btnMedUpdate" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Update"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Update</asp:LinkButton>
-                                <asp:LinkButton ID="btnMedCancel" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnMedCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </EditItemTemplate>
                             <EmptyDataTemplate>
                                 <span>No data was returned.</span>
@@ -1442,7 +1463,7 @@
                                 </table>
                                 <br />
                                 <asp:LinkButton ID="btnMedInsert" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
-                                <asp:LinkButton ID="btnMedCancel" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnMedCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </InsertItemTemplate>
                             <ItemTemplate>
                                 <asp:HiddenField ID="MedicationID" runat="server" Value='<%# Eval("MedicationID") %>' />
@@ -1507,7 +1528,7 @@
                                     </tr>
                                 </table>
                                 <asp:LinkButton ID="btnInsuranceUpdate" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Update"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Update</asp:LinkButton>
-                                <asp:LinkButton ID="btnInsuranceCancel" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnInsuranceCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </EditItemTemplate>
                             <InsertItemTemplate>
                                 <table>
@@ -1534,7 +1555,7 @@
                                     </tr>
                                 </table>
                                 <asp:LinkButton ID="btnInsuranceInsert" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
-                                <asp:LinkButton ID="btnInsuranceCancel" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnInsuranceCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Cancel</asp:LinkButton>
                             </InsertItemTemplate>
                             <ItemTemplate>
                                 <table>
