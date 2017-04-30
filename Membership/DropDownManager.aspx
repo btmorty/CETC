@@ -89,7 +89,10 @@ WHERE [Race] = @Race">
                             </asp:DropDownList>
                             <br />
                             <label>Value to be added:</label><br />
-                            <asp:TextBox ID="txtRace" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtAddRace" runat="server"></asp:TextBox>
+                                <br />
+                                <br />
+                                <asp:LinkButton ID="btnAddRace" runat="server" CssClass="btn btn-primary" CommandName="Edit" OnClick="btnClientEdit_Click"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
                             </div>
                         </td>
 
@@ -223,4 +226,5 @@ WHERE [Race] = @Race">
                     </tr>
                 </table>
         </div>
+    <asp:Label ID="errorStatus" runat="server" Visible="false"></asp:Label>
 </asp:Content>
