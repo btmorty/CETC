@@ -68,35 +68,35 @@
                                     </asp:DropDownList>                                   
                                 </td>
                                 <td>Date Created:<br />
-                                    <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true" Text='<%# Eval("DateCreated","{0:MM/dd/yyyy}") %>' /></td>
+                                    <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true" Text='<%# Eval("DateCreated","{0:MM/dd/yyyy}") %>' BackColor="Silver" /></td>
                                 <td>Date Modified:<br />
-                                    <asp:TextBox ID="txtDateModified" runat="server" ReadOnly="true" /></td>
+                                    <asp:TextBox ID="txtDateModified" runat="server" ReadOnly="true" BackColor="Silver" /></td>
                                 <td>Last Modified By:<br />
-                                    <asp:TextBox ID="txtLastModifiedBy" runat="server" ReadOnly="true" Text='<%# Eval("ModifiedBy") %>' /></td>
+                                    <asp:TextBox ID="txtLastModifiedBy" runat="server" ReadOnly="true" Text='<%# Eval("ModifiedBy") %>' BackColor="Silver" /></td>
                             </tr>
                             <tr>
-                                <td class="auto-style1">First Name:<br />
+                                <td>First Name:<br />
                                     <asp:TextBox ID="First_NameLabel" runat="server" Text='<%# Bind("First_Name") %>' />
                                     <!-- Validator(s) for First_NameLabel here-->
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="*" ErrorMessage="Please enter a first name" Display="Dynamic" ControlToValidate="First_NameLabel" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="First name can only contain letters" ControlToValidate="First_NameLabel" Display="Dynamic" Text="*" ForeColor="Red"></asp:CompareValidator>
                                     <br />
                                 </td>
-                                <td class="auto-style1">Last Name:<br />
+                                <td>Last Name:<br />
                                     <asp:TextBox ID="Last_NameLabel" runat="server" Text='<%# Bind("Last_Name") %>' />
                                     <!-- Validator(s) for Last_NameLabel here-->
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Text="*" ErrorMessage="Please enter a last name" Display="Dynamic" ControlToValidate="Last_NameLabel" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Last name can only contain letters" Type="String" ControlToValidate="Last_NameLabel" Display="Dynamic" Text="*" ForeColor="Red"></asp:CompareValidator>                                  
                                     <br />
                                 </td>
-                                <td class="auto-style1">Date of Birth:<br />
+                                <td>Date of Birth:<br />
                                     <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Bind("DOB", "{0:MM/dd/yyyy}") %>' TextMode="Date" />
-                                    <!-- Validator(s) for DOBLabel here-->
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Text="*" ErrorMessage="Please enter birth date" ControlToValidate="DOBLabel" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                     <br />
-                                <td class="auto-style1">Age:<br />
-                                    <asp:TextBox ID="AgeLabel" runat="server" Text='<%# Bind("Age") %>' TextMode="Number" MaxLength="2" />
+                                <td>Age:<br />
+                                    <asp:TextBox ID="AgeLabel" runat="server" Text='<%# Bind("Age") %>' MaxLength="3" />
                                     <!-- Validator(s) for AgeLabel here-->
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Text="*" ErrorMessage="Please enter age" ControlToValidate="AgeLabel" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="AgeLabel" ErrorMessage="Please enter a valid age" MaximumValue="99" MinimumValue="1" ForeColor="Red">Please enter an age between 1 and 99</asp:RangeValidator>
+                                     <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="AgeLabel" ErrorMessage="Please enter a valid age" MinimumValue="1" MaximumValue="100" ForeColor="Red" Display="Dynamic" Type="Integer" Text="*"></asp:RangeValidator>
+                                     <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="AgeLabel" ErrorMessage="Please enter a whole number greater than 0" Type="Integer" ValueToCompare="0" Operator="GreaterThan" ForeColor="Red" Display="Dynamic" Text="*"></asp:CompareValidator>                                   
                                 </td>
                             </tr>
                             <tr>
@@ -106,6 +106,8 @@
                                 </td>
                                 <td>City:<br />
                                     <asp:TextBox ID="CityLabel" runat="server" Text='<%# Bind("City") %>' />
+                                    <!-- Validator(s) for CityLabel here-->
+                                    <asp:CompareValidator ID="CompareValidator4" runat="server" ErrorMessage="City can only contain letters" ControlToValidate="CityLabel" Display="Dynamic" ForeColor="Red" Text="*"></asp:CompareValidator>
                                     <br />
                                 </td>
                                 <td>State:<br />
@@ -115,30 +117,30 @@
                                 <td>Zip Code:<br />
                                     <asp:TextBox ID="Zip_CodeLabel" runat="server" Text='<%# Bind("Zip") %>' MaxLength="5" />
                                     <!-- Validator(s) for Zip_CodeLabel here-->
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Zip_CodeLabel" ErrorMessage="Please enter a valid zip code" ValidationExpression="\d{5}(-\d{4})?" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Zip_CodeLabel" ErrorMessage="Please enter a valid zip code" ValidationExpression="\d{5}(-\d{4})?" ForeColor="Red" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Email:<br />
-                                    <asp:TextBox ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>' TextMode="Email" /><br />
+                                    <asp:TextBox ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>' TextMode="Email" />
                                     <!-- Validator(s) for EmailLabel here-->
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="EmailLabel" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="EmailLabel" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
+                                    <br />
                                 </td>
                                 <td>Phone:<br />
-                                    <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" MaxLength="13" />                                    
-                                    (###-###-####)<br />
+                                    <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" MaxLength="13" /><br />                                    
                                     <!-- Validator(s) for PhoneLabel here-->
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="PhoneLabel" ErrorMessage="Please enter a valid phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="PhoneLabel" ErrorMessage="Please enter a valid phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
+                                    (###-###-####)
                                 </td>
                                 <td>SSN:<br />
-                                    <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' MaxLength="11" />
-                                    (###-##-####)<br />
+                                    <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' MaxLength="11" /><br />                                 
                                     <!-- Validator(s) for SSNLabel here-->
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="SSNLabel" ErrorMessage="Please enter a valid social security number" ValidationExpression="\d{3}-\d{2}-\d{4}" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="SSNLabel" ErrorMessage="Please enter a valid social security number" ValidationExpression="\d{3}-\d{2}-\d{4}" ForeColor="Red" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
+                                    (###-##-####)
                                 </td>
                                 <td>Sex:<br />
                                     <asp:DropDownList ID="DropDownListSex" runat="server" DataSourceID="DDSexSqlDataSource" DataValueField="Sex" SelectedValue='<%# Bind("Sex") %>'></asp:DropDownList>
-                                    <br />
                                     <br />
                                 </td>
                             </tr>
