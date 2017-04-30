@@ -62,7 +62,7 @@
                         <table style="width:100%">
                             <tr>
                                 <td>Status:<br />
-                                    <asp:DropDownList ID="ddStatus" runat="server" SelectedValue='<%# Bind("Status") %>'>
+                                    <asp:DropDownList ID="ddStatus" runat="server" SelectedValue='<%# Bind("Status") %>' AutoPostBack="True">
                                         <asp:ListItem>Active</asp:ListItem>
                                         <asp:ListItem>In-Active</asp:ListItem>
                                     </asp:DropDownList>                                   
@@ -79,14 +79,14 @@
                                     <asp:TextBox ID="First_NameLabel" runat="server" Text='<%# Bind("First_Name") %>' />
                                     <!-- Validator(s) for First_NameLabel here-->
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="*" ErrorMessage="Please enter a first name" Display="Dynamic" ControlToValidate="First_NameLabel" ForeColor="Red"></asp:RequiredFieldValidator>
-                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="First name can only contain letters" ControlToValidate="First_NameLabel" Display="Dynamic" Text="*" ForeColor="Red"></asp:CompareValidator>
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="First name can only contain letters" ControlToValidate="First_NameLabel" Display="Dynamic" Text="*" ForeColor="Red" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
                                     <br />
                                 </td>
                                 <td>Last Name:<br />
                                     <asp:TextBox ID="Last_NameLabel" runat="server" Text='<%# Bind("Last_Name") %>' />
                                     <!-- Validator(s) for Last_NameLabel here-->
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Text="*" ErrorMessage="Please enter a last name" Display="Dynamic" ControlToValidate="Last_NameLabel" ForeColor="Red"></asp:RequiredFieldValidator>
-                                    <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Last name can only contain letters" Type="String" ControlToValidate="Last_NameLabel" Display="Dynamic" Text="*" ForeColor="Red"></asp:CompareValidator>                                  
+                                    <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Last name can only contain letters" ControlToValidate="Last_NameLabel" Display="Dynamic" Text="*" ForeColor="Red" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>                                  
                                     <br />
                                 </td>
                                 <td>Date of Birth:<br />
@@ -144,22 +144,22 @@
                                     <br />(###-##-####)
                                 </td>
                                 <td>Sex:<br />
-                                    <asp:DropDownList ID="DropDownListSex" runat="server" DataSourceID="DDSexSqlDataSource" DataValueField="Sex" SelectedValue='<%# Bind("Sex") %>'></asp:DropDownList>
+                                    <asp:DropDownList ID="DropDownListSex" runat="server" DataSourceID="DDSexSqlDataSource" DataValueField="Sex" SelectedValue='<%# Bind("Sex") %>' AutoPostBack="True"></asp:DropDownList>
                                     <br />
                                 </td>
                             </tr>
                             <tr>
                                 <td>Race:<br />
-                                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="DDRaceSqlDataSource" DataValueField="Race" SelectedValue='<%# Bind("Race") %>'></asp:DropDownList>
+                                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="DDRaceSqlDataSource" DataValueField="Race" SelectedValue='<%# Bind("Race") %>' AutoPostBack="True"></asp:DropDownList>
                                 </td>
                                 <td>Residential Status:<br />
-                                    <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="DDResidentialStatusSqlDataSource" DataValueField="Residential_Status" SelectedValue='<%# Bind("Residential_Status") %>'></asp:DropDownList>
+                                    <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="DDResidentialStatusSqlDataSource" DataValueField="Residential_Status" SelectedValue='<%# Bind("Residential_Status") %>' AutoPostBack="True"></asp:DropDownList>
                                 </td>
                                 <td>Preferred Language:<br />
-                                    <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="DDPreferredLanguageSqlDataSource" DataValueField="Preferred_Language" SelectedValue='<%# Bind("Preferred_Language") %>'></asp:DropDownList>
+                                    <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="DDPreferredLanguageSqlDataSource" DataValueField="Preferred_Language" SelectedValue='<%# Bind("Preferred_Language") %>' AutoPostBack="True"></asp:DropDownList>
                                 </td>
                                 <td>Religious Affiliation:<br />
-                                    <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="DDReligionSqlDataSource" DataValueField="Religion" SelectedValue='<%# Bind("Religion") %>'></asp:DropDownList>
+                                    <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="DDReligionSqlDataSource" DataValueField="Religion" SelectedValue='<%# Bind("Religion") %>' AutoPostBack="True"></asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
@@ -198,8 +198,8 @@
                             </tr>
                         </table>
                         <br />
-                        <asp:LinkButton ID="btnClientSave" runat="server" CssClass="btn btn-primary" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
-                        <asp:LinkButton ID="btnClientCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                        <asp:LinkButton ID="btnClientSave" runat="server" CssClass="btn btn-primary" CommandName="Insert" CausesValidation="True" OnClick="btnClientSave_Click"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
+                        <asp:LinkButton ID="btnClientCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel" CausesValidation="False"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                         <br />
                         <br />
                     </InsertItemTemplate>

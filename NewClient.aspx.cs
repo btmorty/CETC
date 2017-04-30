@@ -41,4 +41,13 @@ public partial class NewClient : BasePage
     {
 
     }
+
+    protected void btnClientSave_Click(object sender, EventArgs e)
+    {
+        //must check to see if the page is Valid before taking action
+        if (this.IsValid)
+        {
+            //safe to proced with the code
+        }
+    }
 }
