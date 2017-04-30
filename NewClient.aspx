@@ -104,12 +104,14 @@
                             <tr>
                                 <td>Address:<br />
                                     <asp:TextBox ID="AddressLabel" runat="server" Text='<%# Bind("Address") %>' />
+                                    <!-- Validator(s) for AddressLabel here-->
+                                    <asp:CompareValidator ID="CompareValidator4" runat="server" ErrorMessage="Please enter an address" ControlToValidate="AddressLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
                                     <br />
                                 </td>
                                 <td>City:<br />
                                     <asp:TextBox ID="CityLabel" runat="server" Text='<%# Bind("City") %>' />
                                     <!-- Validator(s) for CityLabel here-->
-                                    <asp:CompareValidator ID="CompareValidator4" runat="server" ErrorMessage="City can only contain letters" ControlToValidate="CityLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
+                                    <asp:CompareValidator ID="CompareValidator5" runat="server" ErrorMessage="City can only contain letters" ControlToValidate="CityLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
                                     <br />
                                 </td>
                                 <td>State:<br />
@@ -162,19 +164,37 @@
                             </tr>
                             <tr>
                                 <td>Staffing Ratio:<br />
-                                    <asp:TextBox ID="Staffing_RatioLabel" runat="server" Text='<%# Bind("Staff_Ratio") %>' /></td>
+                                    <asp:TextBox ID="Staffing_RatioLabel" runat="server" Text='<%# Bind("Staff_Ratio") %>' />
+                                     <!-- Validator(s) for Staffing_RatioLabel here-->
+                                    <asp:CompareValidator ID="CompareValidator6" runat="server" ErrorMessage="Please enter a ratio" ControlToValidate="Staffing_RatioLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
+                                </td>
                                 <td>DSPD:<br />
-                                    <asp:TextBox ID="DSPDLabel" runat="server" Text='<%# Bind("DSPD") %>' /></td>
+                                    <asp:TextBox ID="DSPDLabel" runat="server" Text='<%# Bind("DSPD") %>' />
+                                    <!-- Validator(s) for DSPDLabel here-->
+                                    <asp:CompareValidator ID="CompareValidator7" runat="server" ErrorMessage="Please enter a dspd" ControlToValidate="DSPDLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
+                                </td>
                                 <td>SSI:<br />
-                                    <asp:TextBox ID="SSILabel" runat="server" Text='<%# Bind("SSI") %>' /></td>
+                                    <asp:TextBox ID="SSILabel" runat="server" Text='<%# Bind("SSI") %>' />
+                                    <!-- Validator(s) for SSILabel here-->
+                                    <asp:CompareValidator ID="CompareValidator8" runat="server" ErrorMessage="Please enter a ssi" ControlToValidate="SSILabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
+                                </td>
                             </tr>
                             <tr>
                                 <td>SSA:<br />
-                                    <asp:TextBox ID="SSALabel" runat="server" Text='<%# Bind("SSA") %>' /></td>
+                                    <asp:TextBox ID="SSALabel" runat="server" Text='<%# Bind("SSA") %>' />
+                                    <!-- Validator(s) for SSALabel here-->
+                                    <asp:CompareValidator ID="CompareValidator9" runat="server" ErrorMessage="Please enter a ssa" ControlToValidate="SSALabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
+                                </td>
                                 <td>Modes of Communication:<br />
-                                    <asp:TextBox ID="CommunicationLabel" runat="server" Text='<%# Bind("Modes_Communication") %>' /></td>
+                                    <asp:TextBox ID="CommunicationLabel" runat="server" Text='<%# Bind("Modes_Communication") %>' />
+                                    <!-- Validator(s) for CommunicationLabel here-->
+                                    <asp:CompareValidator ID="CompareValidator10" runat="server" ErrorMessage="Please enter a mode of communication" ControlToValidate="CommunicationLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
+                                </td>
                                 <td>Diagnosis:<br />
-                                    <asp:TextBox ID="DiagnosisLabel" runat="server" Text='<%# Bind("Diagnosis") %>' /></td>
+                                    <asp:TextBox ID="DiagnosisLabel" runat="server" Text='<%# Bind("Diagnosis") %>' />
+                                    <!-- Validator(s) for DiagnosisLabel here-->
+                                    <asp:CompareValidator ID="CompareValidator11" runat="server" ErrorMessage="Please enter a diagnosis" ControlToValidate="DiagnosisLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
+                                </td>
                             </tr>
                         </table>
                         <br />
