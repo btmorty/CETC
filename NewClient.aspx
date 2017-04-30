@@ -109,7 +109,7 @@
                                 <td>City:<br />
                                     <asp:TextBox ID="CityLabel" runat="server" Text='<%# Bind("City") %>' />
                                     <!-- Validator(s) for CityLabel here-->
-                                    <asp:CompareValidator ID="CompareValidator4" runat="server" ErrorMessage="City can only contain letters" ControlToValidate="CityLabel" Display="Dynamic" ForeColor="Red" Text="*"></asp:CompareValidator>
+                                    <asp:CompareValidator ID="CompareValidator4" runat="server" ErrorMessage="City can only contain letters" ControlToValidate="CityLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
                                     <br />
                                 </td>
                                 <td>State:<br />
@@ -130,7 +130,7 @@
                                     <br />
                                 </td>
                                 <td>Phone:<br />
-                                    <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" MaxLength="13" />                                    
+                                    <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" MaxLength="12" />                                    
                                     <!-- Validator(s) for PhoneLabel here-->
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="PhoneLabel" ErrorMessage="Please enter a valid phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
                                     <br />(###-###-####)
