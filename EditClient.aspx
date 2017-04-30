@@ -10,6 +10,7 @@
             padding-bottom: 5px;
         }
     </style>
+    <asp:SqlDataSource ID="CETC_REF" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Director], [Address], [Phone], [Fax] FROM [REF_CETC]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDStatusSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [StatusID], [Status] FROM [DD_Status]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDStatesSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [State] FROM [DD_State]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDRelationshipsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Relationship] FROM [DD_Relationship]"></asp:SqlDataSource>
@@ -19,7 +20,7 @@
     <asp:SqlDataSource ID="DDReligionSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Religion] FROM [DD_Religion]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDSexSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Sex] FROM [DD_Sex]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDServiceSqlDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:CETC_DB %>' SelectCommand="SELECT [Service] FROM [DD_Service]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Race], [Religion], [Residential_Status], [Preferred_Language], [SSN], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy], [ClientID] FROM [Client] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Status] = @Status, [DOB] = @DOB, [Age] = @Age, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Phone] = @Phone, [Email] = @Email, [Sex] = @Sex, [Race] = @Race, [Religion] = @Religion, [Residential_Status] = @Residential_Status, [Preferred_Language] = @Preferred_Language, [SSN] = @SSN, [Staff_Ratio] = @Staff_Ratio, [DSPD] = @DSPD, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Diagnosis] = @Diagnosis, [PhotoID] = @PhotoID, [DateCreated] = @DateCreated WHERE [ClientID] = @ClientID">
+    <asp:SqlDataSource ID="ClientSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [ClientID], [First_Name], [Last_Name], [Status], [DOB], [Age], [Address], [City], [State], [Zip], [Phone], [Email], [Sex], [Religion], [Race], [Residential_Status], [SSN], [Preferred_Language], [Staff_Ratio], [DSPD], [SSI], [SSA], [Modes_Communication], [Diagnosis], [PhotoID], [DateCreated], [DateModified], [ModifiedBy] FROM [Client] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [Client] SET [First_Name] = @First_Name, [Last_Name] = @Last_Name, [Status] = @Status, [DOB] = @DOB, [Age] = @Age, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Phone] = @Phone, [Email] = @Email, [Sex] = @Sex, [Religion] = @Religion, [Race] = @Race, [Residential_Status] = @Residential_Status, [SSN] = @SSN, [Preferred_Language] = @Preferred_Language, [Staff_Ratio] = @Staff_Ratio, [DSPD] = @DSPD, [SSI] = @SSI, [SSA] = @SSA, [Modes_Communication] = @Modes_Communication, [Diagnosis] = @Diagnosis, [PhotoID] = @PhotoID, [DateCreated] = @DateCreated, [DateModified] = @DateModified, [ModifiedBy] = @ModifiedBy WHERE [ClientID] = @ClientID">
         <SelectParameters>
             <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
         </SelectParameters>
@@ -36,11 +37,11 @@
             <asp:Parameter Name="Phone" Type="String" />
             <asp:Parameter Name="Email" Type="String" />
             <asp:Parameter Name="Sex" Type="String" />
-            <asp:Parameter Name="Race" Type="String" />
             <asp:Parameter Name="Religion" Type="String" />
+            <asp:Parameter Name="Race" Type="String" />
             <asp:Parameter Name="Residential_Status" Type="String" />
-            <asp:Parameter Name="Preferred_Language" Type="String" />
             <asp:Parameter Name="SSN" Type="String" />
+            <asp:Parameter Name="Preferred_Language" Type="String" />
             <asp:Parameter Name="Staff_Ratio" Type="String" />
             <asp:Parameter Name="DSPD" Type="Int32" />
             <asp:Parameter Name="SSI" Type="Int32" />
@@ -49,7 +50,9 @@
             <asp:Parameter Name="Diagnosis" Type="String" />
             <asp:Parameter Name="PhotoID" Type="String" />
             <asp:Parameter Name="DateCreated" Type="DateTime" />
-            <asp:QueryStringParameter Name="ClientID" QueryStringField="ClientID" Type="Int32" />
+            <asp:Parameter Name="DateModified" Type="DateTime" />
+            <asp:Parameter Name="ModifiedBy" Type="String" />
+            <asp:Parameter Name="ClientID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="ContactSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [ContactID], [FirstName], [LastName], [ClientID], [Relationship], [Emergency_Contact], [Email], [HomePhone], [MobilePhone], [WorkPhone], [Guardian], [Address], [City], [State], [Zip] FROM [Contact] WHERE ([ClientID] = @ClientID)" InsertCommand="INSERT INTO [Contact] ([FirstName], [LastName], [ClientID], [Relationship], [Emergency_Contact], [Email], [HomePhone], [MobilePhone], [WorkPhone], [Guardian], [Address], [City], [State], [Zip]) VALUES (@FirstName, @LastName, @ClientID, @Relationship, @Emergency_Contact, @Email, @HomePhone, @MobilePhone, @WorkPhone, @Guardian, @Address, @City, @State, @Zip)" UpdateCommand="UPDATE [Contact] SET [FirstName] = @FirstName, [LastName] = @LastName, [ClientID] = @ClientID, [Relationship] = @Relationship, [Emergency_Contact] = @Emergency_Contact, [Email] = @Email, [HomePhone] = @HomePhone, [MobilePhone] = @MobilePhone, [WorkPhone] = @WorkPhone, [Guardian] = @Guardian, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip WHERE [ContactID] = @ContactID" DeleteCommand="DELETE FROM [Contact] WHERE [ContactID] = @ContactID">
@@ -348,7 +351,7 @@
     <%--//Validation Report--%>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" ValidationGroup="Group1"/>
     <asp:Label ID="errorStatus" runat="server" ForeColor="Red" Visible="false" />
-<%--Face Sheet Panel--%>
+    <%--Face Sheet Panel--%>
     <div class="tab-content">
         <div id="FaceSheet" class="tab-pane fade">
         <h3 class="text-center">Face Sheet</h3>
@@ -357,7 +360,7 @@
             <div class="centerForm">
                 <div class="row">
                     <div class="col-sm-9">
-                        <asp:FormView runat="server" DataSourceID="ClientSqlDataSource" ID="ClientFormView" DataKeyNames="ClientID" OnItemCommand="FormView_ItemCommand" >
+                        <asp:FormView runat="server" DataSourceID="ClientSqlDataSource" ID="ClientFormView" DataKeyNames="ClientID" OnItemCommand="FormView_ItemCommand" OnItemUpdated="ClientFormView_ItemUpdated" >
                             <ItemTemplate>
                                 <table>
                                     <tr>
@@ -578,9 +581,9 @@
                         <asp:Label ID="lblUploadStatus" runat="server" Visible="False" ForeColor="Red" Text="Upload status: " />
                     </div>
                 </div>    
-     <%--Contact Info Section--%>
+                <%--Contact Info Section--%>
        <hr>
-           <%--//Validation Report--%>
+                <%--//Validation Report--%>
                 <asp:ValidationSummary ID="ValidationSummary2" runat="server" ForeColor="Red" ValidationGroup="Group2"/>
                     <h3 class="text-center">Family/Guardian/Residential Contact Information</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
@@ -796,12 +799,11 @@
                     </asp:ListView>
                   </div>
                 <hr>
-                <%--Emergency Information--%>
-                <%--//Validation Report--%>
+                <%--<asp:LinkButton ID="btnContactCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>--%>                <%--Emergency Information--%>
                 <asp:ValidationSummary ID="ValidationSummary3" runat="server" ForeColor="Red" ValidationGroup="Group3"/>
                 <h3 class="text-center">Emergency Information</h3>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                    <asp:FormView ID="EvacFormView" runat="server" DataSourceID="EvacSqlDataSource" DataKeyNames="EmergencyID" OnDataBound="EvacFormView_DataBound" OnItemCommand="FormView_ItemCommand">
+                    <asp:FormView ID="EvacFormView" runat="server" DataSourceID="EvacSqlDataSource" DataKeyNames="EmergencyID" OnDataBound="EvacFormView_DataBound" OnItemCommand="FormView_ItemCommand" OnItemUpdated="EvacFormView_ItemUpdated">
                         <EditItemTemplate>
                             <Label>Emergency Evacuation Needs:</Label><br />
                               <asp:TextBox ID="TextBox51" runat="server" Text='<%# Bind("Emergency_Evac") %>' TextMode="MultiLine" Width="100%" />
@@ -926,19 +928,32 @@
                     </asp:FormView>
                 </div>
                 <hr />
-                <%--CETC Information--%>
+                
+                <%--//CETC Information--%>
                 <h3 class="text-center">CETC Information</h3>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <div class="row">
                         <div class="col-sm-4">
-                            <asp:Label ID="lblCETCDirector" runat="server"></asp:Label><br />
-                            <asp:Label ID="lblCETCAddress" runat="server"></asp:Label><br />
-                            <asp:Label ID="lblCETCPhone" runat="server"></asp:Label><br />
-                            <asp:Label ID="lblCETCFax" runat="server"></asp:Label>
+                    <asp:FormView ID="CETC_REF_FormView" runat="server" DataSourceID="CETC_REF">
+                        <ItemTemplate>
+                            Director:
+                            <asp:Label ID="DirectorLabel" runat="server" Text='<%# Bind("Director") %>' />
+                            <br />
+                            Address:
+                            <asp:Label ID="AddressLabel" runat="server" Text='<%# Bind("Address") %>' />
+                            <br />
+                            Phone:
+                            <asp:Label ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' />
+                            <br />
+                            Fax:
+                            <asp:Label ID="FaxLabel" runat="server" Text='<%# Bind("Fax") %>' />
+                            <br />
                             <hr />
-                        </div>
-                    </div>
-                <%--Services Information--%>
+                        </ItemTemplate>
+                    </asp:FormView>
+                            </div>
+                            </div>
+                    <%--//Services Information--%>
                     <%--//Validation Report--%>
                     <asp:ValidationSummary ID="ValidationSummary4" runat="server" ForeColor="Red" ValidationGroup="Group4"/>
                     <asp:ListView ID="ServiceListView" runat="server" DataSourceID="CetcInfoSqlDataSource" DataKeyNames="CECTID" InsertItemPosition="LastItem" OnItemCommand="ListView_ItemCommand">
@@ -1020,8 +1035,7 @@
                     </asp:ListView>
                     </div>
                 <hr />
-                <%--Provider Information--%>
-                <%--//Validation Report--%>
+                <%--//Validation Report--%>                <%--Provider Information--%>
                 <asp:ValidationSummary ID="ValidationSummary5" runat="server" ForeColor="Red" ValidationGroup="Group5"/>
                 <h3 class="text-center">Providers</h3>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
@@ -1171,13 +1185,12 @@
             </div>
             </div>
         <div id="HealthProfile" class="tab-pane fade">
-        <%--Client Health--%>
+            <%--//Validation Report--%>
         <h3 class="text-center">Health Profile Information</h3>
         <hr>
-        <%--//Page Header--%>
+            <%--Client Health--%>
                 <div class="centerForm">
-                    <%--Health Information --%>
-                    <%--//Validation Report--%>
+                    <%--//Page Header--%>                    <%--Health Information --%>
                     <asp:ValidationSummary ID="ValidationSummary6" runat="server" ForeColor="Red" ValidationGroup="Group6"/>
                    <h3 class="text-center">Health Information</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
@@ -1389,8 +1402,7 @@
                             </ItemTemplate>
                         </asp:FormView>
                     </div>
-                 <%--Medical Provider Section--%>
-                    <%--//Validation Report//--%>
+                    <%--//Validation Report--%>                    <%--<asp:LinkButton ID="NewButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="New" Text="New" /> because this doesnt do anything useful--%>
                     <asp:ValidationSummary ID="ValidationSummary7" runat="server" ForeColor="Red" ValidationGroup="Group7"/>
                     <h3 class="text-center">Medical Provider</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
@@ -1525,8 +1537,7 @@
                         </asp:ListView>
                     </div>
                     <hr />
-                    <%--Medications Section--%>
-                    <%--//Validation Report--%>
+                    <%--Medical Provider Section--%>                    <%--//Validation Report//--%>
                     <asp:ValidationSummary ID="ValidationSummary8" runat="server" ForeColor="Red" ValidationGroup="Group8"/>
                     <h3 class="text-center">Medications</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
@@ -1618,8 +1629,7 @@
                             </LayoutTemplate>
                         </asp:ListView>
                     </div>
-                    <%--Insurance Information --%>
-                    <%--//Validation Report--%>
+                    <%--Medications Section--%>                    <%--//Validation Report--%>
                     <asp:ValidationSummary ID="ValidationSummary9" runat="server" ForeColor="Red" ValidationGroup="Group9"/>
                     <h3 class="text-center">Insurance</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
