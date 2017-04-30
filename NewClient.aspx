@@ -60,7 +60,7 @@
                         <table style="width:100%">
                             <tr>
                                 <td>Status:<br />
-                                    <asp:DropDownList ID="ddStatus" runat="server" SelectedValue='<%# Bind("Status") %>' AutoPostBack="True">
+                                    <asp:DropDownList ID="ddStatus" runat="server" SelectedValue='<%# Bind("Status") %>'>
                                         <asp:ListItem>Active</asp:ListItem>
                                         <asp:ListItem>In-Active</asp:ListItem>
                                     </asp:DropDownList>                                   
@@ -139,25 +139,26 @@
                                     <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' MaxLength="11" />                                 
                                     <!-- Validator(s) for SSNLabel here-->
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="SSNLabel" ErrorMessage="Please enter a valid social security number" ValidationExpression="\d{3}-\d{2}-\d{4}" ForeColor="Red" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
+                                    <%--<asp:CompareValidator ID="CompareValidator12" runat="server" ErrorMessage="Please enter a diagnosis" ControlToValidate="DiagnosisLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>--%>
                                     <br />(###-##-####)
                                 </td>
                                 <td>Sex:<br />
-                                    <asp:DropDownList ID="DropDownListSex" runat="server" DataSourceID="DDSexSqlDataSource" DataValueField="Sex" SelectedValue='<%# Bind("Sex") %>' AutoPostBack="True"></asp:DropDownList>
+                                    <asp:DropDownList ID="DropDownListSex" runat="server" DataSourceID="DDSexSqlDataSource" DataValueField="Sex" SelectedValue='<%# Bind("Sex") %>'></asp:DropDownList>
                                     <br />
                                 </td>
                             </tr>
                             <tr>
                                 <td>Race:<br />
-                                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="DDRaceSqlDataSource" DataValueField="Race" SelectedValue='<%# Bind("Race") %>' AutoPostBack="True"></asp:DropDownList>
+                                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="DDRaceSqlDataSource" DataValueField="Race" SelectedValue='<%# Bind("Race") %>'></asp:DropDownList>
                                 </td>
                                 <td>Residential Status:<br />
-                                    <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="DDResidentialStatusSqlDataSource" DataValueField="Residential_Status" SelectedValue='<%# Bind("Residential_Status") %>' AutoPostBack="True"></asp:DropDownList>
+                                    <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="DDResidentialStatusSqlDataSource" DataValueField="Residential_Status" SelectedValue='<%# Bind("Residential_Status") %>'></asp:DropDownList>
                                 </td>
                                 <td>Preferred Language:<br />
-                                    <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="DDPreferredLanguageSqlDataSource" DataValueField="Preferred_Language" SelectedValue='<%# Bind("Preferred_Language") %>' AutoPostBack="True"></asp:DropDownList>
+                                    <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="DDPreferredLanguageSqlDataSource" DataValueField="Preferred_Language" SelectedValue='<%# Bind("Preferred_Language") %>'></asp:DropDownList>
                                 </td>
                                 <td>Religious Affiliation:<br />
-                                    <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="DDReligionSqlDataSource" DataValueField="Religion" SelectedValue='<%# Bind("Religion") %>' AutoPostBack="True"></asp:DropDownList>
+                                    <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="DDReligionSqlDataSource" DataValueField="Religion" SelectedValue='<%# Bind("Religion") %>'></asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
