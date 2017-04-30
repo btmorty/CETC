@@ -1194,7 +1194,7 @@
                     <asp:ValidationSummary ID="ValidationSummary6" runat="server" ForeColor="Red" ValidationGroup="Group6"/>
                    <h3 class="text-center">Health Information</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                        <asp:FormView ID="HelthProfileFormView" DataSourceID="HealthProfileSqlDataSource" runat="server" DataKeyNames="Health_Profile_ID" OnDataBound="HealthProfileFormView_DataBound" OnItemCommand="FormView_ItemCommand">
+                        <asp:FormView ID="HelthProfileFormView" DataSourceID="HealthProfileSqlDataSource" runat="server" DataKeyNames="Health_Profile_ID" OnDataBound="HealthProfileFormView_DataBound" OnItemCommand="FormView_ItemCommand" OnItemUpdated="HelthProfileFormView_ItemUpdated">
                             <EditItemTemplate>
                                 <asp:HiddenField runat="server" Value='<%# Eval("Health_Profile_ID") %>' />
                                 <table style="width: 100%">
@@ -1633,7 +1633,7 @@
                     <asp:ValidationSummary ID="ValidationSummary9" runat="server" ForeColor="Red" ValidationGroup="Group9"/>
                     <h3 class="text-center">Insurance</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                        <asp:FormView ID="InsuranceFormView" runat="server" DataKeyNames="InsuranceID" DataSourceID="InsurenceSqlDataSource" OnDataBound="InsuranceFormView_DataBound" OnItemCommand="FormView_ItemCommand">
+                        <asp:FormView ID="InsuranceFormView" runat="server" DataKeyNames="InsuranceID" DataSourceID="InsurenceSqlDataSource" OnDataBound="InsuranceFormView_DataBound" OnItemCommand="FormView_ItemCommand" OnItemUpdated="InsuranceFormView_ItemUpdated">
                             <EditItemTemplate>
                                 <table>
                                     <tr>

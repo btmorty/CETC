@@ -217,4 +217,14 @@ public partial class EditClient : BasePage
     {
         EvacFormView.DataBind();
     }
+
+    protected void HelthProfileFormView_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
+    {
+        HelthProfileFormView.DataBind();
+    }
+
+    protected void InsuranceFormView_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
+    {
+        InsuranceFormView.DataBind();
+    }
 }
