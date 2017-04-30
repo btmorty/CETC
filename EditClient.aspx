@@ -346,7 +346,7 @@
         <li><a data-toggle="tab" href="#HealthProfile">Health Profile</a></li>
     </ul>
     <%--//Validation Report--%>
-    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" ValidationGroup="Group1"/>
     <asp:Label ID="errorStatus" runat="server" ForeColor="Red" Visible="false" />
 <%--Face Sheet Panel--%>
     <div class="tab-content">
@@ -402,13 +402,13 @@
                                             <asp:TextBox ID="SexLabel" runat="server" ReadOnly="true" Text='<%# Eval("Sex") %>' /></td>
                                     </tr>
                                     <tr>
-                                     <td>Race:<br />
+                                        <td>Race:<br />
                                             <asp:TextBox ID="RaceLabel" runat="server" ReadOnly="true" Text='<%# Bind("Race") %>' /></td>
-                                     <td>Residential Status:<br />
+                                        <td>Residential Status:<br />
                                             <asp:TextBox ID="Residential_StatusLabel" runat="server" ReadOnly="true" Text='<%# Bind("Residential_Status") %>' /></td>
-                                     <td>Preferred Language:<br />
+                                        <td>Preferred Language:<br />
                                             <asp:TextBox ID="Preferred_LanguageLabel" runat="server" ReadOnly="true" Text='<%# Bind("Preferred_Language") %>' /></td>
-                                     <td>Religious Affiliation:<br />
+                                        <td>Religious Affiliation:<br />
                                             <asp:TextBox ID="Religious_AffiliationLabel" runat="server" ReadOnly="true" Text='<%# Bind("Religion") %>' /></td>
                                     </tr>
                                     <tr>
@@ -443,92 +443,123 @@
                                             </asp:DropDownList>
                                         </td>
                                         <td>Date Created:<br />
-                                            <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true" Text='<%# Bind("DateCreated","{0:MM/dd/yyyy}") %>' /></td>
+                                            <asp:TextBox ID="DateCreatedLabel" runat="server" ReadOnly="true" Text='<%# Bind("DateCreated","{0:MM/dd/yyyy}") %>' BackColor="Silver" /></td>
                                         <td>Date Modified:<br />
-                                            <asp:TextBox ID="txtDateModified" runat="server" ReadOnly="true" Text='<%# Bind("DateModified","{0:MM/dd/yyyy}") %>' /></td>
+                                            <asp:TextBox ID="txtDateModified" runat="server" ReadOnly="true" Text='<%# Bind("DateModified","{0:MM/dd/yyyy}") %>' BackColor="Silver" /></td>
                                         <td>Last Modified By:<br />
-                                            <asp:TextBox ID="txtLastModifiedBy" runat="server" ReadOnly="true" Text='<%# Bind("ModifiedBy") %>' /></td>
+                                            <asp:TextBox ID="txtLastModifiedBy" runat="server" ReadOnly="true" Text='<%# Bind("ModifiedBy") %>' BackColor="Silver" /></td>
                                     </tr>
                                     <tr>
                                         <td>First Name:<br />
                                             <asp:TextBox ID="First_NameLabel" runat="server" Text='<%# Bind("First_Name") %>' /></td>
+                                            <!-- Validator(s) for First_NameLabel here-->
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter a first name" ControlToValidate="First_NameLabel" Display="Dynamic" Text="*" ForeColor="Red" ValidationGroup="Group1"></asp:RequiredFieldValidator>
+                                            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="First name can only contain letters" ControlToValidate="First_NameLabel" Display="Dynamic" Text="*" ForeColor="Red" ValidationGroup="Group1" Operator="DataTypeCheck"></asp:CompareValidator>
                                         <td>Last Name:<br />
                                             <asp:TextBox ID="Last_NameLabel" runat="server" Text='<%# Bind("Last_Name") %>' /></td>
+                                            <!-- Validator(s) for Last_NameLabel here-->
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter a last name" ControlToValidate="Last_NameLabel" Display="Dynamic" Text="*" ForeColor="Red" ValidationGroup="Group1"></asp:RequiredFieldValidator>
+                                            <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Last name can only contain letters" ControlToValidate="Last_NameLabel" Display="Dynamic" Text="*" ForeColor="Red" ValidationGroup="Group1" Operator="DataTypeCheck" Type="String" ></asp:CompareValidator>
                                         <td>Date of Birth:<br />
                                             <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Bind("DOB", "{0:MM/dd/yyyy}") %>' TextMode="Date" />
                                             <!-- Validator(s) for DOBLabel here-->
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Text="*" ErrorMessage="Please enter birth date" ControlToValidate="DOBLabel" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                            <asp:RangeValidator ID="RangeValidator2" runat="server" Text="*" ErrorMessage="Select a date between 1/1/1900 and today" ControlToValidate="DOBLabel" Display="Dynamic" MinimumValue="01/01/1900" MaximumValue="<%# DateTime.Today.ToShortDateString() %>" Type="Date" ForeColor="Red" ValidationGroup="Group1"></asp:RangeValidator>
                                         </td>
                                         <td>Age:<br />
-                                            <asp:TextBox ID="AgeLabel" runat="server" Text='<%# Bind("Age") %>' TextMode="Number" MaxLength="2" />
+                                            <asp:TextBox ID="AgeLabel" runat="server" Text='<%# Bind("Age") %>' MaxLength="3" />
                                             <!-- Validator(s) for AgeLabel here-->
-                                            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="AgeLabel" ErrorMessage="Please enter a valid age" MaximumValue="99" MinimumValue="1" ForeColor="Red">Please enter an age between 1 and 99</asp:RangeValidator>
+                                            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="AgeLabel" ErrorMessage="Please enter a valid age" MinimumValue="1" MaximumValue="100" ForeColor="Red" Display="Dynamic" Type="Integer" Text="*" ValidationGroup="Group1"></asp:RangeValidator>
+                                            <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="AgeLabel" ErrorMessage="Please enter a whole number greater than 0" Type="Integer" ValueToCompare="0" Operator="GreaterThan" ForeColor="Red" Display="Dynamic" Text="*" ValidationGroup="Group1"></asp:CompareValidator>                                   
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Address:<br />
-                                            <asp:TextBox ID="AddressLabel" runat="server" Text='<%# Bind("Address") %>' /></td>
+                                            <asp:TextBox ID="AddressLabel" runat="server" Text='<%# Bind("Address") %>' />
+                                            <!-- Validator(s) for CityLabel here-->
+                                            <asp:CompareValidator ID="CompareValidator4" runat="server" ErrorMessage="City can only contain letters" ControlToValidate="AddressLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group1"></asp:CompareValidator>
+                                        </td>
                                         <td>City:<br />
-                                            <asp:TextBox ID="CityLabel" runat="server" Text='<%# Bind("City") %>' /></td>
+                                            <asp:TextBox ID="CityLabel" runat="server" Text='<%# Bind("City") %>' />
+                                            <!-- Validator(s) for CityLabel here-->
+                                            <asp:CompareValidator ID="CompareValidator5" runat="server" ErrorMessage="City can only contain letters" ControlToValidate="CityLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group1"></asp:CompareValidator>
+                                        </td>
                                         <td>State:<br />
                                             <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                         <td>Zip Code:<br />
                                             <asp:TextBox ID="Zip_CodeLabel" runat="server" Text='<%# Bind("Zip") %>' MaxLength="5" />
                                             <!-- Validator(s) for Zip_CodeLabel here-->
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Zip_CodeLabel" ErrorMessage="Please enter a valid zip code" ValidationExpression="\d{5}(-\d{4})?" ForeColor="Red"></asp:RegularExpressionValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Zip_CodeLabel" ErrorMessage="Please enter a valid zip code" ValidationExpression="\d{5}(-\d{4})?" ForeColor="Red" ValidationGroup="Group1" Text="*"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Email:<br />
                                             <asp:TextBox ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>' TextMode="Email" />
                                             <!-- Validator(s) for EmailLabel here-->
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="EmailLabel" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red"></asp:RegularExpressionValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="EmailLabel" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red" ValidationGroup="Group1" Text="*"></asp:RegularExpressionValidator>
                                         </td>
                                         <td>Phone:<br />
-                                            <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" MaxLength="13" />
-                                            (###-###-####)<br />
+                                            <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" MaxLength="12" />                                           
                                             <!-- Validator(s) for PhoneLabel here-->
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="PhoneLabel" ErrorMessage="Please enter a valid phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red"></asp:RegularExpressionValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="PhoneLabel" ErrorMessage="Please enter a valid phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" Display="Dynamic" Text="*" ValidationGroup="Group1"></asp:RegularExpressionValidator>
+                                            <br />(###-###-####)
                                         </td>
                                         <td>SSN:<br />
                                             <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' MaxLength="11" />
-                                            (###-##-####)<br />
                                             <!-- Validator(s) for SSNLabel here-->
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="SSNLabel" ErrorMessage="Please enter a valid social security number" ValidationExpression="\d{3}-\d{2}-\d{4}" ForeColor="Red"></asp:RegularExpressionValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="SSNLabel" ErrorMessage="Please enter a valid social security number" ValidationExpression="\d{3}-\d{2}-\d{4}" ForeColor="Red" Display="Dynamic" Text="*" ValidationGroup="Group1"></asp:RegularExpressionValidator>
+                                            <br />(###-##-####)
                                         </td>
                                         <td>Sex:<br />
                                            <asp:DropDownList ID="DropDownListSex" runat="server" DataSourceID="DDSexSqlDataSource" DataValueField="Sex" SelectedValue='<%# Bind("Sex") %>'></asp:DropDownList></td>
                                     </tr>
                                     <tr>
-                                <td>Race:<br />
-                                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="DDRaceSqlDataSource" DataValueField="Race" SelectedValue='<%# Bind("Race") %>'></asp:DropDownList></td>
-                                <td>Residential Status:<br />
-                                     <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="DDResidentialStatusSqlDataSource" DataValueField="Residential_Status" SelectedValue='<%# Bind("Residential_Status") %>'></asp:DropDownList></td>
-                                <td>Preferred Language:<br />
-                                    <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="DDPreferredLanguageSqlDataSource" DataValueField="Preferred_Language" SelectedValue='<%# Bind("Preferred_Language") %>'></asp:DropDownList></td>
-                                <td>Religious Affiliation:<br />
-                                     <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="DDReligionSqlDataSource" DataValueField="Religion" SelectedValue='<%# Bind("Religion") %>'></asp:DropDownList></td>
+                                        <td>Race:<br />
+                                            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="DDRaceSqlDataSource" DataValueField="Race" SelectedValue='<%# Bind("Race") %>'></asp:DropDownList></td>
+                                        <td>Residential Status:<br />
+                                            <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="DDResidentialStatusSqlDataSource" DataValueField="Residential_Status" SelectedValue='<%# Bind("Residential_Status") %>'></asp:DropDownList></td>
+                                        <td>Preferred Language:<br />
+                                            <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="DDPreferredLanguageSqlDataSource" DataValueField="Preferred_Language" SelectedValue='<%# Bind("Preferred_Language") %>'></asp:DropDownList></td>
+                                        <td>Religious Affiliation:<br />
+                                            <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="DDReligionSqlDataSource" DataValueField="Religion" SelectedValue='<%# Bind("Religion") %>'></asp:DropDownList></td>
                                     </tr>
                                     <tr>
                                         <td>Staffing Ratio:<br />
-                                            <asp:TextBox ID="Staffing_RatioLabel" runat="server" Text='<%# Bind("Staff_Ratio") %>' /></td>
+                                            <asp:TextBox ID="Staffing_RatioLabel" runat="server" Text='<%# Bind("Staff_Ratio") %>' />
+                                            <!-- Validator(s) for Staffing_RatioLabel here-->
+                                            <asp:CompareValidator ID="CompareValidator6" runat="server" ErrorMessage="Please enter a ratio" ControlToValidate="Staffing_RatioLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group1"></asp:CompareValidator>
+                                        </td>
                                         <td>DSPD:<br />
-                                            <asp:TextBox ID="DSPDLabel" runat="server" Text='<%# Bind("DSPD") %>' /></td>
+                                            <asp:TextBox ID="DSPDLabel" runat="server" Text='<%# Bind("DSPD") %>' />
+                                            <!-- Validator(s) for DSPDLabel here-->
+                                            <asp:CompareValidator ID="CompareValidator7" runat="server" ErrorMessage="Please enter a dspd" ControlToValidate="DSPDLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group1"></asp:CompareValidator>
+                                        </td>
                                         <td>SSI:<br />
-                                            <asp:TextBox ID="SSILabel" runat="server" Text='<%# Bind("SSI") %>' /></td>
+                                            <asp:TextBox ID="SSILabel" runat="server" Text='<%# Bind("SSI") %>' />
+                                            <!-- Validator(s) for SSILabel here-->
+                                            <asp:CompareValidator ID="CompareValidator8" runat="server" ErrorMessage="Please enter a ssi" ControlToValidate="SSILabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group1"></asp:CompareValidator>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>SSA:<br />
-                                            <asp:TextBox ID="SSALabel" runat="server" Text='<%# Bind("SSA") %>' /></td>
+                                            <asp:TextBox ID="SSALabel" runat="server" Text='<%# Bind("SSA") %>' />
+                                            <!-- Validator(s) for SSALabel here-->
+                                            <asp:CompareValidator ID="CompareValidator9" runat="server" ErrorMessage="Please enter a ssa" ControlToValidate="SSALabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group1"></asp:CompareValidator>
+                                        </td>
                                         <td>Modes of Communication:<br />
-                                            <asp:TextBox ID="Modes_CommunicationLabel" runat="server" Text='<%# Bind("Modes_Communication") %>' /></td>
+                                            <asp:TextBox ID="Modes_CommunicationLabel" runat="server" Text='<%# Bind("Modes_Communication") %>' />
+                                            <!-- Validator(s) for CommunicationLabel here-->
+                                            <asp:CompareValidator ID="CompareValidator10" runat="server" ErrorMessage="Please enter a mode of communication" ControlToValidate="Modes_CommunicationLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group1"></asp:CompareValidator>
+                                        </td>
                                         <td>Diagnosis:<br />
-                                            <asp:TextBox ID="DiagnosisLabel" runat="server" Text='<%# Bind("Diagnosis") %>' /></td>
+                                            <asp:TextBox ID="DiagnosisLabel" runat="server" Text='<%# Bind("Diagnosis") %>' />
+                                            <!-- Validator(s) for DiagnosisLabel here-->
+                                            <asp:CompareValidator ID="CompareValidator11" runat="server" ErrorMessage="Please enter a diagnosis" ControlToValidate="DiagnosisLabel" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group1"></asp:CompareValidator>
+                                        </td>
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:LinkButton ID="btnClientSave" runat="server" CssClass="btn btn-primary" CommandName="Update" CausesValidation="True"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
-                                <asp:LinkButton ID="btnClientCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel" CausesValidation="False"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnClientSave" runat="server" CssClass="btn btn-primary" CommandName="Update" CausesValidation="True" ValidationGroup="Group1"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
+                                <asp:LinkButton ID="btnClientCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel" CausesValidation="False" ValidationGroup="Group1"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                                 <br />
                                 <br />
                             </EditItemTemplate>
@@ -546,9 +577,11 @@
                         <br />
                         <asp:Label ID="lblUploadStatus" runat="server" Visible="False" ForeColor="Red" Text="Upload status: " />
                     </div>
-                </div>
-                <%--Contact Info Section--%>
-                <hr>
+                </div>    
+     <%--Contact Info Section--%>
+       <hr>
+           <%--//Validation Report--%>
+                <asp:ValidationSummary ID="ValidationSummary2" runat="server" ForeColor="Red" ValidationGroup="Group2"/>
                     <h3 class="text-center">Family/Guardian/Residential Contact Information</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <asp:ListView ID="ContactListView" runat="server" DataKeyNames="ContactID" DataSourceID="ContactSqlDataSource" InsertItemPosition="LastItem" OnItemCommand="ListView_ItemCommand">
@@ -558,9 +591,13 @@
                                     <tr>
                                         <td>First Name:<br />
                                             <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
+                                            <!-- Validator(s) for FirstNameTextBox here-->
+                                            <asp:CompareValidator ID="CompareValidator2" runat="server" Text="*" ControlToValidate="FirstNameTextBox" ErrorMessage="Contact first name can only contain letters" Display="Dynamic" ForeColor="Red" ValidationGroup="Group2" Type="String" Operator="DataTypeCheck"></asp:CompareValidator>
                                         </td>
                                         <td>Last Name:<br />
                                             <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
+                                            <!-- Validator(s) for LastNameTextBox here-->
+                                            <asp:CompareValidator ID="CompareValidator3" runat="server" Text="*" ControlToValidate="LastNameTextBox" ErrorMessage="Contact last name can only contain letters" Display="Dynamic" ForeColor="Red" ValidationGroup="Group2" Type="String" Operator="DataTypeCheck"></asp:CompareValidator>
                                         </td>
                                         <td>Relationship:<br />
                                             <asp:DropDownList ID="ddRelationship" runat="server" DataSourceID="DDRelationshipsSqlDataSource" DataValueField="Relationship" SelectedValue='<%# Bind("Relationship") %>' />
@@ -572,37 +609,54 @@
                                     </tr>
                                     <tr>
                                         <td>Email:<br />
-                                            <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
+                                            <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' TextMode="Email" />
+                                            <!-- Validator(s) for EmailTextBox here-->
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
                                         </td>
                                         <td>Home Phone:<br />
-                                            <asp:TextBox ID="HomePhoneTextBox" runat="server" Text='<%# Bind("HomePhone") %>' />
+                                            <asp:TextBox ID="HomePhoneTextBox" runat="server" Text='<%# Bind("HomePhone") %>' MaxLength="12" TextMode="Phone" />
+                                            <!-- Validator(s) for HomePhoneTextBox here-->
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="HomePhoneTextBox" ErrorMessage="Please enter a valid home number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
+                                            <br />(###-###-####)                                           
                                         </td>
                                         <td>Work Phone:<br />
-                                            <asp:TextBox ID="WorkPhoneTextBox" runat="server" Text='<%# Bind("WorkPhone") %>' />
+                                            <asp:TextBox ID="WorkPhoneTextBox" runat="server" Text='<%# Bind("WorkPhone") %>' MaxLength="12" TextMode="Phone" />
+                                            <!-- Validator(s) for WorkPhoneTextBox here-->
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="WorkPhoneTextBox" ErrorMessage="Please enter a valid work number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
+                                            <br />(###-###-####)                                            
                                         </td>
                                         <td>Mobile Phone:<br />
-                                            <asp:TextBox ID="MobilePhoneTextBox" runat="server" Text='<%# Bind("MobilePhone") %>' />
+                                            <asp:TextBox ID="MobilePhoneTextBox" runat="server" Text='<%# Bind("MobilePhone") %>' MaxLength="12" TextMode="Phone" />
+                                            <!-- Validator(s) for MobilePhoneTextBox here-->
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ControlToValidate="MobilePhoneTextBox" ErrorMessage="Please enter a valid mobile number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
+                                            <br />(###-###-####)
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Address:<br />
                                             <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
+                                             <!-- Validator(s) for AddressTextBox here-->
+                                            <asp:CompareValidator ID="CompareValidator5" runat="server" ErrorMessage="Please enter a valid type of address" ControlToValidate="AddressTextBox" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group2"></asp:CompareValidator>
                                         </td>
                                         <td>City:<br />
                                             <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+                                            <!-- Validator(s) for CityTextBox here-->
+                                            <asp:CompareValidator ID="CompareValidator6" runat="server" ErrorMessage="City can only contain letters" ControlToValidate="CityTextBox" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group2"></asp:CompareValidator>
                                         </td>
                                         <td>State:<br />
                                             <asp:DropDownList ID="ddState" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>' />
                                         </td>
                                         <td>Zip Code:<br />
-                                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip") %>' />
+                                            <asp:TextBox ID="Zip_CodeTextBox" runat="server" Text='<%# Bind("Zip") %>' MaxLength="5" />
+                                            <!-- Validator(s) for Zip_CodeTextBox here-->
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator10" runat="server" ControlToValidate="Zip_CodeTextBox" ErrorMessage="Please enter a valid zip code" ValidationExpression="\d{5}(-\d{4})?" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                 </table>
                             <br />
-                                <asp:LinkButton ID="btnContactSave" runat="server" CssClass="btn btn-primary" CommandName="Update" CausesValidation="True"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
-                                <asp:LinkButton ID="btnContactCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel" CausesValidation="False"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
-                                <asp:LinkButton ID="btnContactDelete" runat="server" CssClass="btn btn-primary" CommandName="Delete"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
+                                <asp:LinkButton ID="btnContactSave" runat="server" CssClass="btn btn-primary" CommandName="Update" CausesValidation="True" ValidationGroup="Group2"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
+                                <asp:LinkButton ID="btnContactCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel" CausesValidation="False" ValidationGroup="Group2"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnContactDelete" runat="server" CssClass="btn btn-primary" CommandName="Delete" ValidationGroup="Group2"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
                                 <br />
                                 <br />
                         </EditItemTemplate>
