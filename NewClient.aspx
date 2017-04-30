@@ -91,6 +91,8 @@
                                 </td>
                                 <td>Date of Birth:<br />
                                     <asp:TextBox ID="DOBLabel" runat="server" Text='<%# Bind("DOB", "{0:MM/dd/yyyy}") %>' TextMode="Date" />
+                                    <!-- Validator(s) for DOBLabel here-->
+                                    <asp:RangeValidator ID="RangeValidator2" runat="server" Text="*" ErrorMessage="Select a date between 1/1/1900 and today" ControlToValidate="DOBLabel" Display="Dynamic" MinimumValue="01/01/1900" MaximumValue="<%# DateTime.Today.ToShortDateString() %>" Type="Date" ForeColor="Red"></asp:RangeValidator>
                                     <br />
                                 <td>Age:<br />
                                     <asp:TextBox ID="AgeLabel" runat="server" Text='<%# Bind("Age") %>' MaxLength="3" />
@@ -128,16 +130,16 @@
                                     <br />
                                 </td>
                                 <td>Phone:<br />
-                                    <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" MaxLength="13" /><br />                                    
+                                    <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" MaxLength="13" />                                    
                                     <!-- Validator(s) for PhoneLabel here-->
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="PhoneLabel" ErrorMessage="Please enter a valid phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
-                                    (###-###-####)
+                                    <br />(###-###-####)
                                 </td>
                                 <td>SSN:<br />
-                                    <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' MaxLength="11" /><br />                                 
+                                    <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' MaxLength="11" />                                 
                                     <!-- Validator(s) for SSNLabel here-->
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="SSNLabel" ErrorMessage="Please enter a valid social security number" ValidationExpression="\d{3}-\d{2}-\d{4}" ForeColor="Red" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
-                                    (###-##-####)
+                                    <br />(###-##-####)
                                 </td>
                                 <td>Sex:<br />
                                     <asp:DropDownList ID="DropDownListSex" runat="server" DataSourceID="DDSexSqlDataSource" DataValueField="Sex" SelectedValue='<%# Bind("Sex") %>'></asp:DropDownList>

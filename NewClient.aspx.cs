@@ -13,7 +13,7 @@ public partial class NewClient : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        this.DataBind();
     }
 
     protected void ClientFormView_DataBound(object sender, EventArgs e)
