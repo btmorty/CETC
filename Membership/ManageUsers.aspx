@@ -4,30 +4,34 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                    <h2 class="text-center">Manage Users</h2>
-            <hr />    
+                <h2 class="text-center">Manage Users</h2>
+                <hr />
             </div>
         </div>
     </div>
     <style>
-        .center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        th, td {
+            padding: 2px;
+        }
     </style>
 
     <div class="center">
-    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" OnCreatedUser="CreateUserWizard1_CreatedUser" LoginCreatedUser="False" DisplayCancelButton="True" ContinueDestinationPageUrl="~/Membership/ManageUsers.aspx" FinishDestinationPageUrl="~/Membership/ManageUsers.aspx">
+        <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" OnCreatedUser="CreateUserWizard1_CreatedUser" LoginCreatedUser="False" DisplayCancelButton="True" ContinueDestinationPageUrl="~/Membership/ManageUsers.aspx" FinishDestinationPageUrl="~/Membership/ManageUsers.aspx" CompleteSuccessText="Account has been successfully created.">
             <ContinueButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
             <CreateUserButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
             <TitleTextStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
             <WizardSteps>
-                <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
+                <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server" Title="Create New Account">
                     <ContentTemplate>
-                        <table style="font-family:Verdana;font-size:100%;">
+                        <table style="font-family: Verdana; font-size: 100%;">
                             <tr>
-                                <td align="center" colspan="2" style="color:White;background-color:#5D7B9D;font-weight:bold;">Sign Up for Your New Account</td>
+                                <td align="center" colspan="2" style="color: White; background-color: #5D7B9D; font-weight: bold;">Create New User Account</td>
                             </tr>
                             <tr>
                                 <td align="right">
@@ -107,7 +111,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="center" colspan="2" style="color:Red;">
+                                <td align="center" colspan="2" style="color: Red;">
                                     <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
                                 </td>
                             </tr>
@@ -122,50 +126,59 @@
             <NavigationButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
             <SideBarButtonStyle BorderWidth="0px" Font-Names="Verdana" ForeColor="White" />
             <SideBarStyle BackColor="#5D7B9D" BorderWidth="0px" Font-Size="0.9em" VerticalAlign="Top" />
+            <StartNavigationTemplate>
+                <asp:Button ID="StartNextButton" runat="server" BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CommandName="MoveNext" Font-Names="Verdana" ForeColor="#284775" Text="Next" />
+            </StartNavigationTemplate>
             <StepStyle BorderWidth="0px" />
         </asp:CreateUserWizard>
-        </div>
+    </div>
     <br />
     <br />
-        <asp:GridView ID="GridView1" DataKeyNames="UserName" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" CellPadding="2" CellSpacing="2" HorizontalAlign="Center" Width="1000px" OnRowCommand="GridView1_RowCommand">
-            <Columns>
-                <asp:BoundField DataField="UserName" HeaderText="User Name" ReadOnly="True" SortExpression="UserName" />
-                <asp:TemplateField HeaderText="First Name">
-                    <ItemTemplate>
-                        <asp:Label ID="fname" runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Last Name">
-                    <ItemTemplate>
-                        <asp:Label ID="lname" runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:BoundField DataField="Email" HeaderText="Email Address" ReadOnly="True" SortExpression="Email" />
-                <asp:BoundField DataField="LastLoginDate" HeaderText="Last Login" ReadOnly="True" SortExpression="LastLoginDate" />
-                <asp:CheckBoxField DataField="IsOnline" HeaderText="Is Online?" ReadOnly="True" SortExpression="IsOnline" />
-                <asp:TemplateField HeaderText="Is Admin?">
-                    <EditItemTemplate>
-                        <asp:CheckBox ID="CheckBox1" runat="server" />
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:CheckBox ID="CheckBox1" runat="server" Enabled="false" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Change Admin">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Edit" Text="Change Admin"></asp:LinkButton>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:LinkButton ID="LinkButton2" runat="server" CommandName="Update">Update</asp:LinkButton>
-                        <asp:LinkButton ID="LinkButton3" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
-                    </EditItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Delete Profile">
-                     <ItemTemplate>
-                         <asp:LinkButton ID="btnDelete" runat="server" CausesValidation="false" CommandName="DeleteUser" Text="Delete"></asp:LinkButton>
-                     </ItemTemplate>
-                 </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
+    <asp:GridView ID="GridView1" DataKeyNames="UserName" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" CellPadding="2" CellSpacing="2" HorizontalAlign="Center" Width="1000px" OnRowCommand="GridView1_RowCommand">
+        <Columns>
+            <asp:BoundField DataField="UserName" HeaderText="User Name" ReadOnly="True" SortExpression="UserName" />
+            <asp:TemplateField HeaderText="First Name">
+                <ItemTemplate>
+                    <asp:Label ID="fname" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Last Name">
+                <ItemTemplate>
+                    <asp:Label ID="lname" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="Email" HeaderText="Email Address" ReadOnly="True" SortExpression="Email" />
+            <asp:BoundField DataField="LastLoginDate" HeaderText="Last Login" ReadOnly="True" SortExpression="LastLoginDate" />
+            <asp:CheckBoxField DataField="IsOnline" HeaderText="Is Online?" ReadOnly="True" SortExpression="IsOnline" />
+            <asp:TemplateField HeaderText="Is Admin?">
+                <EditItemTemplate>
+                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:CheckBox ID="CheckBox1" runat="server" Enabled="false" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <div class="center">
+                    <asp:LinkButton ID="EditButton" runat="server" CssClass="btn btn-primary" CausesValidation="false" CommandName="Edit"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Set Admin</asp:LinkButton>
+                    </div>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <div class="center">
+                    <asp:LinkButton ID="btnSave" runat="server" CssClass="btn btn-primary" CommandName="Update"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
+                    &nbsp;<asp:LinkButton ID="btnCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                    </div>
+                </EditItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <div class="center">
+                    <asp:LinkButton ID="btnDelete" runat="server" CausesValidation="false" CommandName="DeleteUser" CssClass="btn btn-primary"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
+                    </div>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
 </asp:Content>
 

@@ -46,8 +46,8 @@
                                                 <asp:RoleGroup Roles="Admin">
                                                     <ContentTemplate>
                                                         <li><a href="~/Membership/ManageUsers.aspx" runat="server"><span class="glyphicon glyphicon-cog"></span> Manage Users</a></li>
+                                                        <li><a href="~/Membership/DropDownManager.aspx" runat="server"><span class="glyphicon glyphicon-cog"></span> Manage Form Data</a></li>
                                                         <li><a href="~/Membership/ActivityHistoryByUser.aspx" runat="server"><span class="glyphicon glyphicon-cog"></span> User Activity Log</a></li>
-                                                        <li><a href="~/Membership/DropDownManager.aspx" runat="server"><span class="glyphicon glyphicon-cog"></span> Manage Drop Down Lists</a></li>
                                                     </ContentTemplate>
                                                 </asp:RoleGroup>
                                             </RoleGroups>
