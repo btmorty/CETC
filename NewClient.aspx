@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeFile="NewClient.aspx.cs" Inherits="NewClient" %>
 
-<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
     <%--CSS for Tables--%>
     <style>
@@ -41,7 +39,7 @@
             <asp:Parameter Name="Religion" Type="String" />
             <asp:Parameter Name="Residential_Status" Type="String" />
             <asp:Parameter Name="Preferred_Language" Type="String" />
-            <asp:Parameter Name="SSN" Type="Int32" />
+            <asp:Parameter Name="SSN" Type="String" />
             <asp:Parameter Name="Staff_Ratio" Type="String" />
             <asp:Parameter Name="DSPD" Type="Int32" />
             <asp:Parameter Name="SSI" Type="Int32" />
@@ -198,8 +196,10 @@
                             </tr>
                         </table>
                         <br />
-                        <asp:LinkButton ID="btnClientSave" runat="server" CssClass="btn btn-primary" CommandName="Insert" CausesValidation="True" OnClick="btnClientSave_Click"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
+                        <div class="text-center">
+                        <asp:LinkButton ID="btnClientSave" runat="server" CssClass="btn btn-primary" CommandName="Insert" CausesValidation="True"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
                         <asp:LinkButton ID="btnClientCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel" CausesValidation="False"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                        </div>
                         <br />
                         <br />
                     </InsertItemTemplate>

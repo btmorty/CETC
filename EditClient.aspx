@@ -40,7 +40,7 @@
             <asp:Parameter Name="Religion" Type="String" />
             <asp:Parameter Name="Residential_Status" Type="String" />
             <asp:Parameter Name="Preferred_Language" Type="String" />
-            <asp:Parameter Name="SSN" Type="Int32" />
+            <asp:Parameter Name="SSN" Type="String" />
             <asp:Parameter Name="Staff_Ratio" Type="String" />
             <asp:Parameter Name="DSPD" Type="Int32" />
             <asp:Parameter Name="SSI" Type="Int32" />
