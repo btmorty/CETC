@@ -20,7 +20,7 @@
     </asp:ChangePassword>
 </div>
     
-<h3 style="text-align: center">View/Edit your Profile Data</h3>
+<h3 style="text-align: center">View/Edit your Profile Information</h3>
 <div class="center">
     <table>
         <tr>
@@ -34,6 +34,12 @@
                 <asp:Label ID="Label2" runat="server" Text="Last Name "></asp:Label></td>
             <td>
                 <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label ID="Label3" runat="server" Text="Email "></asp:Label></td>
+            <td>
+                <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox></td>
         </tr>
     </table>
 </div>
