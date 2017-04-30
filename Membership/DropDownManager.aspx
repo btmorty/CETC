@@ -36,6 +36,14 @@
     <asp:SqlDataSource ID="sdsPrefLang" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Preferred_Language] FROM [DD_Preferred_Language]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="sdsReligion" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Religion] FROM [DD_Religion]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="sdsService" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Service] FROM [DD_Service]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="refCETC" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [cetcRefID], [Director], [Address], [Phone], [Fax] FROM [REF_CETC]" UpdateCommand="UPDATE [REF_CETC] SET [Director] = @Director, [Address] = @Address, [Phone] = @Phone, [Fax] = @Fax WHERE [cetcRefID] = 1">
+        <UpdateParameters>
+            <asp:Parameter Name="Director" Type="String" />
+            <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="Phone" Type="String" />
+            <asp:Parameter Name="Fax" Type="String" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
     <%--//Body--%>
     <div class="centered">
         <table>
@@ -122,38 +130,82 @@
             <br />
             <br />
         </div>
-        <table>
-            <tr>
-                <td class="auto-style1">
-                    <div class="centered">
-                        <label>Director: </label>
-                        <br />
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />
-                    </div>
-                </td>
-                <td class="auto-style1">
-                    <div class="centered">
-                        <label>Address: </label>
-                        <br />
-                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox><br />
-                    </div>
-                </td>
-                <td class="auto-style1">
-                    <div class="centered">
-                        <label>Phone: </label>
-                        <br />
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox><br />
-                    </div>
-                </td>
-                <td class="auto-style1">
-                    <div class="centered">
-                        <label>Fax: </label>
-                        <br />
-                        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox><br />
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <asp:FormView ID="CETCFormView" runat="server" DataKeyNames="cetcRefID" DataSourceID="refCETC">
+            <EditItemTemplate>
+                <table>
+                    <tr>
+                        <td class="auto-style1">
+                            <div class="centered">
+                                <label>Director: </label>
+                                <br />
+                                <asp:TextBox ID="txtDirector" runat="server" Text='<%# Bind("Director") %>'></asp:TextBox><br />
+                            </div>
+                        </td>
+                        <td class="auto-style1">
+                            <div class="centered">
+                                <label>Address: </label>
+                                <br />
+                                <asp:TextBox ID="txtAddress" runat="server" Text='<%# Bind("Address") %>'></asp:TextBox><br />
+                            </div>
+                        </td>
+                        <td class="auto-style1">
+                            <div class="centered">
+                                <label>Phone: </label>
+                                <br />
+                                <asp:TextBox ID="txtPhone" runat="server" Text='<%# Bind("Phone") %>'></asp:TextBox><br />
+                            </div>
+                        </td>
+                        <td class="auto-style1">
+                            <div class="centered">
+                                <label>Fax: </label>
+                                <br />
+                                <asp:TextBox ID="txtFax" runat="server" Text='<%# Bind("Fax") %>'></asp:TextBox><br />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            </EditItemTemplate>
+            <ItemTemplate>
+                <table>
+                    <tr>
+                        <td class="auto-style1">
+                            <div class="centered">
+                                <label>Director: </label>
+                                <br />
+                                <asp:TextBox ID="txtDirector" runat="server" Text='<%# Bind("Director") %>'></asp:TextBox><br />
+                            </div>
+                        </td>
+                        <td class="auto-style1">
+                            <div class="centered">
+                                <label>Address: </label>
+                                <br />
+                                <asp:TextBox ID="txtAddress" runat="server" Text='<%# Bind("Address") %>'></asp:TextBox><br />
+                            </div>
+                        </td>
+                        <td class="auto-style1">
+                            <div class="centered">
+                                <label>Phone: </label>
+                                <br />
+                                <asp:TextBox ID="txtPhone" runat="server" Text='<%# Bind("Phone") %>'></asp:TextBox><br />
+                            </div>
+                        </td>
+                        <td class="auto-style1">
+                            <div class="centered">
+                                <label>Fax: </label>
+                                <br />
+                                <asp:TextBox ID="txtFax" runat="server" Text='<%# Bind("Fax") %>'></asp:TextBox><br />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+            </ItemTemplate>
+        </asp:FormView>
+
     </div>
     <asp:Label ID="errorStatus" runat="server" Visible="false"></asp:Label>
 </asp:Content>
