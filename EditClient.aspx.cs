@@ -15,8 +15,6 @@ public partial class EditClient : BasePage
     protected void Page_Load(object sender, EventArgs e)
 
     {
-        this.DataBind();
-
         //Retrieve ClientID from QueryString, check validity, store as session variable
         if (Request.QueryString["ClientID"] != null)
         {
