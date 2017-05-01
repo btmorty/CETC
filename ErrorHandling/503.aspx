@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="503.aspx.cs" Inherits="ErrorHandling_503" %>
+﻿<%@ Page Title="503 Error" Language="C#" AutoEventWireup="true" CodeFile="503.aspx.cs" Inherits="ErrorHandling_503" %>
 
 <!DOCTYPE html>
 

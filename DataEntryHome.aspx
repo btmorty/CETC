@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="DataEntryHome.aspx.cs" Inherits="DataEntryHome" %>
+﻿<%@ Page Title="Data Entry Home" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="DataEntryHome.aspx.cs" Inherits="DataEntryHome" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="Server">
     <div class="container">

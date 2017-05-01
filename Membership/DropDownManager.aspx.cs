@@ -30,6 +30,7 @@ public partial class SelectClient : System.Web.UI.Page
             con.Open();
             cmd.ExecuteNonQuery();
             ddlRace.DataBind();
+            txtAddRace.Text = "";
         }
 
         catch (Exception ex)
@@ -59,6 +60,7 @@ public partial class SelectClient : System.Web.UI.Page
             con.Open();
             cmd.ExecuteNonQuery();
             ddlResStatus.DataBind();
+            txtAddResidential.Text = "";
         }
 
         catch (Exception ex)
@@ -88,6 +90,7 @@ public partial class SelectClient : System.Web.UI.Page
             con.Open();
             cmd.ExecuteNonQuery();
             ddlPrefLanguage.DataBind();
+            txtAddLanguage.Text = "";
         }
 
         catch (Exception ex)
@@ -117,6 +120,7 @@ public partial class SelectClient : System.Web.UI.Page
             con.Open();
             cmd.ExecuteNonQuery();
             ddlReligion.DataBind();
+            txtAddReligion.Text = "";
         }
 
         catch (Exception ex)
@@ -146,6 +150,7 @@ public partial class SelectClient : System.Web.UI.Page
             con.Open();
             cmd.ExecuteNonQuery();
             ddlService.DataBind();
+            txtAddService.Text = "";
         }
 
         catch (Exception ex)

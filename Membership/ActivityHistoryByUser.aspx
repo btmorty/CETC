@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ActivityHistoryByUser.aspx.cs" Inherits="ActivityHistoryByUser" %>
+﻿<%@ Page Title="User Activity Log" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ActivityHistoryByUser.aspx.cs" Inherits="ActivityHistoryByUser" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="server">
     <style>

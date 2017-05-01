@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="404.aspx.cs" Inherits="ErrorHandling_404"%>
+﻿<%@ Page Title="404 Error" Language="C#" AutoEventWireup="true" CodeFile="404.aspx.cs" Inherits="ErrorHandling_404"%>
 
 <!DOCTYPE html>
 

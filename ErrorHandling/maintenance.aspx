@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="maintenance.aspx.cs" Inherits="ErrorHandling_maintenance" %>
+﻿<%@ Page Title="Maintenance" Language="C#" AutoEventWireup="true" CodeFile="maintenance.aspx.cs" Inherits="ErrorHandling_maintenance" %>
 
 <!DOCTYPE html>
 

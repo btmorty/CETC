@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ManageUsers.aspx.cs" Inherits="Membership_ManageUsers" %>
+﻿<%@ Page Title="Manage Users" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ManageUsers.aspx.cs" Inherits="Membership_ManageUsers" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Body" runat="server">
     <div class="container">
