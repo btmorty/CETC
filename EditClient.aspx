@@ -9,9 +9,6 @@
             padding-top: 5px;
             padding-bottom: 5px;
         }
-        tr {
-            width: 100%;
-        }
     </style>
     <asp:SqlDataSource ID="CETC_REF" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Director], [Address], [Phone], [Fax] FROM [REF_CETC]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDStatusSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [StatusID], [Status] FROM [DD_Status]"></asp:SqlDataSource>
@@ -503,17 +500,15 @@
                                             <!-- Validator(s) for EmailLabel here-->
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="EmailLabel" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red" ValidationGroup="Group1" Text="*"></asp:RegularExpressionValidator>
                                         </td>
-                                        <td>Phone:<br />
+                                        <td>Phone: (###-###-####)<br />
                                             <asp:TextBox ID="PhoneLabel" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" MaxLength="12" />                                           
                                             <!-- Validator(s) for PhoneLabel here-->
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="PhoneLabel" ErrorMessage="Please enter a valid phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" Display="Dynamic" Text="*" ValidationGroup="Group1"></asp:RegularExpressionValidator>
-                                            <br />(###-###-####)
                                         </td>
-                                        <td>SSN:<br />
+                                        <td>SSN: (###-##-####)<br />
                                             <asp:TextBox ID="SSNLabel" runat="server" Text='<%# Bind("SSN") %>' MaxLength="11" />
                                             <!-- Validator(s) for SSNLabel here-->
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="SSNLabel" ErrorMessage="Please enter a valid social security number" ValidationExpression="\d{3}-\d{2}-\d{4}" ForeColor="Red" Display="Dynamic" Text="*" ValidationGroup="Group1"></asp:RegularExpressionValidator>
-                                            <br />(###-##-####)
                                         </td>
                                         <td>Sex:<br />
                                            <asp:DropDownList ID="DropDownListSex" runat="server" DataSourceID="DDSexSqlDataSource" DataValueField="Sex" SelectedValue='<%# Bind("Sex") %>'></asp:DropDownList></td>
@@ -591,6 +586,9 @@
                     <h3 class="text-center">Family/Guardian/Residential Contact Information</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <asp:ListView ID="ContactListView" runat="server" DataKeyNames="ContactID" DataSourceID="ContactSqlDataSource" InsertItemPosition="LastItem" OnItemCommand="ListView_ItemCommand">
+                        <ItemSeparatorTemplate>
+                        <hr style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;"/>
+                    </ItemSeparatorTemplate>
                         <EditItemTemplate>
                             <asp:HiddenField ID="ClientID" runat="server" Value='<%# Bind("ClientID") %>' />
                             <table style="width:100%">
@@ -619,23 +617,20 @@
                                             <!-- Validator(s) for EmailTextBox here-->
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
                                         </td>
-                                        <td>Home Phone:<br />
+                                        <td>Home Phone: (###-###-####)<br />
                                             <asp:TextBox ID="HomePhoneTextBox" runat="server" Text='<%# Bind("HomePhone") %>' MaxLength="12" TextMode="Phone" />
                                             <!-- Validator(s) for HomePhoneTextBox here-->
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="HomePhoneTextBox" ErrorMessage="Please enter a valid home number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
-                                            <br />(###-###-####)                                           
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="HomePhoneTextBox" ErrorMessage="Please enter a valid home number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>                                       
                                         </td>
-                                        <td>Work Phone:<br />
+                                        <td>Work Phone: (###-###-####)<br />
                                             <asp:TextBox ID="WorkPhoneTextBox" runat="server" Text='<%# Bind("WorkPhone") %>' MaxLength="12" TextMode="Phone" />
                                             <!-- Validator(s) for WorkPhoneTextBox here-->
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="WorkPhoneTextBox" ErrorMessage="Please enter a valid work number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
-                                            <br />(###-###-####)                                            
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="WorkPhoneTextBox" ErrorMessage="Please enter a valid work number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>                                           
                                         </td>
-                                        <td>Mobile Phone:<br />
+                                        <td>Mobile Phone: (###-###-####)<br />
                                             <asp:TextBox ID="MobilePhoneTextBox" runat="server" Text='<%# Bind("MobilePhone") %>' MaxLength="12" TextMode="Phone" />
                                             <!-- Validator(s) for MobilePhoneTextBox here-->
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ControlToValidate="MobilePhoneTextBox" ErrorMessage="Please enter a valid mobile number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
-                                            <br />(###-###-####)
                                         </td>
                                     </tr>
                                     <tr>
@@ -697,23 +692,20 @@
                                             <!-- Validator(s) for EmailTextBox here-->
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator11" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
                                         </td>
-                                        <td>Home Phone:<br />
+                                        <td>Home Phone: (###-###-####)<br />
                                             <asp:TextBox ID="HomePhoneTextBox" runat="server" Text='<%# Bind("HomePhone") %>' MaxLength="12" TextMode="Phone" />
                                             <!-- Validator(s) for HomePhoneTextBox here-->
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator12" runat="server" ControlToValidate="HomePhoneTextBox" ErrorMessage="Please enter a valid home number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
-                                            <br />(###-###-####)                                           
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator12" runat="server" ControlToValidate="HomePhoneTextBox" ErrorMessage="Please enter a valid home number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>                                     
                                         </td>
-                                        <td>Work Phone:<br />
+                                        <td>Work Phone: (###-###-####)<br />
                                             <asp:TextBox ID="WorkPhoneTextBox" runat="server" Text='<%# Bind("WorkPhone") %>' MaxLength="12" TextMode="Phone" />
                                             <!-- Validator(s) for WorkPhoneTextBox here-->
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator13" runat="server" ControlToValidate="WorkPhoneTextBox" ErrorMessage="Please enter a valid work number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
-                                            <br />(###-###-####)                                            
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator13" runat="server" ControlToValidate="WorkPhoneTextBox" ErrorMessage="Please enter a valid work number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>                                           
                                         </td>
-                                        <td>Mobile Phone:<br />
+                                        <td>Mobile Phone: (###-###-####)<br />
                                             <asp:TextBox ID="MobilePhoneTextBox" runat="server" Text='<%# Bind("MobilePhone") %>' MaxLength="12" TextMode="Phone" />
                                             <!-- Validator(s) for MobilePhoneTextBox here-->
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator14" runat="server" ControlToValidate="MobilePhoneTextBox" ErrorMessage="Please enter a valid mobile number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group2" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
-                                            <br />(###-###-####)
                                         </td>
                                     </tr>
                                     <tr>
@@ -808,7 +800,7 @@
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <div class="row">
                     <div class="col-sm-12">
-                    <asp:FormView ID="EvacFormView" runat="server" DataSourceID="EvacSqlDataSource" DataKeyNames="EmergencyID" OnDataBound="EvacFormView_DataBound" OnItemCommand="FormView_ItemCommand" OnItemUpdated="EvacFormView_ItemUpdated">
+                    <asp:FormView ID="EvacFormView" runat="server" DataSourceID="EvacSqlDataSource" DataKeyNames="EmergencyID" OnDataBound="EvacFormView_DataBound" OnItemCommand="FormView_ItemCommand" OnItemUpdated="EvacFormView_ItemUpdated" RenderOuterTable="false">
                         <EditItemTemplate>
                             <Label>Emergency Evacuation Needs:</Label><br />
                               <asp:TextBox ID="TextBox51" runat="server" Text='<%# Bind("Emergency_Evac") %>' TextMode="MultiLine" Width="100%" />
@@ -856,6 +848,7 @@
                                    </td>
                                </tr>
                             </table>
+                            <br />
                             <asp:LinkButton ID="btnEvacSave" runat="server" CssClass="btn btn-primary" CommandName="Update" ValidationGroup="Group3"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
                             <asp:LinkButton ID="btnEvacCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel" ValidationGroup="Group3"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                         </EditItemTemplate>
@@ -906,7 +899,8 @@
                                    </td>
                                </tr>
                             </table>
-                            <asp:LinkButton ID="btnEvacInsert" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert" ValidationGroup="Group3"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
+                            <br />
+                            <asp:LinkButton ID="btnEvacInsert" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert" ValidationGroup="Group3"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
                             <asp:LinkButton ID="btnEvacCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel" ValidationGroup="Group3"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                         </InsertItemTemplate>
                         <ItemTemplate>
@@ -942,6 +936,7 @@
                                    </td>
                                </tr>
                             </table>
+                            <br />
                             <asp:LinkButton ID="btnEvacEdit" runat="server" CssClass="btn btn-primary" CommandName="Edit" ValidationGroup="Group3"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
                         </ItemTemplate>
                     </asp:FormView>
@@ -978,6 +973,9 @@
                     <%--//Validation Report--%>
                     <asp:ValidationSummary ID="ValidationSummary4" runat="server" ForeColor="Red" ValidationGroup="Group4"/>
                     <asp:ListView ID="ServiceListView" runat="server" DataSourceID="CetcInfoSqlDataSource" DataKeyNames="CECTID" InsertItemPosition="LastItem" OnItemCommand="ListView_ItemCommand">
+                        <ItemSeparatorTemplate>
+                            <hr style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;"/>
+                        </ItemSeparatorTemplate>
                         <EditItemTemplate>
                             <asp:HiddenField ID="CECTIDLabel1" runat="server" Value='<%# Eval("CECTID") %>' />
                             <table style="width:100%">
@@ -1086,11 +1084,10 @@
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator20" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red" ValidationGroup="Group5" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
                                         
                                 </td>
-                                <td>Phone:<br />
+                                <td>Phone:(###-###-####)<br />
                                 <asp:TextBox ID="HomePhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" />
                                 <!-- Validator(s) for MobilePhoneTextBox here-->
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator21" runat="server" ControlToValidate="HomePhoneTextBox" ErrorMessage="Please enter a valid home number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group5" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
-                                <br />(###-###-####)
                                 </td>
                             </tr>
                             <tr>
@@ -1145,11 +1142,10 @@
                                 <!-- Validator(s) for EmailTextBox here-->
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator23" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red" ValidationGroup="Group5" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>                                       
                                 </td>
-                                <td>Phone:<br />
+                                <td>Phone:(###-###-####)<br />
                                 <asp:TextBox ID="HomePhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" />
                                 <!-- Validator(s) for MobilePhoneTextBox here-->
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator24" runat="server" ControlToValidate="HomePhoneTextBox" ErrorMessage="Please enter a valid home number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group5" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
-                                <br />(###-###-####)
                                 </td>
                             </tr>
                             <tr>
@@ -1240,7 +1236,7 @@
                     <asp:ValidationSummary ID="ValidationSummary6" runat="server" ForeColor="Red" ValidationGroup="Group6"/>
                    <h3 class="text-center">Health Information</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                        <asp:FormView ID="HelthProfileFormView" DataSourceID="HealthProfileSqlDataSource" runat="server" DataKeyNames="Health_Profile_ID" OnDataBound="HealthProfileFormView_DataBound" OnItemCommand="FormView_ItemCommand" OnItemUpdated="HelthProfileFormView_ItemUpdated">
+                        <asp:FormView ID="HelthProfileFormView" DataSourceID="HealthProfileSqlDataSource" runat="server" DataKeyNames="Health_Profile_ID" OnDataBound="HealthProfileFormView_DataBound" OnItemCommand="FormView_ItemCommand" OnItemUpdated="HelthProfileFormView_ItemUpdated" RenderOuterTable="false">
                             <EditItemTemplate>
                                 <asp:HiddenField runat="server" Value='<%# Eval("Health_Profile_ID") %>' />
                                 <table style="width: 100%">
@@ -1335,6 +1331,7 @@
                                         </td>
                                     </tr>
                                 </table>
+                                <br />
                                  <asp:LinkButton ID="btnHealthUpdate" runat="server" CssClass="btn btn-primary" CommandName="Update" ValidationGroup="Group6"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Update</asp:LinkButton>
                                  <asp:LinkButton ID="btnHealthCancel" runat="server" CssClass="btn btn-primary" CommandName="Cancel" ValidationGroup="Group6"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </EditItemTemplate>
@@ -1432,7 +1429,8 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <asp:LinkButton ID="btnHealthInfoInsertButton" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert" ValidationGroup="Group6"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
+                                <br />
+                                <asp:LinkButton ID="btnHealthInfoInsertButton" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert" ValidationGroup="Group6"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
                                 <asp:LinkButton ID="btnHealthInfoInsertCancelButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel" ValidationGroup="Group6"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </InsertItemTemplate>
                             <ItemTemplate>
@@ -1500,17 +1498,20 @@
                                         </td>
                                     </tr>
                                 </table>
+                                <br />
                                 <asp:LinkButton ID="btnHeathEdit" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Edit" ValidationGroup="Group6"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
                                 <asp:LinkButton ID="btnHealthDelete" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Delete" ValidationGroup="Group6"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
-                                <%--<asp:LinkButton ID="NewButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="New" Text="New" /> because this doesnt do anything useful--%>
                             </ItemTemplate>
                         </asp:FormView>
                     </div>
-                    <%--//Validation Report--%>                    <%--<asp:LinkButton ID="NewButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="New" Text="New" /> because this doesnt do anything useful--%>
+                    <%--//Validation Report--%>
                     <asp:ValidationSummary ID="ValidationSummary7" runat="server" ForeColor="Red" ValidationGroup="Group7"/>
                     <h3 class="text-center">Medical Provider</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                         <asp:ListView ID="MedProviderListView" runat="server" DataKeyNames="ProviderID" DataSourceID="MedProvidersSqlDataSource" InsertItemPosition="LastItem" OnItemCommand="ListView_ItemCommand">
+                            <ItemSeparatorTemplate>
+                        <hr style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;"/>
+                    </ItemSeparatorTemplate>
                             <EditItemTemplate>
                                 <asp:HiddenField ID="ProviderID" runat="server" Value='<%# Eval("ProviderID") %>' />
                                 <table style="width: 100%">
@@ -1680,6 +1681,9 @@
                     <h3 class="text-center">Medications</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                         <asp:ListView ID="MedListView" runat="server" DataKeyNames="MedicationID" DataSourceID="MedSqlDataSource" InsertItemPosition="LastItem" OnItemCommand="ListView_ItemCommand">
+                            <ItemSeparatorTemplate>
+                        <hr style="border-top: 1px dashed #8c8b8b; border-bottom: 1px dashed #fff;"/>
+                    </ItemSeparatorTemplate>
                             <EditItemTemplate>
                                 <asp:HiddenField ID="MedicationID" runat="server" Value='<%# Eval("MedicationID") %>' />
                                 <table style="width: 100%">
@@ -1787,9 +1791,9 @@
                     <asp:ValidationSummary ID="ValidationSummary9" runat="server" ForeColor="Red" ValidationGroup="Group9"/>
                     <h3 class="text-center">Insurance</h3>
                     <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                        <asp:FormView ID="InsuranceFormView" runat="server" DataKeyNames="InsuranceID" DataSourceID="InsurenceSqlDataSource" OnDataBound="InsuranceFormView_DataBound" OnItemCommand="FormView_ItemCommand" OnItemUpdated="InsuranceFormView_ItemUpdated">
+                        <asp:FormView ID="InsuranceFormView" runat="server" DataKeyNames="InsuranceID" DataSourceID="InsurenceSqlDataSource" OnDataBound="InsuranceFormView_DataBound" OnItemCommand="FormView_ItemCommand" OnItemUpdated="InsuranceFormView_ItemUpdated" RenderOuterTable="false">
                             <EditItemTemplate>
-                                <table>
+                                <table style="width: 100%">
                                     <tr>
                                         <td>Medicaid Number:<br />
                                             <asp:TextBox ID="TextBox111" runat="server" Text='<%# Bind("Medicaid_Number") %>' />
@@ -1811,22 +1815,19 @@
                                             <!-- Validator(s) for TextBox114 here-->
                                                 <asp:CompareValidator ID="CompareValidator80" runat="server" ControlToValidate="TextBox114" ErrorMessage="Please enter a valid policy number" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Life Support:
-                                        </td>
-                                        <td>
+                                        <td>Life Support:<br />
                                             <asp:TextBox ID="TextBox115" runat="server" Text='<%# Bind("Life_Support") %>' />
                                             <!-- Validator(s) for TextBox115 here-->
                                                 <asp:CompareValidator ID="CompareValidator81" runat="server" ControlToValidate="TextBox115" ErrorMessage="Please enter a valid type of life support" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
                                     </tr>
                                 </table>
+                                <br />
                                 <asp:LinkButton ID="btnInsuranceUpdate" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Update" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Update</asp:LinkButton>
                                 <asp:LinkButton ID="btnInsuranceCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </EditItemTemplate>
                             <InsertItemTemplate>
-                                <table>
+                                <table style="width: 100%">
                                     <tr>
                                         <td>Medicaid Number:<br />
                                             <asp:TextBox ID="TextBox116" runat="server" Text='<%# Bind("Medicaid_Number") %>' />
@@ -1848,22 +1849,19 @@
                                             <!-- Validator(s) for TextBox119 here-->
                                                 <asp:CompareValidator ID="CompareValidator85" runat="server" ControlToValidate="TextBox119" ErrorMessage="Please enter a valid policy number" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Life Support:
-                                        </td>
-                                        <td>
+                                        <td>Life Support:<br />
                                             <asp:TextBox ID="TextBox120" runat="server" Text='<%# Bind("Life_Support") %>' />
                                             <!-- Validator(s) for TextBox120 here-->
                                                 <asp:CompareValidator ID="CompareValidator86" runat="server" ControlToValidate="TextBox120" ErrorMessage="Please enter a valid type of life support" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
                                     </tr>
                                 </table>
-                                <asp:LinkButton ID="btnInsuranceInsert" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
-                                <asp:LinkButton ID="btnInsuranceCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Cancel</asp:LinkButton>
+                                <br />
+                                <asp:LinkButton ID="btnInsuranceInsert" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Save</asp:LinkButton>
+                                <asp:LinkButton ID="btnInsuranceCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </InsertItemTemplate>
                             <ItemTemplate>
-                                <table>
+                                <table style="width: 100%">
                                     <tr>
                                         <td>Medicaid Number:<br />
                                             <asp:TextBox ID="TextBox121" runat="server" ReadOnly="true" Text='<%# Bind("Medicaid_Number") %>' />
@@ -1877,18 +1875,14 @@
                                         <td>Policy Number:<br />
                                             <asp:TextBox ID="TextBox124" runat="server" ReadOnly="true" Text='<%# Bind("Policy_Number") %>' />
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Life Support:
-                                        </td>
-                                        <td>
+                                        <td>Life Support:<br />
                                             <asp:TextBox ID="TextBox125" runat="server" ReadOnly="true" Text='<%# Bind("Life_Support") %>' />
                                         </td>
                                     </tr>
                                 </table>
+                                <br />
                                 <asp:LinkButton ID="btnInsuranceEdit" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Edit" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
                                 <asp:LinkButton ID="btnInsuranceDelete" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Delete" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
-                                <%--&nbsp;<asp:LinkButton ID="NewButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="New" Text="New" /> because this doesnt do anything useful--%>
                             </ItemTemplate>
                         </asp:FormView>
                     </div>
