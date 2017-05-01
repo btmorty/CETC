@@ -79,9 +79,10 @@ public partial class EditClient : BasePage
                         //add to database
                         String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
                         SqlConnection con = new SqlConnection(strConnString);
-                        string strQuery = "UPDATE dbo.Client SET PhotoID = @PhotoID";
+                        string strQuery = "UPDATE dbo.Client SET PhotoID = @PhotoID WHERE ClientID = @ClientID";
                         SqlCommand cmd = new SqlCommand(strQuery);
                         cmd.Parameters.AddWithValue("@PhotoID", imageUpload.PostedFile.FileName.ToString());
+                        cmd.Parameters.AddWithValue("@ClientID", Session["ClientID"].ToString());
                         cmd.CommandType = CommandType.Text;
                         cmd.Connection = con;
                         try
