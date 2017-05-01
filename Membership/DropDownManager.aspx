@@ -57,6 +57,8 @@
                         <br />
                         <label>Value to be added:</label><br />
                         <asp:TextBox ID="txtAddRace" runat="server"></asp:TextBox>
+                        <!-- Validator(s) for txtAddRace here-->
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtAddRace" ErrorMessage="Please enter a valid race format" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
                         <br />
                         <br />
                         <asp:LinkButton ID="btnAddRace" runat="server" CssClass="btn btn-primary" CommandName="Edit" OnClick="btnAddRace_Click"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
@@ -72,6 +74,8 @@
                         <br />
                         <label>Value to be added:</label><br />
                         <asp:TextBox ID="txtAddResidential" runat="server"></asp:TextBox>
+                        <!-- Validator(s) for txtAddResidential here-->
+                        <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="txtAddResidential" ErrorMessage="Please enter a valid residential format" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
                         <br />
                         <br />
                         <asp:LinkButton ID="btnAddResidental" runat="server" CssClass="btn btn-primary" CommandName="Edit" OnClick="btnAddResidental_Click"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
@@ -87,6 +91,8 @@
                         <br />
                         <label>Value to be added:</label><br />
                         <asp:TextBox ID="txtAddLanguage" runat="server"></asp:TextBox>
+                        <!-- Validator(s) for txtAddLanguage here-->
+                        <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="txtAddLanguage" ErrorMessage="Please enter a valid language format" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
                         <br />
                         <br />
                         <asp:LinkButton ID="btnAddLanguage" runat="server" CssClass="btn btn-primary" CommandName="Edit" OnClick="btnAddLanguage_Click"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
@@ -101,6 +107,8 @@
                         <br />
                         <label>Value to be added:</label><br />
                         <asp:TextBox ID="txtAddReligion" runat="server"></asp:TextBox>
+                        <!-- Validator(s) for txtAddReligion here-->
+                        <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToValidate="txtAddReligion" ErrorMessage="Please enter a valid religion format" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
                         <br />
                         <br />
                         <asp:LinkButton ID="btnAddReligion" runat="server" CssClass="btn btn-primary" CommandName="Edit" OnClick="btnAddReligion_Click"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
@@ -115,6 +123,8 @@
                         <br />
                         <label>Value to be added:</label><br />
                         <asp:TextBox ID="txtAddService" runat="server"></asp:TextBox>
+                        <!-- Validator(s) for txtAddService here-->
+                        <asp:CompareValidator ID="CompareValidator5" runat="server" ControlToValidate="txtAddService" ErrorMessage="Please enter a valid service format" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
                         <br />
                         <br />
                         <asp:LinkButton ID="btnAddService" runat="server" CssClass="btn btn-primary" CommandName="Edit" OnClick="btnAddService_Click"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
@@ -140,6 +150,8 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txtDirector" runat="server" Text='<%# Bind("Director") %>'></asp:TextBox>
+                            <!-- Validator(s) for txtDirector here-->
+                            <asp:CompareValidator ID="CompareValidator6" runat="server" ControlToValidate="txtDirector" ErrorMessage="Please enter a valid director format" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
                         </td>
                     </tr>
                     <tr>
@@ -148,6 +160,8 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txtAddress" runat="server" Text='<%# Bind("Address") %>' Width="400"></asp:TextBox>
+                            <!-- Validator(s) for txtAddress here-->
+                            <asp:CompareValidator ID="CompareValidator7" runat="server" ControlToValidate="txtAddress" ErrorMessage="Please enter a valid address format" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
                         </td>
                     </tr>
                     <tr>
@@ -155,7 +169,10 @@
                             <label>Phone: </label>
                         </td>
                         <td>
-                            <asp:TextBox ID="txtPhone" runat="server" Text='<%# Bind("Phone") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtPhone" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone"></asp:TextBox>
+                            <!-- Validator(s) for txtPhone here-->
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtPhone" ErrorMessage="Please enter a valid phone number format" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
+                            <br />(###-###-####)
                         </td>
                     </tr>
                     <tr>
@@ -164,6 +181,10 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txtFax" runat="server" Text='<%# Bind("Fax") %>'></asp:TextBox>
+                            <!-- Validator(s) for txtFax here-->
+                            <asp:CompareValidator ID="CompareValidator8" runat="server" ControlToValidate="txtFax" ErrorMessage="Please enter a valid fax format" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String"></asp:CompareValidator>
+                            <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtFax" ErrorMessage="Please enter a valid fax number format" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
+                            <br />(###-###-####)--%>
                         </td>
                     </tr>
                 </table>
