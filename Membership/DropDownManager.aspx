@@ -27,7 +27,7 @@
     <h2 class="text-center">Drop Down List Manager</h2>
     <hr>
     <div class="centered">
-        <i>Add values to the dopdown lists for the client forms. Values can only be added, not removed or edited to protect data validation.</i>
+        <i>Add values to the drop down lists for the client forms. Values can only be added, not removed or edited to protect data validation.</i>
     </div>
     <br />
     <%--//Data Sources--%>
