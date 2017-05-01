@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Profile.aspx.cs" Inherits="Membership_Profile" %>
+﻿<%@ Page Title="Profile" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Profile.aspx.cs" Inherits="Membership_Profile" %>
 
 <%@ Register Src="CurrentUserInfo.ascx" TagName="CurrentUserInfo" TagPrefix="uc1" %>
 

@@ -15,16 +15,8 @@
         </SelectParameters>
     </asp:SqlDataSource>
     <%--//Page Header--%>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="jumbotron">
                     <h2 class="text-center">Client Selection</h2>
-                </div>
-                <hr>
-            </div>
-        </div>
-    </div>
+                <hr />
     <%--//Client Selection--%>
     <div class="text-center">
         <div class="btn-group btn-group-sm">

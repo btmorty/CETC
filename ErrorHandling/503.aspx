@@ -236,11 +236,11 @@
             </div>
             <div class="subheader primary-text-color">
                 Looks like we're having
-                <br>
+                <br />
                 some server issues.
 
             </div>
-            <hr>
+            <hr />
             <div class="clearfix"></div>
             <div class="context primary-text-color">
 
@@ -253,7 +253,7 @@
 
             </div>
             <div class="buttons-container">
-                <a class="border-button" href="mailto:#" target="_blank">Report A Problem</a>
+                <a class="border-button" href="../index.aspx">Go To Homepage</a>
             </div>
         </div>
 

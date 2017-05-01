@@ -246,13 +246,12 @@
                 <!-- doesn't use context_content because it's ALWAYS the same thing -->
                 <p>
                     You may want to head back to the homepage.<br />
-                    If you think something is broken, report a problem.
+                    If you think something is broken, report a problem to the System Administrator.
    
                 </p>
             </div>
             <div class="buttons-container">
-                <a class="border-button" href="../index.aspx" target="_blank">Go To Homepage</a>
-                <a class="border-button" href="mailto:#" target="_blank">Report A Problem</a>
+                <a class="border-button" href="../index.aspx">Go To Homepage</a>
             </div>
         </div>
 

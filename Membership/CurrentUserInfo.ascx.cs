@@ -38,7 +38,7 @@ public partial class Membership_CurrentUserInfo : System.Web.UI.UserControl
         //Save the values from the text boxes into the profile
         Profile.FirstName = txtFirstName.Text;
         Profile.LastName = txtLastName.Text;
-        currentUser.Email = txtEmail.Text;
-        Membership.UpdateUser(currentUser);
+        Membership.GetUser().Email = txtEmail.Text;
+        Membership.UpdateUser(Membership.GetUser());
     }
 }
