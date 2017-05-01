@@ -9,6 +9,9 @@
             padding-top: 5px;
             padding-bottom: 5px;
         }
+        tr {
+            width: 100%;
+        }
     </style>
     <asp:SqlDataSource ID="CETC_REF" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [Director], [Address], [Phone], [Fax] FROM [REF_CETC]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="DDStatusSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:CETC_DB %>" SelectCommand="SELECT [StatusID], [Status] FROM [DD_Status]"></asp:SqlDataSource>
@@ -803,6 +806,8 @@
                 <asp:ValidationSummary ID="ValidationSummary3" runat="server" ForeColor="Red" ValidationGroup="Group3"/>
                 <h3 class="text-center">Emergency Information</h3>
                 <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+                    <div class="row">
+                    <div class="col-sm-12">
                     <asp:FormView ID="EvacFormView" runat="server" DataSourceID="EvacSqlDataSource" DataKeyNames="EmergencyID" OnDataBound="EvacFormView_DataBound" OnItemCommand="FormView_ItemCommand" OnItemUpdated="EvacFormView_ItemUpdated">
                         <EditItemTemplate>
                             <Label>Emergency Evacuation Needs:</Label><br />
@@ -907,7 +912,7 @@
                         <ItemTemplate>
                             <Label>Emergency Evacuation Needs:</Label><br />
                             <asp:TextBox ID="TextBox69" runat="server" ReadOnly="true" Text='<%# Eval("Emergency_Evac") %>' TextMode="MultiLine" Width="100%" />
-                            <table style="width:100%">
+                            <table style="min-width: 1080px;">
                                <tr>
                                    <td>Evacuation Address 1:<br />
                                         <asp:TextBox ID="TextBox70" runat="server" ReadOnly="true" Text='<%# Eval("Evac_Address_1") %>' />
@@ -940,6 +945,8 @@
                             <asp:LinkButton ID="btnEvacEdit" runat="server" CssClass="btn btn-primary" CommandName="Edit" ValidationGroup="Group3"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
                         </ItemTemplate>
                     </asp:FormView>
+                    </div>
+                    </div>
                 </div>
                 <hr />
                 

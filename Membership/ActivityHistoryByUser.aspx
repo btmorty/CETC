@@ -46,7 +46,7 @@
     <br />
     <div class="center">
         <asp:GridView ID="gvActivityLog" runat="server"
-            DataSourceID="ActivityLogDataSource" AutoGenerateColumns="False" AllowPaging="True" PageSize="50" AllowSorting="True">
+            DataSourceID="ActivityLogDataSource" AutoGenerateColumns="False" AllowPaging="True" PageSize="25" AllowSorting="True">
             <Columns>
                 <asp:TemplateField HeaderText="Activity">
                     <ItemTemplate>
