@@ -55,11 +55,6 @@ public partial class EditClient : BasePage
         //only perform the following the first time the page loads
         if (!IsPostBack)
         {
-            lblCETCDirector.Text = "Director: Kae Lynn Beecher";
-            lblCETCAddress.Text = "Address: 275 West 400 South Logan, UT 84321";
-            lblCETCPhone.Text = "Phone: (435) 752-7952";
-            lblCETCFax.Text = "Fax: 435-752-7958";
-
             //Log User Visit
             base.LogActivity("Visited Edit Client Page of Client ID " + Session["ClientID"], true);
         }
@@ -196,7 +191,6 @@ public partial class EditClient : BasePage
             {
                 con.Open();
                 cmd.ExecuteNonQuery();
-                ClientFormView.DataBind();
                 //Log User Edit
                 base.LogActivity("Edited Client Profile of Client ID " + Session["ClientID"], true);
             }
@@ -212,5 +206,25 @@ public partial class EditClient : BasePage
                 con.Dispose();
             }
         }
+    }
+
+    protected void ClientFormView_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
+    {
+        ClientFormView.DataBind();
+    }
+
+    protected void EvacFormView_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
+    {
+        EvacFormView.DataBind();
+    }
+
+    protected void HelthProfileFormView_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
+    {
+        HelthProfileFormView.DataBind();
+    }
+
+    protected void InsuranceFormView_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
+    {
+        InsuranceFormView.DataBind();
     }
 }
