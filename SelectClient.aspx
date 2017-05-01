@@ -60,7 +60,7 @@
     <br />
     <br />
     <%--//List View Output--%>
-        <asp:GridView ID="ClientGridView" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" EmptyDataText="No data available." AllowPaging="True" HorizontalAlign="Center" runat="server" DataKeyNames="ClientID" AllowSorting="True" OnRowCommand="ClientGridView_RowCommand" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False">
+        <asp:GridView ID="ClientGridView" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" EmptyDataText="No data available." AllowPaging="True" HorizontalAlign="Center" runat="server" DataKeyNames="ClientID" AllowSorting="True" OnRowCommand="ClientGridView_RowCommand" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" PageSize="20">
             <Columns>
                 <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>
