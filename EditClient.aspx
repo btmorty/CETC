@@ -1136,8 +1136,7 @@
                                 <td>Email:<br />
                                 <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' TextMode="Email" />
                                 <!-- Validator(s) for EmailTextBox here-->
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator23" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red" ValidationGroup="Group5" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
-                                        
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator23" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red" ValidationGroup="Group5" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>                                       
                                 </td>
                                 <td>Phone:<br />
                                 <asp:TextBox ID="HomePhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" />
@@ -1255,26 +1254,26 @@
                                     <tr>
                                         <td>Height:<br />
                                             <asp:TextBox ID="TextBox37" runat="server" Text='<%# Bind("Height") %>' />
-                                            <!-- Validator(s) for TextBox41 here-->
-                                                <asp:CompareValidator ID="CompareValidator39" runat="server" ControlToValidate="TextBox41" ErrorMessage="Please enter a valid height" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                            <!-- Validator(s) for TextBox37 here-->
+                                                <asp:CompareValidator ID="CompareValidator39" runat="server" ControlToValidate="TextBox37" ErrorMessage="Please enter a valid height" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                         
                                         </td>
                                         <td>Weight:<br />
                                             <asp:TextBox ID="TextBox38" runat="server" Text='<%# Bind("Weight") %>' />
-                                            <!-- Validator(s) for TextBox41 here-->
-                                                <asp:CompareValidator ID="CompareValidator40" runat="server" ControlToValidate="TextBox41" ErrorMessage="Please enter a valid weight" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                            <!-- Validator(s) for TextBox38 here-->
+                                                <asp:CompareValidator ID="CompareValidator40" runat="server" ControlToValidate="TextBox38" ErrorMessage="Please enter a valid weight" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                         
                                         </td>
                                         <td>Hair:<br />
-                                            <asp:TextBox ID="TextBox39" runat="server" Text='<%# Bind("Hair") %>' TextMode="Color" />
-                                            <!-- Validator(s) for TextBox41 here-->
-                                                <asp:CompareValidator ID="CompareValidator41" runat="server" ControlToValidate="TextBox41" ErrorMessage="Please enter a valid hair color" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                            <asp:TextBox ID="TextBox39" runat="server" Text='<%# Bind("Hair") %>' />
+                                            <!-- Validator(s) for TextBox39 here-->
+                                                <asp:CompareValidator ID="CompareValidator41" runat="server" ControlToValidate="TextBox39" ErrorMessage="Please enter a valid hair color" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                         
                                         </td>
                                         <td>Eyes:<br />
-                                            <asp:TextBox ID="TextBox40" runat="server" Text='<%# Bind("Eyes") %>' TextMode="Color" />
-                                            <!-- Validator(s) for TextBox41 here-->
-                                                <asp:CompareValidator ID="CompareValidator42" runat="server" ControlToValidate="TextBox41" ErrorMessage="Please enter a valid eye color" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                            <asp:TextBox ID="TextBox40" runat="server" Text='<%# Bind("Eyes") %>' />
+                                            <!-- Validator(s) for TextBox40 here-->
+                                                <asp:CompareValidator ID="CompareValidator42" runat="server" ControlToValidate="TextBox40" ErrorMessage="Please enter a valid eye color" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                         
                                         </td>
                                     </tr>
@@ -1317,7 +1316,7 @@
                                         <td>City:<br />
                                             <asp:TextBox ID="TextBox47" runat="server" Text='<%# Bind("City") %>' />
                                             <!-- Validator(s) for TextBox41 here-->
-                                                <asp:CompareValidator ID="CompareValidator48" runat="server" ControlToValidate="TextBox41" ErrorMessage="Please enter a valid type of city" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                                <asp:CompareValidator ID="CompareValidator48" runat="server" ControlToValidate="TextBox47" ErrorMessage="Please enter a valid type of city" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                         </td>
                                         <td>State:<br />
                                              <asp:DropDownList ID="DropDownList13" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
@@ -1352,26 +1351,26 @@
                                     <tr>
                                         <td>Height:<br />
                                             <asp:TextBox ID="TextBox37" runat="server" Text='<%# Bind("Height") %>' />
-                                            <!-- Validator(s) for TextBox41 here-->
-                                                <asp:CompareValidator ID="CompareValidator39" runat="server" ControlToValidate="TextBox41" ErrorMessage="Please enter a valid height" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                            <!-- Validator(s) for TextBox37 here-->
+                                                <asp:CompareValidator ID="CompareValidator49" runat="server" ControlToValidate="TextBox37" ErrorMessage="Please enter a valid height" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                         
                                         </td>
                                         <td>Weight:<br />
                                             <asp:TextBox ID="TextBox38" runat="server" Text='<%# Bind("Weight") %>' />
-                                            <!-- Validator(s) for TextBox41 here-->
-                                                <asp:CompareValidator ID="CompareValidator40" runat="server" ControlToValidate="TextBox41" ErrorMessage="Please enter a valid weight" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                            <!-- Validator(s) for TextBox38 here-->
+                                                <asp:CompareValidator ID="CompareValidator50" runat="server" ControlToValidate="TextBox38" ErrorMessage="Please enter a valid weight" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                         
                                         </td>
                                         <td>Hair:<br />
-                                            <asp:TextBox ID="TextBox39" runat="server" Text='<%# Bind("Hair") %>' TextMode="Color" />
-                                            <!-- Validator(s) for TextBox41 here-->
-                                                <asp:CompareValidator ID="CompareValidator41" runat="server" ControlToValidate="TextBox41" ErrorMessage="Please enter a valid hair color" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                            <asp:TextBox ID="TextBox39" runat="server" Text='<%# Bind("Hair") %>' />
+                                            <!-- Validator(s) for TextBox39 here-->
+                                                <asp:CompareValidator ID="CompareValidator51" runat="server" ControlToValidate="TextBox39" ErrorMessage="Please enter a valid hair color" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                         
                                         </td>
                                         <td>Eyes:<br />
-                                            <asp:TextBox ID="TextBox40" runat="server" Text='<%# Bind("Eyes") %>' TextMode="Color" />
+                                            <asp:TextBox ID="TextBox40" runat="server" Text='<%# Bind("Eyes") %>' />
                                             <!-- Validator(s) for TextBox41 here-->
-                                                <asp:CompareValidator ID="CompareValidator42" runat="server" ControlToValidate="TextBox41" ErrorMessage="Please enter a valid eye color" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                                <asp:CompareValidator ID="CompareValidator52" runat="server" ControlToValidate="TextBox40" ErrorMessage="Please enter a valid eye color" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                         
                                         </td>
                                     </tr>
@@ -1379,29 +1378,29 @@
                                         <td>Diagnosis/Medical Condition:<br />
                                             <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("Diagnosis") %>' TextMode="MultiLine" />
                                             <!-- Validator(s) for TextBox41 here-->
-                                                <asp:CompareValidator ID="CompareValidator43" runat="server" ControlToValidate="TextBox41" ErrorMessage="Please enter a valid type of diagnosis / medical condition" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                                <asp:CompareValidator ID="CompareValidator53" runat="server" ControlToValidate="TextBox41" ErrorMessage="Please enter a valid type of diagnosis / medical condition" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                         </td>
                                         <td>Medical Limitations/Adapitve Devices:<br />
                                             <asp:TextBox ID="TextBox42" runat="server" Text='<%# Bind("Limitations") %>' TextMode="MultiLine" />
                                             <!-- Validator(s) for TextBox42 here-->
-                                                <asp:CompareValidator ID="CompareValidator44" runat="server" ControlToValidate="TextBox42" ErrorMessage="Please enter a valid type of limitaion / adaptive device" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>                                      
+                                                <asp:CompareValidator ID="CompareValidator54" runat="server" ControlToValidate="TextBox42" ErrorMessage="Please enter a valid type of limitaion / adaptive device" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>                                      
                                         </td>
                                         <td>Allergies:<br />
                                             <asp:TextBox ID="TextBox43" runat="server" Text='<%# Bind("Allergies") %>' TextMode="MultiLine" />
                                             <!-- Validator(s) for TextBox43 here-->
-                                                <asp:CompareValidator ID="CompareValidator45" runat="server" ControlToValidate="TextBox43" ErrorMessage="Please enter a valid type of allergy" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                                <asp:CompareValidator ID="CompareValidator55" runat="server" ControlToValidate="TextBox43" ErrorMessage="Please enter a valid type of allergy" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Preferred Hospital:<br />
                                             <asp:TextBox ID="TextBox44" runat="server" Text='<%# Bind("Preferred_Hospital") %>' />
                                             <!-- Validator(s) for TextBox44 here-->
-                                                <asp:CompareValidator ID="CompareValidator46" runat="server" ControlToValidate="TextBox44" ErrorMessage="Please enter a valid type of preferred hospital" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                                <asp:CompareValidator ID="CompareValidator56" runat="server" ControlToValidate="TextBox44" ErrorMessage="Please enter a valid type of preferred hospital" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                         </td>
                                         <td>Hospital Phone:<br />
                                             <asp:TextBox ID="TextBox45" runat="server" Text='<%# Bind("Hospital_Phone") %>' TextMode="Phone" />
                                             <!-- Validator(s) for TextBox45 here-->
-                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator26" runat="server" ControlToValidate="TextBox45" ErrorMessage="Please enter a valid hospital phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group6" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator28" runat="server" ControlToValidate="TextBox45" ErrorMessage="Please enter a valid hospital phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group6" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
                                                 <br />(###-###-####)                 
                                         </td>
                                     </tr>
@@ -1409,12 +1408,12 @@
                                         <td>Address:<br />
                                             <asp:TextBox ID="TextBox46" runat="server" Text='<%# Bind("Address") %>' />
                                             <!-- Validator(s) for TextBox46 here-->
-                                                <asp:CompareValidator ID="CompareValidator47" runat="server" ControlToValidate="TextBox46" ErrorMessage="Please enter a valid type of address" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                                <asp:CompareValidator ID="CompareValidator57" runat="server" ControlToValidate="TextBox46" ErrorMessage="Please enter a valid type of address" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                         </td>
                                         <td>City:<br />
                                             <asp:TextBox ID="TextBox47" runat="server" Text='<%# Bind("City") %>' />
-                                            <!-- Validator(s) for TextBox41 here-->
-                                                <asp:CompareValidator ID="CompareValidator48" runat="server" ControlToValidate="TextBox41" ErrorMessage="Please enter a valid type of city" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
+                                            <!-- Validator(s) for TextBox47 here-->
+                                                <asp:CompareValidator ID="CompareValidator58" runat="server" ControlToValidate="TextBox47" ErrorMessage="Please enter a valid type of city" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group6"></asp:CompareValidator>
                                         </td>
                                         <td>State:<br />
                                              <asp:DropDownList ID="DropDownList13" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList>
@@ -1422,7 +1421,7 @@
                                         <td>Zip:<br />
                                             <asp:TextBox ID="TextBox49" runat="server" Text='<%# Bind("Zip") %>' />
                                             <!-- Validator(s) for TextBox49 here-->
-                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator27" runat="server" ControlToValidate="TextBox49" ErrorMessage="Please enter a valid zip code" Display="Dynamic" Text="*" ValidationExpression="\d{5}(-\d{4})?" ForeColor="Red" ValidationGroup="Group6"></asp:RegularExpressionValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator29" runat="server" ControlToValidate="TextBox49" ErrorMessage="Please enter a valid zip code" Display="Dynamic" Text="*" ValidationExpression="\d{5}(-\d{4})?" ForeColor="Red" ValidationGroup="Group6"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                 </table>
@@ -1494,8 +1493,8 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <asp:LinkButton ID="btnHeathEdit" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Edit"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
-                                <asp:LinkButton ID="btnHealthDelete" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Delete"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
+                                <asp:LinkButton ID="btnHeathEdit" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Edit" ValidationGroup="Group6"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
+                                <asp:LinkButton ID="btnHealthDelete" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Delete" ValidationGroup="Group6"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
                                 <%--<asp:LinkButton ID="NewButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="New" Text="New" /> because this doesnt do anything useful--%>
                             </ItemTemplate>
                         </asp:FormView>
@@ -1511,38 +1510,55 @@
                                     <tr>
                                         <td>Specialty:<br />
                                             <asp:TextBox ID="SpecialtyTextBox" runat="server" Text='<%# Bind("Specialty") %>' />
+                                            <!-- Validator(s) for SpecialtyTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator59" runat="server" ControlToValidate="SpecialtyTextBox" ErrorMessage="Please enter a valid type of city" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group7"></asp:CompareValidator>                                        
                                         </td>
                                         <td>First Name:<br />
                                             <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
+                                            <!-- Validator(s) for FirstNameTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator60" runat="server" ControlToValidate="FirstNameTextBox" ErrorMessage="Please enter a valid type of city" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group7"></asp:CompareValidator>
                                         </td>
                                         <td>Last Name:<br />
                                             <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
+                                            <!-- Validator(s) for LastNameTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator61" runat="server" ControlToValidate="LastNameTextBox" ErrorMessage="Please enter a valid type of city" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group7"></asp:CompareValidator>                                   
                                         </td>
                                         <td>Email:<br />
                                             <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' TextMode="Email" />
+                                            <!-- Validator(s) for EmailTextBox here-->
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator30" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red" ValidationGroup="Group7" Display="Dynamic" Text="*"></asp:RegularExpressionValidator> 
                                         </td>
                                         <td>Phone:<br />
                                             <asp:TextBox ID="PhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" />
+                                            <!-- Validator(s) for PhoneTextBox here-->
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator31" runat="server" ControlToValidate="PhoneTextBox" ErrorMessage="Please enter a valid hospital phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group7" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
+                                                <br />(###-###-####) 
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Address:<br />
                                             <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
+                                            <!-- Validator(s) for AddressTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator62" runat="server" ControlToValidate="AddressTextBox" ErrorMessage="Please enter a valid type of city" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group7"></asp:CompareValidator>                                       
                                         </td>
                                         <td>City:<br />
                                             <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+                                            <!-- Validator(s) for CityTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator63" runat="server" ControlToValidate="CityTextBox" ErrorMessage="Please enter a valid type of city" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group7"></asp:CompareValidator>                                        
                                         </td>
                                         <td>State:<br />
                                              <asp:DropDownList ID="DropDownList15" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                         </td>
                                         <td>Zip:<br />
                                             <asp:TextBox ID="ZipTextBox" runat="server" Text='<%# Bind("Zip") %>' />
+                                            <!-- Validator(s) for ZipTextBox here-->
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator32" runat="server" ControlToValidate="ZipTextBox" ErrorMessage="Please enter a valid zip code" Display="Dynamic" Text="*" ValidationExpression="\d{5}(-\d{4})?" ForeColor="Red" ValidationGroup="Group7"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:LinkButton ID="btnProviderUpdate" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Update"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Update</asp:LinkButton>
-                                <asp:LinkButton ID="btnProviderCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnProviderUpdate" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Update" ValidationGroup="Group7"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Update</asp:LinkButton>
+                                <asp:LinkButton ID="btnProviderCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel" ValidationGroup="Group7  "><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </EditItemTemplate>
                             <EmptyDataTemplate>
                                 <span>No data was returned.</span>
@@ -1553,38 +1569,55 @@
                                     <tr>
                                         <td>Specialty:<br />
                                             <asp:TextBox ID="SpecialtyTextBox" runat="server" Text='<%# Bind("Specialty") %>' />
+                                             <!-- Validator(s) for SpecialtyTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator64" runat="server" ControlToValidate="SpecialtyTextBox" ErrorMessage="Please enter a valid type of specialty" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group7"></asp:CompareValidator>                                                                               
                                         </td>
                                         <td>First Name:<br />
                                             <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
+                                            <!-- Validator(s) for FirstNameTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator65" runat="server" ControlToValidate="FirstNameTextBox" ErrorMessage="Please enter a valid type of first name" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group7"></asp:CompareValidator>
                                         </td>
                                         <td>Last Name:<br />
                                             <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
+                                            <!-- Validator(s) for LastNameTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator66" runat="server" ControlToValidate="LastNameTextBox" ErrorMessage="Please enter a valid type of last name" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group7"></asp:CompareValidator>
                                         </td>
                                         <td>Email:<br />
                                             <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' TextMode="Email" />
+                                            <!-- Validator(s) for EmailTextBox here-->
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator33" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Please enter a valid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red" Display="Dynamic" Text="*"  ValidationGroup="Group7"></asp:RegularExpressionValidator> 
                                         </td>
                                         <td>Phone:<br />
                                             <asp:TextBox ID="PhoneTextBox" runat="server" Text='<%# Bind("Phone") %>' TextMode="Phone" />
+                                            <!-- Validator(s) for PhoneTextBox here-->
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator34" runat="server" ControlToValidate="PhoneTextBox" ErrorMessage="Please enter a valid hospital phone number" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ForeColor="Red" ValidationGroup="Group7" Display="Dynamic" Text="*"></asp:RegularExpressionValidator>
+                                                <br />(###-###-####) 
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Address:<br />
                                             <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
+                                            <!-- Validator(s) for AddressTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator67" runat="server" ControlToValidate="AddressTextBox" ErrorMessage="Please enter a valid type of address" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group7"></asp:CompareValidator>
                                         </td>
                                         <td>City:<br />
                                             <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+                                            <!-- Validator(s) for CityTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator68" runat="server" ControlToValidate="CityTextBox" ErrorMessage="Please enter a valid type of city" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group7"></asp:CompareValidator>
                                         </td>
                                         <td>State:<br />
                                             <asp:DropDownList ID="DropDownList16" runat="server" DataSourceID="DDStatesSqlDataSource" DataValueField="State" SelectedValue='<%# Bind("State") %>'></asp:DropDownList></td>
                                         </td>
                                         <td>Zip:<br />
                                             <asp:TextBox ID="ZipTextBox" runat="server" Text='<%# Bind("Zip") %>' />
+                                            <!-- Validator(s) for ZipTextBox here-->
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator35" runat="server" ControlToValidate="ZipTextBox" ErrorMessage="Please enter a valid zip code" Display="Dynamic" Text="*" ValidationExpression="\d{5}(-\d{4})?" ForeColor="Red" ValidationGroup="Group7"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:LinkButton ID="btnProviderInsert" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
-                                <asp:LinkButton ID="btnProviderCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnProviderInsert" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert" ValidationGroup="Group7"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
+                                <asp:LinkButton ID="btnProviderCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel" ValidationGroup="Group7"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </InsertItemTemplate>
                             <ItemTemplate>
                                 <asp:HiddenField ID="ProviderID" runat="server" Value='<%# Eval("ProviderID") %>' />
@@ -1622,8 +1655,8 @@
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:LinkButton ID="btnProviderEdit" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Edit"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
-                                <asp:LinkButton ID="btnProviderDelete" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Delete"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
+                                <asp:LinkButton ID="btnProviderEdit" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Edit" ValidationGroup="Group7"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
+                                <asp:LinkButton ID="btnProviderDelete" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Delete" ValidationGroup="Group7"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
                             </ItemTemplate>
                             <LayoutTemplate>
                                 <div id="itemPlaceholderContainer" runat="server" style="">
@@ -1646,24 +1679,32 @@
                                     <tr>
                                         <td>Medication Name:<br />
                                             <asp:TextBox ID="Medication_NameTextBox" runat="server" Text='<%# Bind("Medication_Name") %>' />
+                                            <!-- Validator(s) for Medication_NameTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator69" runat="server" ControlToValidate="Medication_NameTextBox" ErrorMessage="Please enter a valid type of medication" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group8"></asp:CompareValidator>
                                         </td>
                                         <td>Dosage:<br />
                                             <asp:TextBox ID="DosageTextBox" runat="server" Text='<%# Bind("Dosage") %>' />
+                                            <!-- Validator(s) for DosageTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator70" runat="server" ControlToValidate="DosageTextBox" ErrorMessage="Please enter a valid type of dosage" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group8"></asp:CompareValidator>
                                         </td>
                                         <td>Purpose:<br />
                                             <asp:TextBox ID="PurposeTextBox" runat="server" Text='<%# Bind("Purpose") %>' />
+                                            <!-- Validator(s) for PurposeTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator71" runat="server" ControlToValidate="PurposeTextBox" ErrorMessage="Please enter a valid type of purpose" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group8"></asp:CompareValidator>
                                         </td>
                                         <td>Physician:<br />
                                             <asp:TextBox ID="PhysicianTextBox" runat="server" Text='<%# Bind("Physician") %>' />
+                                            <!-- Validator(s) for PhysicianTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator72" runat="server" ControlToValidate="PhysicianTextBox" ErrorMessage="Please enter a valid type of physician" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group8"></asp:CompareValidator>
                                         </td>
                                         <td>
-                                            <asp:CheckBox ID="Non_PerscriptionCheckBox" runat="server" Text="Non_Perscription" Checked='<%# Bind("Non_Perscription") %>' />
+                                            <asp:CheckBox ID="Non_PerscriptionCheckBox" runat="server" Text="Non-Perscription" Checked='<%# Bind("Non_Perscription") %>' />
                                         </td>
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:LinkButton ID="btnMedUpdate" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Update"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Update</asp:LinkButton>
-                                <asp:LinkButton ID="btnMedCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnMedUpdate" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Update" ValidationGroup="Group8"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Update</asp:LinkButton>
+                                <asp:LinkButton ID="btnMedCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel" ValidationGroup="Group8"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </EditItemTemplate>
                             <EmptyDataTemplate>
                                 <span>No data was returned.</span>
@@ -1674,24 +1715,32 @@
                                     <tr>
                                         <td>Medication Name:<br />
                                             <asp:TextBox ID="Medication_NameTextBox" runat="server" Text='<%# Bind("Medication_Name") %>' />
+                                            <!-- Validator(s) for Medication_NameTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator73" runat="server" ControlToValidate="Medication_NameTextBox" ErrorMessage="Please enter a valid type of medication" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group8"></asp:CompareValidator>
                                         </td>
                                         <td>Dosage:<br />
                                             <asp:TextBox ID="DosageTextBox" runat="server" Text='<%# Bind("Dosage") %>' />
+                                            <!-- Validator(s) for DosageTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator74" runat="server" ControlToValidate="DosageTextBox" ErrorMessage="Please enter a valid type of dosage" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group8"></asp:CompareValidator>
                                         </td>
                                         <td>Purpose:<br />
                                             <asp:TextBox ID="PurposeTextBox" runat="server" Text='<%# Bind("Purpose") %>' />
+                                            <!-- Validator(s) for PurposeTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator75" runat="server" ControlToValidate="PurposeTextBox" ErrorMessage="Please enter a valid type of purpose" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group8"></asp:CompareValidator>
                                         </td>
                                         <td>Physician:<br />
                                             <asp:TextBox ID="PhysicianTextBox" runat="server" Text='<%# Bind("Physician") %>' />
+                                            <!-- Validator(s) for PhysicianTextBox here-->
+                                                <asp:CompareValidator ID="CompareValidator76" runat="server" ControlToValidate="PhysicianTextBox" ErrorMessage="Please enter a valid type of physician" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group8"></asp:CompareValidator>
                                         </td>
                                         <td>
-                                            <asp:CheckBox ID="Non_PerscriptionCheckBox" runat="server" Text="Non_Perscription" Checked='<%# Bind("Non_Perscription") %>' />
+                                            <asp:CheckBox ID="Non_PerscriptionCheckBox" runat="server" Text="Non-Perscription" Checked='<%# Bind("Non_Perscription") %>' />
                                         </td>
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:LinkButton ID="btnMedInsert" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
-                                <asp:LinkButton ID="btnMedCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnMedInsert" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert" ValidationGroup="Group8"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
+                                <asp:LinkButton ID="btnMedCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel" ValidationGroup="Group8"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </InsertItemTemplate>
                             <ItemTemplate>
                                 <asp:HiddenField ID="MedicationID" runat="server" Value='<%# Eval("MedicationID") %>' />
@@ -1710,13 +1759,13 @@
                                             <asp:TextBox ID="PhysicianTextBox" runat="server" Text='<%# Bind("Physician") %>' />
                                         </td>
                                         <td>
-                                            <asp:CheckBox ID="Non_PerscriptionCheckBox" runat="server" ReadOnly="true" Text="Non_Perscription" Checked='<%# Bind("Non_Perscription") %>' />
+                                            <asp:CheckBox ID="Non_PerscriptionCheckBox" runat="server" ReadOnly="true" Text="Non-Perscription" Checked='<%# Bind("Non_Perscription") %>' />
                                         </td>
                                     </tr>
                                 </table>
                                 <br />
-                                <asp:LinkButton ID="btnMedEdit" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Edit"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
-                                <asp:LinkButton ID="btnMedDelete" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Delete"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
+                                <asp:LinkButton ID="btnMedEdit" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Edit" ValidationGroup="Group8"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
+                                <asp:LinkButton ID="btnMedDelete" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Delete" ValidationGroup="Group8"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
                             </ItemTemplate>
                             <LayoutTemplate>
                                 <div id="itemPlaceholderContainer" runat="server" style="">
@@ -1737,15 +1786,23 @@
                                     <tr>
                                         <td>Medicaid Number:<br />
                                             <asp:TextBox ID="TextBox111" runat="server" Text='<%# Bind("Medicaid_Number") %>' />
+                                            <!-- Validator(s) for TextBox111 here-->
+                                                <asp:CompareValidator ID="CompareValidator77" runat="server" ControlToValidate="TextBox111" ErrorMessage="Please enter a valid medicaid number" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
                                         <td>Medicare Number:<br />
                                             <asp:TextBox ID="TextBox112" runat="server" Text='<%# Bind("Medicare_Number") %>' />
+                                            <!-- Validator(s) for TextBox112 here-->
+                                                <asp:CompareValidator ID="CompareValidator78" runat="server" ControlToValidate="TextBox112" ErrorMessage="Please enter a valid meicare number" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
                                         <td>Insurance Name:<br />
                                             <asp:TextBox ID="TextBox113" runat="server" Text='<%# Bind("Insurance_Name") %>' />
+                                            <!-- Validator(s) for TextBox113 here-->
+                                                <asp:CompareValidator ID="CompareValidator79" runat="server" ControlToValidate="TextBox113" ErrorMessage="Please enter a valid insurance name" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
                                         <td>Policy Number:<br />
                                             <asp:TextBox ID="TextBox114" runat="server" Text='<%# Bind("Policy_Number") %>' />
+                                            <!-- Validator(s) for TextBox114 here-->
+                                                <asp:CompareValidator ID="CompareValidator80" runat="server" ControlToValidate="TextBox114" ErrorMessage="Please enter a valid policy number" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -1753,26 +1810,36 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="TextBox115" runat="server" Text='<%# Bind("Life_Support") %>' />
+                                            <!-- Validator(s) for TextBox115 here-->
+                                                <asp:CompareValidator ID="CompareValidator81" runat="server" ControlToValidate="TextBox115" ErrorMessage="Please enter a valid type of life support" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
                                     </tr>
                                 </table>
-                                <asp:LinkButton ID="btnInsuranceUpdate" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Update"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Update</asp:LinkButton>
-                                <asp:LinkButton ID="btnInsuranceCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnInsuranceUpdate" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Update" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> Update</asp:LinkButton>
+                                <asp:LinkButton ID="btnInsuranceCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> Cancel</asp:LinkButton>
                             </EditItemTemplate>
                             <InsertItemTemplate>
                                 <table>
                                     <tr>
                                         <td>Medicaid Number:<br />
                                             <asp:TextBox ID="TextBox116" runat="server" Text='<%# Bind("Medicaid_Number") %>' />
+                                            <!-- Validator(s) for TextBox116 here-->
+                                                <asp:CompareValidator ID="CompareValidator82" runat="server" ControlToValidate="TextBox116" ErrorMessage="Please enter a valid medicaid number" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
                                         <td>Medicare Number:<br />
                                             <asp:TextBox ID="TextBox117" runat="server" Text='<%# Bind("Medicare_Number") %>' />
+                                            <!-- Validator(s) for TextBox117 here-->
+                                                <asp:CompareValidator ID="CompareValidator83" runat="server" ControlToValidate="TextBox117" ErrorMessage="Please enter a valid meicare number" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
                                         <td>Insurance Name:<br />
                                             <asp:TextBox ID="TextBox118" runat="server" Text='<%# Bind("Insurance_Name") %>' />
+                                            <!-- Validator(s) for TextBox118 here-->
+                                                <asp:CompareValidator ID="CompareValidator84" runat="server" ControlToValidate="TextBox118" ErrorMessage="Please enter a valid insurance name" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
                                         <td>Policy Number:<br />
                                             <asp:TextBox ID="TextBox119" runat="server" Text='<%# Bind("Policy_Number") %>' />
+                                            <!-- Validator(s) for TextBox119 here-->
+                                                <asp:CompareValidator ID="CompareValidator85" runat="server" ControlToValidate="TextBox119" ErrorMessage="Please enter a valid policy number" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
                                     </tr>
                                     <tr>
@@ -1780,11 +1847,13 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="TextBox120" runat="server" Text='<%# Bind("Life_Support") %>' />
+                                            <!-- Validator(s) for TextBox120 here-->
+                                                <asp:CompareValidator ID="CompareValidator86" runat="server" ControlToValidate="TextBox120" ErrorMessage="Please enter a valid type of life support" Display="Dynamic" ForeColor="Red" Text="*" Operator="DataTypeCheck" Type="String" ValidationGroup="Group9"></asp:CompareValidator>
                                         </td>
                                     </tr>
                                 </table>
-                                <asp:LinkButton ID="btnInsuranceInsert" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
-                                <asp:LinkButton ID="btnInsuranceCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Cancel</asp:LinkButton>
+                                <asp:LinkButton ID="btnInsuranceInsert" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Insert" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Add</asp:LinkButton>
+                                <asp:LinkButton ID="btnInsuranceCancel" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Cancel" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Cancel</asp:LinkButton>
                             </InsertItemTemplate>
                             <ItemTemplate>
                                 <table>
@@ -1810,8 +1879,8 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <asp:LinkButton ID="btnInsuranceEdit" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Edit"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
-                                <asp:LinkButton ID="btnInsuranceDelete" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Delete"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
+                                <asp:LinkButton ID="btnInsuranceEdit" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Edit" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span> Edit</asp:LinkButton>
+                                <asp:LinkButton ID="btnInsuranceDelete" runat="server" CssClass="btn btn-primary" CausesValidation="True" CommandName="Delete" ValidationGroup="Group9"><span aria-hidden="true" class="glyphicon glyphicon-trash"></span> Delete</asp:LinkButton>
                                 <%--&nbsp;<asp:LinkButton ID="NewButton" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="New" Text="New" /> because this doesnt do anything useful--%>
                             </ItemTemplate>
                         </asp:FormView>
