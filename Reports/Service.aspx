@@ -33,7 +33,7 @@
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:Panel ID="Panel1" runat="server" ScrollBars="Auto">
-        <asp:GridView ID="ClientGridView" AutoGenerateColumns="False" EmptyDataText="No data available." AllowPaging="True" HorizontalAlign="Center" runat="server" AllowSorting="True" OnRowCommand="ClientGridView_RowCommand" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" DataSourceID="SqlDataSource2" DataKeyNames="ClientID">
+        <asp:GridView ID="ClientGridView" AutoGenerateColumns="False" EmptyDataText="Please select a Service" AllowPaging="True" HorizontalAlign="Center" runat="server" AllowSorting="True" OnRowCommand="ClientGridView_RowCommand" CellSpacing="5" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="False" DataSourceID="SqlDataSource2" DataKeyNames="ClientID">
             <Columns>
                 <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>
