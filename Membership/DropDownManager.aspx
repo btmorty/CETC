@@ -177,7 +177,7 @@
                     </tr>
                     <tr>
                         <td>
-                                <label>Fax: </label>
+                            <label>Fax: </label>
                         </td>
                         <td>
                             <asp:TextBox ID="txtFax" runat="server" Text='<%# Bind("Fax") %>'></asp:TextBox>
