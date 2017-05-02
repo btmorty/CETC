@@ -15,12 +15,12 @@ public partial class NewClient : BasePage
     {
         
     }
-
+    //Set Form view to default to insert mode
     protected void ClientFormView_DataBound(object sender, EventArgs e)
     {
         ClientFormView.ChangeMode(FormViewMode.Insert);
     }
-
+    //Log activity and redirect page to edit page upon successfull INSERT
     protected void ClientSqlDataSource_Inserted(object sender, SqlDataSourceStatusEventArgs e)
     {
 

@@ -11,7 +11,7 @@ public partial class Membership_RecoverPassword : System.Web.UI.Page
     {
 
     }
-
+    //report password in body of page instead of email
     protected void PasswordRecovery1_SendingMail(object sender, MailMessageEventArgs e)
     {
         e.Cancel = true;

@@ -15,7 +15,7 @@ public partial class SelectClient : System.Web.UI.Page
     {
         
     }
-
+    //add value to ddrace table
     protected void btnAddRace_Click(object sender, EventArgs e)
     {
         String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
@@ -45,7 +45,7 @@ public partial class SelectClient : System.Web.UI.Page
             con.Dispose();
         }
     }
-
+    //add value to ddresidential table
     protected void btnAddResidental_Click(object sender, EventArgs e)
     {
         String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
@@ -75,7 +75,7 @@ public partial class SelectClient : System.Web.UI.Page
             con.Dispose();
         }
     }
-
+    //add value to ddlanguage table
     protected void btnAddLanguage_Click(object sender, EventArgs e)
     {
         String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
@@ -105,7 +105,7 @@ public partial class SelectClient : System.Web.UI.Page
             con.Dispose();
         }
     }
-
+    //add value to ddreligion table
     protected void btnAddReligion_Click(object sender, EventArgs e)
     {
         String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;
@@ -135,7 +135,7 @@ public partial class SelectClient : System.Web.UI.Page
             con.Dispose();
         }
     }
-
+    //add value to ddservice table
     protected void btnAddService_Click(object sender, EventArgs e)
     {
         String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["CETC_DB"].ConnectionString;

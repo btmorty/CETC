@@ -43,7 +43,7 @@ public class BasePage : System.Web.UI.Page
         }
     }
 
-
+    //Format String
     protected string FormatActivity(string activity, string pageUrl)
     {
         if (string.IsNullOrEmpty(pageUrl))
@@ -52,7 +52,7 @@ public class BasePage : System.Web.UI.Page
             return string.Format(@"<a href=""{0}"">{1}</a>", pageUrl, activity);
     }
 
-
+    //Format Date
     protected string FormatLastUpdatedDate(DateTime lastUpdateDate, DateTime currentDate)
     {
         TimeSpan delta = currentDate.Subtract(lastUpdateDate);
@@ -73,7 +73,7 @@ public class BasePage : System.Web.UI.Page
         else
             return "A few seconds ago";            
     }
-
+    //Retrieve Page title
     protected override void OnLoad(EventArgs e)
     {
         if (string.IsNullOrEmpty(Page.Title) || string.Compare(Page.Title, "Untitled Page", true) == 0)

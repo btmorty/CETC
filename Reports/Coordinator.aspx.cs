@@ -21,12 +21,11 @@ public partial class Coordinator : BasePage
             base.LogActivity("Viewed Coordinator Report", true);
         }
     }
-
+    //Redirect to Client Page
     protected void ClientGridView_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "Select")
         {
-            string SchoolID = e.CommandArgument.ToString();
             Response.Redirect("~/EditClient.aspx?ClientID=" + e.CommandArgument);
         }
     }
@@ -36,6 +35,7 @@ public partial class Coordinator : BasePage
         //required to avoid the run time error "  
         //Control 'GridView1' of type 'Grid View' must be placed inside a form tag with runat=server."  
     }
+    //Export to Excel
     protected void ExportToExcel(object sender, EventArgs e)
     {
         Response.Clear();

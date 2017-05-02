@@ -36,12 +36,12 @@ public partial class ActivityHistoryByUser : BasePage
             }
         }
     }
-
+    //Reload the page when new user is selected
     protected void ViewUser_SelectedIndexChanged(object sender, EventArgs e)
     {
         RefreshPageWithUpdatedUserIDQueryStringValue();
     }
-
+    //Methiod for reloading page with user id in query string
     private void RefreshPageWithUpdatedUserIDQueryStringValue()
     {
         Response.Redirect("ActivityHistoryByUser.aspx?UserID=" + Server.UrlEncode(ViewUser.SelectedValue));
@@ -51,6 +51,7 @@ public partial class ActivityHistoryByUser : BasePage
         //required to avoid the run time error "  
         //Control 'GridView1' of type 'Grid View' must be placed inside a form tag with runat=server."  
     }
+    //Export to Excel method
     protected void ExportToExcel(object sender, EventArgs e)
     {
         Response.Clear();
@@ -72,8 +73,7 @@ public partial class ActivityHistoryByUser : BasePage
         //Log User Activity
         base.LogActivity("Exported User Activity Log", true);
     }
-
-
+    //Clear Activity Log Table
     protected void DeleteActvityLog(object sender, EventArgs e)
     {
         String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["MembershipDB"].ConnectionString;

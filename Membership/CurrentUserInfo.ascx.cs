@@ -26,13 +26,13 @@ public partial class Membership_CurrentUserInfo : System.Web.UI.UserControl
         txtLastName.Text = Profile.LastName;
         txtEmail.Text = Membership.GetUser().Email.ToString();
     }
-
+    //Save Profile information and report
     protected void Button1_Click(object sender, EventArgs e)
     {
         SaveProfile();
         UpdateConfirm.Text = "Profile Updated!";
     }
-
+    //Save Profiel Method
     private void SaveProfile()
     {
         //Save the values from the text boxes into the profile

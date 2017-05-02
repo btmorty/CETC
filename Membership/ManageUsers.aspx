@@ -180,5 +180,6 @@
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
+    <asp:Label ID="lblErrorMsg" runat="server" Visible="false" ForeColor="Red"></asp:Label>
 </asp:Content>
 

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -124,8 +126,43 @@ public partial class Membership_ManageUsers : System.Web.UI.Page
             GridViewRow myRow = (GridViewRow)lnkBtn.Parent.Parent;  // the row
             GridView myGrid = (GridView)sender; // the gridview
             string username = myGrid.DataKeys[myRow.RowIndex].Value.ToString(); // value of the datakey 
-            Membership.DeleteUser(username);
-            Response.Redirect("~/Membership/ManageUsers.aspx");
+            string userId = Membership.GetUser(username).ProviderUserKey.ToString();  //userid from membership DB
+
+            if (!string.Equals(username, User.Identity.Name, StringComparison.CurrentCultureIgnoreCase)) //do not allow delete of current user to prevent self removal of only admin
+            {
+                //drop activity log references since it has a FK reference to Membership table
+                String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["MembershipDB"].ConnectionString;
+                SqlConnection con = new SqlConnection(strConnString);
+                string strQuery = "DELETE FROM dbo.ActivityLog WHERE UserId = @UserId";
+                SqlCommand cmd = new SqlCommand(strQuery);
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = con;
+                try
+                {
+                    con.Open();
+                    cmd.ExecuteNonQuery();//remove activity log entries
+                    Membership.DeleteUser(username); //delete user from membership DB
+                    Response.Redirect("~/Membership/ManageUsers.aspx"); // reload page
+                }
+
+                catch (Exception ex)
+                {
+                    lblErrorMsg.Text = "Delete Failed. The following error occured: " + ex.Message;
+                    lblErrorMsg.Visible = true;
+                }
+
+                finally
+                {
+                    con.Close();
+                    con.Dispose();
+                }
+            }
+            else
+            {
+                lblErrorMsg.Text = "Can't Delete your own account. Setup another Admin account first.";
+                lblErrorMsg.Visible = true;
+            }
         }
     }
 }

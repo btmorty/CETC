@@ -16,14 +16,13 @@ public partial class SelectClient : System.Web.UI.Page
             Session.Contents.Remove("Selection");
         }
     }
-
+    //Retrieve button command name and store in session variable
     protected void btn_group_Click(object sender, EventArgs e)
     {
         LinkButton B = (LinkButton)sender;
         Session["Selection"] = B.CommandName;
-        //B.CommandName --> pass to business tier method
     }
-
+    //Redirect to client page
     protected void ClientGridView_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "Select")

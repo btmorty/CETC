@@ -59,7 +59,7 @@ public partial class EditClient : BasePage
             base.LogActivity("Visited Edit Client Page of Client ID " + Session["ClientID"], true);
         }
     }
-
+    //Upload Picture
     protected void btnUpload_Click(object sender, EventArgs e)
     {
         lblUploadStatus.Visible = true;
@@ -118,7 +118,7 @@ public partial class EditClient : BasePage
             }
         }
     }
-
+    //Set formview to insert mode when there is no existing data
     protected void EvacFormView_DataBound(object sender, EventArgs e)
     {
         if (EvacFormView.PageCount == 0)
@@ -126,7 +126,7 @@ public partial class EditClient : BasePage
             EvacFormView.ChangeMode(FormViewMode.Insert);
         }
     }
-
+    //Set formview to insert mode when there is no existing data
     protected void HealthProfileFormView_DataBound(object sender, EventArgs e)
     {
         if (HelthProfileFormView.PageCount == 0)
@@ -134,7 +134,7 @@ public partial class EditClient : BasePage
             HelthProfileFormView.ChangeMode(FormViewMode.Insert);
         }
     }
-
+    //Set formview to insert mode when there is no existing data
     protected void InsuranceFormView_DataBound(object sender, EventArgs e)
     {
         if (InsuranceFormView.PageCount == 0)
@@ -142,7 +142,7 @@ public partial class EditClient : BasePage
             InsuranceFormView.ChangeMode(FormViewMode.Insert);
         }
     }
-
+    //Update Date Modified and Modified By when change is made within list view
     protected void ListView_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
         if (e.CommandName != "Cancel")
@@ -176,6 +176,7 @@ public partial class EditClient : BasePage
             }
         }
     }
+    //Update Date Modified and Modified By when change is made within form view
     protected void FormView_ItemCommand(object sender, FormViewCommandEventArgs e)
     {
         if (e.CommandName != "Cancel")
@@ -208,22 +209,22 @@ public partial class EditClient : BasePage
             }
         }
     }
-
+    //Data bind formview upon update
     protected void ClientFormView_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
     {
         ClientFormView.DataBind();
     }
-
+    //Data bind formview upon update
     protected void EvacFormView_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
     {
         EvacFormView.DataBind();
     }
-
+    //Data bind formview upon update
     protected void HelthProfileFormView_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
     {
         HelthProfileFormView.DataBind();
     }
-
+    //Data bind formview upon update
     protected void InsuranceFormView_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
     {
         InsuranceFormView.DataBind();
