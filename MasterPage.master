@@ -68,17 +68,11 @@
         </div>
         <hr>
         <footer class="text-center">
-        <!-- SiteMapDataSource here -->       
-                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" StartFromCurrentNode="True" />
-        <!-- Add Menu here -->         
-        <!-- SiteMapPath here -->
-            <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal">
-            </asp:Menu>
         <asp:SiteMapPath ID="SiteMapPath1" runat="server" Font-Names="Verdana" Font-Size="0.8em" PathSeparator=" : ">
             <CurrentNodeStyle ForeColor="#333333" />
-            <NodeStyle Font-Bold="True" ForeColor="#7C6F57" />
-            <PathSeparatorStyle Font-Bold="True" ForeColor="#5D7B9D" />
-            <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
+            <NodeStyle Font-Bold="True" ForeColor="#666666" />
+            <PathSeparatorStyle Font-Bold="True" ForeColor="#1C5E55" />
+            <RootNodeStyle Font-Bold="True" ForeColor="#1C5E55" />
         </asp:SiteMapPath>
             <div class="container">
                 <div class="row">
