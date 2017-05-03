@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="Home" description="Home" url="~/index.aspx">
+    <siteMapNode title="Data Entry Home"
+      description="Data Entry Home Page"
+      url="~/DataEntryHome.aspx">
+        <siteMapNode title="New Client"
+           description="New Client Information"
+        url="~/NewClient.aspx" />
+        <siteMapNode title="Select Client"
+           description="Select Client By Last Name"
+        url="~/SelectClient.aspx" />
+      </siteMapNode>
+    <siteMapNode title="Reports Home"
+      description="Reports Home Page"
+      url="~/Reports/ReportsHome.aspx">
+        <siteMapNode title="Provider"
+        description="Provider Reports"
+    url="~/Reports/Provider.aspx" />
+        <siteMapNode title="Coordinator"
+          description="Coordinator Reports"
+      url="~/Reports/Coordinator.aspx" />
+        <siteMapNode title="Service"
+        description="Service Reports"
+    url="~/Reports/Service.aspx" />
+        <siteMapNode title="Clients by State"
+        description="State Reports"
+    url="~/Reports/ClientsByState.aspx" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>
