@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode title="Home" description="Home" url="~/index.aspx">
-    <siteMapNode title="Data Entry Home"
+    <siteMapNode title="Data Entry"
       description="Data Entry Home Page"
       url="~/DataEntryHome.aspx">
         <siteMapNode title="New Client"
@@ -11,7 +11,7 @@
            description="Select Client By Last Name"
         url="~/SelectClient.aspx" />
       </siteMapNode>
-    <siteMapNode title="Reports Home"
+    <siteMapNode title="Reports"
       description="Reports Home Page"
       url="~/Reports/ReportsHome.aspx">
         <siteMapNode title="Provider"
